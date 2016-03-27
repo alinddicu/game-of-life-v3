@@ -7,6 +7,7 @@ namespace game.of.life.v3
         public Cell(int x, int y, CellState cellState = CellState.Dead)
         {
             State = cellState;
+            NextState = CellState.Unknown;
             X = x;
             Y = y;
         }
