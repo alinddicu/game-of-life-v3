@@ -1,7 +1,6 @@
-﻿using NFluent;
-
-namespace game.of.life.v3.test
+﻿namespace game.of.life.v3.test
 {
+    using NFluent;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]

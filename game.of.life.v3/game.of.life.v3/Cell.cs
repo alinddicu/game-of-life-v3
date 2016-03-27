@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace game.of.life.v3
+﻿namespace game.of.life.v3
 {
+    using System.Collections.Generic;
+
     public class Cell
     {
         public Cell(int x, int y, CellState cellState = CellState.Dead)
@@ -13,6 +13,8 @@ namespace game.of.life.v3
         }
 
         public CellState State { get; private set; }
+
+        public CellState NextState { get; private set; }
 
         public int X { get; private set; }
 
@@ -70,8 +72,6 @@ namespace game.of.life.v3
             yield return new Cell(X - 1, Y + 1);
             yield return new Cell(X - 1, Y);
         }
-
-        public CellState NextState { get; private set; }
 
         public void CompleteMutation()
         {

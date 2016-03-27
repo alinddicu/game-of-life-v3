@@ -1,9 +1,8 @@
-﻿using System.Linq;
-
-namespace game.of.life.v3.test
+﻿namespace game.of.life.v3.test
 {
-    using NFluent;
+    using System.Linq;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NFluent;
 
     [TestClass]
     public class CellTest
@@ -23,7 +22,7 @@ namespace game.of.life.v3.test
         [TestMethod]
         public void Rule2()
         {
-            var cell1 = new Cell(0,0,CellState.Alive);
+            var cell1 = new Cell(0, 0, CellState.Alive);
             cell1.Mutate(2);
             Check.That(cell1.State).IsEqualTo(CellState.Alive);
 
@@ -45,7 +44,7 @@ namespace game.of.life.v3.test
         [TestMethod]
         public void Rule4()
         {
-            var cell = new Cell(0,0);
+            var cell = new Cell(0, 0);
             cell.Mutate(3);
             Check.That(cell.State).IsEqualTo(CellState.Alive);
         }
