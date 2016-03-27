@@ -55,9 +55,10 @@ namespace game.of.life.v3.test
         {
             var cell = new Cell(0, 0);
 
-            var neighbours = cell.GetNeighbours().Distinct();
+            var neighbours = cell.GetNeighbours().Distinct().ToArray();
 
             Check.That(neighbours).HasSize(8);
+            Check.That(neighbours.Contains(cell)).IsFalse();
         }
     }
 }
