@@ -1,4 +1,6 @@
-﻿namespace game.of.life.v3
+﻿using System.Linq;
+
+namespace game.of.life.v3
 {
     using System.Collections.Generic;
 
@@ -22,20 +24,13 @@
 
         private void DiscoverNewCells()
         {
-            var newCells = new List<Cell>();
-            foreach (var cell in _allCells)
-            {
-                var neighbours = cell.GetNeighbours();
-                foreach (var neighbour in neighbours)
-                {
-                    if (!_allCells.Contains(neighbour))
-                    {
-                        newCells.Add(neighbour);
-                    }
-                }
-            }
+            var newCells = 
+                from cell in _allCells 
+                from neighbour in cell.GetNeighbours() 
+                where !_allCells.Contains(neighbour) 
+                select neighbour;
 
-            _allCells.AddRange(newCells);
+            _allCells.AddRange(newCells.ToArray());
         }
     }
 }
