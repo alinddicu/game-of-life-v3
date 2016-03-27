@@ -58,6 +58,15 @@ namespace game.of.life.v3.test
             var neighbours = cell.GetNeighbours().Distinct().ToArray();
 
             Check.That(neighbours).HasSize(8);
+            Check.That(neighbours).Contains(
+                new Cell(-1, -1),
+                new Cell(0, -1),
+                new Cell(1, -1),
+                new Cell(1, 0),
+                new Cell(1, 1),
+                new Cell(0, 1),
+                new Cell(-1, 1),
+                new Cell(0, -1));
             Check.That(neighbours.Contains(cell)).IsFalse();
         }
     }
