@@ -9,13 +9,13 @@
 
         public void Mutate(int aliveNeighboursCount)
         {
-            if (State == CellState.Dead 
-                && (aliveNeighboursCount == 2 || aliveNeighboursCount == 3))
+            if (State == CellState.Dead && aliveNeighboursCount == 3)
             {
                 State = CellState.Alive;
             }
 
-            if (State == CellState.Alive && aliveNeighboursCount >= 4)
+            if (State == CellState.Alive
+                && (aliveNeighboursCount < 2 || aliveNeighboursCount >= 4))
             {
                 State = CellState.Dead;
             }

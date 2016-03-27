@@ -10,7 +10,7 @@
         [TestMethod]
         public void Rule1()
         {
-            var cell = new Cell();
+            var cell = new Cell(CellState.Alive);
 
             cell.Mutate(1);
 
@@ -21,11 +21,11 @@
         [TestMethod]
         public void Rule2()
         {
-            var cell1 = new Cell();
+            var cell1 = new Cell(CellState.Alive);
             cell1.Mutate(2);
             Check.That(cell1.State).IsEqualTo(CellState.Alive);
 
-            var cell2 = new Cell();
+            var cell2 = new Cell(CellState.Alive);
             cell2.Mutate(3);
             Check.That(cell2.State).IsEqualTo(CellState.Alive);
         }
@@ -37,6 +37,15 @@
             var cell = new Cell(CellState.Alive);
             cell.Mutate(4);
             Check.That(cell.State).IsEqualTo(CellState.Dead);
+        }
+
+        // Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction
+        [TestMethod]
+        public void Rule4()
+        {
+            var cell = new Cell();
+            cell.Mutate(3);
+            Check.That(cell.State).IsEqualTo(CellState.Alive);
         }
     }
 }
