@@ -29,5 +29,14 @@
             cell2.Mutate(3);
             Check.That(cell2.State).IsEqualTo(CellState.Alive);
         }
+
+        // Any live cell with more than three live neighbours dies, as if by over-population
+        [TestMethod]
+        public void Rule3()
+        {
+            var cell = new Cell(CellState.Alive);
+            cell.Mutate(4);
+            Check.That(cell.State).IsEqualTo(CellState.Dead);
+        }
     }
 }

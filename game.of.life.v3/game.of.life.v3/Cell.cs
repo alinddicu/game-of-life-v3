@@ -2,11 +2,22 @@
 {
     public class Cell
     {
+        public Cell(CellState cellState = CellState.Dead)
+        {
+            State = cellState;
+        }
+
         public void Mutate(int aliveNeighboursCount)
         {
-            if (aliveNeighboursCount == 2 || aliveNeighboursCount == 3)
+            if (State == CellState.Dead 
+                && (aliveNeighboursCount == 2 || aliveNeighboursCount == 3))
             {
                 State = CellState.Alive;
+            }
+
+            if (State == CellState.Alive && aliveNeighboursCount >= 4)
+            {
+                State = CellState.Dead;
             }
         }
 
