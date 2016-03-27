@@ -69,5 +69,18 @@ namespace game.of.life.v3.test
                 new Cell(0, -1));
             Check.That(neighbours.Contains(cell)).IsFalse();
         }
+
+        [TestMethod]
+        public void WhenCompleteMutationThenNextStateIsState()
+        {
+            var cell = new Cell(0, 0);
+            Check.That(cell.NextState).IsEqualTo(CellState.Unknown);
+            cell.Mutate(3);
+            Check.That(cell.NextState).IsEqualTo(CellState.Unknown);
+
+            cell.CompleteMutation();
+
+            Check.That(cell.NextState).IsEqualTo(cell.State);
+        }
     }
 }

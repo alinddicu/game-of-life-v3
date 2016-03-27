@@ -69,5 +69,12 @@ namespace game.of.life.v3
             yield return new Cell(X - 1, Y + 1);
             yield return new Cell(X - 1, Y);
         }
+
+        public CellState NextState { get; private set; }
+
+        public void CompleteMutation()
+        {
+            NextState = State;
+        }
     }
 }
