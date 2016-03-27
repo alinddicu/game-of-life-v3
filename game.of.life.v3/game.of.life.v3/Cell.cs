@@ -7,10 +7,7 @@
             if (aliveNeighboursCount == 2 || aliveNeighboursCount == 3)
             {
                 State = CellState.Alive;
-                return;
             }
-
-            State = CellState.Dead;
         }
 
         public CellState State { get; private set; }
