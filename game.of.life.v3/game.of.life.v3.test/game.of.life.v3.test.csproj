@@ -54,6 +54,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="CellTest.cs" />
+    <Compile Include="InfiniteGridTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

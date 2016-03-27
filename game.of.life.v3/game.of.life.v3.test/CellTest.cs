@@ -1,4 +1,6 @@
-﻿namespace game.of.life.v3.test
+﻿using System.Linq;
+
+namespace game.of.life.v3.test
 {
     using NFluent;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -10,7 +12,7 @@
         [TestMethod]
         public void Rule1()
         {
-            var cell = new Cell(CellState.Alive);
+            var cell = new Cell(0, 0, CellState.Alive);
 
             cell.Mutate(1);
 
@@ -21,11 +23,11 @@
         [TestMethod]
         public void Rule2()
         {
-            var cell1 = new Cell(CellState.Alive);
+            var cell1 = new Cell(0,0,CellState.Alive);
             cell1.Mutate(2);
             Check.That(cell1.State).IsEqualTo(CellState.Alive);
 
-            var cell2 = new Cell(CellState.Alive);
+            var cell2 = new Cell(0, 0, CellState.Alive);
             cell2.Mutate(3);
             Check.That(cell2.State).IsEqualTo(CellState.Alive);
         }
@@ -34,7 +36,7 @@
         [TestMethod]
         public void Rule3()
         {
-            var cell = new Cell(CellState.Alive);
+            var cell = new Cell(0, 0, CellState.Alive);
             cell.Mutate(4);
             Check.That(cell.State).IsEqualTo(CellState.Dead);
         }
@@ -43,9 +45,19 @@
         [TestMethod]
         public void Rule4()
         {
-            var cell = new Cell();
+            var cell = new Cell(0,0);
             cell.Mutate(3);
             Check.That(cell.State).IsEqualTo(CellState.Alive);
+        }
+
+        [TestMethod]
+        public void GivenCellAt0Dot0WhenGetNeighboursThenReturn8()
+        {
+            var cell = new Cell(0, 0);
+
+            var neighbours = cell.GetNeighbours().Distinct();
+
+            Check.That(neighbours).HasSize(8);
         }
     }
 }
