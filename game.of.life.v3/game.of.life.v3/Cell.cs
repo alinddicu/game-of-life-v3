@@ -16,21 +16,26 @@
 
         public CellState NextState { get; private set; }
 
-        public int X { get; private set; }
+        public int X { get; }
 
-        public int Y { get; private set; }
+        public int Y { get; }
 
         public void Mutate(int aliveNeighboursCount)
         {
             if (State == CellState.Dead && aliveNeighboursCount == 3)
             {
-                State = CellState.Alive;
+                NextState = CellState.Alive;
+            }
+
+            if (State == CellState.Alive && (aliveNeighboursCount == 2 || aliveNeighboursCount == 3))
+            {
+                NextState = CellState.Alive;
             }
 
             if (State == CellState.Alive
                 && (aliveNeighboursCount < 2 || aliveNeighboursCount >= 4))
             {
-                State = CellState.Dead;
+                NextState = CellState.Dead;
             }
         }
 
@@ -75,7 +80,8 @@
 
         public void CompleteMutation()
         {
-            NextState = State;
+            State = NextState;
+            NextState = CellState.Unknown;
         }
     }
 }

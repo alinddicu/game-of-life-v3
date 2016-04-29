@@ -9,44 +9,44 @@
     {
         // Any live cell with fewer than two live neighbours dies, as if caused by under-population
         [TestMethod]
-        public void Rule1()
+        public void AnyLiveCellWithFewerThanTwoLiveNeighboursDiesAsIfCausedByUnderPopulation()
         {
             var cell = new Cell(0, 0, CellState.Alive);
 
             cell.Mutate(1);
 
-            Check.That(cell.State).IsEqualTo(CellState.Dead);
+            Check.That(cell.NextState).IsEqualTo(CellState.Dead);
         }
 
         // Any live cell with two or three live neighbours lives on to the next generation
         [TestMethod]
-        public void Rule2()
+        public void AnyLiveCellWithTwoOrThreeLiveNeighboursLivesOnToTheNextGeneration()
         {
             var cell1 = new Cell(0, 0, CellState.Alive);
             cell1.Mutate(2);
-            Check.That(cell1.State).IsEqualTo(CellState.Alive);
+            Check.That(cell1.NextState).IsEqualTo(CellState.Alive);
 
             var cell2 = new Cell(0, 0, CellState.Alive);
             cell2.Mutate(3);
-            Check.That(cell2.State).IsEqualTo(CellState.Alive);
+            Check.That(cell2.NextState).IsEqualTo(CellState.Alive);
         }
 
         // Any live cell with more than three live neighbours dies, as if by over-population
         [TestMethod]
-        public void Rule3()
+        public void AnyLiveCellWithMoreThanThreeLiveNeighboursDiesAsIfByOverPopulation()
         {
             var cell = new Cell(0, 0, CellState.Alive);
             cell.Mutate(4);
-            Check.That(cell.State).IsEqualTo(CellState.Dead);
+            Check.That(cell.NextState).IsEqualTo(CellState.Dead);
         }
 
         // Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction
         [TestMethod]
-        public void Rule4()
+        public void AnyDeadCellWithExactlyThreeLiveNeighboursBecomesAliveAsIfByReproduction()
         {
             var cell = new Cell(0, 0);
             cell.Mutate(3);
-            Check.That(cell.State).IsEqualTo(CellState.Alive);
+            Check.That(cell.NextState).IsEqualTo(CellState.Alive);
         }
 
         [TestMethod]
@@ -76,11 +76,12 @@
             var cell = new Cell(0, 0);
             Check.That(cell.NextState).IsEqualTo(CellState.Unknown);
             cell.Mutate(3);
-            Check.That(cell.NextState).IsEqualTo(CellState.Unknown);
+            Check.That(cell.NextState).IsEqualTo(CellState.Alive);
 
             cell.CompleteMutation();
 
-            Check.That(cell.NextState).IsEqualTo(cell.State);
+            Check.That(cell.NextState).IsEqualTo(CellState.Unknown);
+            Check.That(cell.State).IsEqualTo(CellState.Alive);
         }
     }
 }
