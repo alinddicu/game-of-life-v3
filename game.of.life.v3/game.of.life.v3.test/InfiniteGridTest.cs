@@ -13,10 +13,8 @@
             var cell = new Cell(0, 0);
             var grid = new InfiniteGrid();
             grid.Add(cell);
-
-            var gridCells = grid.GetCells();
             
-            Check.That(gridCells).IsOnlyMadeOf(
+            Check.That(grid.Cells).IsOnlyMadeOf(
                 new Cell(-1, -1),
                 new Cell(0, -1),
                 new Cell(1, -1),
