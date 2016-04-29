@@ -20,6 +20,8 @@
 
         public int Y { get; }
 
+        public bool IsAlive => State == CellState.Alive;
+
         public void Mutate(int aliveNeighboursCount)
         {
             if (State == CellState.Dead && aliveNeighboursCount == 3)

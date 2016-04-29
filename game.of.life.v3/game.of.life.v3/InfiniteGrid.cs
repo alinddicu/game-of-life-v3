@@ -1,6 +1,5 @@
 ﻿namespace game.of.life.v3
 {
-    using System;
     using System.Linq;
     using System.Collections.Generic;
 
