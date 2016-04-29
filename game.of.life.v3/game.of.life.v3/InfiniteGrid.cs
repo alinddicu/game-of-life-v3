@@ -1,5 +1,6 @@
 ﻿namespace game.of.life.v3
 {
+    using System;
     using System.Linq;
     using System.Collections.Generic;
 
@@ -36,6 +37,16 @@
         {
             var existingCell = _cells.SingleOrDefault(c => c.X == x && c.Y == y);
             return existingCell ?? new Cell(x, y);
+        }
+
+        public void Clean()
+        {
+            var isolatedCells =
+                from cell in _cells
+                where cell.GetNeighbours(this).All(n => n.State == CellState.Dead)
+                select cell;
+
+            _cells.RemoveAll(c => isolatedCells.Contains(c));
         }
     }
 }

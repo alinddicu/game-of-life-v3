@@ -43,5 +43,17 @@
 
             Check.That(grid.Get(0, 0).State).IsEqualTo(default(CellState));
         }
+
+        [TestMethod]
+        public void GivenGridWith1DeadCellWhenCleanThenGridIsEmpty()
+        {
+            var cell = new Cell(0, 0);
+            var grid = new InfiniteGrid();
+            grid.Add(cell);
+
+            grid.Clean();
+
+            Check.That(grid.Cells).IsEmpty();
+        }
     }
 }
