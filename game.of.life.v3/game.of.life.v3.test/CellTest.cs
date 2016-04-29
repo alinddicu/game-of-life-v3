@@ -53,11 +53,12 @@
         public void GivenCellAt0Dot0WhenGetNeighboursThenReturn8()
         {
             var cell = new Cell(0, 0);
+            var grid = new InfiniteGrid();
+            grid.Add(cell);
 
-            var neighbours = cell.GetNeighbours().Distinct().ToArray();
-
-            Check.That(neighbours).HasSize(8);
-            Check.That(neighbours).Contains(
+            var neighbours = cell.GetNeighbours(grid).Distinct().ToArray();
+            
+            Check.That(neighbours).IsOnlyMadeOf(
                 new Cell(-1, -1),
                 new Cell(0, -1),
                 new Cell(1, -1),

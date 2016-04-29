@@ -5,12 +5,10 @@
 
     public class InfiniteGrid
     {
-        private readonly List<Cell> _initialCells = new List<Cell>();
         private readonly List<Cell> _allCells = new List<Cell>();
 
         public void Add(params Cell[] cells)
         {
-            _initialCells.AddRange(cells);
             _allCells.AddRange(cells);
         }
 
@@ -23,13 +21,19 @@
 
         private void DiscoverNewCells()
         {
-            var newCells = 
-                from cell in _allCells 
-                from neighbour in cell.GetNeighbours() 
-                where !_allCells.Contains(neighbour) 
+            var newCells =
+                from cell in _allCells
+                from neighbour in cell.GetNeighbours(this)
+                where !_allCells.Contains(neighbour)
                 select neighbour;
 
             _allCells.AddRange(newCells.ToArray());
+        }
+
+        public Cell Get(int x, int y)
+        {
+            var existingCell = _allCells.SingleOrDefault(c => c.X == x && c.Y == y);
+            return existingCell ?? new Cell(x, y);
         }
     }
 }
