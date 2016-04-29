@@ -62,6 +62,7 @@
                 new Cell(-1, -1),
                 new Cell(0, -1),
                 new Cell(1, -1),
+                new Cell(-1, 0),
                 new Cell(1, 0),
                 new Cell(1, 1),
                 new Cell(0, 1),
