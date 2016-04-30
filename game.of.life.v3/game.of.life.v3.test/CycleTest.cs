@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace game.of.life.v3.test
+﻿namespace game.of.life.v3.test
 {
-    class CycleTest
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    [TestClass]
+    public class CycleTest
     {
     }
 }

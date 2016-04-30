@@ -13,7 +13,7 @@
         {
             var cell = new Cell(0, 0, CellState.Alive);
 
-            cell.Mutate(1);
+            cell.ComputeMutation(1);
 
             Check.That(cell.NextState).IsEqualTo(CellState.Dead);
         }
@@ -23,11 +23,11 @@
         public void AnyLiveCellWithTwoOrThreeLiveNeighboursLivesOnToTheNextGeneration()
         {
             var cell1 = new Cell(0, 0, CellState.Alive);
-            cell1.Mutate(2);
+            cell1.ComputeMutation(2);
             Check.That(cell1.NextState).IsEqualTo(CellState.Alive);
 
             var cell2 = new Cell(0, 0, CellState.Alive);
-            cell2.Mutate(3);
+            cell2.ComputeMutation(3);
             Check.That(cell2.NextState).IsEqualTo(CellState.Alive);
         }
 
@@ -36,7 +36,7 @@
         public void AnyLiveCellWithMoreThanThreeLiveNeighboursDiesAsIfByOverPopulation()
         {
             var cell = new Cell(0, 0, CellState.Alive);
-            cell.Mutate(4);
+            cell.ComputeMutation(4);
             Check.That(cell.NextState).IsEqualTo(CellState.Dead);
         }
 
@@ -45,7 +45,7 @@
         public void AnyDeadCellWithExactlyThreeLiveNeighboursBecomesAliveAsIfByReproduction()
         {
             var cell = new Cell(0, 0);
-            cell.Mutate(3);
+            cell.ComputeMutation(3);
             Check.That(cell.NextState).IsEqualTo(CellState.Alive);
         }
 
@@ -75,7 +75,7 @@
         {
             var cell = new Cell(0, 0);
             Check.That(cell.NextState).IsEqualTo(CellState.Unknown);
-            cell.Mutate(3);
+            cell.ComputeMutation(3);
             Check.That(cell.NextState).IsEqualTo(CellState.Alive);
 
             cell.CompleteMutation();

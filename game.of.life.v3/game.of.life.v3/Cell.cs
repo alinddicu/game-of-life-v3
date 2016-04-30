@@ -16,13 +16,19 @@
 
         public CellState NextState { get; private set; }
 
-        public int X { get; }
+        public int X { get; private set; }
 
-        public int Y { get; }
+        public int Y { get; private set; }
 
-        public bool IsAlive => State == CellState.Alive;
+        public bool IsAlive
+        {
+            get
+            {
+                return State == CellState.Alive;
+            }
+        }
 
-        public void Mutate(int aliveNeighboursCount)
+        public void ComputeMutation(int aliveNeighboursCount)
         {
             if (State == CellState.Dead && aliveNeighboursCount == 3)
             {

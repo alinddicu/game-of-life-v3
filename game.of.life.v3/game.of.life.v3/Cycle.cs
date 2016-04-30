@@ -15,8 +15,8 @@
         {
             var cells = _grid.Cells.ToList();
 
-            cells.ToList().ForEach(cell => cell.Mutate(cell.GetNeighbours(_grid).Count(c => c.IsAlive)));
-            cells.ToList().ForEach(cell => cell.CompleteMutation());
+            cells.ForEach(cell => cell.ComputeMutation(cell.GetNeighbours(_grid).Count(c => c.IsAlive)));
+            cells.ForEach(cell => cell.CompleteMutation());
 
             _grid.Clean();
         }
