@@ -8,7 +8,7 @@
     public class CycleTest
     {
         [TestMethod]
-        public void SimpleMutationCompletionWith1CellRevivalThenDiscoverThenClean()
+        public void GivenSimpleMutationCompletionWith1CellWhenDiscoverCleanRevivalThenGridHas16Cells()
         {
             var initialCells =
             new[] 
