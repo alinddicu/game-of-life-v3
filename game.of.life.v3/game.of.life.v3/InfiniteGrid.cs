@@ -7,21 +7,14 @@
     {
         private readonly List<Cell> _cells = new List<Cell>();
 
-        public IEnumerable<Cell> Cells
-        {
-            get
-            {
-                Discover();
-                return _cells;
-            }
-        }
+        public IEnumerable<Cell> Cells { get { return _cells; } }
 
         public void Add(params Cell[] cells)
         {
             _cells.AddRange(cells);
         }
 
-        private void Discover()
+        public void Discover()
         {
             var newCells =
                 from cell in _cells
@@ -29,7 +22,7 @@
                 where !_cells.Contains(neighbour)
                 select neighbour;
 
-            _cells.AddRange(newCells.ToArray());
+            _cells.AddRange(newCells.Distinct().ToArray());
         }
 
         public Cell Get(int x, int y)
@@ -42,7 +35,7 @@
         {
             var isolatedCells =
                 from cell in _cells
-                where cell.GetNeighbours(this).All(n => n.State == CellState.Dead)
+                where cell.GetNeighbours(this).All(n => n.State != CellState.Alive)
                 select cell;
 
             _cells.RemoveAll(c => isolatedCells.Contains(c));

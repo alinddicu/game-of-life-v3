@@ -13,11 +13,12 @@
 
         public void Run()
         {
-            var cells = _grid.Cells.ToList();
+            _grid.Discover();
 
-            cells.ForEach(cell => cell.ComputeMutation(cell.GetNeighbours(_grid).Count(c => c.IsAlive)));
-            cells.ForEach(cell => cell.CompleteMutation());
+            _grid.Cells.ToList().ForEach(cell => cell.ComputeMutation(cell.GetNeighbours(_grid).Count(c => c.IsAlive)));
+            _grid.Cells.ToList().ForEach(cell => cell.CompleteMutation());
 
+            _grid.Discover();
             _grid.Clean();
         }
     }
