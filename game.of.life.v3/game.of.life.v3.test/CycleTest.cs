@@ -8,8 +8,7 @@
     public class CycleTest
     {
         [TestMethod]
-        [Ignore]
-        public void Test()
+        public void SimpleMutationCompletionWith1CellRevivalThenDiscoverThenClean()
         {
             var initialCells =
             new[] 

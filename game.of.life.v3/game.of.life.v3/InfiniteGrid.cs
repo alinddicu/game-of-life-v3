@@ -17,12 +17,12 @@
         public void Discover()
         {
             var newCells =
-                from cell in _cells
+                (from cell in _cells
                 from neighbour in cell.GetNeighbours(this)
                 where !_cells.Contains(neighbour)
-                select neighbour;
+                 select neighbour).Distinct().ToArray();
 
-            _cells.AddRange(newCells.Distinct().ToArray());
+            _cells.AddRange(newCells);
         }
 
         public Cell Get(int x, int y)
@@ -33,10 +33,9 @@
 
         public void Clean()
         {
-            var isolatedCells =
-                from cell in _cells
-                where cell.GetNeighbours(this).All(n => !n.IsAlive)
-                select cell;
+            var isolatedCells = _cells
+                .Where(cell => cell.GetNeighbours(this).All(n => !n.IsAlive))
+                .ToArray();
 
             _cells.RemoveAll(c => isolatedCells.Contains(c));
         }

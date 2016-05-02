@@ -105,32 +105,6 @@ namespace game.of.life.v3.test
         }
 
         [TestMethod]
-        [Ignore]
-        public void SimpleMutationCompletionWith1CellRevivalThenDiscoverThenClean()
-        {
-            var initialCells =
-            new[] 
-            {
-                new Cell(0,0, CellState.Alive), 
-                new Cell(1,0, CellState.Alive), 
-                new Cell(0,1, CellState.Alive)
-            };
-            var grid = new InfiniteGrid();
-            grid.Add(initialCells);
-
-            grid.Discover();
-
-            grid.Cells.ToList().ForEach(cell => cell.ComputeMutation(cell.GetNeighbours(grid).Count(c => c.IsAlive)));
-            grid.Cells.ToList().ForEach(cell => cell.CompleteMutation());
-
-            grid.Discover();
-            grid.Clean();
-
-            Check.That(grid.Cells).HasSize(16);
-            Check.That(grid.Cells).Not.Contains(new Cell(-2, 3));
-        }
-
-        [TestMethod]
         public void GRidWith1AliveCellThenMutateThenDiscoverThenClean()
         {
             var initialCells = new[] { new Cell(0, 0, CellState.Alive) };
