@@ -35,7 +35,7 @@
         {
             var isolatedCells =
                 from cell in _cells
-                where cell.GetNeighbours(this).All(n => n.State != CellState.Alive)
+                where cell.GetNeighbours(this).All(n => !n.IsAlive)
                 select cell;
 
             _cells.RemoveAll(c => isolatedCells.Contains(c));
