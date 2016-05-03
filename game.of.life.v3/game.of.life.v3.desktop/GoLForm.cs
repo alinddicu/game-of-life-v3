@@ -26,6 +26,7 @@
 
         private void InitCellButtons()
         {
+            _buttons.Clear();
             var panelWidth = _cellsPanel.Width;
             var panelHeight = _cellsPanel.Height;
 
@@ -40,6 +41,7 @@
                 }
             }
 
+            _cellsPanel.Controls.Clear();
             _cellsPanel.Controls.AddRange(_buttons.ToArray());
         }
 
@@ -64,6 +66,13 @@
 
             _cycle.Run();
             _buttons.ForEach(b => b.RefreshCell(_grid));
+        }
+
+        private void resetButton_Click(object sender, System.EventArgs e)
+        {
+            InitCellButtons();
+            _cycle = null;
+            _grid = null;
         }
     }
 }

@@ -32,6 +32,7 @@
             this._cellsPanel = new System.Windows.Forms.Panel();
             this.topToolStrip = new System.Windows.Forms.ToolStrip();
             this.cycleButton = new System.Windows.Forms.ToolStripButton();
+            this.resetButton = new System.Windows.Forms.ToolStripButton();
             this.topToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +47,8 @@
             // topToolStrip
             // 
             this.topToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cycleButton});
+            this.cycleButton,
+            this.resetButton});
             this.topToolStrip.Location = new System.Drawing.Point(0, 0);
             this.topToolStrip.Name = "topToolStrip";
             this.topToolStrip.Size = new System.Drawing.Size(784, 25);
@@ -63,6 +65,16 @@
             this.cycleButton.Size = new System.Drawing.Size(40, 22);
             this.cycleButton.Text = "Cycle";
             this.cycleButton.Click += new System.EventHandler(this.cycleButton_Click);
+            // 
+            // resetButton
+            // 
+            this.resetButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.resetButton.Image = ((System.Drawing.Image)(resources.GetObject("resetButton.Image")));
+            this.resetButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.resetButton.Name = "resetButton";
+            this.resetButton.Size = new System.Drawing.Size(39, 22);
+            this.resetButton.Text = "Reset";
+            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
             // GoLForm
             // 
@@ -86,6 +98,7 @@
         private System.Windows.Forms.Panel _cellsPanel;
         private System.Windows.Forms.ToolStrip topToolStrip;
         private System.Windows.Forms.ToolStripButton cycleButton;
+        private System.Windows.Forms.ToolStripButton resetButton;
     }
 }
 
