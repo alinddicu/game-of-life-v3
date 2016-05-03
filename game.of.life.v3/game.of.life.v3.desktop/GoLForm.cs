@@ -34,13 +34,24 @@
                 {
                     var x = ButtonGap * vCounter;
                     var y = ButtonGap * hCounter;
-                    var cellButton = new CellButton(x, y) { Width = ButtonWidth, Height = ButtonWidth, Text = $"({vCounter},{hCounter})" };
+                    var cellButton = CreateCellButton(x, y, vCounter, hCounter);
                     _buttons.Add(cellButton);
                 }
             }
 
             _cellsPanel.Controls.AddRange(_buttons.ToArray());
             _cellsPanel.Refresh();
+        }
+
+        private static CellButton CreateCellButton(int x, int y, int vCounter, int hCounter)
+        {
+            return new CellButton(x, y)
+            {
+                Width = ButtonWidth,
+                Height = ButtonWidth,
+                Text = $"({vCounter},{hCounter})",
+                BackColor = CellButton.BackColorDefault
+        };
         }
     }
 }
