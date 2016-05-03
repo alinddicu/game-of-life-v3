@@ -18,23 +18,35 @@
         {
             var newCells =
                 (from cell in _cells
-                from neighbour in cell.GetNeighbours(this)
+                from neighbour in GetNeighbours(cell)
                 where !_cells.Contains(neighbour)
                  select neighbour).Distinct().ToArray();
 
             _cells.AddRange(newCells);
         }
 
-        public Cell Get(int x, int y)
+        private Cell Get(int x, int y)
         {
             var existingCell = _cells.SingleOrDefault(c => c.X == x && c.Y == y);
             return existingCell ?? new Cell(x, y);
         }
 
+        public IEnumerable<Cell> GetNeighbours(Cell cell)
+        {
+            yield return Get(cell.X - 1, cell.Y - 1);
+            yield return Get(cell.X, cell.Y - 1);
+            yield return Get(cell.X + 1, cell.Y - 1);
+            yield return Get(cell.X + 1, cell.Y);
+            yield return Get(cell.X + 1, cell.Y + 1);
+            yield return Get(cell.X, cell.Y + 1);
+            yield return Get(cell.X - 1, cell.Y + 1);
+            yield return Get(cell.X - 1, cell.Y);
+        }
+
         public void Clean()
         {
             var isolatedCells = _cells
-                .Where(cell => cell.GetNeighbours(this).All(n => !n.IsAlive))
+                .Where(cell => GetNeighbours(cell).All(n => !n.IsAlive))
                 .ToArray();
 
             _cells.RemoveAll(c => isolatedCells.Contains(c));

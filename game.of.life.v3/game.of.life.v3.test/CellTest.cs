@@ -56,7 +56,7 @@
             var grid = new InfiniteGrid();
             grid.Add(cell);
 
-            var neighbours = cell.GetNeighbours(grid).Distinct().ToArray();
+            var neighbours = grid.GetNeighbours(cell).Distinct().ToArray();
             
             Check.That(neighbours).IsOnlyMadeOf(
                 new Cell(-1, -1),

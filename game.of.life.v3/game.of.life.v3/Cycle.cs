@@ -15,7 +15,7 @@
         {
             _grid.Discover();
 
-            _grid.Cells.ToList().ForEach(cell => cell.ComputeMutation(cell.GetNeighbours(_grid).Count(c => c.IsAlive)));
+            _grid.Cells.ToList().ForEach(cell => cell.ComputeMutation(_grid.GetNeighbours(cell).Count(c => c.IsAlive)));
             _grid.Cells.ToList().ForEach(cell => cell.CompleteMutation());
 
             _grid.Discover();

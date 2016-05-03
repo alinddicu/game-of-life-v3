@@ -74,18 +74,6 @@
             return "(" + X + "," + Y + ") : " + State;
         }
 
-        public IEnumerable<Cell> GetNeighbours(InfiniteGrid grid)
-        {
-            yield return grid.Get(X - 1, Y - 1);
-            yield return grid.Get(X, Y - 1);
-            yield return grid.Get(X + 1, Y - 1);
-            yield return grid.Get(X + 1, Y);
-            yield return grid.Get(X + 1, Y + 1);
-            yield return grid.Get(X, Y + 1);
-            yield return grid.Get(X - 1, Y + 1);
-            yield return grid.Get(X - 1, Y);
-        }
-
         public void CompleteMutation()
         {
             State = NextState;

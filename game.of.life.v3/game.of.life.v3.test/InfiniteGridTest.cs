@@ -1,7 +1,6 @@
-﻿using System.Linq;
-
-namespace game.of.life.v3.test
+﻿namespace game.of.life.v3.test
 {
+    using System.Linq;
     using NFluent;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -29,21 +28,16 @@ namespace game.of.life.v3.test
         }
 
         [TestMethod]
-        public void GivenGridWith1CellWhenGetCellOnThatCellThenReturnTheThatCell()
+        public void GivenGridWith1CellWhenGetNeighboursOfThatCellsThenReturn8DeadCells()
         {
             var cell = new Cell(0, 0, CellState.Alive);
             var grid = new InfiniteGrid();
             grid.Add(cell);
 
-            Check.That(grid.Get(0, 0).State).IsEqualTo(CellState.Alive);
-        }
+            var neighbours = grid.GetNeighbours(cell).ToArray();
 
-        [TestMethod]
-        public void GivenEmptyGridWhenGetAnyCellThenReturnDeadCell()
-        {
-            var grid = new InfiniteGrid();
-
-            Check.That(grid.Get(0, 0).State).IsEqualTo(default(CellState));
+            Check.That(neighbours).HasSize(8);
+            Check.That(neighbours.Select(n => n.State).Distinct().Single()).IsEqualTo(CellState.Dead);
         }
 
         [TestMethod]
@@ -73,7 +67,7 @@ namespace game.of.life.v3.test
 
             grid.Discover();
 
-            grid.Cells.ToList().ForEach(cell => cell.ComputeMutation(cell.GetNeighbours(grid).Count(c => c.IsAlive)));
+            grid.Cells.ToList().ForEach(cell => cell.ComputeMutation(grid.GetNeighbours(cell).Count(c => c.IsAlive)));
             grid.Cells.ToList().ForEach(cell => cell.CompleteMutation());
 
             Check.That(grid.Cells).HasSize(15);
@@ -95,7 +89,7 @@ namespace game.of.life.v3.test
 
             grid.Discover();
 
-            grid.Cells.ToList().ForEach(cell => cell.ComputeMutation(cell.GetNeighbours(grid).Count(c => c.IsAlive)));
+            grid.Cells.ToList().ForEach(cell => cell.ComputeMutation(grid.GetNeighbours(cell).Count(c => c.IsAlive)));
             grid.Cells.ToList().ForEach(cell => cell.CompleteMutation());
 
             grid.Discover();
@@ -114,7 +108,7 @@ namespace game.of.life.v3.test
             grid.Discover();
             Check.That(grid.Cells).HasSize(9);
 
-            grid.Cells.ToList().ForEach(cell => cell.ComputeMutation(cell.GetNeighbours(grid).Count(c => c.IsAlive)));
+            grid.Cells.ToList().ForEach(cell => cell.ComputeMutation(grid.GetNeighbours(cell).Count(c => c.IsAlive)));
             grid.Cells.ToList().ForEach(cell => cell.CompleteMutation());
 
             grid.Discover();
