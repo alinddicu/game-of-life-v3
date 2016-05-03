@@ -3,7 +3,7 @@
     using System.Linq;
     using System.Collections.Generic;
 
-    public class RectangularInfinite2DGrid
+    public class RectangularInfinite2DGrid : IGrid
     {
         private readonly List<Cell> _cells = new List<Cell>();
 

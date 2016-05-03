@@ -44,6 +44,7 @@
     <Compile Include="Cell.cs" />
     <Compile Include="CellState.cs" />
     <Compile Include="Cycle.cs" />
+    <Compile Include="IGrid.cs" />
     <Compile Include="RectangularInfinite2DGrid.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
