@@ -5,7 +5,7 @@
 
     public partial class GoLForm : Form
     {
-        private const int ButtonWidth = 80;
+        private const int ButtonWidth = 60;
         private const int ButtonGap = ButtonWidth + 1;
 
         private readonly List<CellButton> _buttons = new List<CellButton>();
@@ -28,16 +28,14 @@
 
             var horizontalButtonsCount = panelWidth / ButtonGap;
             var verticalButtonsCount = panelHeight / ButtonGap;
-            var x = 0;
-            var y = 0;
             for (var hCounter = 0; hCounter < horizontalButtonsCount; hCounter++)
             {
                 for (var vCounter = 0; vCounter < verticalButtonsCount; vCounter++)
                 {
-                    var cellButton = new CellButton(x, y) { Width = ButtonWidth, Height = ButtonWidth, Text = $"({vCounter}, {hCounter})" };
+                    var x = ButtonGap * vCounter;
+                    var y = ButtonGap * hCounter;
+                    var cellButton = new CellButton(x, y) { Width = ButtonWidth, Height = ButtonWidth, Text = $"({vCounter},{hCounter})" };
                     _buttons.Add(cellButton);
-                    x = ButtonGap * vCounter;
-                    y = ButtonGap * hCounter;
                 }
             }
 
