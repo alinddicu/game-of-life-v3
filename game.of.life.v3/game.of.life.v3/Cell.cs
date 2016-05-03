@@ -1,7 +1,5 @@
 ﻿namespace game.of.life.v3
 {
-    using System.Collections.Generic;
-
     public class Cell
     {
         public Cell(int x, int y, CellState cellState = CellState.Dead)
