@@ -1,6 +1,7 @@
 ﻿namespace game.of.life.v3.desktop
 {
     using System.Collections.Generic;
+    using System.Linq;
     using System.Windows.Forms;
 
     public partial class GoLForm : Form
@@ -9,6 +10,8 @@
         private const int ButtonGap = ButtonWidth + 1;
 
         private readonly List<CellButton> _buttons = new List<CellButton>();
+        private RectangularInfinite2DGrid _grid;
+        private Cycle _cycle;
 
         public GoLForm()
         {
@@ -32,26 +35,35 @@
             {
                 for (var vCounter = 0; vCounter < verticalButtonsCount; vCounter++)
                 {
-                    var x = ButtonGap * vCounter;
-                    var y = ButtonGap * hCounter;
-                    var cellButton = CreateCellButton(x, y, vCounter, hCounter);
+                    var cellButton = CreateCellButton(vCounter, hCounter);
                     _buttons.Add(cellButton);
                 }
             }
 
             _cellsPanel.Controls.AddRange(_buttons.ToArray());
-            _cellsPanel.Refresh();
         }
 
-        private static CellButton CreateCellButton(int x, int y, int vCounter, int hCounter)
+        private static CellButton CreateCellButton(int vCounter, int hCounter)
         {
-            return new CellButton(x, y)
+            return new CellButton(vCounter, hCounter, ButtonGap * vCounter, ButtonGap * hCounter)
             {
                 Width = ButtonWidth,
                 Height = ButtonWidth,
                 Text = $"({vCounter},{hCounter})",
                 BackColor = CellButton.BackColorDefault
-        };
+            };
+        }
+
+        private void cycleButton_Click(object sender, System.EventArgs e)
+        {
+            if (_grid == null && _cycle == null)
+            {
+                _grid = new RectangularInfinite2DGrid(_buttons.Select(b => b.Cell).Where(c => c.IsAlive).ToArray());
+                _cycle = new Cycle(_grid);
+            }
+
+            _cycle.Run();
+            _buttons.ForEach(b => b.RefreshCell(_grid));
         }
     }
 }

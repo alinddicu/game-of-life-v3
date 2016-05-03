@@ -1,17 +1,18 @@
 ﻿namespace game.of.life.v3.desktop
 {
     using System.Drawing;
+    using System.Linq;
     using System.Windows.Forms;
 
     public class CellButton : Button
     {
         public static Color BackColorDefault = Color.DarkGray;
 
-        public CellButton(int x, int y)
+        public CellButton(int x, int y, int left, int top)
         {
             Cell = new Cell(x, y);
-            Left = x;
-            Top = y;
+            Left = left;
+            Top = top;
             Click += CellButtonClick;
         }
 
@@ -20,11 +21,20 @@
             Cell = Cell.IsAlive 
                     ? new Cell(Cell.X, Cell.Y) 
                     : new Cell(Cell.X, Cell.Y, CellState.Alive);
-            BackColor = Cell.IsAlive ? Color.Cyan : BackColorDefault;
+            RefreshBackColor();
+        }
 
-            Refresh();
+        private void RefreshBackColor()
+        {
+            BackColor = Cell.IsAlive ? Color.Cyan : BackColorDefault;
         }
 
         public Cell Cell { get; private set; }
+
+        public void RefreshCell(RectangularInfinite2DGrid grid)
+        {
+            Cell = grid.Get(Cell.X, Cell.Y);
+            RefreshBackColor();
+        }
     }
 }

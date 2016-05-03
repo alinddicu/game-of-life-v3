@@ -25,7 +25,7 @@
             _cells.AddRange(newCells);
         }
 
-        private Cell Get(int x, int y)
+        public Cell Get(int x, int y)
         {
             var existingCell = _cells.SingleOrDefault(c => c.X == x && c.Y == y);
             return existingCell ?? new Cell(x, y);

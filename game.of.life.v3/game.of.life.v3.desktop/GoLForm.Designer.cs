@@ -62,6 +62,7 @@
             this.cycleButton.Name = "cycleButton";
             this.cycleButton.Size = new System.Drawing.Size(40, 22);
             this.cycleButton.Text = "Cycle";
+            this.cycleButton.Click += new System.EventHandler(this.cycleButton_Click);
             // 
             // GoLForm
             // 
