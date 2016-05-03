@@ -62,6 +62,7 @@
             {
                 _grid = new RectangularInfinite2DGrid(_buttons.Select(b => b.Cell).Where(c => c.IsAlive).ToArray());
                 _cycle = new Cycle(_grid);
+                _cellsPanel.Enabled = false;
             }
 
             _cycle.Run();
@@ -73,6 +74,7 @@
             InitCellButtons();
             _cycle = null;
             _grid = null;
+            _cellsPanel.Enabled = true;
         }
     }
 }
