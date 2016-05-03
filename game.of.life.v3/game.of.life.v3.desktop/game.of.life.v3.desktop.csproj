@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CellButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="GoLForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +81,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\game.of.life.v3\game.of.life.v3.csproj">
+      <Project>{6820c349-3026-491b-a6e6-c1ccc723ecef}</Project>
+      <Name>game.of.life.v3</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

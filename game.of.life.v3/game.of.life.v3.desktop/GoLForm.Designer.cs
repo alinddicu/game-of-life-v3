@@ -29,21 +29,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GoLForm));
-            this.cellsPanel = new System.Windows.Forms.Panel();
+            this._cellsPanel = new System.Windows.Forms.Panel();
             this.topToolStrip = new System.Windows.Forms.ToolStrip();
             this.cycleButton = new System.Windows.Forms.ToolStripButton();
-            this.cellsPanel.SuspendLayout();
             this.topToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
-            // cellsPanel
+            // _cellsPanel
             // 
-            this.cellsPanel.Controls.Add(this.topToolStrip);
-            this.cellsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cellsPanel.Location = new System.Drawing.Point(0, 0);
-            this.cellsPanel.Name = "cellsPanel";
-            this.cellsPanel.Size = new System.Drawing.Size(784, 562);
-            this.cellsPanel.TabIndex = 0;
+            this._cellsPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this._cellsPanel.Location = new System.Drawing.Point(0, 28);
+            this._cellsPanel.Name = "_cellsPanel";
+            this._cellsPanel.Size = new System.Drawing.Size(784, 734);
+            this._cellsPanel.TabIndex = 0;
             // 
             // topToolStrip
             // 
@@ -65,25 +63,26 @@
             this.cycleButton.Size = new System.Drawing.Size(40, 22);
             this.cycleButton.Text = "Cycle";
             // 
-            // GoL
+            // GoLForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 562);
-            this.Controls.Add(this.cellsPanel);
-            this.Name = "GoL";
+            this.ClientSize = new System.Drawing.Size(784, 762);
+            this.Controls.Add(this.topToolStrip);
+            this.Controls.Add(this._cellsPanel);
+            this.Name = "GoLForm";
             this.Text = "GoL";
-            this.cellsPanel.ResumeLayout(false);
-            this.cellsPanel.PerformLayout();
+            this.Load += new System.EventHandler(this.GoLForm_Load);
             this.topToolStrip.ResumeLayout(false);
             this.topToolStrip.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel cellsPanel;
+        private System.Windows.Forms.Panel _cellsPanel;
         private System.Windows.Forms.ToolStrip topToolStrip;
         private System.Windows.Forms.ToolStripButton cycleButton;
     }
