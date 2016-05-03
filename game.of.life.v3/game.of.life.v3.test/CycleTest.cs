@@ -10,15 +10,8 @@
         [TestMethod]
         public void GivenSimpleMutationCompletionWith1CellWhenDiscoverCleanRevivalThenGridHas16Cells()
         {
-            var initialCells =
-            new[] 
-            {
-                new Cell(0,0, CellState.Alive), 
-                new Cell(1,0, CellState.Alive), 
-                new Cell(0,1, CellState.Alive)
-            };
-            var grid = new InfiniteGrid();
-            grid.Add(initialCells);
+            var initialCells = new[] { new Cell(0, 0, CellState.Alive), new Cell(1, 0, CellState.Alive), new Cell(0, 1, CellState.Alive) };
+            var grid = new RectangularInfinite2DGrid(initialCells);
 
             var cycle = new Cycle(grid);
 

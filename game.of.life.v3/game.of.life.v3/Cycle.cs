@@ -4,9 +4,9 @@
 
     public class Cycle
     {
-        private readonly InfiniteGrid _grid;
+        private readonly RectangularInfinite2DGrid _grid;
 
-        public Cycle(InfiniteGrid grid)
+        public Cycle(RectangularInfinite2DGrid grid)
         {
             _grid = grid;
         }

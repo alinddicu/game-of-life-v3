@@ -5,14 +5,13 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
-    public class InfiniteGridTest
+    public class RectangularInfinite2DGridTest
     {
         [TestMethod]
         public void GivenGridWith1CellWhenGetCellsReturnTheCellAnd8Neighbours()
         {
             var cell = new Cell(0, 0);
-            var grid = new InfiniteGrid();
-            grid.Add(cell);
+            var grid = new RectangularInfinite2DGrid(cell);
 
             Check.That(grid.Cells).IsOnlyMadeOf(
                 new Cell(-1, -1),
@@ -31,8 +30,7 @@
         public void GivenGridWith1CellWhenGetNeighboursOfThatCellsThenReturn8DeadCells()
         {
             var cell = new Cell(0, 0, CellState.Alive);
-            var grid = new InfiniteGrid();
-            grid.Add(cell);
+            var grid = new RectangularInfinite2DGrid(cell);
 
             var neighbours = grid.GetNeighbours(cell).ToArray();
 
@@ -44,8 +42,7 @@
         public void GivenGridWith1DeadCellWhenCleanThenGridIsEmpty()
         {
             var cell = new Cell(0, 0);
-            var grid = new InfiniteGrid();
-            grid.Add(cell);
+            var grid = new RectangularInfinite2DGrid(cell);
 
             grid.Clean();
 
@@ -55,15 +52,8 @@
         [TestMethod]
         public void SimpleMutationCompletionWith1CellRevival()
         {
-            var initialCells =
-            new[] 
-            {
-                new Cell(0,0, CellState.Alive), 
-                new Cell(1,0, CellState.Alive), 
-                new Cell(0,1, CellState.Alive)
-            };
-            var grid = new InfiniteGrid();
-            grid.Add(initialCells);
+            var initialCells = new[] { new Cell(0, 0, CellState.Alive), new Cell(1, 0, CellState.Alive), new Cell(0, 1, CellState.Alive) };
+            var grid = new RectangularInfinite2DGrid(initialCells);
 
             grid.Discover();
 
@@ -77,15 +67,8 @@
         [TestMethod]
         public void SimpleMutationCompletionWith1CellRevivalThenDiscover()
         {
-            var initialCells =
-            new[] 
-            {
-                new Cell(0,0, CellState.Alive), 
-                new Cell(1,0, CellState.Alive), 
-                new Cell(0,1, CellState.Alive)
-            };
-            var grid = new InfiniteGrid();
-            grid.Add(initialCells);
+            var initialCells = new[] { new Cell(0, 0, CellState.Alive), new Cell(1, 0, CellState.Alive), new Cell(0, 1, CellState.Alive) };
+            var grid = new RectangularInfinite2DGrid(initialCells);
 
             grid.Discover();
 
@@ -102,8 +85,7 @@
         public void GRidWith1AliveCellThenMutateThenDiscoverThenClean()
         {
             var initialCells = new[] { new Cell(0, 0, CellState.Alive) };
-            var grid = new InfiniteGrid();
-            grid.Add(initialCells);
+            var grid = new RectangularInfinite2DGrid(initialCells);
 
             grid.Discover();
             Check.That(grid.Cells).HasSize(9);

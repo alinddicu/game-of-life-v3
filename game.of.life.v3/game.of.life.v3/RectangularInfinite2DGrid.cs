@@ -3,16 +3,16 @@
     using System.Linq;
     using System.Collections.Generic;
 
-    public class InfiniteGrid
+    public class RectangularInfinite2DGrid
     {
         private readonly List<Cell> _cells = new List<Cell>();
 
-        public IEnumerable<Cell> Cells { get { return _cells; } }
-
-        public void Add(params Cell[] cells)
+        public RectangularInfinite2DGrid(params Cell[] cells)
         {
             _cells.AddRange(cells);
         }
+
+        public IEnumerable<Cell> Cells { get { return _cells; } }
 
         public void Discover()
         {

@@ -53,8 +53,7 @@
         public void GivenCellAt0Dot0WhenGetNeighboursThenReturn8()
         {
             var cell = new Cell(0, 0);
-            var grid = new InfiniteGrid();
-            grid.Add(cell);
+            var grid = new RectangularInfinite2DGrid();
 
             var neighbours = grid.GetNeighbours(cell).Distinct().ToArray();
             
