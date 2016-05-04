@@ -55,6 +55,7 @@
     <Compile Include="GoLForm.Designer.cs">
       <DependentUpon>GoLForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GoLRunner.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GoLForm.resx">
