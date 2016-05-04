@@ -82,5 +82,18 @@
             Check.That(cell.NextState).IsEqualTo(CellState.Unknown);
             Check.That(cell.State).IsEqualTo(CellState.Alive);
         }
+
+        [TestMethod]
+        public void WhenNextStateIsUnknownThenDontCompleteMutation()
+        {
+            var cell = new Cell(0, 0, CellState.Alive);
+            cell.ComputeMutation(0);
+            cell.CompleteMutation();
+            Check.That(cell.State).IsEqualTo(CellState.Dead);
+
+            cell.CompleteMutation();
+            
+            Check.That(cell.State).IsEqualTo(CellState.Dead);
+        }
     }
 }

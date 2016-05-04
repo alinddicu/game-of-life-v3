@@ -74,8 +74,11 @@
 
         public void CompleteMutation()
         {
-            State = NextState;
-            NextState = CellState.Unknown;
+            if (NextState != CellState.Unknown)
+            {
+                State = NextState;
+                NextState = CellState.Unknown;
+            }
         }
     }
 }
