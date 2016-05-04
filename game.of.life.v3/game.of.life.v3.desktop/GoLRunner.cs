@@ -18,16 +18,12 @@
             _buttonsNumber = buttonsNumber;
         }
 
-        private int ButtonGap { get { return _buttonsNumber + 1; } }
-
         public void InitCellButtons()
         {
             _buttons.Clear();
 
             var side = new[] { _cellsPanel.Width, _cellsPanel.Height }.Min();
             var buttonWidth = side /_buttonsNumber;
-            var horizontalButtonsCount = _cellsPanel.Width / ButtonGap;
-            var verticalButtonsCount = _cellsPanel.Height / ButtonGap;
             for (var hCounter = 0; hCounter < _buttonsNumber; hCounter++)
             {
                 for (var vCounter = 0; vCounter < _buttonsNumber; vCounter++)
