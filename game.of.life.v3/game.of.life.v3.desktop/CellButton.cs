@@ -30,7 +30,7 @@
 
         public Cell Cell { get; private set; }
 
-        public void RefreshCell(IGrid grid)
+        public void RefreshCell(RectangularInfinite2DGrid grid)
         {
             Cell = grid.Get(Cell.X, Cell.Y);
             RefreshBackColor();

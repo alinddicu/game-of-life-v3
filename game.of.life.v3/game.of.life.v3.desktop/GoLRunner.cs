@@ -9,7 +9,7 @@
         private readonly Panel _cellsPanel;
         private readonly int _buttonWidth;
         private readonly List<CellButton> _buttons = new List<CellButton>();
-        private readonly IGrid _grid = new RectangularInfinite2DGrid();
+        private readonly RectangularInfinite2DGrid _grid = new RectangularInfinite2DGrid();
         private Cycle _cycle;
 
         public GoLRunner(Panel cellsPanel, int buttonWidth)
@@ -23,11 +23,9 @@
         public void InitCellButtons()
         {
             _buttons.Clear();
-            var panelWidth = _cellsPanel.Width;
-            var panelHeight = _cellsPanel.Height;
 
-            var horizontalButtonsCount = panelWidth / ButtonGap;
-            var verticalButtonsCount = panelHeight / ButtonGap;
+            var horizontalButtonsCount = _cellsPanel.Width / ButtonGap;
+            var verticalButtonsCount = _cellsPanel.Height / ButtonGap;
             for (var hCounter = 0; hCounter < horizontalButtonsCount; hCounter++)
             {
                 for (var vCounter = 0; vCounter < verticalButtonsCount; vCounter++)

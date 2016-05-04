@@ -7,9 +7,7 @@
         IEnumerable<Cell> Cells { get; }
 
         void AddCells(params Cell[] cells);
-
-        Cell Get(int x, int y);
-
+        
         void Discover();
 
         IEnumerable<Cell> GetNeighbours(Cell cell);
