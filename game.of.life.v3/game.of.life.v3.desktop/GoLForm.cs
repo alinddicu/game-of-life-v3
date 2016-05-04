@@ -74,6 +74,7 @@
             InitCellButtons();
             _grid.Reset();
             _cellsPanel.Enabled = true;
+            _cycle = null;
         }
     }
 }
