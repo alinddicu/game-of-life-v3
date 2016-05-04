@@ -99,5 +99,16 @@
 
             Check.That(grid.Cells).HasSize(0);
         }
+
+        [TestMethod]
+        public void GivenGridWithSomeCellsWhenResetThenCellsAreEmptied()
+        {
+            var initialCells = new[] { new Cell(0, 0, CellState.Alive), new Cell(1, 0), new Cell(0, 1, CellState.Unknown) };
+            var grid = new RectangularInfinite2DGrid(initialCells);
+
+            grid.Reset();
+
+            Check.That(grid.Cells).IsEmpty();
+        }
     }
 }

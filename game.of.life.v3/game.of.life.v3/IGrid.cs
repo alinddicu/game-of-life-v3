@@ -6,10 +6,14 @@
     {
         IEnumerable<Cell> Cells { get; }
 
+        Cell Get(int x, int y);
+
         void Discover();
 
         IEnumerable<Cell> GetNeighbours(Cell cell);
 
         void Clean();
+
+        void Reset();
     }
 }

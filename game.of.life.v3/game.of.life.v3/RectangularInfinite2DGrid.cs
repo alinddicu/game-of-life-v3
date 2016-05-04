@@ -51,5 +51,10 @@
 
             _cells.RemoveAll(c => isolatedCells.Contains(c));
         }
+
+        public void Reset()
+        {
+            _cells.Clear();
+        }
     }
 }

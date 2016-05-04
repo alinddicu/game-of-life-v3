@@ -58,7 +58,7 @@
 
         private void cycleButton_Click(object sender, System.EventArgs e)
         {
-            if (_grid == null && _cycle == null)
+            if (_cycle == null)
             {
                 _grid = new RectangularInfinite2DGrid(_buttons.Select(b => b.Cell).Where(c => c.IsAlive).ToArray());
                 _cycle = new Cycle(_grid);
@@ -72,8 +72,7 @@
         private void resetButton_Click(object sender, System.EventArgs e)
         {
             InitCellButtons();
-            _cycle = null;
-            _grid = null;
+            _grid.Reset();
             _cellsPanel.Enabled = true;
         }
     }

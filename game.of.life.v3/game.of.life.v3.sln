@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "game.of.life.v3.test", "gam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "game.of.life.v3.desktop", "game.of.life.v3.desktop\game.of.life.v3.desktop.csproj", "{9E007BC4-8073-41F6-87F6-EB2C5185BD01}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "game.of.life.v3.desktop.test", "game.of.life.v3.desktop.test\game.of.life.v3.desktop.test.csproj", "{C11F685D-3298-4063-92F4-1177470C870C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{9E007BC4-8073-41F6-87F6-EB2C5185BD01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E007BC4-8073-41F6-87F6-EB2C5185BD01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E007BC4-8073-41F6-87F6-EB2C5185BD01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C11F685D-3298-4063-92F4-1177470C870C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C11F685D-3298-4063-92F4-1177470C870C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C11F685D-3298-4063-92F4-1177470C870C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C11F685D-3298-4063-92F4-1177470C870C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
