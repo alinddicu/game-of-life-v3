@@ -1,5 +1,6 @@
 ﻿namespace game.of.life.v3.desktop
 {
+    using System;
     using System.Windows.Forms;
 
     public partial class GoLForm : Form
@@ -17,17 +18,24 @@
 
         private void GoLForm_Load(object sender, System.EventArgs e)
         {
-            _goLRunner.InitCellButtons();
+            Wait(_goLRunner.InitCellButtons);
         }
 
         private void cycleButton_Click(object sender, System.EventArgs e)
         {
-            _goLRunner.Cycle();
+            Wait(_goLRunner.Cycle);
         }
 
         private void resetButton_Click(object sender, System.EventArgs e)
         {
-            _goLRunner.Reset();
+            Wait(_goLRunner.Reset);
+        }
+
+        private void Wait(Action action)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            action();
+            Cursor.Current = Cursors.Default;
         }
     }
 }

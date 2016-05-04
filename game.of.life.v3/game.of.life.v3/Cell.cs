@@ -18,13 +18,7 @@
 
         public int Y { get; private set; }
 
-        public bool IsAlive
-        {
-            get
-            {
-                return State == CellState.Alive;
-            }
-        }
+        public bool IsAlive { get { return State == CellState.Alive; } }
 
         public void ComputeMutation(int aliveNeighboursCount)
         {
@@ -52,9 +46,15 @@
 
         public override bool Equals(object obj)
         {
-            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(null, obj))
+            {
+                return false;
+            }
 
-            if (ReferenceEquals(this, obj)) return true;
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
 
             return obj.GetType() == GetType() && Equals((Cell)obj);
         }
@@ -69,7 +69,7 @@
 
         public override string ToString()
         {
-            return "(" + X + "," + Y + ") : " + State;
+            return $"({X},{Y})";
         }
 
         public void CompleteMutation()
