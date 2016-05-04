@@ -15,6 +15,8 @@
             Click += CellButtonClick;
         }
 
+        public Cell Cell { get; private set; }
+
         private void CellButtonClick(object sender, System.EventArgs e)
         {
             Cell = Cell.IsAlive 
@@ -27,8 +29,6 @@
         {
             BackColor = Cell.IsAlive ? Color.Cyan : BackColorDefault;
         }
-
-        public Cell Cell { get; private set; }
 
         public void RefreshCell(RectangularInfinite2DGrid grid)
         {
