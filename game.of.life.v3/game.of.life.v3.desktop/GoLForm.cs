@@ -5,7 +5,7 @@
 
     public partial class GoLForm : Form
     {
-        private const int ButtonWidth = 60;
+        private const int ButtonWidth = 20;
 
         private readonly GoLRunner _goLRunner;
 
@@ -16,17 +16,17 @@
             _goLRunner = new GoLRunner(_cellsPanel, ButtonWidth);
         }
 
-        private void GoLForm_Load(object sender, System.EventArgs e)
+        private void GoLForm_Load(object sender, EventArgs e)
         {
             Wait(_goLRunner.InitCellButtons);
         }
 
-        private void cycleButton_Click(object sender, System.EventArgs e)
+        private void cycleButton_Click(object sender, EventArgs e)
         {
             Wait(_goLRunner.Cycle);
         }
 
-        private void resetButton_Click(object sender, System.EventArgs e)
+        private void resetButton_Click(object sender, EventArgs e)
         {
             Wait(_goLRunner.Reset);
         }

@@ -7,30 +7,32 @@
     public class GoLRunner
     {
         private readonly Panel _cellsPanel;
-        private readonly int _buttonWidth;
+        private readonly int _buttonsNumber;
         private readonly List<CellButton> _buttons = new List<CellButton>();
         private readonly RectangularInfinite2DGrid _grid = new RectangularInfinite2DGrid();
         private Cycle _cycle;
 
-        public GoLRunner(Panel cellsPanel, int buttonWidth)
+        public GoLRunner(Panel cellsPanel, int buttonsNumber)
         {
             _cellsPanel = cellsPanel;
-            _buttonWidth = buttonWidth;
+            _buttonsNumber = buttonsNumber;
         }
 
-        private int ButtonGap { get { return _buttonWidth + 1; } }
+        private int ButtonGap { get { return _buttonsNumber + 1; } }
 
         public void InitCellButtons()
         {
             _buttons.Clear();
 
+            var side = new[] { _cellsPanel.Width, _cellsPanel.Height }.Min();
+            var buttonWidth = side /_buttonsNumber;
             var horizontalButtonsCount = _cellsPanel.Width / ButtonGap;
             var verticalButtonsCount = _cellsPanel.Height / ButtonGap;
-            for (var hCounter = 0; hCounter < horizontalButtonsCount; hCounter++)
+            for (var hCounter = 0; hCounter < _buttonsNumber; hCounter++)
             {
-                for (var vCounter = 0; vCounter < verticalButtonsCount; vCounter++)
+                for (var vCounter = 0; vCounter < _buttonsNumber; vCounter++)
                 {
-                    var cellButton = CreateCellButton(vCounter, hCounter);
+                    var cellButton = CreateCellButton(vCounter, hCounter, buttonWidth);
                     _buttons.Add(cellButton);
                 }
             }
@@ -39,13 +41,13 @@
             _cellsPanel.Controls.AddRange(_buttons.ToArray());
         }
 
-        private CellButton CreateCellButton(int vCounter, int hCounter)
+        private CellButton CreateCellButton(int vCounter, int hCounter, int buttonWidth)
         {
-            return new CellButton(vCounter, hCounter, ButtonGap * vCounter, ButtonGap * hCounter)
+            return new CellButton(vCounter, hCounter, buttonWidth * vCounter, buttonWidth * hCounter)
             {
-                Width = _buttonWidth,
-                Height = _buttonWidth,
-                Text = $"({vCounter},{hCounter})",
+                Width = buttonWidth,
+                Height = buttonWidth,
+                //Text = $"({vCounter},{hCounter})",
                 BackColor = CellButton.BackColorDefault
             };
         }
