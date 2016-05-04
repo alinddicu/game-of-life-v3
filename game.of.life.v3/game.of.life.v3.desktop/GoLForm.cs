@@ -10,7 +10,7 @@
         private const int ButtonGap = ButtonWidth + 1;
 
         private readonly List<CellButton> _buttons = new List<CellButton>();
-        private RectangularInfinite2DGrid _grid;
+        private IGrid _grid;
         private Cycle _cycle;
 
         public GoLForm()

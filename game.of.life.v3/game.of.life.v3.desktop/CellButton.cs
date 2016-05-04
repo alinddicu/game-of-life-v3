@@ -1,7 +1,6 @@
 ﻿namespace game.of.life.v3.desktop
 {
     using System.Drawing;
-    using System.Linq;
     using System.Windows.Forms;
 
     public class CellButton : Button
@@ -31,7 +30,7 @@
 
         public Cell Cell { get; private set; }
 
-        public void RefreshCell(RectangularInfinite2DGrid grid)
+        public void RefreshCell(IGrid grid)
         {
             Cell = grid.Get(Cell.X, Cell.Y);
             RefreshBackColor();
