@@ -6,13 +6,13 @@
     public class RectangularInfinite2DGrid : IGrid
     {
         private readonly List<Cell> _cells = new List<Cell>();
+        
+        public IEnumerable<Cell> Cells { get { return _cells; } }
 
-        public RectangularInfinite2DGrid(params Cell[] cells)
+        public void AddCells(params Cell[] cells)
         {
             _cells.AddRange(cells);
         }
-
-        public IEnumerable<Cell> Cells { get { return _cells; } }
 
         public void Discover()
         {

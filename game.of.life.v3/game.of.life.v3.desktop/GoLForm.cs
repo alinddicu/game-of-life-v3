@@ -10,7 +10,7 @@
         private const int ButtonGap = ButtonWidth + 1;
 
         private readonly List<CellButton> _buttons = new List<CellButton>();
-        private IGrid _grid;
+        private readonly IGrid _grid = new RectangularInfinite2DGrid();
         private Cycle _cycle;
 
         public GoLForm()
@@ -60,7 +60,7 @@
         {
             if (_cycle == null)
             {
-                _grid = new RectangularInfinite2DGrid(_buttons.Select(b => b.Cell).Where(c => c.IsAlive).ToArray());
+                _grid.AddCells(_buttons.Select(b => b.Cell).Where(c => c.IsAlive).ToArray());
                 _cycle = new Cycle(_grid);
                 _cellsPanel.Enabled = false;
             }
