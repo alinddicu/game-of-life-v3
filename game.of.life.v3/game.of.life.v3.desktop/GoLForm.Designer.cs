@@ -39,7 +39,7 @@
             // _cellsPanel
             // 
             this._cellsPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this._cellsPanel.Location = new System.Drawing.Point(0, 28);
+            this._cellsPanel.Location = new System.Drawing.Point(0, 16);
             this._cellsPanel.Name = "_cellsPanel";
             this._cellsPanel.Size = new System.Drawing.Size(784, 734);
             this._cellsPanel.TabIndex = 0;
@@ -62,7 +62,7 @@
             this.cycleButton.Image = ((System.Drawing.Image)(resources.GetObject("cycleButton.Image")));
             this.cycleButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.cycleButton.Name = "cycleButton";
-            this.cycleButton.Size = new System.Drawing.Size(40, 22);
+            this.cycleButton.Size = new System.Drawing.Size(32, 22);
             this.cycleButton.Text = "Run";
             this.cycleButton.Click += new System.EventHandler(this.cycleButton_Click);
             // 
@@ -80,7 +80,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 762);
+            this.ClientSize = new System.Drawing.Size(784, 750);
             this.Controls.Add(this.topToolStrip);
             this.Controls.Add(this._cellsPanel);
             this.Name = "GoLForm";

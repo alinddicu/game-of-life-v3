@@ -31,10 +31,10 @@
             Wait(_goLRunner.Reset);
         }
 
-        private void Wait(Action action)
+        private static void Wait(Action userAction)
         {
             Cursor.Current = Cursors.WaitCursor;
-            action();
+            userAction();
             Cursor.Current = Cursors.Default;
         }
     }
