@@ -35,7 +35,7 @@
             Check.That(control.Left).IsEqualTo(left);
             Check.That(control.Top).IsEqualTo(top);
             Check.That(control.Text).IsEqualTo(text);
-            Check.That(control.BackColor).IsEqualTo(Color.DarkGray);
+            Check.That(control.BackColor).IsEqualTo(Control.DefaultBackColor);
         }
 
         [TestMethod]
@@ -52,8 +52,12 @@
             Check.That(buttonAt11.BackColor).IsEqualTo(Color.Cyan);
             runner.Cycle();
 
-            Check.That(buttonAt11.BackColor).IsEqualTo(Color.DarkGray);
-            Check.That(panel.Controls.OfType<CellButton>().Select(b => b.BackColor).Distinct().Single()).IsEqualTo(Color.DarkGray);
+            Check.That(buttonAt11.BackColor).IsEqualTo(Control.DefaultBackColor);
+            Check.That(
+                panel
+                .Controls
+                .OfType<CellButton>().Select(b => b.BackColor).Distinct().Single())
+                .IsEqualTo(Control.DefaultBackColor);
         }
 
         private static CellButton ClickButton(Control panel, int x, int y)
@@ -87,8 +91,12 @@
 
             runner.Cycle();
             runner.Reset();
-            
-            Check.That(panel.Controls.OfType<CellButton>().Select(b => b.BackColor).Distinct().Single()).IsEqualTo(Color.DarkGray);
+
+            Check.That(
+                panel
+                .Controls
+                .OfType<CellButton>().Select(b => b.BackColor).Distinct().Single())
+                .IsEqualTo(Control.DefaultBackColor);
         }
     }
 }

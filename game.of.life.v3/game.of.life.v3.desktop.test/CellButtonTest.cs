@@ -30,7 +30,7 @@
 
             button.PerformClick();
             Check.That(button.Cell.State).IsEqualTo(CellState.Dead);
-            Check.That(button.BackColor).IsEqualTo(CellButton.BackColorDefault);
+            Check.That(button.BackColor).IsEqualTo(CellButton.DefaultBackColor);
         }
     }
 }

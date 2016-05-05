@@ -5,8 +5,6 @@
 
     public class CellButton : Button
     {
-        public static Color BackColorDefault = Color.DarkGray;
-
         public CellButton(int x, int y, int left, int top)
         {
             Cell = new Cell(x, y);
@@ -27,7 +25,7 @@
 
         private void RefreshBackColor()
         {
-            BackColor = Cell.IsAlive ? Color.Cyan : BackColorDefault;
+            BackColor = Cell.IsAlive ? Color.Cyan : DefaultBackColor;
         }
 
         public void RefreshCell(RectangularInfinite2DGrid grid)
