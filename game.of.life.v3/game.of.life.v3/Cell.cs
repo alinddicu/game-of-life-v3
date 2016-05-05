@@ -69,7 +69,7 @@
 
         public override string ToString()
         {
-            return $"({X},{Y})";
+            return string.Format("({0},{1})", X, Y);
         }
 
         public void CompleteMutation()

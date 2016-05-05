@@ -5,7 +5,7 @@
 
     public partial class GoLForm : Form
     {
-        private const int ButtonWidth = 20;
+        private const int ButtonsNumber = 15;
 
         private readonly GoLRunner _goLRunner;
 
@@ -13,7 +13,7 @@
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
-            _goLRunner = new GoLRunner(_cellsPanel, ButtonWidth);
+            _goLRunner = new GoLRunner(_cellsPanel, ButtonsNumber);
         }
 
         private void GoLForm_Load(object sender, EventArgs e)

@@ -43,7 +43,7 @@
             {
                 Width = buttonWidth,
                 Height = buttonWidth,
-                //Text = $"({vCounter},{hCounter})",
+                Text = string.Format("({0},{1})", vCounter, hCounter),
                 BackColor = CellButton.BackColorDefault
             };
         }
