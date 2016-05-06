@@ -5,8 +5,6 @@
 
     public partial class GoLForm : Form
     {
-        private const int ButtonsNumber = 15;
-
         private readonly GoLRunner _goLRunner;
         private readonly GoLOptions _goLOptions = new GoLOptions();
         private OptionsForm _optionsForm;

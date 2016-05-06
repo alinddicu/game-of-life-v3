@@ -19,15 +19,15 @@
         public void InitCellButtons(GoLOptions goLOptions)
         {
             _buttons.Clear();
-            var buttonsNumber = goLOptions.CellButtonsNumber;
+            var numberOfCellsPerRow = goLOptions.NumberOfCellsPerRow;
 
             var side = new[] { _cellsPanel.Width, _cellsPanel.Height }.Min();
-            var buttonWidth = side / buttonsNumber;
-            for (var hCounter = 0; hCounter < buttonsNumber; hCounter++)
+            var buttonWidth = side / numberOfCellsPerRow;
+            for (var hCounter = 0; hCounter < numberOfCellsPerRow; hCounter++)
             {
-                for (var vCounter = 0; vCounter < buttonsNumber; vCounter++)
+                for (var vCounter = 0; vCounter < numberOfCellsPerRow; vCounter++)
                 {
-                    var cellButton = CreateCellButton(vCounter, hCounter, buttonWidth, goLOptions.IsShowCellsButtonsText);
+                    var cellButton = CreateCellButton(vCounter, hCounter, buttonWidth, goLOptions.IsShowCellsCoordinates);
                     _buttons.Add(cellButton);
                 }
             }
@@ -37,13 +37,13 @@
             _cellsPanel.Controls.AddRange(_buttons.ToArray());
         }
 
-        private static CellButton CreateCellButton(int vCounter, int hCounter, int buttonWidth, bool isShowCellsButtonsText)
+        private static CellButton CreateCellButton(int vCounter, int hCounter, int buttonWidth, bool isShowCellsCoordinates)
         {
             return new CellButton(vCounter, hCounter, buttonWidth * vCounter, buttonWidth * hCounter)
             {
                 Width = buttonWidth,
                 Height = buttonWidth,
-                Text = isShowCellsButtonsText ? string.Format("({0},{1})", vCounter, hCounter) : string.Empty,
+                Text = isShowCellsCoordinates ? string.Format("({0},{1})", vCounter, hCounter) : string.Empty,
                 BackColor = Control.DefaultBackColor
             };
         }

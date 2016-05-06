@@ -55,15 +55,16 @@
             // 
             // numberOfCellsPerRowDropDown
             // 
+            this.numberOfCellsPerRowDropDown.DropDownWidth = 40;
             this.numberOfCellsPerRowDropDown.FormattingEnabled = true;
             this.numberOfCellsPerRowDropDown.Items.AddRange(new object[] {
             "5",
             "10",
             "15",
             "20",
-            "50",
-            "75",
-            "100"});
+            "40",
+            "30",
+            "50"});
             this.numberOfCellsPerRowDropDown.Location = new System.Drawing.Point(137, 34);
             this.numberOfCellsPerRowDropDown.Name = "numberOfCellsPerRowDropDown";
             this.numberOfCellsPerRowDropDown.Size = new System.Drawing.Size(50, 21);

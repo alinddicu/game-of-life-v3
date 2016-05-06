@@ -18,7 +18,7 @@
                 numberOfCellsPerRowDropDown
                 .Items
                 .Cast<string>()
-                .Single(i => i == GoLOptions.CellButtonsNumberDefault.ToString());
+                .Single(i => i == GoLOptions.NumberOfCellsPerRowDefault.ToString());
             _onClose = onClose;
         }
 

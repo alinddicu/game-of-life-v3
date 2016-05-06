@@ -2,22 +2,22 @@
 {
     public class GoLOptions
     {
-        public const int CellButtonsNumberDefault = 15;
+        public const int NumberOfCellsPerRowDefault = 15;
 
         public GoLOptions()
         {
-            IsShowCellsButtonsText = false;
-            CellButtonsNumber = CellButtonsNumberDefault;
+            IsShowCellsCoordinates = false;
+            NumberOfCellsPerRow = NumberOfCellsPerRowDefault;
         }
 
-        public bool IsShowCellsButtonsText { get; private set; }
+        public bool IsShowCellsCoordinates { get; private set; }
 
-        public int CellButtonsNumber { get; private set; }
+        public int NumberOfCellsPerRow { get; private set; }
 
-        public GoLOptions WithProperties(bool isShowCellsButtonsText, int cellButtonsNumber)
+        public GoLOptions WithProperties(bool isShowCellsCoordinates, int numberOfCellsPerRow)
         {
-            IsShowCellsButtonsText = isShowCellsButtonsText;
-            CellButtonsNumber = cellButtonsNumber;
+            IsShowCellsCoordinates = isShowCellsCoordinates;
+            NumberOfCellsPerRow = numberOfCellsPerRow;
 
             return this;
         }
