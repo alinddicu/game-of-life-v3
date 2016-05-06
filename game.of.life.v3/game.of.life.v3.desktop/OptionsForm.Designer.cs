@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.isShowCellsCoordinatesCheckBox = new System.Windows.Forms.CheckBox();
             this.numberOfCellsPerRowLabel = new System.Windows.Forms.Label();
             this.numberOfCellsPerRowDropDown = new System.Windows.Forms.ComboBox();
             this.okButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // checkBox1
+            // isShowCellsCoordinatesCheckBox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(13, 13);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(130, 17);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Show cell coordinates";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.isShowCellsCoordinatesCheckBox.AutoSize = true;
+            this.isShowCellsCoordinatesCheckBox.Location = new System.Drawing.Point(13, 13);
+            this.isShowCellsCoordinatesCheckBox.Name = "isShowCellsCoordinatesCheckBox";
+            this.isShowCellsCoordinatesCheckBox.Size = new System.Drawing.Size(130, 17);
+            this.isShowCellsCoordinatesCheckBox.TabIndex = 0;
+            this.isShowCellsCoordinatesCheckBox.Text = "Show cell coordinates";
+            this.isShowCellsCoordinatesCheckBox.UseVisualStyleBackColor = true;
             // 
             // numberOfCellsPerRowLabel
             // 
@@ -88,7 +88,7 @@
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.numberOfCellsPerRowDropDown);
             this.Controls.Add(this.numberOfCellsPerRowLabel);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.isShowCellsCoordinatesCheckBox);
             this.Name = "OptionsForm";
             this.Text = "Options";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OptionsForm_FormClosed);
@@ -99,7 +99,7 @@
 
         #endregion
 
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox isShowCellsCoordinatesCheckBox;
         private System.Windows.Forms.Label numberOfCellsPerRowLabel;
         private System.Windows.Forms.ComboBox numberOfCellsPerRowDropDown;
         private System.Windows.Forms.Button okButton;

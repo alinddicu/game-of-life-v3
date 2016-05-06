@@ -26,7 +26,7 @@
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            GoLOptions.WithProperties(checkBox1.Checked, int.Parse(numberOfCellsPerRowDropDown.SelectedItem.ToString()));
+            GoLOptions.WithProperties(isShowCellsCoordinatesCheckBox.Checked, int.Parse(numberOfCellsPerRowDropDown.SelectedItem.ToString()));
             Close();
         }
 
