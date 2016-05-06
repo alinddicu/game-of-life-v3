@@ -40,10 +40,9 @@
             // 
             // _cellsPanel
             // 
-            this._cellsPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this._cellsPanel.Location = new System.Drawing.Point(0, 16);
+            this._cellsPanel.Location = new System.Drawing.Point(0, 28);
             this._cellsPanel.Name = "_cellsPanel";
-            this._cellsPanel.Size = new System.Drawing.Size(784, 734);
+            this._cellsPanel.Size = new System.Drawing.Size(631, 638);
             this._cellsPanel.TabIndex = 0;
             // 
             // topToolStrip
@@ -54,7 +53,7 @@
             this.optionsDownButton});
             this.topToolStrip.Location = new System.Drawing.Point(0, 0);
             this.topToolStrip.Name = "topToolStrip";
-            this.topToolStrip.Size = new System.Drawing.Size(784, 25);
+            this.topToolStrip.Size = new System.Drawing.Size(634, 25);
             this.topToolStrip.Stretch = true;
             this.topToolStrip.TabIndex = 0;
             this.topToolStrip.Text = "topToolStrip";
@@ -93,7 +92,7 @@
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.optionsToolStripMenuItem.Text = "GoL options";
             this.optionsToolStripMenuItem.Click += new System.EventHandler(this.golOptions_Click);
             // 
@@ -101,7 +100,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 750);
+            this.ClientSize = new System.Drawing.Size(634, 662);
             this.Controls.Add(this.topToolStrip);
             this.Controls.Add(this._cellsPanel);
             this.Name = "GoLForm";
