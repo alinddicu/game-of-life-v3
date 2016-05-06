@@ -12,16 +12,8 @@
         public GoLForm()
         {
             InitializeComponent();
-            SeFormProperties();
+            GoLOptions.SeFormProperties(this);
             _goLRunner = new GoLRunner(_cellsPanel, ButtonsNumber);
-        }
-
-        private void SeFormProperties()
-        {
-            StartPosition = FormStartPosition.CenterScreen;
-            FormBorderStyle = FormBorderStyle.FixedDialog;
-            MaximizeBox = false;
-            MinimizeBox = false;
         }
 
         private void GoLForm_Load(object sender, EventArgs e)
