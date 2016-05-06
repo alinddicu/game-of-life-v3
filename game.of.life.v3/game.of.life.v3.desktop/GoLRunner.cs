@@ -43,9 +43,14 @@
             {
                 Width = buttonWidth,
                 Height = buttonWidth,
-                Text = isShowCellsCoordinates ? string.Format("({0},{1})", vCounter, hCounter) : string.Empty,
+                Text = GetCellText(vCounter, hCounter, isShowCellsCoordinates),
                 BackColor = Control.DefaultBackColor
             };
+        }
+
+        private static string GetCellText(int vCounter, int hCounter, bool isShowCellsCoordinates)
+        {
+            return isShowCellsCoordinates ? string.Format("({0},{1})", vCounter, hCounter) : string.Empty;
         }
 
         public void Cycle()
