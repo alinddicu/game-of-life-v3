@@ -12,7 +12,7 @@
         public GoLForm()
         {
             InitializeComponent();
-            GoLOptions.SeFormProperties(this);
+            this.SeFormProperties();
             _goLRunner = new GoLRunner(_cellsPanel, ButtonsNumber);
         }
 
