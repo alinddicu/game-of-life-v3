@@ -34,6 +34,7 @@
             }
 
             _cellsPanel.Controls.Clear();
+            // ReSharper disable once CoVariantArrayConversion
             _cellsPanel.Controls.AddRange(_buttons.ToArray());
         }
 
@@ -44,7 +45,7 @@
                 Width = buttonWidth,
                 Height = buttonWidth,
                 Text = string.Format("({0},{1})", vCounter, hCounter),
-                BackColor = CellButton.DefaultBackColor
+                BackColor = Control.DefaultBackColor
             };
         }
 

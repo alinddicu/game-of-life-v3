@@ -1,6 +1,5 @@
 ﻿namespace game.of.life.v3.desktop
 {
-    using System.Windows.Forms;
     public class GoLOptions
     {
         public GoLOptions(bool isShowCellsButtonsText, int cellButtonsNumber)
