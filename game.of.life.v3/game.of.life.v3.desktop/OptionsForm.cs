@@ -1,23 +1,38 @@
 ﻿namespace game.of.life.v3.desktop
 {
     using System;
+    using System.Linq;
     using System.Windows.Forms;
 
     public partial class OptionsForm : Form
     {
-        public OptionsForm(GoLOptions goLOptions)
+        private readonly Action _onClose;
+
+        public OptionsForm(GoLOptions goLOptions, Action onClose)
         {
+            _onClose = onClose;
             InitializeComponent();
             this.SeFormProperties();
             GoLOptions = goLOptions;
+            numberOfCellsPerRowDropDown.SelectedItem = 
+                numberOfCellsPerRowDropDown
+                .Items
+                .Cast<string>()
+                .Single(i => i == GoLOptions.CellButtonsNumberDefault.ToString());
+            _onClose = onClose;
         }
 
         public GoLOptions GoLOptions { get; private set; }
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            GoLOptions.WithProperties(checkBox1.Checked, (int)numberOfCellsPerRowDropDown.SelectedItem);
+            GoLOptions.WithProperties(checkBox1.Checked, int.Parse(numberOfCellsPerRowDropDown.SelectedItem.ToString()));
             Close();
+        }
+
+        private void OptionsForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _onClose();
         }
     }
 }

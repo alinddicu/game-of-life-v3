@@ -33,6 +33,8 @@
             this.topToolStrip = new System.Windows.Forms.ToolStrip();
             this.cycleButton = new System.Windows.Forms.ToolStripButton();
             this.resetButton = new System.Windows.Forms.ToolStripButton();
+            this.optionsDownButton = new System.Windows.Forms.ToolStripDropDownButton();
+            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.topToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,7 +50,8 @@
             // 
             this.topToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cycleButton,
-            this.resetButton});
+            this.resetButton,
+            this.optionsDownButton});
             this.topToolStrip.Location = new System.Drawing.Point(0, 0);
             this.topToolStrip.Name = "topToolStrip";
             this.topToolStrip.Size = new System.Drawing.Size(784, 25);
@@ -76,6 +79,24 @@
             this.resetButton.Text = "Reset";
             this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
+            // optionsDownButton
+            // 
+            this.optionsDownButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.optionsDownButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.optionsToolStripMenuItem});
+            this.optionsDownButton.Image = ((System.Drawing.Image)(resources.GetObject("optionsDownButton.Image")));
+            this.optionsDownButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.optionsDownButton.Name = "optionsDownButton";
+            this.optionsDownButton.Size = new System.Drawing.Size(62, 22);
+            this.optionsDownButton.Text = "Options";
+            // 
+            // optionsToolStripMenuItem
+            // 
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.optionsToolStripMenuItem.Text = "GoL options";
+            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.golOptions_Click);
+            // 
             // GoLForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -99,6 +120,8 @@
         private System.Windows.Forms.ToolStrip topToolStrip;
         private System.Windows.Forms.ToolStripButton cycleButton;
         private System.Windows.Forms.ToolStripButton resetButton;
+        private System.Windows.Forms.ToolStripDropDownButton optionsDownButton;
+        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
     }
 }
 

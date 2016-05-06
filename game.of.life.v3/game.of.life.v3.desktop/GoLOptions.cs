@@ -2,20 +2,24 @@
 {
     public class GoLOptions
     {
-        public GoLOptions(bool isShowCellsButtonsText, int cellButtonsNumber)
+        public const int CellButtonsNumberDefault = 15;
+
+        public GoLOptions()
         {
-            IsShowCellsButtonsText = isShowCellsButtonsText;
-            CellButtonsNumber = cellButtonsNumber;
+            IsShowCellsButtonsText = false;
+            CellButtonsNumber = CellButtonsNumberDefault;
         }
 
         public bool IsShowCellsButtonsText { get; private set; }
 
         public int CellButtonsNumber { get; private set; }
 
-        public void WithProperties(bool isShowCellsButtonsText, int cellButtonsNumber)
+        public GoLOptions WithProperties(bool isShowCellsButtonsText, int cellButtonsNumber)
         {
             IsShowCellsButtonsText = isShowCellsButtonsText;
             CellButtonsNumber = cellButtonsNumber;
+
+            return this;
         }
     }
 }

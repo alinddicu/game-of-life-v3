@@ -59,6 +59,7 @@
             this.numberOfCellsPerRowDropDown.Items.AddRange(new object[] {
             "5",
             "10",
+            "15",
             "20",
             "50",
             "75",
@@ -89,6 +90,7 @@
             this.Controls.Add(this.checkBox1);
             this.Name = "OptionsForm";
             this.Text = "Options";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OptionsForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

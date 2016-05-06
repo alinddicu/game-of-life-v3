@@ -17,8 +17,8 @@
             panel.Width = buttonWidth * 2;
             panel.Height = panel.Width;
 
-            var runner = new GoLRunner(panel, buttonWidth);
-            runner.InitCellButtons();
+            var runner = new GoLRunner(panel);
+            runner.InitCellButtons(new GoLOptions().WithProperties(true, 2));
 
             Check.That(panel.Controls).HasSize(4);
             Check.That(panel.Controls.OfType<CellButton>()).HasSize(4);
@@ -43,11 +43,11 @@
         {
             var panel = new Panel();
             const int buttonWidth = 20;
-            panel.Width = (buttonWidth + 1) * 3;
+            panel.Width = buttonWidth * 3;
             panel.Height = panel.Width;
 
-            var runner = new GoLRunner(panel, buttonWidth);
-            runner.InitCellButtons();
+            var runner = new GoLRunner(panel);
+            runner.InitCellButtons(new GoLOptions().WithProperties(false, 3));
             var buttonAt11 = ClickButton(panel, 1, 1);
             Check.That(buttonAt11.BackColor).IsEqualTo(Color.Cyan);
             runner.Cycle();
@@ -80,17 +80,18 @@
         {
             var panel = new Panel();
             const int buttonWidth = 20;
-            panel.Width = (buttonWidth + 1) * 4;
+            panel.Width = buttonWidth * 4;
             panel.Height = panel.Width;
 
-            var runner = new GoLRunner(panel, buttonWidth);
-            runner.InitCellButtons();
+            var runner = new GoLRunner(panel);
+            var golOp = new GoLOptions().WithProperties(false, 4);
+            runner.InitCellButtons(golOp);
             ClickButton(panel, 1, 1);
             ClickButton(panel, 2, 1);
             ClickButton(panel, 1, 2);
 
             runner.Cycle();
-            runner.Reset();
+            runner.Reset(golOp);
 
             Check.That(
                 panel
