@@ -26,7 +26,7 @@
 
             button.PerformClick();
             Check.That(button.Cell.State).IsEqualTo(CellState.Alive);
-            Check.That(button.BackColor).IsEqualTo(Color.Cyan);
+            Check.That(button.BackColor).IsEqualTo(Color.DeepPink);
 
             button.PerformClick();
             Check.That(button.Cell.State).IsEqualTo(CellState.Dead);

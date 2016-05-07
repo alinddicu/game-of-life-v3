@@ -49,7 +49,7 @@
             var runner = new GoLRunner(panel);
             runner.InitCellButtons(new GoLOptions().WithProperties(false, 3));
             var buttonAt11 = ClickButton(panel, 1, 1);
-            Check.That(buttonAt11.BackColor).IsEqualTo(Color.Cyan);
+            Check.That(buttonAt11.BackColor).IsEqualTo(Color.DeepPink);
             runner.Cycle();
 
             Check.That(buttonAt11.BackColor).IsEqualTo(Control.DefaultBackColor);

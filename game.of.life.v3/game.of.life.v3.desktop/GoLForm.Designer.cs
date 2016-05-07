@@ -34,7 +34,7 @@
             this.cycleButton = new System.Windows.Forms.ToolStripButton();
             this.resetButton = new System.Windows.Forms.ToolStripButton();
             this.optionsDownButton = new System.Windows.Forms.ToolStripDropDownButton();
-            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.goLOptionsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.topToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,19 +82,19 @@
             // 
             this.optionsDownButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.optionsDownButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.optionsToolStripMenuItem});
+            this.goLOptionsMenuItem});
             this.optionsDownButton.Image = ((System.Drawing.Image)(resources.GetObject("optionsDownButton.Image")));
             this.optionsDownButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.optionsDownButton.Name = "optionsDownButton";
             this.optionsDownButton.Size = new System.Drawing.Size(62, 22);
             this.optionsDownButton.Text = "Options";
             // 
-            // optionsToolStripMenuItem
+            // goLOptionsMenuItem
             // 
-            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.optionsToolStripMenuItem.Text = "GoL options";
-            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.golOptions_Click);
+            this.goLOptionsMenuItem.Name = "goLOptionsMenuItem";
+            this.goLOptionsMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.goLOptionsMenuItem.Text = "GoL options";
+            this.goLOptionsMenuItem.Click += new System.EventHandler(this.golOptions_Click);
             // 
             // GoLForm
             // 
@@ -120,7 +120,7 @@
         private System.Windows.Forms.ToolStripButton cycleButton;
         private System.Windows.Forms.ToolStripButton resetButton;
         private System.Windows.Forms.ToolStripDropDownButton optionsDownButton;
-        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem goLOptionsMenuItem;
     }
 }
 

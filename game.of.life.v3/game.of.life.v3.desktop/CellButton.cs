@@ -25,7 +25,7 @@
 
         private void RefreshBackColor()
         {
-            BackColor = Cell.IsAlive ? Color.Cyan : DefaultBackColor;
+            BackColor = Cell.IsAlive ? Color.DeepPink : DefaultBackColor;
         }
 
         public void RefreshCell(RectangularInfinite2DGrid grid)

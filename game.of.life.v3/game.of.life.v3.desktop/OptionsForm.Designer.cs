@@ -55,6 +55,7 @@
             // 
             // numberOfCellsPerRowDropDown
             // 
+            this.numberOfCellsPerRowDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.numberOfCellsPerRowDropDown.DropDownWidth = 40;
             this.numberOfCellsPerRowDropDown.FormattingEnabled = true;
             this.numberOfCellsPerRowDropDown.Items.AddRange(new object[] {
@@ -62,8 +63,8 @@
             "10",
             "15",
             "20",
-            "40",
             "30",
+            "40",
             "50"});
             this.numberOfCellsPerRowDropDown.Location = new System.Drawing.Point(137, 34);
             this.numberOfCellsPerRowDropDown.Name = "numberOfCellsPerRowDropDown";

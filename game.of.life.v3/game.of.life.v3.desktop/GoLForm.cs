@@ -24,11 +24,13 @@
         private void cycleButton_Click(object sender, EventArgs e)
         {
             Wait(_goLRunner.Cycle);
+            goLOptionsMenuItem.Enabled = false;
         }
 
         private void resetButton_Click(object sender, EventArgs e)
         {
             Wait(() => _goLRunner.Reset(_goLOptions));
+            goLOptionsMenuItem.Enabled = true;
         }
 
         private static void Wait(Action userAction)
