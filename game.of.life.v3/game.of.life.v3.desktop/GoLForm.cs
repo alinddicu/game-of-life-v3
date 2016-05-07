@@ -1,6 +1,7 @@
 ﻿namespace game.of.life.v3.desktop
 {
     using System;
+    using System.Threading;
     using System.Windows.Forms;
 
     public partial class GoLForm : Form
@@ -8,6 +9,7 @@
         private readonly GoLRunner _goLRunner;
         private readonly GoLOptions _goLOptions = new GoLOptions();
         private OptionsForm _optionsForm;
+        private bool _running;
 
         public GoLForm()
         {
@@ -23,14 +25,15 @@
 
         private void cycleButton_Click(object sender, EventArgs e)
         {
-            Wait(_goLRunner.Cycle);
             goLOptionsMenuItem.Enabled = false;
+            Wait(_goLRunner.Cycle);
         }
 
         private void resetButton_Click(object sender, EventArgs e)
         {
-            Wait(() => _goLRunner.Reset(_goLOptions));
             goLOptionsMenuItem.Enabled = true;
+            _running = false;
+            Wait(() => _goLRunner.Reset(_goLOptions));
         }
 
         private static void Wait(Action userAction)
@@ -53,6 +56,17 @@
         private void OnFormOptions_Close()
         {
             Wait(() => _goLRunner.InitCellButtons(_goLOptions));
+        }
+
+        private void runButton_Click(object sender, EventArgs e)
+        {
+            goLOptionsMenuItem.Enabled = false;
+            _running = true;
+            while (_running)
+            {
+                Wait(_goLRunner.Cycle); 
+                Thread.Sleep(1000);
+            }
         }
     }
 }
