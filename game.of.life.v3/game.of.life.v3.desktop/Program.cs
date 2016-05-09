@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace game.of.life.v3.desktop
+﻿namespace game.of.life.v3.desktop
 {
+    using System;
+    using System.Windows.Forms;
+
     static class Program
     {
         /// <summary>

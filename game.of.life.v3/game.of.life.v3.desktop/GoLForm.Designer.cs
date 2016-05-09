@@ -32,13 +32,11 @@
             this._cellsPanel = new System.Windows.Forms.Panel();
             this.topToolStrip = new System.Windows.Forms.ToolStrip();
             this.cycleButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.resetButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.optionsDownButton = new System.Windows.Forms.ToolStripDropDownButton();
             this.goLOptionsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.runButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.topToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,8 +52,6 @@
             this.topToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cycleButton,
             this.toolStripSeparator1,
-            this.runButton,
-            this.toolStripSeparator2,
             this.resetButton,
             this.toolStripSeparator3,
             this.optionsDownButton});
@@ -76,6 +72,11 @@
             this.cycleButton.Text = "Cycle";
             this.cycleButton.Click += new System.EventHandler(this.cycleButton_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
             // resetButton
             // 
             this.resetButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -85,6 +86,11 @@
             this.resetButton.Size = new System.Drawing.Size(39, 22);
             this.resetButton.Text = "Reset";
             this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
             // optionsDownButton
             // 
@@ -100,34 +106,9 @@
             // goLOptionsMenuItem
             // 
             this.goLOptionsMenuItem.Name = "goLOptionsMenuItem";
-            this.goLOptionsMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.goLOptionsMenuItem.Size = new System.Drawing.Size(138, 22);
             this.goLOptionsMenuItem.Text = "GoL options";
             this.goLOptionsMenuItem.Click += new System.EventHandler(this.golOptions_Click);
-            // 
-            // runButton
-            // 
-            this.runButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.runButton.Image = ((System.Drawing.Image)(resources.GetObject("runButton.Image")));
-            this.runButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.runButton.Name = "runButton";
-            this.runButton.Size = new System.Drawing.Size(32, 22);
-            this.runButton.Text = "Run";
-            this.runButton.Click += new System.EventHandler(this.runButton_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
             // GoLForm
             // 
@@ -155,8 +136,6 @@
         private System.Windows.Forms.ToolStripDropDownButton optionsDownButton;
         private System.Windows.Forms.ToolStripMenuItem goLOptionsMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton runButton;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     }
 }
