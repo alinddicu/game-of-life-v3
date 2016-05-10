@@ -50,7 +50,7 @@
             runner.InitCellButtons(new GoLOptions().WithProperties(false, 3));
             var buttonAt11 = ClickButton(panel, 1, 1);
             Check.That(buttonAt11.BackColor).IsEqualTo(Color.DeepPink);
-            runner.Cycle();
+            runner.NextCycle();
 
             Check.That(buttonAt11.BackColor).IsEqualTo(Control.DefaultBackColor);
             Check.That(
@@ -90,7 +90,7 @@
             ClickButton(panel, 2, 1);
             ClickButton(panel, 1, 2);
 
-            runner.Cycle();
+            runner.NextCycle();
             runner.Reset(golOp);
 
             Check.That(

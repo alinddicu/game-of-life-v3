@@ -53,7 +53,7 @@
             return isShowCellsCoordinates ? string.Format("({0},{1})", vCounter, hCounter) : string.Empty;
         }
 
-        public void Cycle()
+        public void NextCycle()
         {
             if (_cycle == null)
             {

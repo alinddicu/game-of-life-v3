@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GoLForm));
             this._cellsPanel = new System.Windows.Forms.Panel();
             this.topToolStrip = new System.Windows.Forms.ToolStrip();
-            this.cycleButton = new System.Windows.Forms.ToolStripButton();
+            this.nextCycleButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.resetButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -50,7 +50,7 @@
             // topToolStrip
             // 
             this.topToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cycleButton,
+            this.nextCycleButton,
             this.toolStripSeparator1,
             this.resetButton,
             this.toolStripSeparator3,
@@ -62,15 +62,15 @@
             this.topToolStrip.TabIndex = 0;
             this.topToolStrip.Text = "topToolStrip";
             // 
-            // cycleButton
+            // nextCycleButton
             // 
-            this.cycleButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.cycleButton.Image = ((System.Drawing.Image)(resources.GetObject("cycleButton.Image")));
-            this.cycleButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.cycleButton.Name = "cycleButton";
-            this.cycleButton.Size = new System.Drawing.Size(40, 22);
-            this.cycleButton.Text = "Cycle";
-            this.cycleButton.Click += new System.EventHandler(this.cycleButton_Click);
+            this.nextCycleButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.nextCycleButton.Image = ((System.Drawing.Image)(resources.GetObject("nextCycleButton.Image")));
+            this.nextCycleButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.nextCycleButton.Name = "nextCycleButton";
+            this.nextCycleButton.Size = new System.Drawing.Size(65, 22);
+            this.nextCycleButton.Text = "Next cycle";
+            this.nextCycleButton.Click += new System.EventHandler(this.NextCycleButton_Click);
             // 
             // toolStripSeparator1
             // 
@@ -85,7 +85,7 @@
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(39, 22);
             this.resetButton.Text = "Reset";
-            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
+            this.resetButton.Click += new System.EventHandler(this.ResetButton_Click);
             // 
             // toolStripSeparator3
             // 
@@ -131,7 +131,7 @@
 
         private System.Windows.Forms.Panel _cellsPanel;
         private System.Windows.Forms.ToolStrip topToolStrip;
-        private System.Windows.Forms.ToolStripButton cycleButton;
+        private System.Windows.Forms.ToolStripButton nextCycleButton;
         private System.Windows.Forms.ToolStripButton resetButton;
         private System.Windows.Forms.ToolStripDropDownButton optionsDownButton;
         private System.Windows.Forms.ToolStripMenuItem goLOptionsMenuItem;
