@@ -7,6 +7,14 @@
     [TestClass]
     public class CycleTest
     {
+        private Cycle _cycle;
+
+        [TestInitialize]
+        public void Initialize()
+        {
+            _cycle = new Cycle();
+        }
+
         [TestMethod]
         public void GivenSimpleMutationCompletionWith1CellWhenDiscoverCleanRevivalThenGridHas16Cells()
         {
@@ -14,14 +22,11 @@
             var grid = new RectangularInfinite2DGrid();
             grid.AddCells(initialCells);
 
-            var cycle = new Cycle(grid);
+            _cycle = new Cycle();
 
-            cycle.Run();
-
-            var cells = grid.Cells.ToArray();
-
-            Check.That(cells.Where(c => c.IsAlive))
-                .IsOnlyMadeOf(initialCells.Union(new[] { new Cell(1, 1) }));
+            var cells = _cycle.Run(grid).Cells.ToArray();
+            
+            Check.That(cells.Where(c => c.IsAlive)).IsOnlyMadeOf(initialCells.Union(new[] { new Cell(1, 1) }));
             Check.That(cells).HasSize(16);
         }
     }

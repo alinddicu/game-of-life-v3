@@ -6,10 +6,11 @@
 
     public class GoLRunner
     {
+        private static readonly Cycle Cycle = new Cycle();
+
         private readonly Panel _cellsPanel;
         private readonly List<CellButton> _buttons = new List<CellButton>();
-        private readonly RectangularInfinite2DGrid _grid = new RectangularInfinite2DGrid();
-        private Cycle _cycle;
+        private readonly List<RectangularInfinite2DGrid> _gridHistory = new List<RectangularInfinite2DGrid>();
 
         public GoLRunner(Panel cellsPanel)
         {
@@ -55,23 +56,37 @@
 
         public void NextCycle()
         {
-            if (_cycle == null)
+            if (!_gridHistory.Any())
             {
-                _grid.AddCells(_buttons.Select(b => b.Cell).Where(c => c.IsAlive).ToArray());
-                _cycle = new Cycle(_grid);
+                var grid = new RectangularInfinite2DGrid();
+                grid.AddCells(_buttons.Select(b => b.Cell).Where(c => c.IsAlive).ToArray());
+                _gridHistory.Add(grid);
                 _cellsPanel.Enabled = false;
             }
 
-            _cycle.Run();
-            _buttons.ForEach(b => b.RefreshCell(_grid));
+            _gridHistory.Add(Cycle.Run(_gridHistory.Last()));
+            RefreshCellButtons();
+        }
+
+        private void RefreshCellButtons()
+        {
+            _buttons.ForEach(b => b.RefreshCell(_gridHistory.Last()));
+        }
+
+        public void PreviousCycle()
+        {
+            if (_gridHistory.Count > 1)
+            {
+                _gridHistory.RemoveAt(_gridHistory.Count - 1);
+                RefreshCellButtons();
+            }
         }
 
         public void Reset(GoLOptions goLOptions)
         {
             InitCellButtons(goLOptions);
-            _grid.Reset();
+            _gridHistory.Clear();
             _cellsPanel.Enabled = true;
-            _cycle = null;
         }
     }
 }

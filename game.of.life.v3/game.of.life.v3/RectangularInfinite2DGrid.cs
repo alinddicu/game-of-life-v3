@@ -56,5 +56,10 @@
         {
             _cells.Clear();
         }
+
+        public override string ToString()
+        {
+            return string.Join(", ", _cells.Where(c => c.IsAlive));
+        }
     }
 }

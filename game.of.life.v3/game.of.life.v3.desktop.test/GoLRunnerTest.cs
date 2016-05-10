@@ -99,5 +99,56 @@
                 .OfType<CellButton>().Select(b => b.BackColor).Distinct().Single())
                 .IsEqualTo(Control.DefaultBackColor);
         }
+
+        [TestMethod]
+        public void Given1RunnedCycleWhenPreviousCycleThenCurretGridIsPreviousGrid()
+        {
+            var panel = new Panel();
+            const int buttonWidth = 20;
+            panel.Width = buttonWidth * 4;
+            panel.Height = panel.Width;
+
+            var runner = new GoLRunner(panel);
+            var golOp = new GoLOptions().WithProperties(false, 4);
+            runner.InitCellButtons(golOp);
+            ClickButton(panel, 1, 1);
+            ClickButton(panel, 2, 1);
+            ClickButton(panel, 1, 2);
+
+            runner.NextCycle();
+            runner.PreviousCycle();
+
+            Check.That(
+                panel
+                .Controls
+                .OfType<CellButton>().Where(b => b.Cell.IsAlive))
+                .HasSize(3);
+        }
+
+        [TestMethod]
+        public void Given1RunnedCycleWhenPreviousCycleTwiceThenCurretGridIsPreviousGrid()
+        {
+            var panel = new Panel();
+            const int buttonWidth = 20;
+            panel.Width = buttonWidth * 4;
+            panel.Height = panel.Width;
+
+            var runner = new GoLRunner(panel);
+            var golOp = new GoLOptions().WithProperties(false, 4);
+            runner.InitCellButtons(golOp);
+            ClickButton(panel, 1, 1);
+            ClickButton(panel, 2, 1);
+            ClickButton(panel, 1, 2);
+
+            runner.NextCycle();
+            runner.PreviousCycle();
+            runner.PreviousCycle();
+
+            Check.That(
+                panel
+                .Controls
+                .OfType<CellButton>().Where(b => b.Cell.IsAlive))
+                .HasSize(3);
+        }
     }
 }

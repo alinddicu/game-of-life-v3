@@ -37,6 +37,8 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.optionsDownButton = new System.Windows.Forms.ToolStripDropDownButton();
             this.goLOptionsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.previousCycleButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.topToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,6 +52,8 @@
             // topToolStrip
             // 
             this.topToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.previousCycleButton,
+            this.toolStripSeparator2,
             this.nextCycleButton,
             this.toolStripSeparator1,
             this.resetButton,
@@ -106,9 +110,24 @@
             // goLOptionsMenuItem
             // 
             this.goLOptionsMenuItem.Name = "goLOptionsMenuItem";
-            this.goLOptionsMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.goLOptionsMenuItem.Size = new System.Drawing.Size(152, 22);
             this.goLOptionsMenuItem.Text = "GoL options";
             this.goLOptionsMenuItem.Click += new System.EventHandler(this.golOptions_Click);
+            // 
+            // previousCycleButton
+            // 
+            this.previousCycleButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.previousCycleButton.Image = ((System.Drawing.Image)(resources.GetObject("previousCycleButton.Image")));
+            this.previousCycleButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.previousCycleButton.Name = "previousCycleButton";
+            this.previousCycleButton.Size = new System.Drawing.Size(86, 22);
+            this.previousCycleButton.Text = "Previous cycle";
+            this.previousCycleButton.Click += new System.EventHandler(this.PreviousCycleButton_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // GoLForm
             // 
@@ -137,6 +156,8 @@
         private System.Windows.Forms.ToolStripMenuItem goLOptionsMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripButton previousCycleButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }
 

@@ -22,7 +22,7 @@
             _onClose = onClose;
         }
 
-        public GoLOptions GoLOptions { get; private set; }
+        private GoLOptions GoLOptions { get; set; }
 
         private void okButton_Click(object sender, EventArgs e)
         {

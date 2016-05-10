@@ -4,22 +4,20 @@
 
     public class Cycle
     {
-        private readonly IGrid _grid;
 
-        public Cycle(IGrid grid)
+        public RectangularInfinite2DGrid Run(RectangularInfinite2DGrid grid)
         {
-            _grid = grid;
-        }
+            var newGrid = new RectangularInfinite2DGrid();
+            newGrid.AddCells(grid.Cells.ToArray());
+            newGrid.Discover();
 
-        public void Run()
-        {
-            _grid.Discover();
+            newGrid.Cells.ToList().ForEach(cell => cell.ComputeMutation(newGrid.GetNeighbours(cell).Count(c => c.IsAlive)));
+            newGrid.Cells.ToList().ForEach(cell => cell.CompleteMutation());
 
-            _grid.Cells.ToList().ForEach(cell => cell.ComputeMutation(_grid.GetNeighbours(cell).Count(c => c.IsAlive)));
-            _grid.Cells.ToList().ForEach(cell => cell.CompleteMutation());
+            newGrid.Discover();
+            newGrid.Clean();
 
-            _grid.Discover();
-            _grid.Clean();
+            return newGrid;
         }
     }
 }

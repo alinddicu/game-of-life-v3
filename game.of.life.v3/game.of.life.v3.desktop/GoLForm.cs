@@ -21,6 +21,11 @@
             SetWaitCursorOnAction(() => _goLRunner.InitCellButtons(_goLOptions));
         }
 
+        private void PreviousCycleButton_Click(object sender, EventArgs e)
+        {
+            SetWaitCursorOnAction(_goLRunner.PreviousCycle);
+        }
+
         private void NextCycleButton_Click(object sender, EventArgs e)
         {
             goLOptionsMenuItem.Enabled = false;
