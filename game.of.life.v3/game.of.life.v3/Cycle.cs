@@ -8,7 +8,7 @@
         public RectangularInfinite2DGrid Run(RectangularInfinite2DGrid grid)
         {
             var newGrid = new RectangularInfinite2DGrid();
-            newGrid.AddCells(grid.Cells.ToArray());
+            newGrid.AddCells(grid.Cells.Select(c => new Cell(c.X, c.Y, c.State)).ToArray());
             newGrid.Discover();
 
             newGrid.Cells.ToList().ForEach(cell => cell.ComputeMutation(newGrid.GetNeighbours(cell).Count(c => c.IsAlive)));
