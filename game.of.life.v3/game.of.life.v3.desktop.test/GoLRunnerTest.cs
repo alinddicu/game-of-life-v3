@@ -1,5 +1,7 @@
 ﻿namespace game.of.life.v3.desktop.test
 {
+    using System;
+    using System.IO;
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
@@ -9,24 +11,35 @@
     [TestClass]
     public class GoLRunnerTest
     {
+        private readonly GridLoader _gridLoader = new GridLoader(new FileSystem(),
+            Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Grids"));
+
+        private GoLRunner _runner;
+        private Panel _panel;
+
+        [TestInitialize]
+        public void Initialize()
+        {
+            _panel = new Panel();
+            _runner = new GoLRunner(_panel, _gridLoader);
+        }
+
         [TestMethod]
         public void GivenSquarePanelFor4CellsWhenInitCellButtonsThenPanelHas4CellsButtons()
         {
-            var panel = new Panel();
             const int buttonWidth = 2;
-            panel.Width = buttonWidth * 2;
-            panel.Height = panel.Width;
+            _panel.Width = buttonWidth * 2;
+            _panel.Height = _panel.Width;
 
-            var runner = new GoLRunner(panel);
-            runner.InitCellButtons(new GoLOptions().WithProperties(true, 2));
+            _runner.InitCellButtons(new GoLOptions().WithProperties(true, 2));
 
-            Check.That(panel.Controls).HasSize(4);
-            Check.That(panel.Controls.OfType<CellButton>()).HasSize(4);
+            Check.That(_panel.Controls).HasSize(4);
+            Check.That(_panel.Controls.OfType<CellButton>()).HasSize(4);
 
-            CheckCellButton(panel.Controls[0], 0, 0, "(0,0)");
-            CheckCellButton(panel.Controls[1], buttonWidth, 0, "(1,0)");
-            CheckCellButton(panel.Controls[2], 0, buttonWidth, "(0,1)");
-            CheckCellButton(panel.Controls[3], buttonWidth, buttonWidth, "(1,1)");
+            CheckCellButton(_panel.Controls[0], 0, 0, "(0,0)");
+            CheckCellButton(_panel.Controls[1], buttonWidth, 0, "(1,0)");
+            CheckCellButton(_panel.Controls[2], 0, buttonWidth, "(0,1)");
+            CheckCellButton(_panel.Controls[3], buttonWidth, buttonWidth, "(1,1)");
         }
 
         private static void CheckCellButton(Control control, int left, int top, string text)
@@ -41,20 +54,18 @@
         [TestMethod]
         public void WhenRun1CycleThenButtonsAreRefreshed()
         {
-            var panel = new Panel();
             const int buttonWidth = 20;
-            panel.Width = buttonWidth * 3;
-            panel.Height = panel.Width;
+            _panel.Width = buttonWidth * 3;
+            _panel.Height = _panel.Width;
 
-            var runner = new GoLRunner(panel);
-            runner.InitCellButtons(new GoLOptions().WithProperties(false, 3));
-            var buttonAt11 = ClickButton(panel, 1, 1);
+            _runner.InitCellButtons(new GoLOptions().WithProperties(false, 3));
+            var buttonAt11 = ClickButton(_panel, 1, 1);
             Check.That(buttonAt11.BackColor).IsEqualTo(Color.DeepPink);
-            runner.NextCycle();
+            _runner.NextCycle();
 
             Check.That(buttonAt11.BackColor).IsEqualTo(Control.DefaultBackColor);
             Check.That(
-                panel
+                _panel
                 .Controls
                 .OfType<CellButton>().Select(b => b.BackColor).Distinct().Single())
                 .IsEqualTo(Control.DefaultBackColor);
@@ -78,23 +89,21 @@
         [TestMethod]
         public void Given1RunnedCycleWhenResetThenGridIsReset()
         {
-            var panel = new Panel();
             const int buttonWidth = 20;
-            panel.Width = buttonWidth * 4;
-            panel.Height = panel.Width;
+            _panel.Width = buttonWidth * 4;
+            _panel.Height = _panel.Width;
 
-            var runner = new GoLRunner(panel);
             var golOp = new GoLOptions().WithProperties(false, 4);
-            runner.InitCellButtons(golOp);
-            ClickButton(panel, 1, 1);
-            ClickButton(panel, 2, 1);
-            ClickButton(panel, 1, 2);
+            _runner.InitCellButtons(golOp);
+            ClickButton(_panel, 1, 1);
+            ClickButton(_panel, 2, 1);
+            ClickButton(_panel, 1, 2);
 
-            runner.NextCycle();
-            runner.Reset(golOp);
+            _runner.NextCycle();
+            _runner.Reset(golOp);
 
             Check.That(
-                panel
+                _panel
                 .Controls
                 .OfType<CellButton>().Select(b => b.BackColor).Distinct().Single())
                 .IsEqualTo(Control.DefaultBackColor);
@@ -103,23 +112,21 @@
         [TestMethod]
         public void Given1RunnedCycleWhenPreviousCycleThenCurretGridIsPreviousGrid()
         {
-            var panel = new Panel();
             const int buttonWidth = 20;
-            panel.Width = buttonWidth * 4;
-            panel.Height = panel.Width;
+            _panel.Width = buttonWidth * 4;
+            _panel.Height = _panel.Width;
 
-            var runner = new GoLRunner(panel);
             var golOp = new GoLOptions().WithProperties(false, 4);
-            runner.InitCellButtons(golOp);
-            ClickButton(panel, 1, 1);
-            ClickButton(panel, 2, 1);
-            ClickButton(panel, 1, 2);
+            _runner.InitCellButtons(golOp);
+            ClickButton(_panel, 1, 1);
+            ClickButton(_panel, 2, 1);
+            ClickButton(_panel, 1, 2);
 
-            runner.NextCycle();
-            runner.PreviousCycle();
+            _runner.NextCycle();
+            _runner.PreviousCycle();
 
             Check.That(
-                panel
+                _panel
                 .Controls
                 .OfType<CellButton>().Where(b => b.Cell.IsAlive()))
                 .HasSize(3);
@@ -128,24 +135,22 @@
         [TestMethod]
         public void Given1RunnedCycleWhenPreviousCycleTwiceThenCurretGridIsPreviousGrid()
         {
-            var panel = new Panel();
             const int buttonWidth = 20;
-            panel.Width = buttonWidth * 4;
-            panel.Height = panel.Width;
+            _panel.Width = buttonWidth * 4;
+            _panel.Height = _panel.Width;
 
-            var runner = new GoLRunner(panel);
             var golOp = new GoLOptions().WithProperties(false, 4);
-            runner.InitCellButtons(golOp);
-            ClickButton(panel, 1, 1);
-            ClickButton(panel, 2, 1);
-            ClickButton(panel, 1, 2);
+            _runner.InitCellButtons(golOp);
+            ClickButton(_panel, 1, 1);
+            ClickButton(_panel, 2, 1);
+            ClickButton(_panel, 1, 2);
 
-            runner.NextCycle();
-            runner.PreviousCycle();
-            runner.PreviousCycle();
+            _runner.NextCycle();
+            _runner.PreviousCycle();
+            _runner.PreviousCycle();
 
             Check.That(
-                panel
+                _panel
                 .Controls
                 .OfType<CellButton>().Where(b => b.Cell.IsAlive()))
                 .HasSize(3);

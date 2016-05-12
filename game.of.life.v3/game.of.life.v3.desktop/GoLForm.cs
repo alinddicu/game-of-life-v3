@@ -1,4 +1,6 @@
-﻿namespace game.of.life.v3.desktop
+﻿using System.IO;
+
+namespace game.of.life.v3.desktop
 {
     using System;
     using System.Windows.Forms;
@@ -13,7 +15,9 @@
         {
             InitializeComponent();
             this.SeFormProperties();
-            _goLRunner = new GoLRunner(_cellsPanel);
+            _goLRunner = new GoLRunner(
+                _cellsPanel,
+                new GridLoader(new FileSystem(), Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Grids")));
         }
 
         private void GoLForm_Load(object sender, EventArgs e)

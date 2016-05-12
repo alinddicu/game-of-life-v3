@@ -3,7 +3,7 @@
     using Newtonsoft.Json;
     using System.IO;
 
-    public class GridLoader
+    public class GridLoader : IGridLoader
     {
         private readonly IFileSystem _fileSystem;
         private readonly string _baseDirPath;

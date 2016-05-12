@@ -1,8 +1,6 @@
-﻿using System;
-using System.IO;
-
-namespace game.of.life.v3.desktop
+﻿namespace game.of.life.v3.desktop
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Windows.Forms;
@@ -10,16 +8,16 @@ namespace game.of.life.v3.desktop
     public class GoLRunner
     {
         private static readonly Cycle Cycle = new Cycle();
-        private static readonly GridLoader GridLoader = 
-            new GridLoader(new FileSystem(), Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Grids"));
 
         private readonly Panel _cellsPanel;
+        private readonly IGridLoader _gridLoader;
         private readonly List<CellButton> _buttons = new List<CellButton>();
         private readonly Stack<RectangularInfinite2DGrid> _gridHistory = new Stack<RectangularInfinite2DGrid>();
 
-        public GoLRunner(Panel cellsPanel)
+        public GoLRunner(Panel cellsPanel, IGridLoader gridLoader)
         {
             _cellsPanel = cellsPanel;
+            _gridLoader = gridLoader;
         }
 
         public void InitCellButtons(GoLOptions goLOptions)
@@ -102,7 +100,7 @@ namespace game.of.life.v3.desktop
         public void SaveFirstGrid()
         {
             var fileName = DateTime.Now.ToFileTime() + ".grid";
-            GridLoader.SaveToAppFolder(fileName, GetInitialGrid().Cells);
+            _gridLoader.SaveToAppFolder(fileName, GetInitialGrid().Cells);
         }
     }
 }

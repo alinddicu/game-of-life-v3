@@ -55,6 +55,7 @@
     <Compile Include="Cycle.cs" />
     <Compile Include="IFileSystem.cs" />
     <Compile Include="IGrid.cs" />
+    <Compile Include="IGridLoader.cs" />
     <Compile Include="RectangularInfinite2DGrid.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
