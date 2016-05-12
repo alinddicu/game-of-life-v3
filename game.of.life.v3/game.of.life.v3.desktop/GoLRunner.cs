@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace game.of.life.v3.desktop
 {
@@ -9,7 +10,8 @@ namespace game.of.life.v3.desktop
     public class GoLRunner
     {
         private static readonly Cycle Cycle = new Cycle();
-        private static readonly GridLoader GridLoader = new GridLoader();
+        private static readonly GridLoader GridLoader = 
+            new GridLoader(new FileSystem(), Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Grids"));
 
         private readonly Panel _cellsPanel;
         private readonly List<CellButton> _buttons = new List<CellButton>();
