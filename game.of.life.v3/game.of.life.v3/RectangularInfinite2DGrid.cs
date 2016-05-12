@@ -46,7 +46,7 @@
         public void Clean()
         {
             var isolatedCells = _cells
-                .Where(cell => GetNeighbours(cell).All(n => !n.IsAlive))
+                .Where(cell => GetNeighbours(cell).All(n => !n.IsAlive()))
                 .ToArray();
 
             _cells.RemoveAll(c => isolatedCells.Contains(c));
@@ -59,7 +59,7 @@
 
         public override string ToString()
         {
-            return string.Join(", ", _cells.Where(c => c.IsAlive));
+            return string.Join(", ", _cells.Where(c => c.IsAlive()));
         }
     }
 }

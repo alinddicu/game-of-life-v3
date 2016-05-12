@@ -72,7 +72,7 @@ namespace game.of.life.v3.desktop
         private RectangularInfinite2DGrid GetInitialGrid()
         {
             var grid = new RectangularInfinite2DGrid();
-            grid.AddCells(_buttons.Select(b => b.Cell).Where(c => c.IsAlive).ToArray());
+            grid.AddCells(_buttons.Select(b => b.Cell).Where(c => c.IsAlive()).ToArray());
             return grid;
         }
 

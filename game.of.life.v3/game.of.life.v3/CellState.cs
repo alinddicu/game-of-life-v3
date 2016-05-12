@@ -2,8 +2,8 @@
 {
     public enum CellState
     {
-        Dead,
-        Alive,
-        Unknown
+        Dead = 0,
+        Alive = 1,
+        Unknown = 2
     }
 }

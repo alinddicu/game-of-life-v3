@@ -121,7 +121,7 @@
             Check.That(
                 panel
                 .Controls
-                .OfType<CellButton>().Where(b => b.Cell.IsAlive))
+                .OfType<CellButton>().Where(b => b.Cell.IsAlive()))
                 .HasSize(3);
         }
 
@@ -147,7 +147,7 @@
             Check.That(
                 panel
                 .Controls
-                .OfType<CellButton>().Where(b => b.Cell.IsAlive))
+                .OfType<CellButton>().Where(b => b.Cell.IsAlive()))
                 .HasSize(3);
         }
     }

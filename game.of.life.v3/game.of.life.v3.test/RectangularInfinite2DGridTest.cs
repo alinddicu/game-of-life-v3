@@ -64,7 +64,7 @@
 
             _grid.Discover();
 
-            _grid.Cells.ToList().ForEach(cell => cell.ComputeMutation(_grid.GetNeighbours(cell).Count(c => c.IsAlive)));
+            _grid.Cells.ToList().ForEach(cell => cell.ComputeMutation(_grid.GetNeighbours(cell).Count(c => c.IsAlive())));
             _grid.Cells.ToList().ForEach(cell => cell.CompleteMutation());
 
             Check.That(_grid.Cells).HasSize(15);
@@ -79,7 +79,7 @@
 
             _grid.Discover();
 
-            _grid.Cells.ToList().ForEach(cell => cell.ComputeMutation(_grid.GetNeighbours(cell).Count(c => c.IsAlive)));
+            _grid.Cells.ToList().ForEach(cell => cell.ComputeMutation(_grid.GetNeighbours(cell).Count(c => c.IsAlive())));
             _grid.Cells.ToList().ForEach(cell => cell.CompleteMutation());
 
             _grid.Discover();
@@ -97,11 +97,11 @@
             _grid.Discover();
             Check.That(_grid.Cells).HasSize(9);
 
-            _grid.Cells.ToList().ForEach(cell => cell.ComputeMutation(_grid.GetNeighbours(cell).Count(c => c.IsAlive)));
+            _grid.Cells.ToList().ForEach(cell => cell.ComputeMutation(_grid.GetNeighbours(cell).Count(c => c.IsAlive())));
             _grid.Cells.ToList().ForEach(cell => cell.CompleteMutation());
 
             _grid.Discover();
-            Check.That(_grid.Cells.Count(c => c.IsAlive)).IsEqualTo(0);
+            Check.That(_grid.Cells.Count(c => c.IsAlive())).IsEqualTo(0);
             _grid.Clean();
 
             Check.That(_grid.Cells).HasSize(0);

@@ -18,7 +18,10 @@
 
         public int Y { get; private set; }
 
-        public bool IsAlive { get { return State == CellState.Alive; } }
+        public bool IsAlive()
+        {
+            return State == CellState.Alive;
+        }
 
         public void ComputeMutation(int aliveNeighboursCount)
         {

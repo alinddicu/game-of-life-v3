@@ -26,7 +26,7 @@
 
             var cells = _cycle.Run(grid).Cells.ToArray();
             
-            Check.That(cells.Where(c => c.IsAlive)).IsOnlyMadeOf(initialCells.Union(new[] { new Cell(1, 1) }));
+            Check.That(cells.Where(c => c.IsAlive())).IsOnlyMadeOf(initialCells.Union(new[] { new Cell(1, 1) }));
             Check.That(cells).HasSize(16);
         }
 
@@ -51,8 +51,8 @@
                 new Cell(6, 4, CellState.Alive), 
                 new Cell(4, 4, CellState.Alive)
             };
-            Check.That(grid2.Cells.Where(c => c.IsAlive)).ContainsExactly(expectedGrid2Cells);
-            Check.That(grid3.Cells.Where(c => c.IsAlive)).IsOnlyMadeOf(initialCells);
+            Check.That(grid2.Cells.Where(c => c.IsAlive())).ContainsExactly(expectedGrid2Cells);
+            Check.That(grid3.Cells.Where(c => c.IsAlive())).IsOnlyMadeOf(initialCells);
         }
     }
 }
