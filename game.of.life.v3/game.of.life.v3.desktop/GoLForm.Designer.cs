@@ -31,14 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GoLForm));
             this._cellsPanel = new System.Windows.Forms.Panel();
             this.topToolStrip = new System.Windows.Forms.ToolStrip();
+            this.previousCycleButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.nextCycleButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.resetButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.optionsDownButton = new System.Windows.Forms.ToolStripDropDownButton();
             this.goLOptionsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.previousCycleButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.saveGridButton = new System.Windows.Forms.ToolStripButton();
             this.topToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,6 +60,8 @@
             this.toolStripSeparator1,
             this.resetButton,
             this.toolStripSeparator3,
+            this.saveGridButton,
+            this.toolStripSeparator4,
             this.optionsDownButton});
             this.topToolStrip.Location = new System.Drawing.Point(0, 0);
             this.topToolStrip.Name = "topToolStrip";
@@ -65,6 +69,21 @@
             this.topToolStrip.Stretch = true;
             this.topToolStrip.TabIndex = 0;
             this.topToolStrip.Text = "topToolStrip";
+            // 
+            // previousCycleButton
+            // 
+            this.previousCycleButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.previousCycleButton.Image = ((System.Drawing.Image)(resources.GetObject("previousCycleButton.Image")));
+            this.previousCycleButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.previousCycleButton.Name = "previousCycleButton";
+            this.previousCycleButton.Size = new System.Drawing.Size(86, 22);
+            this.previousCycleButton.Text = "Previous cycle";
+            this.previousCycleButton.Click += new System.EventHandler(this.PreviousCycleButton_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // nextCycleButton
             // 
@@ -114,20 +133,20 @@
             this.goLOptionsMenuItem.Text = "GoL options";
             this.goLOptionsMenuItem.Click += new System.EventHandler(this.golOptions_Click);
             // 
-            // previousCycleButton
+            // toolStripSeparator4
             // 
-            this.previousCycleButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.previousCycleButton.Image = ((System.Drawing.Image)(resources.GetObject("previousCycleButton.Image")));
-            this.previousCycleButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.previousCycleButton.Name = "previousCycleButton";
-            this.previousCycleButton.Size = new System.Drawing.Size(86, 22);
-            this.previousCycleButton.Text = "Previous cycle";
-            this.previousCycleButton.Click += new System.EventHandler(this.PreviousCycleButton_Click);
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripSeparator2
+            // saveGridButton
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.saveGridButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.saveGridButton.Image = ((System.Drawing.Image)(resources.GetObject("saveGridButton.Image")));
+            this.saveGridButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.saveGridButton.Name = "saveGridButton";
+            this.saveGridButton.Size = new System.Drawing.Size(35, 22);
+            this.saveGridButton.Text = "Save";
+            this.saveGridButton.Click += new System.EventHandler(this.saveGridButton_Click);
             // 
             // GoLForm
             // 
@@ -158,6 +177,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton previousCycleButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripButton saveGridButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     }
 }
 

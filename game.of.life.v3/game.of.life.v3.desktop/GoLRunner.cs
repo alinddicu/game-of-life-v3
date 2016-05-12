@@ -1,4 +1,6 @@
-﻿namespace game.of.life.v3.desktop
+﻿using System;
+
+namespace game.of.life.v3.desktop
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -7,6 +9,7 @@
     public class GoLRunner
     {
         private static readonly Cycle Cycle = new Cycle();
+        private static readonly GridLoader GridLoader = new GridLoader();
 
         private readonly Panel _cellsPanel;
         private readonly List<CellButton> _buttons = new List<CellButton>();
@@ -58,14 +61,19 @@
         {
             if (!_gridHistory.Any())
             {
-                var grid = new RectangularInfinite2DGrid();
-                grid.AddCells(_buttons.Select(b => b.Cell).Where(c => c.IsAlive).ToArray());
-                _gridHistory.Push(grid);
+                _gridHistory.Push(GetInitialGrid());
                 _cellsPanel.Enabled = false;
             }
 
             _gridHistory.Push(Cycle.Run(_gridHistory.Peek()));
             RefreshCellButtons();
+        }
+
+        private RectangularInfinite2DGrid GetInitialGrid()
+        {
+            var grid = new RectangularInfinite2DGrid();
+            grid.AddCells(_buttons.Select(b => b.Cell).Where(c => c.IsAlive).ToArray());
+            return grid;
         }
 
         private void RefreshCellButtons()
@@ -87,6 +95,12 @@
             InitCellButtons(goLOptions);
             _gridHistory.Clear();
             _cellsPanel.Enabled = true;
+        }
+
+        public void SaveFirstGrid()
+        {
+            var fileName = DateTime.Now.ToFileTime() + ".grid";
+            GridLoader.SaveToAppFolder(fileName, GetInitialGrid().Cells);
         }
     }
 }

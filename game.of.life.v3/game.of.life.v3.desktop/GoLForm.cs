@@ -59,5 +59,10 @@
         {
             SetWaitCursorOnAction(() => _goLRunner.InitCellButtons(_goLOptions));
         }
+
+        private void saveGridButton_Click(object sender, EventArgs e)
+        {
+            SetWaitCursorOnAction(() => _goLRunner.SaveFirstGrid());
+        }
     }
 }

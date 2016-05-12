@@ -6,16 +6,26 @@
 
     public class GridLoader
     {
+        private static readonly string BaseDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Grids");
+
+        public GridLoader()
+        {
+            if (!Directory.Exists(BaseDir))
+            {
+                Directory.CreateDirectory(BaseDir);
+            }
+        }
+
         public void SaveToAppFolder<T>(string fileName, T objetToSave)
         {
-            var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName + ".json");
+            var filePath = Path.Combine(BaseDir, fileName + ".json");
             var jsonContent = JsonConvert.SerializeObject(objetToSave);
             File.WriteAllText(filePath, jsonContent);
         }
 
         public T LoadFromAppFolder<T>(string fileName)
         {
-            var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName + ".json");
+            var filePath = Path.Combine(BaseDir, fileName + ".json");
             if (!File.Exists(filePath))
             {
                 return default(T);
