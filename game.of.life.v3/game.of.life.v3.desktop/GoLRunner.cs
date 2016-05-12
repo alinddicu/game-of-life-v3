@@ -10,7 +10,7 @@
 
         private readonly Panel _cellsPanel;
         private readonly List<CellButton> _buttons = new List<CellButton>();
-        private readonly List<RectangularInfinite2DGrid> _gridHistory = new List<RectangularInfinite2DGrid>();
+        private readonly Stack<RectangularInfinite2DGrid> _gridHistory = new Stack<RectangularInfinite2DGrid>();
 
         public GoLRunner(Panel cellsPanel)
         {
@@ -60,24 +60,24 @@
             {
                 var grid = new RectangularInfinite2DGrid();
                 grid.AddCells(_buttons.Select(b => b.Cell).Where(c => c.IsAlive).ToArray());
-                _gridHistory.Add(grid);
+                _gridHistory.Push(grid);
                 _cellsPanel.Enabled = false;
             }
 
-            _gridHistory.Add(Cycle.Run(_gridHistory.Last()));
+            _gridHistory.Push(Cycle.Run(_gridHistory.Peek()));
             RefreshCellButtons();
         }
 
         private void RefreshCellButtons()
         {
-            _buttons.ForEach(b => b.RefreshCell(_gridHistory.Last()));
+            _buttons.ForEach(b => b.RefreshCell(_gridHistory.Peek()));
         }
 
         public void PreviousCycle()
         {
             if (_gridHistory.Count > 1)
             {
-                _gridHistory.RemoveAt(_gridHistory.Count - 1);
+                _gridHistory.Pop();
                 RefreshCellButtons();
             }
         }
