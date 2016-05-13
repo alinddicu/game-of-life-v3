@@ -50,12 +50,12 @@
   <ItemGroup>
     <Compile Include="Cell.cs" />
     <Compile Include="FileSystem.cs" />
-    <Compile Include="GridLoader.cs" />
+    <Compile Include="ObjectToJsonFileConverter.cs" />
     <Compile Include="CellState.cs" />
     <Compile Include="Cycle.cs" />
     <Compile Include="IFileSystem.cs" />
     <Compile Include="IGrid.cs" />
-    <Compile Include="IGridLoader.cs" />
+    <Compile Include="IObjectToJsonFileConverter.cs" />
     <Compile Include="RectangularInfinite2DGrid.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

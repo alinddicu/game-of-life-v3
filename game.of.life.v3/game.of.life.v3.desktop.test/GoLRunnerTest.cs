@@ -11,7 +11,7 @@
     [TestClass]
     public class GoLRunnerTest
     {
-        private readonly GridLoader _gridLoader = new GridLoader(new FileSystem(),
+        private readonly ObjectToJsonFileConverter _gridLoader = new ObjectToJsonFileConverter(new FileSystem(),
             Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Grids"));
 
         private GoLRunner _runner;

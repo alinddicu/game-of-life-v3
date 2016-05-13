@@ -17,7 +17,7 @@ namespace game.of.life.v3.desktop
             this.SeFormProperties();
             _goLRunner = new GoLRunner(
                 _cellsPanel,
-                new GridLoader(new FileSystem(), Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Grids")));
+                new ObjectToJsonFileConverter(new FileSystem(), Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Grids")));
         }
 
         private void GoLForm_Load(object sender, EventArgs e)

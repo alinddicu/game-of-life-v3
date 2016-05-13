@@ -3,12 +3,12 @@
     using Newtonsoft.Json;
     using System.IO;
 
-    public class GridLoader : IGridLoader
+    public class ObjectToJsonFileConverter : IObjectToJsonFileConverter
     {
         private readonly IFileSystem _fileSystem;
         private readonly string _baseDirPath;
 
-        public GridLoader(IFileSystem fileSystem, string baseDirPath)
+        public ObjectToJsonFileConverter(IFileSystem fileSystem, string baseDirPath)
         {
             _fileSystem = fileSystem;
             _baseDirPath = baseDirPath;
@@ -19,14 +19,14 @@
             }
         }
 
-        public void SaveToAppFolder<T>(string fileName, T objetToSave)
+        public void Save<T>(string fileName, T objetToSave)
         {
             var filePath = Path.Combine(_baseDirPath, fileName + ".json");
             var jsonContent = JsonConvert.SerializeObject(objetToSave);
             _fileSystem.FileWriteAllText(filePath, jsonContent);
         }
 
-        public T LoadFromAppFolder<T>(string fileName)
+        public T Load<T>(string fileName)
         {
             var filePath = Path.Combine(_baseDirPath, fileName + ".json");
             if (!_fileSystem.FileExists(filePath))

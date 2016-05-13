@@ -59,7 +59,7 @@
   <ItemGroup>
     <Compile Include="CellTest.cs" />
     <Compile Include="CycleTest.cs" />
-    <Compile Include="GridLoaderTest.cs" />
+    <Compile Include="ObjectToJsonFileConverterTest.cs" />
     <Compile Include="RectangularInfinite2DGridTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,6 +1,5 @@
 ﻿namespace game.of.life.v3.test
 {
-    using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
@@ -9,7 +8,7 @@
     using NFluent;
 
     [TestClass]
-    public class GridLoaderTest
+    public class ObjectToJsonFileConverterTest
     {
         [TestMethod]
         [Ignore]
@@ -21,9 +20,9 @@
             const string oneCellGrid = @"[{""State"":1,""NextState"":2,""X"":5,""Y"":3}]";
             fileSystemMock.Setup(o => o.FileReadAllText(It.IsAny<string>())).Returns(oneCellGrid);
 
-            var loader = new GridLoader(fileSystemMock.Object, string.Empty);
+            var loader = new ObjectToJsonFileConverter(fileSystemMock.Object, string.Empty);
 
-            var cell = loader.LoadFromAppFolder<IEnumerable<Cell>>("").Single();
+            var cell = loader.Load<IEnumerable<Cell>>("").Single();
 
             Check.That(cell.X).IsEqualTo(5);
             Check.That(cell.Y).IsEqualTo(3);
@@ -35,9 +34,9 @@
         [DeploymentItem("Resources/cell.json", "Resources")]
         public void WhenSaveThenJsonIsCorrect()
         {
-            var loader = new GridLoader(new FileSystem(), "Resources");
+            var loader = new ObjectToJsonFileConverter(new FileSystem(), "Resources");
 
-            loader.SaveToAppFolder("cell", new Cell(0, 1));
+            loader.Save("cell", new Cell(0, 1));
 
             var jsonCell = File.ReadAllText("Resources/cell.json");
 

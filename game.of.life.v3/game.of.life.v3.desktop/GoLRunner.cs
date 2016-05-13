@@ -10,11 +10,11 @@
         private static readonly Cycle Cycle = new Cycle();
 
         private readonly Panel _cellsPanel;
-        private readonly IGridLoader _gridLoader;
+        private readonly IObjectToJsonFileConverter _gridLoader;
         private readonly List<CellButton> _buttons = new List<CellButton>();
         private readonly Stack<RectangularInfinite2DGrid> _gridHistory = new Stack<RectangularInfinite2DGrid>();
 
-        public GoLRunner(Panel cellsPanel, IGridLoader gridLoader)
+        public GoLRunner(Panel cellsPanel, IObjectToJsonFileConverter gridLoader)
         {
             _cellsPanel = cellsPanel;
             _gridLoader = gridLoader;
@@ -100,7 +100,7 @@
         public void SaveFirstGrid()
         {
             var fileName = DateTime.Now.ToFileTime() + ".grid";
-            _gridLoader.SaveToAppFolder(fileName, GetInitialGrid().Cells);
+            _gridLoader.Save(fileName, GetInitialGrid().Cells);
         }
     }
 }
