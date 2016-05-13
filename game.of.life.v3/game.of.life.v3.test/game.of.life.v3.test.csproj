@@ -35,6 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Moq, Version=4.2.1510.2205, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.2.1510.2205\lib\net40\Moq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="NFluent">
       <HintPath>..\packages\NFluent.1.3.1.0\lib\net40\NFluent.dll</HintPath>
     </Reference>
@@ -55,11 +59,13 @@
   <ItemGroup>
     <Compile Include="CellTest.cs" />
     <Compile Include="CycleTest.cs" />
+    <Compile Include="GridLoaderTest.cs" />
     <Compile Include="RectangularInfinite2DGridTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Resources\cell.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\game.of.life.v3\game.of.life.v3.csproj">
