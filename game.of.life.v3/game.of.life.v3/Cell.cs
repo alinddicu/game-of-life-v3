@@ -2,16 +2,11 @@
 {
     public class Cell
     {
-        public Cell()
-        { 
-        }
-
-        public Cell(int x, int y, CellState cellState = CellState.Dead)
-            :this()
+        public Cell(int x, int y, CellState state = CellState.Dead)
         {
             X = x;
             Y = y;
-            State = cellState;
+            State = state;
             NextState = CellState.Unknown;
         }
 
