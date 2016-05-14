@@ -1,8 +1,9 @@
-﻿namespace game.of.life.v3.desktop
-{
-    using System.Drawing;
-    using System.Windows.Forms;
+﻿using System.Drawing;
+using System.Windows.Forms;
+using game.of.life.v3;
 
+namespace game.of.life.desktop
+{
     public class CellButton : Button
     {
         public CellButton(int x, int y, int left, int top)

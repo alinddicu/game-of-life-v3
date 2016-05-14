@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "game.of.life.v3", "game.of.life.v3\game.of.life.v3.csproj", "{6820C349-3026-491B-A6E6-C1CCC723ECEF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "game.of.life.domain", "game.of.life.v3\game.of.life.domain.csproj", "{6820C349-3026-491B-A6E6-C1CCC723ECEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "game.of.life.v3.test", "game.of.life.v3.test\game.of.life.v3.test.csproj", "{5773D6ED-E309-4775-890A-05AFBE06AB93}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "game.of.life.domain.test", "game.of.life.v3.test\game.of.life.domain.test.csproj", "{5773D6ED-E309-4775-890A-05AFBE06AB93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "game.of.life.v3.desktop", "game.of.life.v3.desktop\game.of.life.v3.desktop.csproj", "{9E007BC4-8073-41F6-87F6-EB2C5185BD01}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "game.of.life.desktop", "game.of.life.v3.desktop\game.of.life.desktop.csproj", "{9E007BC4-8073-41F6-87F6-EB2C5185BD01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "game.of.life.v3.desktop.test", "game.of.life.v3.desktop.test\game.of.life.v3.desktop.test.csproj", "{C11F685D-3298-4063-92F4-1177470C870C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "game.of.life.desktop.test", "game.of.life.v3.desktop.test\game.of.life.desktop.test.csproj", "{C11F685D-3298-4063-92F4-1177470C870C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

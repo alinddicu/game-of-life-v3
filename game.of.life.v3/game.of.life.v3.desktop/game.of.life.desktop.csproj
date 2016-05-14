@@ -7,8 +7,8 @@
     <ProjectGuid>{9E007BC4-8073-41F6-87F6-EB2C5185BD01}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>game.of.life.v3.desktop</RootNamespace>
-    <AssemblyName>game.of.life.v3.desktop</AssemblyName>
+    <RootNamespace>game.of.life.desktop</RootNamespace>
+    <AssemblyName>game.of.life.desktop</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -97,9 +97,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\game.of.life.v3\game.of.life.v3.csproj">
+    <ProjectReference Include="..\game.of.life.v3\game.of.life.domain.csproj">
       <Project>{6820c349-3026-491b-a6e6-c1ccc723ecef}</Project>
-      <Name>game.of.life.v3</Name>
+      <Name>game.of.life.domain</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

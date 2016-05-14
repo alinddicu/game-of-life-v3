@@ -1,10 +1,11 @@
-﻿namespace game.of.life.v3.desktop
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Windows.Forms;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
+using game.of.life.v3;
 
+namespace game.of.life.desktop
+{
     public class GoLRunner
     {
         private static readonly Cycle Cycle = new Cycle();

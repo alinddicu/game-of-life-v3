@@ -1,9 +1,9 @@
-﻿namespace game.of.life.v3.desktop
-{
-    using System;
-    using System.Linq;
-    using System.Windows.Forms;
+﻿using System;
+using System.Linq;
+using System.Windows.Forms;
 
+namespace game.of.life.desktop
+{
     public partial class OptionsForm : Form
     {
         private readonly Action _onClose;

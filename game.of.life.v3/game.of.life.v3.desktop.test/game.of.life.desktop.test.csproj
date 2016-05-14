@@ -6,8 +6,8 @@
     <ProjectGuid>{C11F685D-3298-4063-92F4-1177470C870C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>game.of.life.v3.desktop.test</RootNamespace>
-    <AssemblyName>game.of.life.v3.desktop.test</AssemblyName>
+    <RootNamespace>game.of.life.desktop.test</RootNamespace>
+    <AssemblyName>game.of.life.desktop.test</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -62,13 +62,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\game.of.life.v3.desktop\game.of.life.v3.desktop.csproj">
+    <ProjectReference Include="..\game.of.life.v3.desktop\game.of.life.desktop.csproj">
       <Project>{9e007bc4-8073-41f6-87f6-eb2c5185bd01}</Project>
-      <Name>game.of.life.v3.desktop</Name>
+      <Name>game.of.life.desktop</Name>
     </ProjectReference>
-    <ProjectReference Include="..\game.of.life.v3\game.of.life.v3.csproj">
+    <ProjectReference Include="..\game.of.life.v3\game.of.life.domain.csproj">
       <Project>{6820c349-3026-491b-a6e6-c1ccc723ecef}</Project>
-      <Name>game.of.life.v3</Name>
+      <Name>game.of.life.domain</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

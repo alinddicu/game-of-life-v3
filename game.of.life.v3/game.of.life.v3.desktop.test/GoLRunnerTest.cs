@@ -1,4 +1,6 @@
-﻿namespace game.of.life.v3.desktop.test
+﻿using game.of.life.desktop;
+
+namespace game.of.life.v3.desktop.test
 {
     using System;
     using System.IO;

@@ -1,4 +1,4 @@
-﻿namespace game.of.life.v3.desktop
+﻿namespace game.of.life.desktop
 {
     partial class OptionsForm
     {

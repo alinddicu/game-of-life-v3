@@ -1,8 +1,8 @@
-﻿namespace game.of.life.v3.desktop
-{
-    using System;
-    using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
+namespace game.of.life.desktop
+{
     static class Program
     {
         /// <summary>
