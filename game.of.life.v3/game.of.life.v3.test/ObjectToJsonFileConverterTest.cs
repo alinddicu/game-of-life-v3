@@ -1,4 +1,6 @@
-﻿namespace game.of.life.v3.test
+﻿using Newtonsoft.Json;
+
+namespace game.of.life.v3.test
 {
     using System.Collections.Generic;
     using System.IO;
@@ -11,13 +13,12 @@
     public class ObjectToJsonFileConverterTest
     {
         [TestMethod]
-        [Ignore]
         public void WhenLoadThenObjectIsTheSame()
         {
             var fileSystemMock = new Mock<IFileSystem>();
             fileSystemMock.Setup(o => o.DirectoryExists(It.IsAny<string>())).Returns(true);
             fileSystemMock.Setup(o => o.FileExists(It.IsAny<string>())).Returns(true);
-            const string oneCellGrid = @"[{""State"":1,""NextState"":2,""X"":5,""Y"":3}]";
+            const string oneCellGrid = @"[{""X"":5,""Y"":3,""State"":1,""NextState"":2}]";
             fileSystemMock.Setup(o => o.FileReadAllText(It.IsAny<string>())).Returns(oneCellGrid);
 
             var loader = new ObjectToJsonFileConverter(fileSystemMock.Object, string.Empty);
@@ -26,8 +27,8 @@
 
             Check.That(cell.X).IsEqualTo(5);
             Check.That(cell.Y).IsEqualTo(3);
-            Check.That(cell.State).IsEqualTo(CellState.Alive);
             Check.That(cell.NextState).IsEqualTo(CellState.Unknown);
+            Check.That(cell.State).IsEqualTo(CellState.Alive);
         }
 
         [TestMethod]
@@ -40,7 +41,16 @@
 
             var jsonCell = File.ReadAllText("Resources/cell.json");
 
-            Check.That(jsonCell).IsEqualTo(@"{""State"":0,""NextState"":2,""X"":0,""Y"":1}");
+            Check.That(jsonCell).IsEqualTo(@"{""X"":0,""Y"":1,""State"":0,""NextState"":2}");
+        }
+
+        [TestMethod]
+        public void JsonDeserialzeTest()
+        {
+            var cell = JsonConvert.DeserializeObject<Cell>(@"{""X"":5,""Y"":3,""NextState"":2,""State"":1}");
+            //var alive = JsonConvert.DeserializeObject(CellState)(@"{""State"":1}");
+
+            Check.That(cell.State).IsEqualTo(CellState.Alive);
         }
     }
 }

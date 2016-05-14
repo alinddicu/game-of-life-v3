@@ -2,21 +2,26 @@
 {
     public class Cell
     {
-        public Cell(int x, int y, CellState cellState = CellState.Dead)
-        {
-            State = cellState;
-            NextState = CellState.Unknown;
-            X = x;
-            Y = y;
+        public Cell()
+        { 
         }
 
-        public CellState State { get; private set; }
-
-        public CellState NextState { get; private set; }
+        public Cell(int x, int y, CellState cellState = CellState.Dead)
+            :this()
+        {
+            X = x;
+            Y = y;
+            State = cellState;
+            NextState = CellState.Unknown;
+        }
 
         public int X { get; private set; }
 
         public int Y { get; private set; }
+
+        public CellState State { get; private set; }
+
+        public CellState NextState { get; private set; }
 
         public bool IsAlive()
         {
