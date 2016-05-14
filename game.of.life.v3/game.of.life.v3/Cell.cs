@@ -1,13 +1,21 @@
 ﻿namespace game.of.life.v3
 {
+    using Newtonsoft.Json;
+
     public class Cell
     {
         public Cell(int x, int y, CellState state = CellState.Dead)
+            : this(x, y, state, CellState.Unknown)
+        {
+        }
+
+        [JsonConstructor]
+        public Cell(int x, int y, CellState state, CellState nextState)
         {
             X = x;
             Y = y;
             State = state;
-            NextState = CellState.Unknown;
+            NextState = nextState;
         }
 
         public int X { get; private set; }

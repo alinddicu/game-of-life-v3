@@ -47,10 +47,10 @@ namespace game.of.life.v3.test
         [TestMethod]
         public void JsonDeserialzeTest()
         {
-            var cell = JsonConvert.DeserializeObject<Cell>(@"{""X"":5,""Y"":3,""NextState"":2,""State"":1}");
-            //var alive = JsonConvert.DeserializeObject(CellState)(@"{""State"":1}");
+            var cell = JsonConvert.DeserializeObject<Cell>(@"{""X"":5,""Y"":3,""NextState"":1,""State"":1}");
 
             Check.That(cell.State).IsEqualTo(CellState.Alive);
+            Check.That(cell.NextState).IsEqualTo(CellState.Alive);
         }
     }
 }
