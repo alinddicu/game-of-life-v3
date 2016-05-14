@@ -1,7 +1,6 @@
-﻿using Newtonsoft.Json;
-
-namespace game.of.life.v3.test
+﻿namespace game.of.life.v3.test
 {
+    using Newtonsoft.Json;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
