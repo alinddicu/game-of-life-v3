@@ -1,7 +1,6 @@
-﻿namespace game.of.life.v3
+﻿namespace game.of.life.domain
 {
     using System.Collections.Generic;
-
     public interface IGrid
     {
         IEnumerable<Cell> Cells { get; }

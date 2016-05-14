@@ -1,8 +1,7 @@
-﻿namespace game.of.life.v3
+﻿namespace game.of.life.domain
 {
-    using System.Linq;
     using System.Collections.Generic;
-
+    using System.Linq;
     public class RectangularInfinite2DGrid : IGrid
     {
         private readonly List<Cell> _cells = new List<Cell>();

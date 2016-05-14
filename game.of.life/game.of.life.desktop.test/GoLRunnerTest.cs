@@ -1,12 +1,11 @@
-﻿using game.of.life.desktop;
-
-namespace game.of.life.v3.desktop.test
+﻿namespace game.of.life.desktop.test
 {
     using System;
-    using System.IO;
     using System.Drawing;
+    using System.IO;
     using System.Linq;
     using System.Windows.Forms;
+    using domain;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using NFluent;
 

@@ -1,11 +1,11 @@
-﻿namespace game.of.life.v3.test
+﻿namespace game.of.life.domain.test
 {
-    using Newtonsoft.Json;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Moq;
+    using Newtonsoft.Json;
     using NFluent;
 
     [TestClass]

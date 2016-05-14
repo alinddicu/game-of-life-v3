@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
-using game.of.life.v3;
-
-namespace game.of.life.desktop
+﻿namespace game.of.life.desktop
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Windows.Forms;
+    using domain;
+
     public class GoLRunner
     {
         private static readonly Cycle Cycle = new Cycle();

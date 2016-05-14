@@ -1,7 +1,7 @@
-﻿using System.Windows.Forms;
-
-namespace game.of.life.desktop
+﻿namespace game.of.life.desktop
 {
+    using System.Windows.Forms;
+
     public static class FormExtensions
     {
         public static void SeFormProperties(this Form form)

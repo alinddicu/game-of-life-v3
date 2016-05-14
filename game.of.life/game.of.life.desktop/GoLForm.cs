@@ -1,10 +1,10 @@
-﻿using System;
-using System.IO;
-using System.Windows.Forms;
-using game.of.life.v3;
-
-namespace game.of.life.desktop
+﻿namespace game.of.life.desktop
 {
+    using System;
+    using System.IO;
+    using System.Windows.Forms;
+    using domain;
+
     public partial class GoLForm : Form
     {
         private readonly GoLRunner _goLRunner;

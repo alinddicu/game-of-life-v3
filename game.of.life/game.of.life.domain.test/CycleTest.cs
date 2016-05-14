@@ -1,8 +1,8 @@
-﻿namespace game.of.life.v3.test
+﻿namespace game.of.life.domain.test
 {
-    using NFluent;
     using System.Linq;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NFluent;
 
     [TestClass]
     public class CycleTest

@@ -1,4 +1,4 @@
-﻿namespace game.of.life.v3.test
+﻿namespace game.of.life.domain.test
 {
     using System.Linq;
     using Microsoft.VisualStudio.TestTools.UnitTesting;

@@ -1,7 +1,7 @@
-﻿namespace game.of.life.v3
+﻿namespace game.of.life.domain
 {
-    using Newtonsoft.Json;
     using System.IO;
+    using Newtonsoft.Json;
 
     public class ObjectToJsonFileConverter : IObjectToJsonFileConverter
     {

@@ -1,9 +1,9 @@
-﻿using System;
-using System.Linq;
-using System.Windows.Forms;
-
-namespace game.of.life.desktop
+﻿namespace game.of.life.desktop
 {
+    using System;
+    using System.Linq;
+    using System.Windows.Forms;
+
     public partial class OptionsForm : Form
     {
         private readonly Action _onClose;

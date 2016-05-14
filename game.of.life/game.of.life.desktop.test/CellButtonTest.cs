@@ -1,8 +1,9 @@
-﻿using game.of.life.desktop;
+﻿using System.Windows.Forms;
 
-namespace game.of.life.v3.desktop.test
+namespace game.of.life.desktop.test
 {
     using System.Drawing;
+    using domain;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using NFluent;
 
@@ -32,7 +33,7 @@ namespace game.of.life.v3.desktop.test
 
             button.PerformClick();
             Check.That(button.Cell.State).IsEqualTo(CellState.Dead);
-            Check.That(button.BackColor).IsEqualTo(CellButton.DefaultBackColor);
+            Check.That(button.BackColor).IsEqualTo(Control.DefaultBackColor);
         }
     }
 }

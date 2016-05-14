@@ -1,8 +1,8 @@
-﻿namespace game.of.life.v3.test
+﻿namespace game.of.life.domain.test
 {
     using System.Linq;
-    using NFluent;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NFluent;
 
     [TestClass]
     public class RectangularInfinite2DGridTest
