@@ -16,7 +16,7 @@ namespace game.of.life.domain.test
         {
             var cell = new Cell(0, 0, CellState.Alive);
 
-            cell.ComputeMutation(1);
+            cell.ComputeNextMutation(1);
 
             Check.That(cell.NextState).IsEqualTo(CellState.Dead);
         }
@@ -26,11 +26,11 @@ namespace game.of.life.domain.test
         public void AnyLiveCellWithTwoOrThreeLiveNeighboursLivesOnToTheNextGeneration()
         {
             var cell1 = new Cell(0, 0, CellState.Alive);
-            cell1.ComputeMutation(2);
+            cell1.ComputeNextMutation(2);
             Check.That(cell1.NextState).IsEqualTo(CellState.Alive);
 
             var cell2 = new Cell(0, 0, CellState.Alive);
-            cell2.ComputeMutation(3);
+            cell2.ComputeNextMutation(3);
             Check.That(cell2.NextState).IsEqualTo(CellState.Alive);
         }
 
@@ -39,7 +39,7 @@ namespace game.of.life.domain.test
         public void AnyLiveCellWithMoreThanThreeLiveNeighboursDiesAsIfByOverPopulation()
         {
             var cell = new Cell(0, 0, CellState.Alive);
-            cell.ComputeMutation(4);
+            cell.ComputeNextMutation(4);
             Check.That(cell.NextState).IsEqualTo(CellState.Dead);
         }
 
@@ -48,7 +48,7 @@ namespace game.of.life.domain.test
         public void AnyDeadCellWithExactlyThreeLiveNeighboursBecomesAliveAsIfByReproduction()
         {
             var cell = new Cell(0, 0);
-            cell.ComputeMutation(3);
+            cell.ComputeNextMutation(3);
             Check.That(cell.NextState).IsEqualTo(CellState.Alive);
         }
 
@@ -77,7 +77,7 @@ namespace game.of.life.domain.test
         {
             var cell = new Cell(0, 0);
             Check.That(cell.NextState).IsEqualTo(CellState.Unknown);
-            cell.ComputeMutation(3);
+            cell.ComputeNextMutation(3);
             Check.That(cell.NextState).IsEqualTo(CellState.Alive);
 
             cell.CompleteMutation();
@@ -90,7 +90,7 @@ namespace game.of.life.domain.test
         public void WhenNextStateIsUnknownThenDontCompleteMutation()
         {
             var cell = new Cell(0, 0, CellState.Alive);
-            cell.ComputeMutation(0);
+            cell.ComputeNextMutation(0);
             cell.CompleteMutation();
             Check.That(cell.State).IsEqualTo(CellState.Dead);
 

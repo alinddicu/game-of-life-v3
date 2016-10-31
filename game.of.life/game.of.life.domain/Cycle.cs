@@ -32,7 +32,7 @@
 
         private static void ComputeAndCompleteMutation(RectangularInfinite2DGrid newGrid)
         {
-            newGrid.Cells.ToList().ForEach(cell => cell.ComputeMutation(newGrid.GetNeighbours(cell).Count(c => c.IsAlive())));
+            newGrid.Cells.ToList().ForEach(cell => cell.ComputeNextMutation(newGrid.GetNeighbours(cell).Count(c => c.IsAlive())));
             newGrid.Cells.ToList().ForEach(cell => cell.CompleteMutation());
         }
     }

@@ -31,7 +31,7 @@
             return State == CellState.Alive;
         }
 
-        public void ComputeMutation(int aliveNeighboursCount)
+        public void ComputeNextMutation(int aliveNeighboursCount)
         {
             if (State == CellState.Dead && aliveNeighboursCount == 3)
             {
