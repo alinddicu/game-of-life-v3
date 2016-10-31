@@ -50,6 +50,17 @@
             }
         }
 
+        public void CompleteMutation()
+        {
+            if (NextState == CellState.Unknown)
+            {
+                return;
+            }
+
+            State = NextState;
+            NextState = CellState.Unknown;
+        }
+
         private bool Equals(Cell other)
         {
             return X == other.X && Y == other.Y;
@@ -80,16 +91,7 @@
 
         public override string ToString()
         {
-            return string.Format("({0},{1})", X, Y);
-        }
-
-        public void CompleteMutation()
-        {
-            if (NextState != CellState.Unknown)
-            {
-                State = NextState;
-                NextState = CellState.Unknown;
-            }
+            return $"({X},{Y})";
         }
     }
 }
