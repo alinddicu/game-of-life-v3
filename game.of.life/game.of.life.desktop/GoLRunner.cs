@@ -56,7 +56,7 @@
 
         private static string GetCellText(int vCounter, int hCounter, bool isShowCellsCoordinates)
         {
-            return isShowCellsCoordinates ? string.Format("({0},{1})", vCounter, hCounter) : string.Empty;
+            return isShowCellsCoordinates ? $"({vCounter},{hCounter})" : string.Empty;
         }
 
         public void NextCycle()

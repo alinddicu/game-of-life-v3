@@ -16,13 +16,7 @@
             return newGrid;
         }
 
-        private static void PrepareForNextCycle(RectangularInfinite2DGrid newGrid)
-        {
-            newGrid.Discover();
-            newGrid.Clean();
-        }
-
-        private static RectangularInfinite2DGrid InitializeNewGrid(RectangularInfinite2DGrid currentGrid)
+        private static RectangularInfinite2DGrid InitializeNewGrid(IGrid currentGrid)
         {
             var newGrid = new RectangularInfinite2DGrid();
             newGrid.AddCells(currentGrid.Cells.Select(c => new Cell(c.X, c.Y, c.State)).ToArray());
@@ -30,10 +24,16 @@
             return newGrid;
         }
 
-        private static void ComputeAndCompleteMutation(RectangularInfinite2DGrid newGrid)
+        private static void ComputeAndCompleteMutation(IGrid newGrid)
         {
             newGrid.Cells.ToList().ForEach(cell => cell.ComputeNextMutation(newGrid.GetNeighbours(cell).Count(c => c.IsAlive())));
             newGrid.Cells.ToList().ForEach(cell => cell.CompleteMutation());
+        }
+
+        private static void PrepareForNextCycle(IGrid newGrid)
+        {
+            newGrid.Discover();
+            newGrid.Clean();
         }
     }
 }

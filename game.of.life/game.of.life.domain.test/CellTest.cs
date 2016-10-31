@@ -73,7 +73,7 @@
         }
 
         [TestMethod]
-        public void WhenCompleteMutationThenNextStateIsState()
+        public void GivenCellWhenCompleteMutationThenNextStateIsState()
         {
             var cell = new Cell(0, 0);
             Check.That(cell.NextState).IsEqualTo(CellState.Unknown);
@@ -87,7 +87,7 @@
         }
 
         [TestMethod]
-        public void WhenNextStateIsUnknownThenDontCompleteMutation()
+        public void GivenCellWhenNextStateIsUnknownThenDontCompleteMutation()
         {
             var cell = new Cell(0, 0, CellState.Alive);
             cell.ComputeNextMutation(0);
@@ -100,7 +100,7 @@
         }
         [TestMethod]
         [DeploymentItem("Resources/cell.json", "Resources")]
-        public void WhenSaveThenJsonIsCorrect()
+        public void GivenCellWhenSaveThenJsonIsCorrect()
         {
             var loader = new ObjectToJsonFileConverter(new FileSystem(), "Resources");
 
@@ -112,7 +112,7 @@
         }
 
         [TestMethod]
-        public void JsonDeserialzeTest()
+        public void CellJsonDeserialzeTest()
         {
             var cell = JsonConvert.DeserializeObject<Cell>(@"{""X"":5,""Y"":3,""NextState"":1,""State"":1}");
 

@@ -33,21 +33,35 @@
 
         public void ComputeNextMutation(int aliveNeighboursCount)
         {
-            if (State == CellState.Dead && aliveNeighboursCount == 3)
+            if (ShouldResurect(aliveNeighboursCount))
             {
                 NextState = CellState.Alive;
             }
 
-            if (State == CellState.Alive && (aliveNeighboursCount == 2 || aliveNeighboursCount == 3))
+            if (ShouldStayAlive(aliveNeighboursCount))
             {
                 NextState = CellState.Alive;
             }
 
-            if (State == CellState.Alive
-                && (aliveNeighboursCount < 2 || aliveNeighboursCount >= 4))
+            if (ShouldDie(aliveNeighboursCount))
             {
                 NextState = CellState.Dead;
             }
+        }
+
+        private bool ShouldResurect(int aliveNeighboursCount)
+        {
+            return State == CellState.Dead && aliveNeighboursCount == 3;
+        }
+
+        private bool ShouldStayAlive(int aliveNeighboursCount)
+        {
+            return State == CellState.Alive && (aliveNeighboursCount == 2 || aliveNeighboursCount == 3);
+        }
+
+        private bool ShouldDie(int aliveNeighboursCount)
+        {
+            return State == CellState.Alive && (aliveNeighboursCount < 2 || aliveNeighboursCount >= 4);
         }
 
         public void CompleteMutation()
