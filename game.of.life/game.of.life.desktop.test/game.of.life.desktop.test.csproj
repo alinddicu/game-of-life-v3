@@ -62,9 +62,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\game.of.life.desktop\game.of.life.desktop.csproj">
       <Project>{9E007BC4-8073-41F6-87F6-EB2C5185BD01}</Project>
       <Name>game.of.life.desktop</Name>
@@ -77,6 +74,9 @@
       <Project>{022e64b1-5eb4-4c63-a389-dd6de51ee2ca}</Project>
       <Name>game.of.life.tools</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
