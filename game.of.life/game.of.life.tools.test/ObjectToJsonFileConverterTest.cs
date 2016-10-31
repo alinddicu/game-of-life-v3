@@ -1,10 +1,11 @@
-﻿namespace game.of.life.domain.test
+﻿namespace game.of.life.tools.test
 {
+    using domain;
+    using NFluent;
+    using Moq;
     using System.Collections.Generic;
     using System.Linq;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using Moq;
-    using NFluent;
 
     [TestClass]
     public class ObjectToJsonFileConverterTest

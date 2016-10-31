@@ -5,9 +5,9 @@
     using System.IO;
     using System.Linq;
     using System.Windows.Forms;
-    using domain;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using NFluent;
+    using tools;
 
     [TestClass]
     public class GoLRunnerTest

@@ -1,11 +1,11 @@
-﻿using System.IO;
-using Newtonsoft.Json;
-
-namespace game.of.life.domain.test
+﻿namespace game.of.life.domain.test
 {
+    using System.IO;
     using System.Linq;
+    using Newtonsoft.Json;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using NFluent;
+    using tools;
 
     [TestClass]
     public class CellTest
@@ -59,7 +59,7 @@ namespace game.of.life.domain.test
             var grid = new RectangularInfinite2DGrid();
 
             var neighbours = grid.GetNeighbours(cell).Distinct().ToArray();
-            
+
             Check.That(neighbours).IsOnlyMadeOf(
                 new Cell(-1, -1),
                 new Cell(0, -1),
@@ -95,7 +95,7 @@ namespace game.of.life.domain.test
             Check.That(cell.State).IsEqualTo(CellState.Dead);
 
             cell.CompleteMutation();
-            
+
             Check.That(cell.State).IsEqualTo(CellState.Dead);
         }
         [TestMethod]

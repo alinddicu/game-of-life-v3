@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "game.of.life.domain", "game.of.life.domain\game.of.life.domain.csproj", "{6820C349-3026-491B-A6E6-C1CCC723ECEF}"
 EndProject
@@ -10,6 +10,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "game.of.life.desktop", "game.of.life.desktop\game.of.life.desktop.csproj", "{9E007BC4-8073-41F6-87F6-EB2C5185BD01}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "game.of.life.desktop.test", "game.of.life.desktop.test\game.of.life.desktop.test.csproj", "{C11F685D-3298-4063-92F4-1177470C870C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "game.of.life.tools", "game.of.life.tools\game.of.life.tools.csproj", "{022E64B1-5EB4-4C63-A389-DD6DE51EE2CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "game.of.life.tools.test", "game.of.life.tools.test\game.of.life.tools.test.csproj", "{B3F45354-2F4C-4727-BB24-B5F910987278}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{C11F685D-3298-4063-92F4-1177470C870C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C11F685D-3298-4063-92F4-1177470C870C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C11F685D-3298-4063-92F4-1177470C870C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{022E64B1-5EB4-4C63-A389-DD6DE51EE2CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{022E64B1-5EB4-4C63-A389-DD6DE51EE2CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{022E64B1-5EB4-4C63-A389-DD6DE51EE2CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{022E64B1-5EB4-4C63-A389-DD6DE51EE2CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3F45354-2F4C-4727-BB24-B5F910987278}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3F45354-2F4C-4727-BB24-B5F910987278}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3F45354-2F4C-4727-BB24-B5F910987278}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3F45354-2F4C-4727-BB24-B5F910987278}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

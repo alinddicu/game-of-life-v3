@@ -8,7 +8,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>game.of.life.domain.test</RootNamespace>
     <AssemblyName>game.of.life.domain.test</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -16,6 +16,7 @@
     <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
     <IsCodedUITest>False</IsCodedUITest>
     <TestProjectType>UnitTest</TestProjectType>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -63,9 +64,8 @@
   <ItemGroup>
     <Compile Include="CellTest.cs" />
     <Compile Include="CycleTest.cs" />
-    <Compile Include="ObjectToJsonFileConverterTest.cs" />
-    <Compile Include="RectangularInfinite2DGridTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RectangularInfinite2DGridTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -75,6 +75,10 @@
     <ProjectReference Include="..\game.of.life.domain\game.of.life.domain.csproj">
       <Project>{6820c349-3026-491b-a6e6-c1ccc723ecef}</Project>
       <Name>game.of.life.domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\game.of.life.tools\game.of.life.tools.csproj">
+      <Project>{022e64b1-5eb4-4c63-a389-dd6de51ee2ca}</Project>
+      <Name>game.of.life.tools</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

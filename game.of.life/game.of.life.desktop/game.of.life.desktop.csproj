@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>game.of.life.desktop</RootNamespace>
     <AssemblyName>game.of.life.desktop</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
@@ -116,6 +116,10 @@
     <ProjectReference Include="..\game.of.life.domain\game.of.life.domain.csproj">
       <Project>{6820c349-3026-491b-a6e6-c1ccc723ecef}</Project>
       <Name>game.of.life.domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\game.of.life.tools\game.of.life.tools.csproj">
+      <Project>{022e64b1-5eb4-4c63-a389-dd6de51ee2ca}</Project>
+      <Name>game.of.life.tools</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

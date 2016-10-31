@@ -1,7 +1,8 @@
 ﻿namespace game.of.life.domain.test
 {
-    using System.Linq;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System.Linq;
+    using domain;
     using NFluent;
 
     [TestClass]

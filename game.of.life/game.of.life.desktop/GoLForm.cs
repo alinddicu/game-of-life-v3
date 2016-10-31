@@ -3,7 +3,7 @@
     using System;
     using System.IO;
     using System.Windows.Forms;
-    using domain;
+    using tools;
 
     public partial class GoLForm : Form
     {

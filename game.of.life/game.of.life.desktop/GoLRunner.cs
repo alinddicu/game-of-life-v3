@@ -5,6 +5,7 @@
     using System.Linq;
     using System.Windows.Forms;
     using domain;
+    using tools;
 
     public class GoLRunner
     {

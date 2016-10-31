@@ -1,4 +1,4 @@
-﻿namespace game.of.life.domain
+﻿namespace game.of.life.tools
 {
     public interface IFileSystem
     {
