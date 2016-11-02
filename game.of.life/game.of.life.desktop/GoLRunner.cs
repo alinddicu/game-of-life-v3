@@ -63,7 +63,7 @@
         {
             if (!_gridHistory.Any())
             {
-                _gridHistory.Push(GetInitialGrid());
+                _gridHistory.Push(GetCurrentGrid());
                 _cellsPanel.Enabled = false;
             }
 
@@ -71,7 +71,7 @@
             RefreshCellButtons();
         }
 
-        private RectangularInfinite2DGrid GetInitialGrid()
+        private RectangularInfinite2DGrid GetCurrentGrid()
         {
             var grid = new RectangularInfinite2DGrid();
             grid.AddCells(_buttons.Select(b => b.Cell).Where(c => c.IsAlive()).ToArray());
@@ -102,7 +102,7 @@
         public void SaveFirstGrid()
         {
             var fileName = DateTime.Now.ToFileTime() + ".grid";
-            _gridLoader.Save(fileName, GetInitialGrid().Cells);
+            _gridLoader.Save(fileName, GetCurrentGrid().Cells);
         }
     }
 }

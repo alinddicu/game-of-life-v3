@@ -2,16 +2,17 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+
     public class RectangularInfinite2DGrid : IGrid
     {
         private readonly List<Cell> _cells = new List<Cell>();
-        
-        public IEnumerable<Cell> Cells { get { return _cells; } }
 
         public void AddCells(params Cell[] cells)
         {
             _cells.AddRange(cells);
         }
+
+        public IEnumerable<Cell> Cells => _cells;
 
         public void Discover()
         {
@@ -26,8 +27,7 @@
 
         public Cell Get(int x, int y)
         {
-            var existingCell = _cells.SingleOrDefault(c => c.X == x && c.Y == y);
-            return existingCell ?? new Cell(x, y);
+            return _cells.SingleOrDefault(c => c.X == x && c.Y == y) ?? new Cell(x, y);
         }
 
         public IEnumerable<Cell> GetNeighbours(Cell cell)

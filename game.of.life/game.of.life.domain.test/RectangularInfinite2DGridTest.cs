@@ -17,25 +17,27 @@
         }
 
         [TestMethod]
-        public void GivenGridWith1CellWhenGetCellsReturnTheCellAnd8Neighbours()
+        public void GivenGridWith1CellWhenDiscoverThenReturnCellAnd8Neighbours()
         {
             _grid.AddCells(new Cell(0, 0));
 
-            Check.That(_grid.Cells).IsOnlyMadeOf(
-                new Cell(-1, -1),
-                new Cell(0, -1),
-                new Cell(1, -1),
-                new Cell(0, -1),
-                new Cell(-1, 0),
+            _grid.Discover();
+            var gridCells = _grid.Cells.OrderBy(c => c.ToString());
+
+            Check.That(gridCells).ContainsExactly(
                 new Cell(0, 0),
-                new Cell(1, 0),
-                new Cell(-1, 1),
                 new Cell(0, 1),
-                new Cell(1, 1));
+                new Cell(0, -1),
+                new Cell(1, 0),
+                new Cell(-1, 0),
+                new Cell(1, 1),
+                new Cell(1, -1),
+                new Cell(-1, 1),
+                new Cell(-1, -1));
         }
 
         [TestMethod]
-        public void GivenGridWith1CellWhenGetNeighboursOfThatCellsThenReturn8DeadCells()
+        public void GivenGridWith1CellWhenGetNeighboursOfThatCellThenReturn8DeadCells()
         {
             var cell = new Cell(0, 0, CellState.Alive);
             _grid.AddCells(cell);
@@ -58,7 +60,7 @@
         }
 
         [TestMethod]
-        public void SimpleMutationCompletionWith1CellRevival()
+        public void Given3AdjacentAliveCellsWhenDiscoverAndMutateThenGridHas15KnownCells()
         {
             var initialCells = new[] { new Cell(0, 0, CellState.Alive), new Cell(1, 0, CellState.Alive), new Cell(0, 1, CellState.Alive) };
             _grid.AddCells(initialCells);
@@ -73,7 +75,7 @@
         }
 
         [TestMethod]
-        public void SimpleMutationCompletionWith1CellRevivalThenDiscover()
+        public void Given3AdjacentAliveCellsWhenDiscoverMutateAndDiscoverThenGridHas35KnownCells()
         {
             var initialCells = new[] { new Cell(0, 0, CellState.Alive), new Cell(1, 0, CellState.Alive), new Cell(0, 1, CellState.Alive) };
             _grid.AddCells(initialCells);
@@ -90,7 +92,7 @@
         }
 
         [TestMethod]
-        public void GRidWith1AliveCellThenMutateThenDiscoverThenClean()
+        public void GivenGridWith1AliveCellWhenMutateAndDiscoverAndCleanThenGridIsEmpty()
         {
             var initialCells = new[] { new Cell(0, 0, CellState.Alive) };
             _grid.AddCells(initialCells);
@@ -109,7 +111,7 @@
         }
 
         [TestMethod]
-        public void GivenGridWithSomeCellsWhenResetThenCellsAreEmptied()
+        public void GivenGridWithSomeCellsWhenResetThenGridIsEmptied()
         {
             var initialCells = new[] { new Cell(0, 0, CellState.Alive), new Cell(1, 0), new Cell(0, 1, CellState.Unknown) };
             _grid.AddCells(initialCells);
