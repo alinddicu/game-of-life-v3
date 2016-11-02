@@ -11,7 +11,5 @@
         IEnumerable<Cell> GetNeighbours(Cell cell);
 
         void Clean();
-
-        void Reset();
     }
 }
