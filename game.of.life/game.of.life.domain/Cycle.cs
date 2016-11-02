@@ -18,8 +18,7 @@
 
         private static RectangularInfinite2DGrid InitializeNewGrid(IGrid currentGrid)
         {
-            var newGrid = new RectangularInfinite2DGrid();
-            newGrid.AddCells(currentGrid.Cells.Select(c => new Cell(c.X, c.Y, c.State)).ToArray());
+            var newGrid = new RectangularInfinite2DGrid(currentGrid.Cells.Select(c => new Cell(c.X, c.Y, c.State)));
             newGrid.Discover();
             return newGrid;
         }

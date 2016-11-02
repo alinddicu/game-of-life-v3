@@ -73,8 +73,7 @@
 
         private RectangularInfinite2DGrid GetCurrentGrid()
         {
-            var grid = new RectangularInfinite2DGrid();
-            grid.AddCells(_buttons.Select(b => b.Cell).Where(c => c.IsAlive()).ToArray());
+            var grid = new RectangularInfinite2DGrid(_buttons.Select(b => b.Cell).Where(c => c.IsAlive()));
             return grid;
         }
 

@@ -7,8 +7,14 @@
     {
         private readonly List<Cell> _cells = new List<Cell>();
 
-        public void AddCells(params Cell[] cells)
+        public RectangularInfinite2DGrid(IEnumerable<Cell> cells)
+            :this(cells.ToArray())
         {
+        }
+
+        public RectangularInfinite2DGrid(params Cell[] cells)
+        {
+            _cells.Clear();
             _cells.AddRange(cells);
         }
 
@@ -25,11 +31,6 @@
             _cells.AddRange(newCells);
         }
 
-        public Cell Get(int x, int y)
-        {
-            return _cells.SingleOrDefault(c => c.X == x && c.Y == y) ?? new Cell(x, y);
-        }
-
         public IEnumerable<Cell> GetNeighbours(Cell cell)
         {
             yield return Get(cell.X - 1, cell.Y - 1);
@@ -40,6 +41,11 @@
             yield return Get(cell.X, cell.Y + 1);
             yield return Get(cell.X - 1, cell.Y + 1);
             yield return Get(cell.X - 1, cell.Y);
+        }
+
+        public Cell Get(int x, int y)
+        {
+            return _cells.SingleOrDefault(c => c.X == x && c.Y == y) ?? new Cell(x, y);
         }
 
         public void Clean()

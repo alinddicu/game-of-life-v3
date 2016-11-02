@@ -5,8 +5,6 @@
     public interface IGrid
     {
         IEnumerable<Cell> Cells { get; }
-
-        void AddCells(params Cell[] cells);
         
         void Discover();
 

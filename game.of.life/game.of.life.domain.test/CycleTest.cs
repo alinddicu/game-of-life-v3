@@ -19,8 +19,7 @@
         public void GivenSimpleMutationCompletionWith1CellWhenDiscoverCleanRevivalThenGridHas16Cells()
         {
             var initialCells = new[] { new Cell(0, 0, CellState.Alive), new Cell(1, 0, CellState.Alive), new Cell(0, 1, CellState.Alive) };
-            var grid = new RectangularInfinite2DGrid();
-            grid.AddCells(initialCells);
+            var grid = new RectangularInfinite2DGrid(initialCells);
 
             _cycle = new Cycle();
 
@@ -39,8 +38,8 @@
                 new Cell(5, 4, CellState.Alive), 
                 new Cell(5, 5, CellState.Alive)
             };
-            var grid1 = new RectangularInfinite2DGrid();
-            grid1.AddCells(initialCells);
+
+            var grid1 = new RectangularInfinite2DGrid(initialCells);
 
             var grid2 = _cycle.Run(grid1);
             var grid3 = _cycle.Run(grid2);

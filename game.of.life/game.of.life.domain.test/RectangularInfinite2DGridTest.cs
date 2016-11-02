@@ -8,21 +8,13 @@
     [TestClass]
     public class RectangularInfinite2DGridTest
     {
-        private RectangularInfinite2DGrid _grid;
-
-        [TestInitialize]
-        public void Initialize()
-        {
-            _grid = new RectangularInfinite2DGrid();
-        }
-
         [TestMethod]
         public void GivenGridWith1CellWhenDiscoverThenReturnCellAnd8Neighbours()
         {
-            _grid.AddCells(new Cell(0, 0));
+            var grid = new RectangularInfinite2DGrid(new Cell(0, 0));
 
-            _grid.Discover();
-            var gridCells = _grid.Cells.OrderBy(c => c.ToString());
+            grid.Discover();
+            var gridCells = grid.Cells.OrderBy(c => c.ToString());
 
             Check.That(gridCells).ContainsExactly(
                 new Cell(0, 0),
@@ -40,9 +32,9 @@
         public void GivenGridWith1CellWhenGetNeighboursOfThatCellThenReturn8DeadCells()
         {
             var cell = new Cell(0, 0, CellState.Alive);
-            _grid.AddCells(cell);
+            var grid = new RectangularInfinite2DGrid(cell);
 
-            var neighbours = _grid.GetNeighbours(cell).ToArray();
+            var neighbours = grid.GetNeighbours(cell).ToArray();
 
             Check.That(neighbours).HasSize(8);
             Check.That(neighbours.Select(n => n.State).Distinct().Single()).IsEqualTo(CellState.Dead);
@@ -52,73 +44,73 @@
         public void GivenGridWith1DeadCellWhenCleanThenGridIsEmpty()
         {
             var cell = new Cell(0, 0);
-            _grid.AddCells(cell);
+            var grid = new RectangularInfinite2DGrid(cell);
 
-            _grid.Clean();
+            grid.Clean();
 
-            Check.That(_grid.Cells).IsEmpty();
+            Check.That(grid.Cells).IsEmpty();
         }
 
         [TestMethod]
         public void Given3AdjacentAliveCellsWhenDiscoverAndMutateThenGridHas15KnownCells()
         {
             var initialCells = new[] { new Cell(0, 0, CellState.Alive), new Cell(1, 0, CellState.Alive), new Cell(0, 1, CellState.Alive) };
-            _grid.AddCells(initialCells);
+            var grid = new RectangularInfinite2DGrid(initialCells);
 
-            _grid.Discover();
+            grid.Discover();
 
-            _grid.Cells.ToList().ForEach(cell => cell.ComputeNextMutation(_grid.GetNeighbours(cell).Count(c => c.IsAlive())));
-            _grid.Cells.ToList().ForEach(cell => cell.CompleteMutation());
+            grid.Cells.ToList().ForEach(cell => cell.ComputeNextMutation(grid.GetNeighbours(cell).Count(c => c.IsAlive())));
+            grid.Cells.ToList().ForEach(cell => cell.CompleteMutation());
 
-            Check.That(_grid.Cells).HasSize(15);
-            Check.That(_grid.Cells).Not.Contains(new Cell(2, 2));
+            Check.That(grid.Cells).HasSize(15);
+            Check.That(grid.Cells).Not.Contains(new Cell(2, 2));
         }
 
         [TestMethod]
         public void Given3AdjacentAliveCellsWhenDiscoverMutateAndDiscoverThenGridHas35KnownCells()
         {
             var initialCells = new[] { new Cell(0, 0, CellState.Alive), new Cell(1, 0, CellState.Alive), new Cell(0, 1, CellState.Alive) };
-            _grid.AddCells(initialCells);
+            var grid = new RectangularInfinite2DGrid(initialCells);
 
-            _grid.Discover();
+            grid.Discover();
 
-            _grid.Cells.ToList().ForEach(cell => cell.ComputeNextMutation(_grid.GetNeighbours(cell).Count(c => c.IsAlive())));
-            _grid.Cells.ToList().ForEach(cell => cell.CompleteMutation());
+            grid.Cells.ToList().ForEach(cell => cell.ComputeNextMutation(grid.GetNeighbours(cell).Count(c => c.IsAlive())));
+            grid.Cells.ToList().ForEach(cell => cell.CompleteMutation());
 
-            _grid.Discover();
+            grid.Discover();
 
-            Check.That(_grid.Cells).HasSize(35);
-            Check.That(_grid.Cells).Not.Contains(new Cell(3, 3));
+            Check.That(grid.Cells).HasSize(35);
+            Check.That(grid.Cells).Not.Contains(new Cell(3, 3));
         }
 
         [TestMethod]
         public void GivenGridWith1AliveCellWhenMutateAndDiscoverAndCleanThenGridIsEmpty()
         {
             var initialCells = new[] { new Cell(0, 0, CellState.Alive) };
-            _grid.AddCells(initialCells);
+            var grid = new RectangularInfinite2DGrid(initialCells);
 
-            _grid.Discover();
-            Check.That(_grid.Cells).HasSize(9);
+            grid.Discover();
+            Check.That(grid.Cells).HasSize(9);
 
-            _grid.Cells.ToList().ForEach(cell => cell.ComputeNextMutation(_grid.GetNeighbours(cell).Count(c => c.IsAlive())));
-            _grid.Cells.ToList().ForEach(cell => cell.CompleteMutation());
+            grid.Cells.ToList().ForEach(cell => cell.ComputeNextMutation(grid.GetNeighbours(cell).Count(c => c.IsAlive())));
+            grid.Cells.ToList().ForEach(cell => cell.CompleteMutation());
 
-            _grid.Discover();
-            Check.That(_grid.Cells.Count(c => c.IsAlive())).IsEqualTo(0);
-            _grid.Clean();
+            grid.Discover();
+            Check.That(grid.Cells.Count(c => c.IsAlive())).IsEqualTo(0);
+            grid.Clean();
 
-            Check.That(_grid.Cells).HasSize(0);
+            Check.That(grid.Cells).HasSize(0);
         }
 
         [TestMethod]
         public void GivenGridWithSomeCellsWhenResetThenGridIsEmptied()
         {
             var initialCells = new[] { new Cell(0, 0, CellState.Alive), new Cell(1, 0), new Cell(0, 1, CellState.Unknown) };
-            _grid.AddCells(initialCells);
+            var grid = new RectangularInfinite2DGrid(initialCells);
 
-            _grid.Reset();
+            grid.Reset();
 
-            Check.That(_grid.Cells).IsEmpty();
+            Check.That(grid.Cells).IsEmpty();
         }
     }
 }
