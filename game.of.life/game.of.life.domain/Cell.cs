@@ -1,9 +1,17 @@
 ﻿namespace game.of.life.domain
 {
+    using System.Linq;
     using Newtonsoft.Json;
 
     public class Cell
     {
+        private readonly IComputeNextMutation[] _computeNextMutations =
+        {
+            new ShouldResurectNextMutation(),
+            new ShouldStayAliveNextMutation(),
+            new ShouldDieNextMutation()
+        };
+
         public Cell(int x, int y, CellState state = CellState.Dead)
             : this(x, y, state, CellState.Unknown)
         {
@@ -18,9 +26,9 @@
             NextState = nextState;
         }
 
-        public int X { get; private set; }
+        public int X { get; }
 
-        public int Y { get; private set; }
+        public int Y { get; }
 
         public CellState State { get; private set; }
 
@@ -30,7 +38,8 @@
         {
             return State == CellState.Alive;
         }
-
+        
+        /*
         public void ComputeNextMutation(int aliveNeighboursCount)
         {
             if (ShouldResurect(aliveNeighboursCount))
@@ -48,20 +57,59 @@
                 NextState = CellState.Dead;
             }
         }
+        */
 
-        private bool ShouldResurect(int aliveNeighboursCount)
+        public void ComputeNextMutation(int aliveNeighboursCount)
         {
-            return State == CellState.Dead && aliveNeighboursCount == 3;
+            _computeNextMutations
+                .FirstOrDefault(m => m.CanComputeNextMutation(this, aliveNeighboursCount))
+                ?.ComputeNextMutation(this);
         }
 
-        private bool ShouldStayAlive(int aliveNeighboursCount)
+        private interface IComputeNextMutation
         {
-            return State == CellState.Alive && (aliveNeighboursCount == 2 || aliveNeighboursCount == 3);
+            bool CanComputeNextMutation(Cell cell, int aliveNeighboursCount);
+
+            void ComputeNextMutation(Cell cell);
         }
 
-        private bool ShouldDie(int aliveNeighboursCount)
+        private class ShouldResurectNextMutation : IComputeNextMutation
         {
-            return State == CellState.Alive && (aliveNeighboursCount < 2 || aliveNeighboursCount >= 4);
+            public bool CanComputeNextMutation(Cell cell, int aliveNeighboursCount)
+            {
+                return cell.State == CellState.Dead && aliveNeighboursCount == 3;
+            }
+
+            public void ComputeNextMutation(Cell cell)
+            {
+                cell.NextState = CellState.Alive;
+            }
+        }
+
+        private class ShouldStayAliveNextMutation : IComputeNextMutation
+        {
+            public bool CanComputeNextMutation(Cell cell, int aliveNeighboursCount)
+            {
+                return cell.State == CellState.Alive && (aliveNeighboursCount == 2 || aliveNeighboursCount == 3);
+            }
+
+            public void ComputeNextMutation(Cell cell)
+            {
+                cell.NextState = CellState.Alive;
+            }
+        }
+
+        private class ShouldDieNextMutation : IComputeNextMutation
+        {
+            public bool CanComputeNextMutation(Cell cell, int aliveNeighboursCount)
+            {
+                return cell.State == CellState.Alive && (aliveNeighboursCount < 2 || aliveNeighboursCount >= 4);
+            }
+
+            public void ComputeNextMutation(Cell cell)
+            {
+                cell.NextState = CellState.Dead;
+            }
         }
 
         public void CompleteMutation()
@@ -73,11 +121,6 @@
 
             State = NextState;
             NextState = CellState.Unknown;
-        }
-
-        private bool Equals(Cell other)
-        {
-            return X == other.X && Y == other.Y;
         }
 
         public override bool Equals(object obj)
@@ -93,6 +136,11 @@
             }
 
             return obj.GetType() == GetType() && Equals((Cell)obj);
+        }
+
+        private bool Equals(Cell other)
+        {
+            return X == other.X && Y == other.Y;
         }
 
         public override int GetHashCode()
