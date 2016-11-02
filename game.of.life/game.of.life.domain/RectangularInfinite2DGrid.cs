@@ -57,11 +57,6 @@
             _cells.RemoveAll(c => isolatedCells.Contains(c));
         }
 
-        public void Reset()
-        {
-            _cells.Clear();
-        }
-
         public override string ToString()
         {
             return string.Join(", ", _cells.Where(c => c.IsAlive()));
