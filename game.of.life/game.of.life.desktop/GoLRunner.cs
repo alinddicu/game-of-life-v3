@@ -73,8 +73,7 @@
 
         private RectangularInfinite2DGrid GetCurrentGrid()
         {
-            var grid = new RectangularInfinite2DGrid(_buttons.Select(b => b.Cell).Where(c => c.IsAlive()));
-            return grid;
+            return new RectangularInfinite2DGrid(_buttons.Select(b => b.Cell).Where(c => c.IsAlive()));
         }
 
         private void RefreshCellButtons()
@@ -101,7 +100,14 @@
         public void SaveFirstGrid()
         {
             var fileName = DateTime.Now.ToFileTime() + ".grid";
-            _gridLoader.Save(fileName, GetCurrentGrid().Cells);
+            _gridLoader.Save(fileName, GetFirstGrid().Cells);
+        }
+
+        private RectangularInfinite2DGrid GetFirstGrid()
+        {
+            var firstGrid = _gridHistory.ToArray()[0];
+            firstGrid.Clean();
+            return firstGrid;
         }
     }
 }
