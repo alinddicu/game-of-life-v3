@@ -25,6 +25,15 @@
         public void InitCellButtons(GoLOptions goLOptions)
         {
             _buttons.Clear();
+            InitCellButtonsInSquare(goLOptions);
+
+            _cellsPanel.Controls.Clear();
+            // ReSharper disable once CoVariantArrayConversion
+            _cellsPanel.Controls.AddRange(_buttons.ToArray());
+        }
+
+        private void InitCellButtonsInSquare(GoLOptions goLOptions)
+        {
             var numberOfCellsPerRow = goLOptions.NumberOfCellsPerRow;
 
             var side = new[] { _cellsPanel.Width, _cellsPanel.Height }.Min();
@@ -37,10 +46,6 @@
                     _buttons.Add(cellButton);
                 }
             }
-
-            _cellsPanel.Controls.Clear();
-            // ReSharper disable once CoVariantArrayConversion
-            _cellsPanel.Controls.AddRange(_buttons.ToArray());
         }
 
         private static CellButton CreateCellButton(int vCounter, int hCounter, int buttonWidth, bool isShowCellsCoordinates)

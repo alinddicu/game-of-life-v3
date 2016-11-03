@@ -8,7 +8,7 @@
         private readonly List<Cell> _cells = new List<Cell>();
 
         public RectangularInfinite2DGrid(IEnumerable<Cell> cells)
-            :this(cells.ToArray())
+            : this(cells.ToArray())
         {
         }
 
@@ -24,8 +24,8 @@
         {
             var newCells =
                 (from cell in _cells
-                from neighbour in GetNeighbours(cell)
-                where !_cells.Contains(neighbour)
+                 from neighbour in GetNeighbours(cell)
+                 where !_cells.Contains(neighbour)
                  select neighbour).Distinct().ToArray();
 
             _cells.AddRange(newCells);
