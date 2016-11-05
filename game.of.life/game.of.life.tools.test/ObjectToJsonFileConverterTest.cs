@@ -21,7 +21,7 @@
 
             var loader = new ObjectToJsonFileConverter(fileSystemMock.Object, string.Empty);
 
-            var cell = loader.Load<IEnumerable<Cell>>("").Single();
+            var cell = loader.Load<IEnumerable<Cell>>().Single();
 
             Check.That(cell.X).IsEqualTo(5);
             Check.That(cell.Y).IsEqualTo(3);

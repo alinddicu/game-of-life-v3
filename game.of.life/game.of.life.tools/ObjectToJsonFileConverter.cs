@@ -26,7 +26,7 @@
             _fileSystem.FileWriteAllText(filePath, jsonContent);
         }
 
-        public T Load<T>(string fileName)
+        public T Load<T>(string fileName = "")
         {
             var filePath = Path.Combine(_baseDirPath, fileName + ".json");
             if (!_fileSystem.FileExists(filePath))
