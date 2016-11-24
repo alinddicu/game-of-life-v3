@@ -1,8 +1,7 @@
-﻿using System.Windows.Forms;
-
-namespace game.of.life.desktop.test
+﻿namespace game.of.life.desktop.test
 {
     using System.Drawing;
+    using System.Windows.Forms;
     using domain;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using NFluent;
