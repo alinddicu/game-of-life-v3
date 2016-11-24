@@ -15,29 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "game.of.life.tools", "game.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "game.of.life.tools.test", "game.of.life.tools.test\game.of.life.tools.test.csproj", "{B3F45354-2F4C-4727-BB24-B5F910987278}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "game.of.life.web", "game.of.life.web\", "{C4EC11C0-3D20-43C9-8D8F-6CE9CDE3A92B}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_2025"
-		Debug.AspNetCompiler.PhysicalPath = "game.of.life.web\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2025\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_2025"
-		Release.AspNetCompiler.PhysicalPath = "game.of.life.web\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2025\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "2025"
-		SlnRelativePath = "game.of.life.web\"
-		DefaultWebSiteLanguage = "Visual C#"
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "game.of.life.web.test", "game.of.life.web.test\game.of.life.web.test.csproj", "{4FF26346-6060-4FF5-BC42-418C91DDE44F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "game.of.life.web.ts", "game.of.life.web.ts\game.of.life.web.ts.csproj", "{6729EC94-BE6A-495D-BBD2-B96A580439C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,14 +47,10 @@ Global
 		{B3F45354-2F4C-4727-BB24-B5F910987278}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3F45354-2F4C-4727-BB24-B5F910987278}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3F45354-2F4C-4727-BB24-B5F910987278}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C4EC11C0-3D20-43C9-8D8F-6CE9CDE3A92B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C4EC11C0-3D20-43C9-8D8F-6CE9CDE3A92B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C4EC11C0-3D20-43C9-8D8F-6CE9CDE3A92B}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{C4EC11C0-3D20-43C9-8D8F-6CE9CDE3A92B}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{4FF26346-6060-4FF5-BC42-418C91DDE44F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4FF26346-6060-4FF5-BC42-418C91DDE44F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4FF26346-6060-4FF5-BC42-418C91DDE44F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4FF26346-6060-4FF5-BC42-418C91DDE44F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6729EC94-BE6A-495D-BBD2-B96A580439C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6729EC94-BE6A-495D-BBD2-B96A580439C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6729EC94-BE6A-495D-BBD2-B96A580439C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6729EC94-BE6A-495D-BBD2-B96A580439C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
