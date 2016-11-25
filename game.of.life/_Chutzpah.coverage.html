@@ -1,0 +1,193 @@
+
+<html>
+<head>
+    <title>Chutzpah Code Coverage Results</title>
+    <script type='text/javascript'>
+        
+function chutzpah_toggleSource(id) {
+        var element = document.getElementById(id);
+        if(element.style.display === 'block') {
+            element.style.display = 'none';
+        } else {
+            element.style.display = 'block';
+        }
+    }
+
+    </script>
+    <style>
+        
+#chutzpah-main
+{
+  background:#EEE;
+  clear:both;
+  color:#333;
+  font-family:'Helvetica Neue Light', HelveticaNeue-Light, 'Helvetica Neue', Calibri, Helvetica, Arial, sans-serif;
+  font-size:17px;
+  margin:2px;
+}
+
+#chutzpah-main a
+{
+  color:#333;
+  text-decoration:none;
+}
+
+#chutzpah-main a:hover
+{
+  text-decoration:underline;
+}
+
+.chutzpah
+{
+  border-bottom:1px solid #FFF;
+  clear:both;
+  margin:0;
+  padding:5px;
+}
+
+.chutzpah-error
+{
+  color:red;
+}
+
+.chutzpah-success
+{
+  color:#5E7D00;
+}
+
+.chutzpah-file
+{
+  width:auto;
+}
+
+.chutzpah-cl
+{
+  float:left;
+}
+
+.chutzpah div.rs
+{
+  float:right;
+  margin-left:50px;
+  width:150px;
+}
+
+.chutzpah-nb
+{
+  padding-right:10px;
+}
+
+#chutzpah-main a.chutzpah-logo
+{
+  color:#3245FF;
+  cursor:pointer;
+  font-weight:700;
+  text-decoration:none;
+}
+
+.chutzpah-source
+{
+  background-color:#FFF;
+  border:1px solid #CBCBCB;
+  color:#363636;
+  margin:25px 20px;
+  overflow-x:scroll;
+  width:80%;
+}
+
+.chutzpah-source div
+{
+  white-space:nowrap;
+}
+
+.chutzpah-source span
+{
+  background-color:#EAEAEA;
+  color:#949494;
+  display:inline-block;
+  padding:0 10px;
+  text-align:center;
+}
+
+.chutzpah-source .miss
+{
+  background-color:#e6c3c7;
+}
+
+    </style>
+</head>
+<body>
+<div id='chutzpah-main'>
+	<div class='chutzpah chutzpah-title'>
+		<div class='chutzpah-cl chutzpah-file'>
+			<a href='http://chutzpah.codeplex.com/' target='_blank' class='chutzpah-logo'>Chutzpah</a> code coverage via <a href='http://blanketjs.org' target='_blank' class='chutzpah-logo'>blanket.js</a> results
+		</div>
+		<div class='chutzpah-cl rs'>
+			Coverage (%)
+		</div>
+		<div class='chutzpah-cl rs'>
+			Covered/Total Smts.
+		</div>
+		<div style='clear:both;'>
+		</div>
+	</div>
+
+
+<div class='chutzpah chutzpah-success'>
+	<div class='chutzpah-cl chutzpah-file'>
+		<span class='chutzpah-nb'>1.</span><a href='javascript:chutzpah_toggleSource("file-1")'>D:\Source\Repos\game-of-life-v3\game.of.life\game.of.life.web.ts.test\Scripts\app\person.ts</a>
+	</div>
+	<div class='chutzpah-cl rs'>
+		100 %
+	</div>
+	<div class='chutzpah-cl rs'>
+		12/12
+	</div>
+	<div id='file-1' class='chutzpah-source' style='display:none;'>
+		 <div class='hit'><span class=''>&nbsp;&nbsp;1</span>var&nbsp;Person&nbsp;=&nbsp;(function&nbsp;()&nbsp;{</div> <div class='hit'><span class=''>&nbsp;&nbsp;2</span>&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;Person()&nbsp;{</div> <div class=''><span class=''>&nbsp;&nbsp;3</span>&nbsp;&nbsp;&nbsp;&nbsp;}</div> <div class='hit'><span class=''>&nbsp;&nbsp;4</span>&nbsp;&nbsp;&nbsp;&nbsp;Person.prototype.setFirstName&nbsp;=&nbsp;function&nbsp;(value)&nbsp;{</div> <div class='hit'><span class=''>&nbsp;&nbsp;5</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.firstName&nbsp;=&nbsp;value;</div> <div class=''><span class=''>&nbsp;&nbsp;6</span>&nbsp;&nbsp;&nbsp;&nbsp;};</div> <div class='hit'><span class=''>&nbsp;&nbsp;7</span>&nbsp;&nbsp;&nbsp;&nbsp;Person.prototype.setLastName&nbsp;=&nbsp;function&nbsp;(value)&nbsp;{</div> <div class='hit'><span class=''>&nbsp;&nbsp;8</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.lastName&nbsp;=&nbsp;value;</div> <div class=''><span class=''>&nbsp;&nbsp;9</span>&nbsp;&nbsp;&nbsp;&nbsp;};</div> <div class='hit'><span class=''>10</span>&nbsp;&nbsp;&nbsp;&nbsp;Person.prototype.getFullName&nbsp;=&nbsp;function&nbsp;(lastNameFirst)&nbsp;{</div> <div class='hit'><span class=''>11</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(lastNameFirst&nbsp;===&nbsp;void&nbsp;0)&nbsp;{&nbsp;lastNameFirst&nbsp;=&nbsp;false;&nbsp;}</div> <div class='hit'><span class=''>12</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(lastNameFirst)&nbsp;{</div> <div class='hit'><span class=''>13</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;this.lastName&nbsp;+&nbsp;&quot;,&nbsp;&quot;&nbsp;+&nbsp;this.firstName;</div> <div class=''><span class=''>14</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</div> <div class='hit'><span class=''>15</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;this.firstName&nbsp;+&nbsp;&quot;,&nbsp;&quot;&nbsp;+&nbsp;this.lastName;</div> <div class=''><span class=''>16</span>&nbsp;&nbsp;&nbsp;&nbsp;};</div> <div class='hit'><span class=''>17</span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;Person;</div> <div class='{{executed}}'><span class=''>18</span>}());</div> <div class='{{executed}}'><span class=''>19</span>//#&nbsp;sourceMappingURL=person.js.map</div>
+	</div>
+	<div style='clear:both;'>
+	</div>
+</div>
+
+
+<div class='chutzpah chutzpah-success'>
+	<div class='chutzpah-cl chutzpah-file'>
+		<span class='chutzpah-nb'>2.</span><a href='javascript:chutzpah_toggleSource("file-2")'>D:\Source\Repos\game-of-life-v3\game.of.life\game.of.life.web.ts.test\Scripts\tests\personTest.ts</a>
+	</div>
+	<div class='chutzpah-cl rs'>
+		100 %
+	</div>
+	<div class='chutzpah-cl rs'>
+		14/14
+	</div>
+	<div id='file-2' class='chutzpah-source' style='display:none;'>
+		 <div class=''><span class=''>&nbsp;&nbsp;1</span>///&nbsp;&lt;reference&nbsp;path=&nbsp;&quot;../app/person.ts&quot;&nbsp;/&gt;</div> <div class=''><span class=''>&nbsp;&nbsp;2</span>///&nbsp;&lt;reference&nbsp;path=&nbsp;&quot;../typings/jasmine/jasmine.d.ts&quot;&nbsp;/&gt;</div> <div class=''><span class=''>&nbsp;&nbsp;3</span>//&nbsp;http://www.codeproject.com/Tips/1030700/Testing-Typescript-with-Jasmine-and-Chutzpah</div> <div class='hit'><span class=''>&nbsp;&nbsp;4</span>describe(&quot;Person&nbsp;FullName&quot;,&nbsp;function&nbsp;()&nbsp;{</div> <div class='hit'><span class=''>&nbsp;&nbsp;5</span>&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;person;</div> <div class='hit'><span class=''>&nbsp;&nbsp;6</span>&nbsp;&nbsp;&nbsp;&nbsp;beforeEach(function&nbsp;()&nbsp;{</div> <div class='hit'><span class=''>&nbsp;&nbsp;7</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;person&nbsp;=&nbsp;new&nbsp;Person();</div> <div class='hit'><span class=''>&nbsp;&nbsp;8</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;person.setFirstName(&quot;Joe&quot;);</div> <div class='hit'><span class=''>&nbsp;&nbsp;9</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;person.setLastName(&quot;Smith&quot;);</div> <div class=''><span class=''>10</span>&nbsp;&nbsp;&nbsp;&nbsp;});</div> <div class='hit'><span class=''>11</span>&nbsp;&nbsp;&nbsp;&nbsp;it(&quot;should&nbsp;concatenate&nbsp;first&nbsp;and&nbsp;last&nbsp;names&quot;,&nbsp;function&nbsp;()&nbsp;{</div> <div class='hit'><span class=''>12</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;expect(person.getFullName()).toBe(&quot;Joe,&nbsp;Smith&quot;);</div> <div class=''><span class=''>13</span>&nbsp;&nbsp;&nbsp;&nbsp;});</div> <div class='hit'><span class=''>14</span>&nbsp;&nbsp;&nbsp;&nbsp;it(&quot;should&nbsp;concatenate&nbsp;first&nbsp;and&nbsp;last&nbsp;names&nbsp;-&nbsp;incorrect&quot;,&nbsp;function&nbsp;()&nbsp;{</div> <div class='hit'><span class=''>15</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;expect(person.getFullName()).not.toBe(&quot;Joe,&nbsp;Doe&quot;);</div> <div class=''><span class=''>16</span>&nbsp;&nbsp;&nbsp;&nbsp;});</div> <div class='hit'><span class=''>17</span>&nbsp;&nbsp;&nbsp;&nbsp;it(&quot;should&nbsp;concatenate&nbsp;lastname&nbsp;first&quot;,&nbsp;function&nbsp;()&nbsp;{</div> <div class='hit'><span class=''>18</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;expect(person.getFullName(true)).toBe(&quot;Smith,&nbsp;Joe&quot;);</div> <div class=''><span class=''>19</span>&nbsp;&nbsp;&nbsp;&nbsp;});</div> <div class='hit'><span class=''>20</span>&nbsp;&nbsp;&nbsp;&nbsp;it(&quot;should&nbsp;not&nbsp;concatinate&nbsp;firstname&nbsp;first&quot;,&nbsp;function&nbsp;()&nbsp;{</div> <div class='hit'><span class=''>21</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;expect(person.getFullName(true)).not.toBe(&quot;Joe,&nbsp;Smith&quot;);</div> <div class='{{executed}}'><span class=''>22</span>&nbsp;&nbsp;&nbsp;&nbsp;});</div> <div class='{{executed}}'><span class=''>23</span>});</div> <div class='{{executed}}'><span class=''>24</span>//#&nbsp;sourceMappingURL=personTest.js.map</div>
+	</div>
+	<div style='clear:both;'>
+	</div>
+</div>
+
+
+<div class='chutzpah chutzpah-success'>
+	<div class='chutzpah-cl chutzpah-file'>
+		<span class='chutzpah-nb'>3.</span><a href='javascript:chutzpah_toggleSource("file-3")'>Total</a>
+	</div>
+	<div class='chutzpah-cl rs'>
+		100 %
+	</div>
+	<div class='chutzpah-cl rs'>
+		26/26
+	</div>
+	<div id='file-3' class='chutzpah-source' style='display:none;'>
+		
+	</div>
+	<div style='clear:both;'>
+	</div>
+</div>
+
+
+</div>
+</body>
+</html>
+
