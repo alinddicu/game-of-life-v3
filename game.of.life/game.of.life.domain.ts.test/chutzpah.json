@@ -1,0 +1,19 @@
+{
+  "Compile": {
+    "Mode": "External",
+    "Extensions": [ ".ts" ],
+    "ExtensionsWithNoOutput": [ ".d.ts" ]
+  },
+  "References": [
+    {
+      "Includes": [ "*/../game.of.life.domain.ts/*.ts" ],
+      "Excludes": [ "*/../game.of.life.domain.ts/*.d.ts" ]
+    }
+  ],
+  "Tests": [
+    {
+      "Includes": [ "*/Scripts/typings/jasmine/*.ts", "*/Tests/*.ts" ],
+      "Excludes": [ "*/Scripts/typings/jasmine/*.d.ts", "*/Tests/*.d.ts" ]
+    }
+  ]
+}

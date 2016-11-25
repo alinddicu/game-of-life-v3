@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "game.of.life.web.ts", "game
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "game.of.life.web.ts.test", "game.of.life.web.ts.test\game.of.life.web.ts.test.csproj", "{47CFE0C0-F7D2-4D47-B3D6-53B7859120C4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "game.of.life.domain.ts", "game.of.life.domain.ts\game.of.life.domain.ts.csproj", "{DAAF5803-E9DF-4656-A5A9-50665EEAF217}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "game.of.life.domain.ts.test", "game.of.life.domain.ts.test\game.of.life.domain.ts.test.csproj", "{178BEB33-1F92-41B3-B929-E1DE4FE482CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +61,14 @@ Global
 		{47CFE0C0-F7D2-4D47-B3D6-53B7859120C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47CFE0C0-F7D2-4D47-B3D6-53B7859120C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47CFE0C0-F7D2-4D47-B3D6-53B7859120C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAAF5803-E9DF-4656-A5A9-50665EEAF217}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAAF5803-E9DF-4656-A5A9-50665EEAF217}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAAF5803-E9DF-4656-A5A9-50665EEAF217}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAAF5803-E9DF-4656-A5A9-50665EEAF217}.Release|Any CPU.Build.0 = Release|Any CPU
+		{178BEB33-1F92-41B3-B929-E1DE4FE482CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{178BEB33-1F92-41B3-B929-E1DE4FE482CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{178BEB33-1F92-41B3-B929-E1DE4FE482CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{178BEB33-1F92-41B3-B929-E1DE4FE482CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
