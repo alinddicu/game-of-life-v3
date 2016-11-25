@@ -6,8 +6,8 @@ describe("Cell", function () {
         var cell = new Cell(2, 3, CellState.Alive);
         expect(cell.X()).toBe(2);
         expect(cell.Y()).toBe(3);
-        //expect(cell.State()).toBe(CellState.Alive);
-        //expect(cell.NextState()).toBe(CellState.Unknown);
+        expect(cell.State()).toBe(CellState.Alive);
+        expect(cell.NextState()).toBe(CellState.Unknown);
     });
 });
 //# sourceMappingURL=CellTest.js.map

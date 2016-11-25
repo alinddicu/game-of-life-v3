@@ -9,7 +9,7 @@ describe("Cell", () => {
 
         expect(cell.X()).toBe(2);
         expect(cell.Y()).toBe(3);
-        //expect(cell.State()).toBe(CellState.Alive);
-        //expect(cell.NextState()).toBe(CellState.Unknown);
+        expect(cell.State()).toBe(CellState.Alive);
+        expect(cell.NextState()).toBe(CellState.Unknown);
     });
 });

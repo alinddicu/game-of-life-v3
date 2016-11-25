@@ -6,8 +6,8 @@
   },
   "References": [
     {
-      "Includes": [ "*/../game.of.life.domain.ts/*.ts" ],
-      "Excludes": [ "*/../game.of.life.domain.ts/*.d.ts" ]
+      "Includes": [ "../../game.of.life.domain.ts/*.ts" ],
+      "Excludes": [ "../../game.of.life.domain.ts/*.d.ts" ]
     }
   ],
   "Tests": [
