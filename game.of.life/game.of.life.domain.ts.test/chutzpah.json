@@ -2,18 +2,14 @@
   "Compile": {
     "Mode": "External",
     "Extensions": [ ".ts" ],
-    "ExtensionsWithNoOutput": [ ".d.ts" ]
+    "ExtensionsWithNoOutput": [ ".d.ts" ],
+    "SourceDirectory": "../game.of.life.domain.ts",
+    "OutDirectory": "../game.of.life.domain.ts"
   },
   "References": [
-    {
-      "Includes": [ "../../game.of.life.domain.ts/*.ts" ],
-      "Excludes": [ "../../game.of.life.domain.ts/*.d.ts" ]
-    }
+    { "Path": "../game.of.life.domain.ts/" }
   ],
   "Tests": [
-    {
-      "Includes": [ "*/Scripts/typings/jasmine/*.ts", "*/Tests/*.ts" ],
-      "Excludes": [ "*/Scripts/typings/jasmine/*.d.ts", "*/Tests/*.d.ts" ]
-    }
+    { "Path": "Spec" }
   ]
 }

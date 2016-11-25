@@ -24,7 +24,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\typings\jasmine\jasmine.d.ts" />
-    <TypeScriptCompile Include="Tests\CellTest.ts" />
+    <TypeScriptCompile Include="Spec\CellTest.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

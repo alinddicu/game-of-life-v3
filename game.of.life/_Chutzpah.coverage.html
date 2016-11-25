@@ -133,18 +133,18 @@ function chutzpah_toggleSource(id) {
 	</div>
 
 
-<div class='chutzpah chutzpah-success'>
+<div class='chutzpah chutzpah-error'>
 	<div class='chutzpah-cl chutzpah-file'>
-		<span class='chutzpah-nb'>1.</span><a href='javascript:chutzpah_toggleSource("file-1")'>D:\Source\Repos\game-of-life-v3\game.of.life\game.of.life.web.ts.test\Scripts\app\person.ts</a>
+		<span class='chutzpah-nb'>1.</span><a href='javascript:chutzpah_toggleSource("file-1")'>C:\Users\Alin\Documents\GitHub\game-of-life-v3\game.of.life\game.of.life.domain.ts\Cell.js</a>
 	</div>
 	<div class='chutzpah-cl rs'>
-		100 %
+		43.75 %
 	</div>
 	<div class='chutzpah-cl rs'>
-		12/12
+		7/16
 	</div>
 	<div id='file-1' class='chutzpah-source' style='display:none;'>
-		 <div class='hit'><span class=''>&nbsp;&nbsp;1</span>var&nbsp;Person&nbsp;=&nbsp;(function&nbsp;()&nbsp;{</div> <div class='hit'><span class=''>&nbsp;&nbsp;2</span>&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;Person()&nbsp;{</div> <div class=''><span class=''>&nbsp;&nbsp;3</span>&nbsp;&nbsp;&nbsp;&nbsp;}</div> <div class='hit'><span class=''>&nbsp;&nbsp;4</span>&nbsp;&nbsp;&nbsp;&nbsp;Person.prototype.setFirstName&nbsp;=&nbsp;function&nbsp;(value)&nbsp;{</div> <div class='hit'><span class=''>&nbsp;&nbsp;5</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.firstName&nbsp;=&nbsp;value;</div> <div class=''><span class=''>&nbsp;&nbsp;6</span>&nbsp;&nbsp;&nbsp;&nbsp;};</div> <div class='hit'><span class=''>&nbsp;&nbsp;7</span>&nbsp;&nbsp;&nbsp;&nbsp;Person.prototype.setLastName&nbsp;=&nbsp;function&nbsp;(value)&nbsp;{</div> <div class='hit'><span class=''>&nbsp;&nbsp;8</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.lastName&nbsp;=&nbsp;value;</div> <div class=''><span class=''>&nbsp;&nbsp;9</span>&nbsp;&nbsp;&nbsp;&nbsp;};</div> <div class='hit'><span class=''>10</span>&nbsp;&nbsp;&nbsp;&nbsp;Person.prototype.getFullName&nbsp;=&nbsp;function&nbsp;(lastNameFirst)&nbsp;{</div> <div class='hit'><span class=''>11</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(lastNameFirst&nbsp;===&nbsp;void&nbsp;0)&nbsp;{&nbsp;lastNameFirst&nbsp;=&nbsp;false;&nbsp;}</div> <div class='hit'><span class=''>12</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(lastNameFirst)&nbsp;{</div> <div class='hit'><span class=''>13</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;this.lastName&nbsp;+&nbsp;&quot;,&nbsp;&quot;&nbsp;+&nbsp;this.firstName;</div> <div class=''><span class=''>14</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</div> <div class='hit'><span class=''>15</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;this.firstName&nbsp;+&nbsp;&quot;,&nbsp;&quot;&nbsp;+&nbsp;this.lastName;</div> <div class=''><span class=''>16</span>&nbsp;&nbsp;&nbsp;&nbsp;};</div> <div class='hit'><span class=''>17</span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;Person;</div> <div class='{{executed}}'><span class=''>18</span>}());</div> <div class='{{executed}}'><span class=''>19</span>//#&nbsp;sourceMappingURL=person.js.map</div>
+		 <div class='hit'><span class=''>&nbsp;&nbsp;1</span>var&nbsp;Cell&nbsp;=&nbsp;(function&nbsp;()&nbsp;{</div> <div class='hit'><span class=''>&nbsp;&nbsp;2</span>&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;Cell(x,&nbsp;y,&nbsp;state)&nbsp;{</div> <div class='miss'><span class=''>&nbsp;&nbsp;3</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(state&nbsp;===&nbsp;void&nbsp;0)&nbsp;{&nbsp;state&nbsp;=&nbsp;CellState.Dead;&nbsp;}</div> <div class='miss'><span class=''>&nbsp;&nbsp;4</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.x&nbsp;=&nbsp;x;</div> <div class='miss'><span class=''>&nbsp;&nbsp;5</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.y&nbsp;=&nbsp;y;</div> <div class='miss'><span class=''>&nbsp;&nbsp;6</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.state&nbsp;=&nbsp;state;</div> <div class='miss'><span class=''>&nbsp;&nbsp;7</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.nextState&nbsp;=&nbsp;CellState.Unknown;</div> <div class=''><span class=''>&nbsp;&nbsp;8</span>&nbsp;&nbsp;&nbsp;&nbsp;}</div> <div class='hit'><span class=''>&nbsp;&nbsp;9</span>&nbsp;&nbsp;&nbsp;&nbsp;Cell.prototype.X&nbsp;=&nbsp;function&nbsp;()&nbsp;{</div> <div class='miss'><span class=''>10</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;this.x;</div> <div class=''><span class=''>11</span>&nbsp;&nbsp;&nbsp;&nbsp;};</div> <div class='hit'><span class=''>12</span>&nbsp;&nbsp;&nbsp;&nbsp;Cell.prototype.Y&nbsp;=&nbsp;function&nbsp;()&nbsp;{</div> <div class='miss'><span class=''>13</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;this.y;</div> <div class=''><span class=''>14</span>&nbsp;&nbsp;&nbsp;&nbsp;};</div> <div class='hit'><span class=''>15</span>&nbsp;&nbsp;&nbsp;&nbsp;Cell.prototype.State&nbsp;=&nbsp;function&nbsp;()&nbsp;{</div> <div class='miss'><span class=''>16</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;this.state;</div> <div class=''><span class=''>17</span>&nbsp;&nbsp;&nbsp;&nbsp;};</div> <div class='hit'><span class=''>18</span>&nbsp;&nbsp;&nbsp;&nbsp;Cell.prototype.NextState&nbsp;=&nbsp;function&nbsp;()&nbsp;{</div> <div class='miss'><span class=''>19</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;this.nextState;</div> <div class=''><span class=''>20</span>&nbsp;&nbsp;&nbsp;&nbsp;};</div> <div class='hit'><span class=''>21</span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;Cell;</div> <div class='{{executed}}'><span class=''>22</span>}());</div> <div class='{{executed}}'><span class=''>23</span>//#&nbsp;sourceMappingURL=Cell.js.map</div>
 	</div>
 	<div style='clear:both;'>
 	</div>
@@ -153,16 +153,16 @@ function chutzpah_toggleSource(id) {
 
 <div class='chutzpah chutzpah-success'>
 	<div class='chutzpah-cl chutzpah-file'>
-		<span class='chutzpah-nb'>2.</span><a href='javascript:chutzpah_toggleSource("file-2")'>D:\Source\Repos\game-of-life-v3\game.of.life\game.of.life.web.ts.test\Scripts\tests\personTest.ts</a>
+		<span class='chutzpah-nb'>2.</span><a href='javascript:chutzpah_toggleSource("file-2")'>c:\users\alin\documents\github\game-of-life-v3\game.of.life\game.of.life.domain.ts\Cell.js</a>
 	</div>
 	<div class='chutzpah-cl rs'>
 		100 %
 	</div>
 	<div class='chutzpah-cl rs'>
-		14/14
+		16/16
 	</div>
 	<div id='file-2' class='chutzpah-source' style='display:none;'>
-		 <div class=''><span class=''>&nbsp;&nbsp;1</span>///&nbsp;&lt;reference&nbsp;path=&nbsp;&quot;../app/person.ts&quot;&nbsp;/&gt;</div> <div class=''><span class=''>&nbsp;&nbsp;2</span>///&nbsp;&lt;reference&nbsp;path=&nbsp;&quot;../typings/jasmine/jasmine.d.ts&quot;&nbsp;/&gt;</div> <div class=''><span class=''>&nbsp;&nbsp;3</span>//&nbsp;http://www.codeproject.com/Tips/1030700/Testing-Typescript-with-Jasmine-and-Chutzpah</div> <div class='hit'><span class=''>&nbsp;&nbsp;4</span>describe(&quot;Person&nbsp;FullName&quot;,&nbsp;function&nbsp;()&nbsp;{</div> <div class='hit'><span class=''>&nbsp;&nbsp;5</span>&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;person;</div> <div class='hit'><span class=''>&nbsp;&nbsp;6</span>&nbsp;&nbsp;&nbsp;&nbsp;beforeEach(function&nbsp;()&nbsp;{</div> <div class='hit'><span class=''>&nbsp;&nbsp;7</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;person&nbsp;=&nbsp;new&nbsp;Person();</div> <div class='hit'><span class=''>&nbsp;&nbsp;8</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;person.setFirstName(&quot;Joe&quot;);</div> <div class='hit'><span class=''>&nbsp;&nbsp;9</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;person.setLastName(&quot;Smith&quot;);</div> <div class=''><span class=''>10</span>&nbsp;&nbsp;&nbsp;&nbsp;});</div> <div class='hit'><span class=''>11</span>&nbsp;&nbsp;&nbsp;&nbsp;it(&quot;should&nbsp;concatenate&nbsp;first&nbsp;and&nbsp;last&nbsp;names&quot;,&nbsp;function&nbsp;()&nbsp;{</div> <div class='hit'><span class=''>12</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;expect(person.getFullName()).toBe(&quot;Joe,&nbsp;Smith&quot;);</div> <div class=''><span class=''>13</span>&nbsp;&nbsp;&nbsp;&nbsp;});</div> <div class='hit'><span class=''>14</span>&nbsp;&nbsp;&nbsp;&nbsp;it(&quot;should&nbsp;concatenate&nbsp;first&nbsp;and&nbsp;last&nbsp;names&nbsp;-&nbsp;incorrect&quot;,&nbsp;function&nbsp;()&nbsp;{</div> <div class='hit'><span class=''>15</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;expect(person.getFullName()).not.toBe(&quot;Joe,&nbsp;Doe&quot;);</div> <div class=''><span class=''>16</span>&nbsp;&nbsp;&nbsp;&nbsp;});</div> <div class='hit'><span class=''>17</span>&nbsp;&nbsp;&nbsp;&nbsp;it(&quot;should&nbsp;concatenate&nbsp;lastname&nbsp;first&quot;,&nbsp;function&nbsp;()&nbsp;{</div> <div class='hit'><span class=''>18</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;expect(person.getFullName(true)).toBe(&quot;Smith,&nbsp;Joe&quot;);</div> <div class=''><span class=''>19</span>&nbsp;&nbsp;&nbsp;&nbsp;});</div> <div class='hit'><span class=''>20</span>&nbsp;&nbsp;&nbsp;&nbsp;it(&quot;should&nbsp;not&nbsp;concatinate&nbsp;firstname&nbsp;first&quot;,&nbsp;function&nbsp;()&nbsp;{</div> <div class='hit'><span class=''>21</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;expect(person.getFullName(true)).not.toBe(&quot;Joe,&nbsp;Smith&quot;);</div> <div class='{{executed}}'><span class=''>22</span>&nbsp;&nbsp;&nbsp;&nbsp;});</div> <div class='{{executed}}'><span class=''>23</span>});</div> <div class='{{executed}}'><span class=''>24</span>//#&nbsp;sourceMappingURL=personTest.js.map</div>
+		 <div class='hit'><span class=''>&nbsp;&nbsp;1</span>var&nbsp;Cell&nbsp;=&nbsp;(function&nbsp;()&nbsp;{</div> <div class='hit'><span class=''>&nbsp;&nbsp;2</span>&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;Cell(x,&nbsp;y,&nbsp;state)&nbsp;{</div> <div class='hit'><span class=''>&nbsp;&nbsp;3</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(state&nbsp;===&nbsp;void&nbsp;0)&nbsp;{&nbsp;state&nbsp;=&nbsp;CellState.Dead;&nbsp;}</div> <div class='hit'><span class=''>&nbsp;&nbsp;4</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.x&nbsp;=&nbsp;x;</div> <div class='hit'><span class=''>&nbsp;&nbsp;5</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.y&nbsp;=&nbsp;y;</div> <div class='hit'><span class=''>&nbsp;&nbsp;6</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.state&nbsp;=&nbsp;state;</div> <div class='hit'><span class=''>&nbsp;&nbsp;7</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.nextState&nbsp;=&nbsp;CellState.Unknown;</div> <div class=''><span class=''>&nbsp;&nbsp;8</span>&nbsp;&nbsp;&nbsp;&nbsp;}</div> <div class='hit'><span class=''>&nbsp;&nbsp;9</span>&nbsp;&nbsp;&nbsp;&nbsp;Cell.prototype.X&nbsp;=&nbsp;function&nbsp;()&nbsp;{</div> <div class='hit'><span class=''>10</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;this.x;</div> <div class=''><span class=''>11</span>&nbsp;&nbsp;&nbsp;&nbsp;};</div> <div class='hit'><span class=''>12</span>&nbsp;&nbsp;&nbsp;&nbsp;Cell.prototype.Y&nbsp;=&nbsp;function&nbsp;()&nbsp;{</div> <div class='hit'><span class=''>13</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;this.y;</div> <div class=''><span class=''>14</span>&nbsp;&nbsp;&nbsp;&nbsp;};</div> <div class='hit'><span class=''>15</span>&nbsp;&nbsp;&nbsp;&nbsp;Cell.prototype.State&nbsp;=&nbsp;function&nbsp;()&nbsp;{</div> <div class='hit'><span class=''>16</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;this.state;</div> <div class=''><span class=''>17</span>&nbsp;&nbsp;&nbsp;&nbsp;};</div> <div class='hit'><span class=''>18</span>&nbsp;&nbsp;&nbsp;&nbsp;Cell.prototype.NextState&nbsp;=&nbsp;function&nbsp;()&nbsp;{</div> <div class='hit'><span class=''>19</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;this.nextState;</div> <div class=''><span class=''>20</span>&nbsp;&nbsp;&nbsp;&nbsp;};</div> <div class='hit'><span class=''>21</span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;Cell;</div> <div class='{{executed}}'><span class=''>22</span>}());</div> <div class='{{executed}}'><span class=''>23</span>//#&nbsp;sourceMappingURL=Cell.js.map</div>
 	</div>
 	<div style='clear:both;'>
 	</div>
@@ -171,15 +171,87 @@ function chutzpah_toggleSource(id) {
 
 <div class='chutzpah chutzpah-success'>
 	<div class='chutzpah-cl chutzpah-file'>
-		<span class='chutzpah-nb'>3.</span><a href='javascript:chutzpah_toggleSource("file-3")'>Total</a>
+		<span class='chutzpah-nb'>3.</span><a href='javascript:chutzpah_toggleSource("file-3")'>C:\Users\Alin\Documents\GitHub\game-of-life-v3\game.of.life\game.of.life.domain.ts\CellState.js</a>
 	</div>
 	<div class='chutzpah-cl rs'>
 		100 %
 	</div>
 	<div class='chutzpah-cl rs'>
-		26/26
+		5/5
 	</div>
 	<div id='file-3' class='chutzpah-source' style='display:none;'>
+		 <div class='hit'><span class=''>1</span>var&nbsp;CellState;</div> <div class='hit'><span class=''>2</span>(function&nbsp;(CellState)&nbsp;{</div> <div class='hit'><span class=''>3</span>&nbsp;&nbsp;&nbsp;&nbsp;CellState[CellState[&quot;Dead&quot;]&nbsp;=&nbsp;0]&nbsp;=&nbsp;&quot;Dead&quot;;</div> <div class='hit'><span class=''>4</span>&nbsp;&nbsp;&nbsp;&nbsp;CellState[CellState[&quot;Alive&quot;]&nbsp;=&nbsp;1]&nbsp;=&nbsp;&quot;Alive&quot;;</div> <div class='hit'><span class=''>5</span>&nbsp;&nbsp;&nbsp;&nbsp;CellState[CellState[&quot;Unknown&quot;]&nbsp;=&nbsp;2]&nbsp;=&nbsp;&quot;Unknown&quot;;</div> <div class='{{executed}}'><span class=''>6</span>})(CellState&nbsp;||&nbsp;(CellState&nbsp;=&nbsp;{}));</div> <div class='{{executed}}'><span class=''>7</span>//#&nbsp;sourceMappingURL=CellState.js.map</div>
+	</div>
+	<div style='clear:both;'>
+	</div>
+</div>
+
+
+<div class='chutzpah chutzpah-success'>
+	<div class='chutzpah-cl chutzpah-file'>
+		<span class='chutzpah-nb'>4.</span><a href='javascript:chutzpah_toggleSource("file-4")'>c:\users\alin\documents\github\game-of-life-v3\game.of.life\game.of.life.domain.ts\CellState.js</a>
+	</div>
+	<div class='chutzpah-cl rs'>
+		100 %
+	</div>
+	<div class='chutzpah-cl rs'>
+		5/5
+	</div>
+	<div id='file-4' class='chutzpah-source' style='display:none;'>
+		 <div class='hit'><span class=''>1</span>var&nbsp;CellState;</div> <div class='hit'><span class=''>2</span>(function&nbsp;(CellState)&nbsp;{</div> <div class='hit'><span class=''>3</span>&nbsp;&nbsp;&nbsp;&nbsp;CellState[CellState[&quot;Dead&quot;]&nbsp;=&nbsp;0]&nbsp;=&nbsp;&quot;Dead&quot;;</div> <div class='hit'><span class=''>4</span>&nbsp;&nbsp;&nbsp;&nbsp;CellState[CellState[&quot;Alive&quot;]&nbsp;=&nbsp;1]&nbsp;=&nbsp;&quot;Alive&quot;;</div> <div class='hit'><span class=''>5</span>&nbsp;&nbsp;&nbsp;&nbsp;CellState[CellState[&quot;Unknown&quot;]&nbsp;=&nbsp;2]&nbsp;=&nbsp;&quot;Unknown&quot;;</div> <div class='{{executed}}'><span class=''>6</span>})(CellState&nbsp;||&nbsp;(CellState&nbsp;=&nbsp;{}));</div> <div class='{{executed}}'><span class=''>7</span>//#&nbsp;sourceMappingURL=CellState.js.map</div>
+	</div>
+	<div style='clear:both;'>
+	</div>
+</div>
+
+
+<div class='chutzpah chutzpah-success'>
+	<div class='chutzpah-cl chutzpah-file'>
+		<span class='chutzpah-nb'>5.</span><a href='javascript:chutzpah_toggleSource("file-5")'>c:\users\alin\documents\github\game-of-life-v3\game.of.life\game.of.life.domain.ts.test\Tests\CellTest.js</a>
+	</div>
+	<div class='chutzpah-cl rs'>
+		100 %
+	</div>
+	<div class='chutzpah-cl rs'>
+		7/7
+	</div>
+	<div id='file-5' class='chutzpah-source' style='display:none;'>
+		 <div class=''><span class=''>&nbsp;&nbsp;1</span>///&nbsp;&lt;reference&nbsp;path=&nbsp;&quot;../../game.of.life.domain.ts/Cell.ts&quot;&nbsp;/&gt;</div> <div class=''><span class=''>&nbsp;&nbsp;2</span>///&nbsp;&lt;reference&nbsp;path=&nbsp;&quot;../../game.of.life.domain.ts/CellState.ts&quot;&nbsp;/&gt;</div> <div class=''><span class=''>&nbsp;&nbsp;3</span>///&nbsp;&lt;reference&nbsp;path=&nbsp;&quot;../Scripts/typings/jasmine/jasmine.d.ts&quot;&nbsp;/&gt;</div> <div class='hit'><span class=''>&nbsp;&nbsp;4</span>describe(&quot;Cell&quot;,&nbsp;function&nbsp;()&nbsp;{</div> <div class='hit'><span class=''>&nbsp;&nbsp;5</span>&nbsp;&nbsp;&nbsp;&nbsp;it(&quot;should&nbsp;have&nbsp;x=2&nbsp;and&nbsp;y=3&nbsp;and&nbsp;State=Alive&nbsp;and&nbsp;NextState=Unknown&quot;,&nbsp;function&nbsp;()&nbsp;{</div> <div class='hit'><span class=''>&nbsp;&nbsp;6</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;cell&nbsp;=&nbsp;new&nbsp;Cell(2,&nbsp;3,&nbsp;CellState.Alive);</div> <div class='hit'><span class=''>&nbsp;&nbsp;7</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;expect(cell.X()).toBe(2);</div> <div class='hit'><span class=''>&nbsp;&nbsp;8</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;expect(cell.Y()).toBe(3);</div> <div class='hit'><span class=''>&nbsp;&nbsp;9</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;expect(cell.State()).toBe(CellState.Alive);</div> <div class='hit'><span class=''>10</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;expect(cell.NextState()).toBe(CellState.Unknown);</div> <div class='{{executed}}'><span class=''>11</span>&nbsp;&nbsp;&nbsp;&nbsp;});</div> <div class='{{executed}}'><span class=''>12</span>});</div> <div class='{{executed}}'><span class=''>13</span>//#&nbsp;sourceMappingURL=CellTest.js.map</div>
+	</div>
+	<div style='clear:both;'>
+	</div>
+</div>
+
+
+<div class='chutzpah chutzpah-success'>
+	<div class='chutzpah-cl chutzpah-file'>
+		<span class='chutzpah-nb'>6.</span><a href='javascript:chutzpah_toggleSource("file-6")'>C:\Users\Alin\Documents\GitHub\game-of-life-v3\game.of.life\game.of.life.domain.ts.test\Tests\CellTest.js</a>
+	</div>
+	<div class='chutzpah-cl rs'>
+		100 %
+	</div>
+	<div class='chutzpah-cl rs'>
+		7/7
+	</div>
+	<div id='file-6' class='chutzpah-source' style='display:none;'>
+		 <div class=''><span class=''>&nbsp;&nbsp;1</span>///&nbsp;&lt;reference&nbsp;path=&nbsp;&quot;../../game.of.life.domain.ts/Cell.ts&quot;&nbsp;/&gt;</div> <div class=''><span class=''>&nbsp;&nbsp;2</span>///&nbsp;&lt;reference&nbsp;path=&nbsp;&quot;../../game.of.life.domain.ts/CellState.ts&quot;&nbsp;/&gt;</div> <div class=''><span class=''>&nbsp;&nbsp;3</span>///&nbsp;&lt;reference&nbsp;path=&nbsp;&quot;../Scripts/typings/jasmine/jasmine.d.ts&quot;&nbsp;/&gt;</div> <div class='hit'><span class=''>&nbsp;&nbsp;4</span>describe(&quot;Cell&quot;,&nbsp;function&nbsp;()&nbsp;{</div> <div class='hit'><span class=''>&nbsp;&nbsp;5</span>&nbsp;&nbsp;&nbsp;&nbsp;it(&quot;should&nbsp;have&nbsp;x=2&nbsp;and&nbsp;y=3&nbsp;and&nbsp;State=Alive&nbsp;and&nbsp;NextState=Unknown&quot;,&nbsp;function&nbsp;()&nbsp;{</div> <div class='hit'><span class=''>&nbsp;&nbsp;6</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;cell&nbsp;=&nbsp;new&nbsp;Cell(2,&nbsp;3,&nbsp;CellState.Alive);</div> <div class='hit'><span class=''>&nbsp;&nbsp;7</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;expect(cell.X()).toBe(2);</div> <div class='hit'><span class=''>&nbsp;&nbsp;8</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;expect(cell.Y()).toBe(3);</div> <div class='hit'><span class=''>&nbsp;&nbsp;9</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;expect(cell.State()).toBe(CellState.Alive);</div> <div class='hit'><span class=''>10</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;expect(cell.NextState()).toBe(CellState.Unknown);</div> <div class='{{executed}}'><span class=''>11</span>&nbsp;&nbsp;&nbsp;&nbsp;});</div> <div class='{{executed}}'><span class=''>12</span>});</div> <div class='{{executed}}'><span class=''>13</span>//#&nbsp;sourceMappingURL=CellTest.js.map</div>
+	</div>
+	<div style='clear:both;'>
+	</div>
+</div>
+
+
+<div class='chutzpah chutzpah-success'>
+	<div class='chutzpah-cl chutzpah-file'>
+		<span class='chutzpah-nb'>7.</span><a href='javascript:chutzpah_toggleSource("file-7")'>Total</a>
+	</div>
+	<div class='chutzpah-cl rs'>
+		83.93 %
+	</div>
+	<div class='chutzpah-cl rs'>
+		47/56
+	</div>
+	<div id='file-7' class='chutzpah-source' style='display:none;'>
 		
 	</div>
 	<div style='clear:both;'>
