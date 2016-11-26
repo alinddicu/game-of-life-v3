@@ -47,4 +47,13 @@
             this.nextState = CellState.Dead;
         }
     }
+
+    public CompleteMutation(): void {
+        if (this.nextState === CellState.Unknown) {
+            return;
+        }
+
+        this.state = this.nextState;
+        this.nextState = CellState.Unknown;
+    }
 }

@@ -55,6 +55,13 @@ var Cell = (function () {
             this.nextState = CellState.Dead;
         }
     };
+    Cell.prototype.CompleteMutation = function () {
+        if (this.nextState === CellState.Unknown) {
+            return;
+        }
+        this.state = this.nextState;
+        this.nextState = CellState.Unknown;
+    };
     return Cell;
 }());
 //# sourceMappingURL=Cell.js.map

@@ -32,5 +32,14 @@ describe("Cell", function () {
         cell.ComputeNextMutation(3);
         expect(cell.NextState).toBe(CellState.Alive);
     });
+    it("when complete mutation then nextState is state", function () {
+        var cell = new Cell(0, 0);
+        expect(cell.NextState).toBe(CellState.Unknown);
+        cell.ComputeNextMutation(3);
+        expect(cell.NextState).toBe(CellState.Alive);
+        cell.CompleteMutation();
+        expect(cell.NextState).toBe(CellState.Unknown);
+        expect(cell.State).toBe(CellState.Alive);
+    });
 });
 //# sourceMappingURL=CellTest.js.map
