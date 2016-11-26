@@ -1,31 +1,31 @@
 ﻿class Cell {
 
-    private _x: number;
-    private _y: number;
-    private _state: CellState;
-    private _nextState: CellState;
+    private x: number;
+    private y: number;
+    private state: CellState;
+    private nextState: CellState;
 
     public constructor(x: number, y: number, state: CellState = CellState.Dead) {
-        this._x = x;
-        this._y = y;
-        this._state = state;
-        this._nextState = CellState.Unknown;
+        this.x = x;
+        this.y = y;
+        this.state = state;
+        this.nextState = CellState.Unknown;
     }
 
-    public get X(): number {
-        return this._x;
+    get X(): number {
+        return this.x;
     }
 
-    public get Y(): number {
-        return this._y;
+    get Y(): number {
+        return this.y;
     }
 
-    public get State(): CellState {
-        return this._state;
+    get State(): CellState {
+        return this.state;
     }
 
-    public get NextState(): CellState {
-        return this._nextState;
+    get NextState(): CellState {
+        return this.nextState;
     }
 
     //private ShouldResurect(aliveNeighboursCount: number): Boolean {
