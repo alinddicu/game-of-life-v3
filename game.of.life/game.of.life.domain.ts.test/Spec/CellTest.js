@@ -9,5 +9,23 @@ describe("Cell", function () {
         expect(cell.State).toBe(CellState.Alive);
         expect(cell.NextState).toBe(CellState.Unknown);
     });
+    it("with fewer than 2 live neighbours dies as if caused by under population", function () {
+        var cell = new Cell(0, 0, CellState.Alive);
+        cell.ComputeNextMutation(1);
+        expect(cell.NextState).toBe(CellState.Dead);
+    });
+    it("wth 2 or 3 live neighbours lives on to the next generation", function () {
+        var cell1 = new Cell(0, 0, CellState.Alive);
+        cell1.ComputeNextMutation(2);
+        expect(cell1.NextState).toBe(CellState.Alive);
+        var cell2 = new Cell(0, 0, CellState.Alive);
+        cell2.ComputeNextMutation(3);
+        expect(cell2.NextState).toBe(CellState.Alive);
+    });
+    it("with more than 3 live neighbours dies as if by over population", function () {
+        var cell = new Cell(0, 0, CellState.Alive);
+        cell.ComputeNextMutation(4);
+        expect(cell.NextState).toBe(CellState.Dead);
+    });
 });
 //# sourceMappingURL=CellTest.js.map
