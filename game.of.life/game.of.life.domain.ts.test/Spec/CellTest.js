@@ -14,7 +14,7 @@ describe("Cell", function () {
         cell.ComputeNextMutation(1);
         expect(cell.NextState).toBe(CellState.Dead);
     });
-    it("wth 2 or 3 live neighbours lives on to the next generation", function () {
+    it("with 2 or 3 live neighbours lives on to the next generation", function () {
         var cell1 = new Cell(0, 0, CellState.Alive);
         cell1.ComputeNextMutation(2);
         expect(cell1.NextState).toBe(CellState.Alive);
@@ -26,6 +26,11 @@ describe("Cell", function () {
         var cell = new Cell(0, 0, CellState.Alive);
         cell.ComputeNextMutation(4);
         expect(cell.NextState).toBe(CellState.Dead);
+    });
+    it("dead with exactly 3 aive neighbours becomes alive as if by reproduction", function () {
+        var cell = new Cell(0, 0);
+        cell.ComputeNextMutation(3);
+        expect(cell.NextState).toBe(CellState.Alive);
     });
 });
 //# sourceMappingURL=CellTest.js.map
