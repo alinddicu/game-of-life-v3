@@ -22,15 +22,15 @@
         return this._nextState;
     }
 
-    private shouldResurect(aliveNeighboursCount: number): Boolean {
+    private shouldResurect(aliveNeighboursCount: number): boolean {
         return this._state === CellState.Dead && aliveNeighboursCount === 3;
     }
 
-    private shouldStayAlive(aliveNeighboursCount: number): Boolean {
+    private shouldStayAlive(aliveNeighboursCount: number): boolean {
         return this._state === CellState.Alive && (aliveNeighboursCount === 2 || aliveNeighboursCount === 3);
     }
 
-    private shouldDie(aliveNeighboursCount: number): Boolean {
+    private shouldDie(aliveNeighboursCount: number): boolean {
         return this._state === CellState.Alive && (aliveNeighboursCount < 2 || aliveNeighboursCount >= 4);
     }
 
@@ -61,7 +61,7 @@
         return `(${this.x}, ${this.y})`;
     }
 
-    equals(obj: any): Boolean {
+    equals(obj: any): boolean {
         if (null === obj) {
             return false;
         }
@@ -73,7 +73,7 @@
         return (typeof obj) === (typeof this) && this.equalsOther(obj);
     }
 
-    private equalsOther(other: Cell): Boolean {
+    private equalsOther(other: Cell): boolean {
         return this._x === other.x && this._y === other.y;
     }
 }

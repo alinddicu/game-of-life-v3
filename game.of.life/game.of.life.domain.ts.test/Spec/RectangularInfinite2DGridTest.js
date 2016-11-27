@@ -10,5 +10,23 @@ describe("RectangularInfinite2DGrid", function () {
         expect(neighbours.length).toBe(8);
         expect(neighbours.ToList().Select(function (n) { return n.state; }).Distinct().Single()).toBe(CellState.Dead);
     });
+    it("GivenGridWith1CellWhenDiscoverThenReturnCellAnd8Neighbours", function () {
+        var grid = new RectangularInfinite2DGrid([new Cell(0, 0)]);
+        grid.discover();
+        var gridCells = grid.Cells.ToList().OrderBy(function (c) { return c.toString(); });
+        expect(gridCells.Count()).toBe(9);
+        var expectedNeighbours = [
+            new Cell(0, 0),
+            new Cell(0, 1),
+            new Cell(0, -1),
+            new Cell(1, 0),
+            new Cell(-1, 0),
+            new Cell(1, 1),
+            new Cell(1, -1),
+            new Cell(-1, 1),
+            new Cell(-1, -1)
+        ];
+        expectedNeighbours.ToList().ForEach(function (en) { return expect(gridCells.Any(function (gc) { return en.equals(gc); })).toBeTruthy(); });
+    });
 });
 //# sourceMappingURL=RectangularInfinite2DGridTest.js.map

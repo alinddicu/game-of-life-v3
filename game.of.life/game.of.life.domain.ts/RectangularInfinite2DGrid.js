@@ -1,8 +1,9 @@
 var RectangularInfinite2DGrid = (function () {
     function RectangularInfinite2DGrid(cells) {
+        var _this = this;
         this.cells = cells;
         this._cells = new Array();
-        this._cells.concat(cells);
+        cells.forEach(function (c) { return _this._cells.push(c); });
     }
     Object.defineProperty(RectangularInfinite2DGrid.prototype, "Cells", {
         get: function () {
@@ -26,6 +27,18 @@ var RectangularInfinite2DGrid = (function () {
     RectangularInfinite2DGrid.prototype.get = function (x, y) {
         var neighbour = this._cells.ToList().FirstOrDefault(function (c) { return c.x === x && c.y === y; });
         return neighbour === null ? new Cell(x, y) : neighbour;
+    };
+    RectangularInfinite2DGrid.prototype.discover = function () {
+        var _this = this;
+        var listCells = this._cells.ToList();
+        var newCells = listCells
+            .SelectMany(function (c) { return _this.getNeighbours(c); })
+            .ToArray()
+            .ToList()
+            .Where(function (n) { return !listCells.Any(function (c) { return c.equals(n); }); })
+            .Distinct()
+            .ToArray();
+        newCells.forEach(function (c) { return _this._cells.push(c); });
     };
     return RectangularInfinite2DGrid;
 }());
