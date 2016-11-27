@@ -55,4 +55,9 @@ describe("Cell", () => {
         expect(cell.State).toBe(CellState.Alive);
     });
 
+    it("at (2,3) should print (2,3) when toString()", () => {
+        var cell = new Cell(2, 3);
+        expect(cell.toString()).toBe('(2, 3)');
+    });
+
 });

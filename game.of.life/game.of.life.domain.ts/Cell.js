@@ -1,11 +1,15 @@
 var Cell = (function () {
     function Cell(x, y, state, nextState) {
+        var _this = this;
         if (state === void 0) { state = CellState.Dead; }
         if (nextState === void 0) { nextState = CellState.Unknown; }
         this.x = x;
         this.y = y;
         this.state = state;
         this.nextState = nextState;
+        this.toString = function () {
+            return "(" + _this.X + ", " + _this.Y + ")";
+        };
     }
     Object.defineProperty(Cell.prototype, "X", {
         get: function () {

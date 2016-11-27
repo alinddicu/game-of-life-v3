@@ -56,4 +56,8 @@
         this.state = this.nextState;
         this.nextState = CellState.Unknown;
     }
+
+    public toString = (): string => {
+        return `(${this.X}, ${this.Y})`;
+    }
 }
