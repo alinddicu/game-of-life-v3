@@ -25,12 +25,7 @@
     }
 
     get(x: number, y: number): Cell {
-        var neighbours = this._cells.filter(c => c.x === x && c.y === y);
-        var neighbour: Cell = null;
-        if (neighbours.length === 1) {
-            neighbour = neighbours[0];
-        }
-
+        var neighbour = this._cells.ToList<Cell>().FirstOrDefault(c => c.x === x && c.y === y);
         return neighbour === null ? new Cell(x, y) : neighbour;
     }
 }

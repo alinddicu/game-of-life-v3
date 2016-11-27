@@ -8,7 +8,7 @@ describe("RectangularInfinite2DGrid", function () {
         var grid = new RectangularInfinite2DGrid([cell]);
         var neighbours = grid.getNeighbours(cell);
         expect(neighbours.length).toBe(8);
-        expect(neighbours.map(function (n) { return n.state; })[0]).toBe(CellState.Dead);
+        expect(neighbours.ToList().Select(function (n) { return n.state; }).Distinct().Single()).toBe(CellState.Dead);
     });
 });
 //# sourceMappingURL=RectangularInfinite2DGridTest.js.map

@@ -12,6 +12,6 @@ describe("RectangularInfinite2DGrid", () => {
         var neighbours = grid.getNeighbours(cell);
 
         expect(neighbours.length).toBe(8);
-        expect(neighbours.map(n => n.state)[0]).toBe(CellState.Dead);
+        expect(neighbours.ToList<Cell>().Select(n => n.state).Distinct().Single()).toBe(CellState.Dead);
     });
 });

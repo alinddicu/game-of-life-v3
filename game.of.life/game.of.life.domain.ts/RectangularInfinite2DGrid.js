@@ -24,11 +24,7 @@ var RectangularInfinite2DGrid = (function () {
         return neighbours;
     };
     RectangularInfinite2DGrid.prototype.get = function (x, y) {
-        var neighbours = this._cells.filter(function (c) { return c.x === x && c.y === y; });
-        var neighbour = null;
-        if (neighbours.length === 1) {
-            neighbour = neighbours[0];
-        }
+        var neighbour = this._cells.ToList().FirstOrDefault(function (c) { return c.x === x && c.y === y; });
         return neighbour === null ? new Cell(x, y) : neighbour;
     };
     return RectangularInfinite2DGrid;

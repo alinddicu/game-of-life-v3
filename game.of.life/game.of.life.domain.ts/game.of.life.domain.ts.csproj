@@ -25,6 +25,17 @@
     <TypeScriptCompile Include="Cell.ts" />
     <TypeScriptCompile Include="CellState.ts" />
     <TypeScriptCompile Include="RectangularInfinite2DGrid.ts" />
+    <TypeScriptCompile Include="Scripts\typings\System\Collections\Generic\List.ts" />
+    <TypeScriptCompile Include="Scripts\typings\System\Collections\IEqualityComparer.ts" />
+    <TypeScriptCompile Include="Scripts\typings\System\Collections\IGrouping.ts" />
+    <TypeScriptCompile Include="Scripts\typings\System\Object.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Scripts\System\Collections\Generic\List.js" />
+    <Content Include="Scripts\System\Collections\Generic\List.min.js" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
