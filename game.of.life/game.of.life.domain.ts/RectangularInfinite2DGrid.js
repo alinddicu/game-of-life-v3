@@ -33,8 +33,6 @@ var RectangularInfinite2DGrid = (function () {
         var listCells = this._cells.ToList();
         var newCells = listCells
             .SelectMany(function (c) { return _this.getNeighbours(c); })
-            .ToArray()
-            .ToList()
             .Where(function (n) { return !listCells.Any(function (c) { return c.equals(n); }); })
             .Distinct()
             .ToArray();

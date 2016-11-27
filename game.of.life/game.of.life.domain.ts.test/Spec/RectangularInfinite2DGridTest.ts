@@ -19,10 +19,10 @@ describe("RectangularInfinite2DGrid", () => {
         var grid = new RectangularInfinite2DGrid([new Cell(0, 0)]);
 
         grid.discover();
-        var gridCells = grid.Cells.ToList<Cell>().OrderBy(c => c.toString());
+        var gridCells = grid.Cells.ToList<Cell>();
 
         expect(gridCells.Count()).toBe(9);
-        var expectedNeighbours = [
+        var expectedGridCells = [
             new Cell(0, 0),
             new Cell(0, 1),
             new Cell(0, -1),
@@ -34,6 +34,10 @@ describe("RectangularInfinite2DGrid", () => {
             new Cell(-1, -1)
         ];
 
-        expectedNeighbours.ToList<Cell>().ForEach(en => expect(gridCells.Any(gc => en.equals(gc))).toBeTruthy());
+        expectedGridCells
+            .ToList<Cell>()
+            .ForEach(egc =>
+                expect(gridCells.Any(gc => egc.equals(gc))).toBeTruthy()
+        );
     });
 });

@@ -13,9 +13,9 @@ describe("RectangularInfinite2DGrid", function () {
     it("GivenGridWith1CellWhenDiscoverThenReturnCellAnd8Neighbours", function () {
         var grid = new RectangularInfinite2DGrid([new Cell(0, 0)]);
         grid.discover();
-        var gridCells = grid.Cells.ToList().OrderBy(function (c) { return c.toString(); });
+        var gridCells = grid.Cells.ToList();
         expect(gridCells.Count()).toBe(9);
-        var expectedNeighbours = [
+        var expectedGridCells = [
             new Cell(0, 0),
             new Cell(0, 1),
             new Cell(0, -1),
@@ -26,7 +26,11 @@ describe("RectangularInfinite2DGrid", function () {
             new Cell(-1, 1),
             new Cell(-1, -1)
         ];
-        expectedNeighbours.ToList().ForEach(function (en) { return expect(gridCells.Any(function (gc) { return en.equals(gc); })).toBeTruthy(); });
+        expectedGridCells
+            .ToList()
+            .ForEach(function (egc) {
+            return expect(gridCells.Any(function (gc) { return egc.equals(gc); })).toBeTruthy();
+        });
     });
 });
 //# sourceMappingURL=RectangularInfinite2DGridTest.js.map

@@ -33,12 +33,10 @@
         var listCells = this._cells.ToList<Cell>();
         var newCells = listCells
             .SelectMany(c => this.getNeighbours(c))
-            .ToArray()
-            .ToList<Cell>()
             .Where(n => !listCells.Any(c => c.equals(n)))
             .Distinct()
             .ToArray();
         
-        newCells.forEach(c => this._cells.push(c));
+        newCells.forEach(c => this._cells.push(c as Cell));
     }
 }
