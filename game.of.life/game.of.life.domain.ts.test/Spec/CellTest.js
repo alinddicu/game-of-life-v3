@@ -43,7 +43,7 @@ describe("Cell", function () {
     });
     it("at (2,3) should print (2,3) when toString()", function () {
         var cell = new Cell(2, 3);
-        expect(cell.toString()).toBe('(2, 3)');
+        expect(cell.toString()).toBe("(2, 3)");
     });
     it("at (1,2) should equal (1,2)", function () {
         var cell = new Cell(1, 2);
