@@ -60,4 +60,19 @@ describe("Cell", () => {
         expect(cell.toString()).toBe('(2, 3)');
     });
 
+    it("at (1,2) should equal (1,2)", () => {
+        var cell = new Cell(1, 2);
+        expect(cell.equals(new Cell(1, 2))).toBeTruthy();
+    });
+
+    it("at (1,2) should not equal (1,1)", () => {
+        var cell = new Cell(1, 2);
+        expect(cell.equals(new Cell(1, 1))).toBeFalsy();
+    });
+
+    it("at (1,2) should not equal null", () => {
+        var cell = new Cell(1, 2);
+        expect(cell.equals(null)).toBeFalsy();
+    });
+
 });

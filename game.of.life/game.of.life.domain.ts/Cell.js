@@ -66,6 +66,18 @@ var Cell = (function () {
         this._state = this._nextState;
         this._nextState = CellState.Unknown;
     };
+    Cell.prototype.equals = function (obj) {
+        if (null === obj) {
+            return false;
+        }
+        if (this === obj) {
+            return true;
+        }
+        return (typeof obj) === (typeof this) && this.equalsOther(obj);
+    };
+    Cell.prototype.equalsOther = function (other) {
+        return this._x === other.x && this._y === other.y;
+    };
     return Cell;
 }());
 //# sourceMappingURL=Cell.js.map

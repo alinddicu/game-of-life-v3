@@ -60,4 +60,20 @@
     toString = (): string => {
         return `(${this.x}, ${this.y})`;
     }
+
+    equals(obj: any): Boolean {
+        if (null === obj) {
+            return false;
+        }
+
+        if (this === obj) {
+            return true;
+        }
+
+        return (typeof obj) === (typeof this) && this.equalsOther(obj);
+    }
+
+    private equalsOther(other: Cell): Boolean {
+        return this._x === other.x && this._y === other.y;
+    }
 }
