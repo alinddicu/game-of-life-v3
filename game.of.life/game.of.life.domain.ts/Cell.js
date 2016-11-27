@@ -1,70 +1,70 @@
 var Cell = (function () {
-    function Cell(x, y, state, nextState) {
+    function Cell(_x, _y, _state, _nextState) {
         var _this = this;
-        if (state === void 0) { state = CellState.Dead; }
-        if (nextState === void 0) { nextState = CellState.Unknown; }
-        this.x = x;
-        this.y = y;
-        this.state = state;
-        this.nextState = nextState;
+        if (_state === void 0) { _state = CellState.Dead; }
+        if (_nextState === void 0) { _nextState = CellState.Unknown; }
+        this._x = _x;
+        this._y = _y;
+        this._state = _state;
+        this._nextState = _nextState;
         this.toString = function () {
-            return "(" + _this.X + ", " + _this.Y + ")";
+            return "(" + _this.x + ", " + _this.y + ")";
         };
     }
-    Object.defineProperty(Cell.prototype, "X", {
+    Object.defineProperty(Cell.prototype, "x", {
         get: function () {
-            return this.x;
+            return this._x;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(Cell.prototype, "Y", {
+    Object.defineProperty(Cell.prototype, "y", {
         get: function () {
-            return this.y;
+            return this._y;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(Cell.prototype, "State", {
+    Object.defineProperty(Cell.prototype, "state", {
         get: function () {
-            return this.state;
+            return this._state;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(Cell.prototype, "NextState", {
+    Object.defineProperty(Cell.prototype, "nextState", {
         get: function () {
-            return this.nextState;
+            return this._nextState;
         },
         enumerable: true,
         configurable: true
     });
-    Cell.prototype.ShouldResurect = function (aliveNeighboursCount) {
-        return this.state === CellState.Dead && aliveNeighboursCount === 3;
+    Cell.prototype.shouldResurect = function (aliveNeighboursCount) {
+        return this._state === CellState.Dead && aliveNeighboursCount === 3;
     };
-    Cell.prototype.ShouldStayAlive = function (aliveNeighboursCount) {
-        return this.state === CellState.Alive && (aliveNeighboursCount === 2 || aliveNeighboursCount === 3);
+    Cell.prototype.shouldStayAlive = function (aliveNeighboursCount) {
+        return this._state === CellState.Alive && (aliveNeighboursCount === 2 || aliveNeighboursCount === 3);
     };
-    Cell.prototype.ShouldDie = function (aliveNeighboursCount) {
-        return this.state === CellState.Alive && (aliveNeighboursCount < 2 || aliveNeighboursCount >= 4);
+    Cell.prototype.shouldDie = function (aliveNeighboursCount) {
+        return this._state === CellState.Alive && (aliveNeighboursCount < 2 || aliveNeighboursCount >= 4);
     };
-    Cell.prototype.ComputeNextMutation = function (aliveNeighboursCount) {
-        if (this.ShouldResurect(aliveNeighboursCount)) {
-            this.nextState = CellState.Alive;
+    Cell.prototype.computeNextMutation = function (aliveNeighboursCount) {
+        if (this.shouldResurect(aliveNeighboursCount)) {
+            this._nextState = CellState.Alive;
         }
-        if (this.ShouldStayAlive(aliveNeighboursCount)) {
-            this.nextState = CellState.Alive;
+        if (this.shouldStayAlive(aliveNeighboursCount)) {
+            this._nextState = CellState.Alive;
         }
-        if (this.ShouldDie(aliveNeighboursCount)) {
-            this.nextState = CellState.Dead;
+        if (this.shouldDie(aliveNeighboursCount)) {
+            this._nextState = CellState.Dead;
         }
     };
-    Cell.prototype.CompleteMutation = function () {
-        if (this.nextState === CellState.Unknown) {
+    Cell.prototype.completeMutation = function () {
+        if (this._nextState === CellState.Unknown) {
             return;
         }
-        this.state = this.nextState;
-        this.nextState = CellState.Unknown;
+        this._state = this._nextState;
+        this._nextState = CellState.Unknown;
     };
     return Cell;
 }());
