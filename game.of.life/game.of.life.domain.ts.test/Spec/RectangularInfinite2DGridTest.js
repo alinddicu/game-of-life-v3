@@ -32,5 +32,10 @@ describe("RectangularInfinite2DGrid", function () {
             return expect(gridCells.Any(function (gc) { return egc.equals(gc); })).toBeTruthy();
         });
     });
+    it("GivenGridWith1DeadCellWhenCleanThenGridIsEmpty", function () {
+        var grid = new RectangularInfinite2DGrid([new Cell(0, 0)]);
+        grid.clean();
+        expect(grid.Cells.length).toBe(0);
+    });
 });
 //# sourceMappingURL=RectangularInfinite2DGridTest.js.map

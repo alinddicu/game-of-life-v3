@@ -39,4 +39,13 @@
         
         newCells.forEach(c => this._cells.push(c as Cell));
     }
+
+    clean(): void {
+        var isolatedCells = this._cells.ToList<Cell>()
+            .Where(cell => this.getNeighbours(cell).ToList<Cell>().All(n => !n.isAlive()))
+            .ToArray()
+            .ToList<Cell>();
+        
+        this._cells.ToList<Cell>().RemoveAll(c => isolatedCells.Any(i => c.equals(i)));
+    }
 }

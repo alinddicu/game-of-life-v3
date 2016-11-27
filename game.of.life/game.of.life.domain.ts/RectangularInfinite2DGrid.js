@@ -38,6 +38,14 @@ var RectangularInfinite2DGrid = (function () {
             .ToArray();
         newCells.forEach(function (c) { return _this._cells.push(c); });
     };
+    RectangularInfinite2DGrid.prototype.clean = function () {
+        var _this = this;
+        var isolatedCells = this._cells.ToList()
+            .Where(function (cell) { return _this.getNeighbours(cell).ToList().All(function (n) { return !n.isAlive(); }); })
+            .ToArray()
+            .ToList();
+        this._cells.ToList().RemoveAll(function (c) { return isolatedCells.Any(function (i) { return c.equals(i); }); });
+    };
     return RectangularInfinite2DGrid;
 }());
 //# sourceMappingURL=RectangularInfinite2DGrid.js.map

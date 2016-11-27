@@ -76,4 +76,8 @@
     private equalsOther(other: Cell): boolean {
         return this._x === other.x && this._y === other.y;
     }
+
+    isAlive() {
+        return this._state === CellState.Alive;
+    }
 }

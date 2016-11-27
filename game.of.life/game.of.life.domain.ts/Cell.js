@@ -78,6 +78,9 @@ var Cell = (function () {
     Cell.prototype.equalsOther = function (other) {
         return this._x === other.x && this._y === other.y;
     };
+    Cell.prototype.isAlive = function () {
+        return this._state === CellState.Alive;
+    };
     return Cell;
 }());
 //# sourceMappingURL=Cell.js.map
