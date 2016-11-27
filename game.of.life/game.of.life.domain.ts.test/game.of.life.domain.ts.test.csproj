@@ -25,6 +25,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\typings\jasmine\jasmine.d.ts" />
     <TypeScriptCompile Include="Spec\CellTest.ts" />
+    <TypeScriptCompile Include="Spec\RectangularInfinite2DGridTest.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

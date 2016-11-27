@@ -24,6 +24,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="Cell.ts" />
     <TypeScriptCompile Include="CellState.ts" />
+    <TypeScriptCompile Include="RectangularInfinite2DGrid.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
