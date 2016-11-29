@@ -12,6 +12,10 @@ class RectangularInfinite2DGrid {
         return this._cells;
     }
 
+    private get listCells(): List<Cell> {
+        return this._cells.ToList<Cell>();
+    }
+
     getNeighbours(cell: Cell): Array<Cell> {
         var neighbours = new Array<Cell>();
         neighbours.push(this.get(cell.x - 1, cell.y - 1));
@@ -27,15 +31,14 @@ class RectangularInfinite2DGrid {
     }
 
     get(x: number, y: number): Cell {
-        var neighbour = this._cells.ToList<Cell>().FirstOrDefault(c => c.x === x && c.y === y);
+        var neighbour = this.listCells.FirstOrDefault(c => c.x === x && c.y === y);
         return neighbour === null ? new Cell(x, y) : neighbour;
     }
 
     discover(): void {
-        var listCells = this._cells.ToList<Cell>();
-        var newCells = listCells
+        var newCells = this.listCells
             .SelectMany(c => this.getNeighbours(c))
-            .Where(n => !listCells.Any(c => c.equals(n)))
+            .Where(n => !this.listCells.Any(c => c.equals(n)))
             .Distinct()
             .ToArray();
 
@@ -43,17 +46,16 @@ class RectangularInfinite2DGrid {
     }
 
     clean(): void {
-        var isolatedCells = this._cells.ToList<Cell>()
+        var isolatedCells = this.listCells
             .Where(cell => this.getNeighbours(cell).ToList<Cell>().All(n => !n.isAlive()))
             .ToArray()
             .ToList<Cell>();
 
-        this._cells = this._cells.ToList<Cell>().RemoveAll(c => isolatedCells.Any(i => c.equals(i))).ToArray();
+        this._cells = this.listCells.RemoveAll(c => isolatedCells.Any(i => c.equals(i))).ToArray();
     }
 
     toString(): string {
-        return this._cells
-            .ToList<Cell>()
+        return this.listCells
             .Where(c => c.isAlive())
             .ToArray()
             .join(", ");

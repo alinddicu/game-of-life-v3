@@ -13,6 +13,13 @@ var RectangularInfinite2DGrid = (function () {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(RectangularInfinite2DGrid.prototype, "listCells", {
+        get: function () {
+            return this._cells.ToList();
+        },
+        enumerable: true,
+        configurable: true
+    });
     RectangularInfinite2DGrid.prototype.getNeighbours = function (cell) {
         var neighbours = new Array();
         neighbours.push(this.get(cell.x - 1, cell.y - 1));
@@ -26,30 +33,28 @@ var RectangularInfinite2DGrid = (function () {
         return neighbours;
     };
     RectangularInfinite2DGrid.prototype.get = function (x, y) {
-        var neighbour = this._cells.ToList().FirstOrDefault(function (c) { return c.x === x && c.y === y; });
+        var neighbour = this.listCells.FirstOrDefault(function (c) { return c.x === x && c.y === y; });
         return neighbour === null ? new Cell(x, y) : neighbour;
     };
     RectangularInfinite2DGrid.prototype.discover = function () {
         var _this = this;
-        var listCells = this._cells.ToList();
-        var newCells = listCells
+        var newCells = this.listCells
             .SelectMany(function (c) { return _this.getNeighbours(c); })
-            .Where(function (n) { return !listCells.Any(function (c) { return c.equals(n); }); })
+            .Where(function (n) { return !_this.listCells.Any(function (c) { return c.equals(n); }); })
             .Distinct()
             .ToArray();
         newCells.forEach(function (c) { return _this._cells.push(c); });
     };
     RectangularInfinite2DGrid.prototype.clean = function () {
         var _this = this;
-        var isolatedCells = this._cells.ToList()
+        var isolatedCells = this.listCells
             .Where(function (cell) { return _this.getNeighbours(cell).ToList().All(function (n) { return !n.isAlive(); }); })
             .ToArray()
             .ToList();
-        this._cells = this._cells.ToList().RemoveAll(function (c) { return isolatedCells.Any(function (i) { return c.equals(i); }); }).ToArray();
+        this._cells = this.listCells.RemoveAll(function (c) { return isolatedCells.Any(function (i) { return c.equals(i); }); }).ToArray();
     };
     RectangularInfinite2DGrid.prototype.toString = function () {
-        return this._cells
-            .ToList()
+        return this.listCells
             .Where(function (c) { return c.isAlive(); })
             .ToArray()
             .join(", ");
