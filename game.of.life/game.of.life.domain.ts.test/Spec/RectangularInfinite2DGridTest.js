@@ -3,14 +3,14 @@
 /// <reference path= "../../game.of.life.domain.ts/RectangularInfinite2DGrid.ts" />
 /// <reference path= "../Scripts/typings/jasmine/jasmine.d.ts" />
 describe("RectangularInfinite2DGrid", function () {
-    it("GivenGridWith1CellWhenGetNeighboursOfThatCellThenReturn8DeadCells", function () {
+    it("with 1 cell should return 8 dead cells when getNeighbours of that cell", function () {
         var cell = new Cell(0, 0, CellState.Alive);
         var grid = new RectangularInfinite2DGrid([cell]);
         var neighbours = grid.getNeighbours(cell);
         expect(neighbours.length).toBe(8);
         expect(neighbours.ToList().Select(function (n) { return n.state; }).Distinct().Single()).toBe(CellState.Dead);
     });
-    it("GivenGridWith1CellWhenDiscoverThenReturnCellAnd8Neighbours", function () {
+    it("with 1 cell should return cell and 8 neighbours when discover", function () {
         var grid = new RectangularInfinite2DGrid([new Cell(0, 0)]);
         grid.discover();
         var gridCells = grid.Cells.ToList();
@@ -32,7 +32,7 @@ describe("RectangularInfinite2DGrid", function () {
             return expect(gridCells.Any(function (gc) { return egc.equals(gc); })).toBeTruthy();
         });
     });
-    it("GivenGridWith1DeadCellWhenCleanThenGridIsEmpty", function () {
+    it("with 1 dead cell should be empty after clean", function () {
         var grid = new RectangularInfinite2DGrid([new Cell(0, 0)]);
         grid.clean();
         expect(grid.Cells.length).toBe(0);
