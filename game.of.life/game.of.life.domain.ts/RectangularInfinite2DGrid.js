@@ -1,4 +1,3 @@
-// <reference path= "./Scripts/typings/System/Collections/Generic/List.ts" />
 var RectangularInfinite2DGrid = (function () {
     function RectangularInfinite2DGrid(cells) {
         var _this = this;

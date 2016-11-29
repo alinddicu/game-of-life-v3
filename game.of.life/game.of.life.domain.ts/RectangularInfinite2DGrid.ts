@@ -1,6 +1,4 @@
-﻿// <reference path= "./Scripts/typings/System/Collections/Generic/List.ts" />
-
-class RectangularInfinite2DGrid {
+﻿class RectangularInfinite2DGrid {
 
     private _cells: Array<Cell> = new Array<Cell>();
 
