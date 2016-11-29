@@ -48,18 +48,11 @@ var RectangularInfinite2DGrid = (function () {
         this._cells = this._cells.ToList().RemoveAll(function (c) { return isolatedCells.Any(function (i) { return c.equals(i); }); }).ToArray();
     };
     RectangularInfinite2DGrid.prototype.toString = function () {
-        var result = "";
-        var aliveCells = this._cells.ToList().Where(function (c) { return c.isAlive(); }).ToArray();
-        for (var i = 0; i < aliveCells.length; i++) {
-            if (i === aliveCells.length - 1) {
-                result += aliveCells[i].toString();
-            }
-            else {
-                result += aliveCells[i].toString() + ", ";
-            }
-        }
-        ;
-        return result;
+        return this._cells
+            .ToList()
+            .Where(function (c) { return c.isAlive(); })
+            .ToArray()
+            .join(", ");
     };
     return RectangularInfinite2DGrid;
 }());

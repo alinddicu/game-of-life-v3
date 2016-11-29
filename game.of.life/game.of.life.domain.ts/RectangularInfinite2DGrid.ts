@@ -52,16 +52,10 @@ class RectangularInfinite2DGrid {
     }
 
     toString(): string {
-        var result = "";
-        var aliveCells = this._cells.ToList<Cell>().Where(c => c.isAlive()).ToArray();
-        for (var i = 0; i < aliveCells.length; i++) {
-            if (i === aliveCells.length - 1) {
-                result += aliveCells[i].toString();   
-            } else {
-                result += aliveCells[i].toString() + ", ";
-            }
-        };
-
-        return result;
+        return this._cells
+            .ToList<Cell>()
+            .Where(c => c.isAlive())
+            .ToArray()
+            .join(", ");
     }
 }
