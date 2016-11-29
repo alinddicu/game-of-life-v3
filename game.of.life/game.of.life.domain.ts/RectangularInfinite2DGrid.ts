@@ -12,7 +12,7 @@ class RectangularInfinite2DGrid {
         return this._cells;
     }
 
-    getNeighbours(cell: Cell) : Array<Cell> {
+    getNeighbours(cell: Cell): Array<Cell> {
         var neighbours = new Array<Cell>();
         neighbours.push(this.get(cell.x - 1, cell.y - 1));
         neighbours.push(this.get(cell.x, cell.y - 1));
@@ -38,7 +38,7 @@ class RectangularInfinite2DGrid {
             .Where(n => !listCells.Any(c => c.equals(n)))
             .Distinct()
             .ToArray();
-        
+
         newCells.forEach(c => this._cells.push(c as Cell));
     }
 
@@ -47,7 +47,21 @@ class RectangularInfinite2DGrid {
             .Where(cell => this.getNeighbours(cell).ToList<Cell>().All(n => !n.isAlive()))
             .ToArray()
             .ToList<Cell>();
-        
+
         this._cells = this._cells.ToList<Cell>().RemoveAll(c => isolatedCells.Any(i => c.equals(i))).ToArray();
+    }
+
+    toString(): string {
+        var result = "";
+        var aliveCells = this._cells.ToList<Cell>().Where(c => c.isAlive()).ToArray();
+        for (var i = 0; i < aliveCells.length; i++) {
+            if (i === aliveCells.length - 1) {
+                result += aliveCells[i].toString();   
+            } else {
+                result += aliveCells[i].toString() + ", ";
+            }
+        };
+
+        return result;
     }
 }

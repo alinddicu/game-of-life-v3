@@ -37,5 +37,21 @@ describe("RectangularInfinite2DGrid", function () {
         grid.clean();
         expect(grid.Cells.length).toBe(0);
     });
+    it("with Cell(0, 1, Alive) and Cell(1, 2, Alive) should return \"(0, 1), (1, 2)\" when toString()", function () {
+        var grid = new RectangularInfinite2DGrid([new Cell(0, 1, CellState.Alive), new Cell(1, 2, CellState.Alive)]);
+        expect(grid.toString()).toBe("(0, 1), (1, 2)");
+    });
+    it("with Cell(0, 1, Alive) and Cell(1, 2, Dead) should return \"(0, 1)\" when toString()", function () {
+        var grid = new RectangularInfinite2DGrid([new Cell(0, 1, CellState.Alive), new Cell(1, 2, CellState.Dead)]);
+        expect(grid.toString()).toBe("(0, 1)");
+    });
+    it("with Cell(0, 1, Alive) should return \"(0, 1)\" when toString()", function () {
+        var grid = new RectangularInfinite2DGrid([new Cell(0, 1, CellState.Alive)]);
+        expect(grid.toString()).toBe("(0, 1)");
+    });
+    it("with Cell(0, 1, Dead) should return \"(0, 1)\" when toString()", function () {
+        var grid = new RectangularInfinite2DGrid([new Cell(0, 1, CellState.Dead)]);
+        expect(grid.toString()).toBe("");
+    });
 });
 //# sourceMappingURL=RectangularInfinite2DGridTest.js.map
