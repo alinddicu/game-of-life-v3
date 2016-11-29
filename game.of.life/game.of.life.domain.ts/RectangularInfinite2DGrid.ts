@@ -1,4 +1,6 @@
-﻿class RectangularInfinite2DGrid {
+﻿// <reference path= "./Scripts/typings/System/Collections/Generic/List.ts" />
+
+class RectangularInfinite2DGrid {
 
     private _cells: Array<Cell> = new Array<Cell>();
 
@@ -46,6 +48,6 @@
             .ToArray()
             .ToList<Cell>();
         
-        this._cells.ToList<Cell>().RemoveAll(c => isolatedCells.Any(i => c.equals(i)));
+        this._cells = this._cells.ToList<Cell>().RemoveAll(c => isolatedCells.Any(i => c.equals(i))).ToArray();
     }
 }

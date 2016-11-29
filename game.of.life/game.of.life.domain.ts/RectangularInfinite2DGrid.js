@@ -1,3 +1,4 @@
+// <reference path= "./Scripts/typings/System/Collections/Generic/List.ts" />
 var RectangularInfinite2DGrid = (function () {
     function RectangularInfinite2DGrid(cells) {
         var _this = this;
@@ -44,7 +45,7 @@ var RectangularInfinite2DGrid = (function () {
             .Where(function (cell) { return _this.getNeighbours(cell).ToList().All(function (n) { return !n.isAlive(); }); })
             .ToArray()
             .ToList();
-        this._cells.ToList().RemoveAll(function (c) { return isolatedCells.Any(function (i) { return c.equals(i); }); });
+        this._cells = this._cells.ToList().RemoveAll(function (c) { return isolatedCells.Any(function (i) { return c.equals(i); }); }).ToArray();
     };
     return RectangularInfinite2DGrid;
 }());
