@@ -24,6 +24,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="Cell.ts" />
     <TypeScriptCompile Include="CellState.ts" />
+    <TypeScriptCompile Include="Cycle.ts" />
     <TypeScriptCompile Include="RectangularInfinite2DGrid.ts" />
     <TypeScriptCompile Include="Scripts\typings\System\Collections\Generic\List.ts" />
     <TypeScriptCompile Include="Scripts\typings\System\Collections\IEqualityComparer.ts" />
@@ -49,7 +50,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>2122</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

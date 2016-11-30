@@ -29,6 +29,7 @@
     <TypeScriptCompile Include="Scripts\typings\System\Collections\IGrouping.ts" />
     <TypeScriptCompile Include="Scripts\typings\System\Object.ts" />
     <TypeScriptCompile Include="Spec\CellTest.ts" />
+    <TypeScriptCompile Include="Spec\CycleTest.ts" />
     <TypeScriptCompile Include="Spec\RectangularInfinite2DGridTest.ts" />
   </ItemGroup>
   <ItemGroup>
@@ -52,7 +53,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>2148</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
