@@ -6,12 +6,18 @@
 /// <reference path= "../Scripts/typings/jasmine/jasmine.d.ts" />
 describe("Cycle", function () {
     it("GivenSimpleMutationCompletionWith1CellWhenDiscoverCleanRevivalThenGridHas16Cells", function () {
-        var initialCells = [new Cell(0, 0, CellState.Alive), new Cell(1, 0, CellState.Alive), new Cell(0, 1, CellState.Alive)];
+        var initialCells = [
+            new Cell(0, 0, CellState.Alive), new Cell(1, 0, CellState.Alive), new Cell(0, 1, CellState.Alive)
+        ];
         var grid = new RectangularInfinite2DGrid(initialCells);
         var cycle = new Cycle();
         var cells = cycle.run(grid).Cells;
         expect(cells.ToList().Count(function (c) { return c.isAlive(); })).toBe(4);
-        expect(cells.ToList().Contains(new Cell(1, 1), new CellEqualityComparer()));
+        initialCells.push(new Cell(1, 1, CellState.Alive));
+        var newAliveCells = initialCells;
+        newAliveCells.forEach(function (c) {
+            return expect(cells.ToList().Contains(c, new CellEqualityComparer())).toBeTruthy();
+        });
         expect(cells.length).toBe(16);
     });
 });
