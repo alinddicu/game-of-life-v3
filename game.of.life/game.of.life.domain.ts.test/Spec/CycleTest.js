@@ -5,7 +5,7 @@
 /// <reference path= "../../game.of.life.domain.ts/Cycle.ts" />
 /// <reference path= "../Scripts/typings/jasmine/jasmine.d.ts" />
 describe("Cycle", function () {
-    it("GivenSimpleMutationCompletionWith1CellWhenDiscoverCleanRevivalThenGridHas16Cells", function () {
+    it("should return 16 cells when runned with a 3 alive cells grid at (0,0), (1,0), (0,1)", function () {
         var initialCells = [
             new Cell(0, 0, CellState.Alive), new Cell(1, 0, CellState.Alive), new Cell(0, 1, CellState.Alive)
         ];
@@ -20,7 +20,7 @@ describe("Cycle", function () {
         });
         expect(cells.length).toBe(16);
     });
-    it("Given2CyclesThenHistoryIsCorrect", function () {
+    it("should return correct history when ran twice", function () {
         var cycle = new Cycle();
         var initialCells = [
             new Cell(5, 3, CellState.Alive),

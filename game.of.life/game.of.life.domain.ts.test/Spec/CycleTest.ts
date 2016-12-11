@@ -6,8 +6,8 @@
 /// <reference path= "../Scripts/typings/jasmine/jasmine.d.ts" />
 
 describe("Cycle", () => {
-
-    it("GivenSimpleMutationCompletionWith1CellWhenDiscoverCleanRevivalThenGridHas16Cells", () => {
+    
+    it("should return 16 cells when runned with a 3 alive cells grid at (0,0), (1,0), (0,1)", () => {
         var initialCells = [
             new Cell(0, 0, CellState.Alive), new Cell(1, 0, CellState.Alive), new Cell(0, 1, CellState.Alive)
         ];
@@ -25,8 +25,7 @@ describe("Cycle", () => {
         expect(cells.length).toBe(16);
     });
 
-
-    it("Given2CyclesThenHistoryIsCorrect", () => {
+    it("should return correct history when ran twice", () => {
         var cycle = new Cycle();
         var initialCells = [
             new Cell(5, 3, CellState.Alive),
