@@ -20,5 +20,26 @@ describe("Cycle", function () {
         });
         expect(cells.length).toBe(16);
     });
+    it("Given2CyclesThenHistoryIsCorrect", function () {
+        var cycle = new Cycle();
+        var initialCells = [
+            new Cell(5, 3, CellState.Alive),
+            new Cell(5, 4, CellState.Alive),
+            new Cell(5, 5, CellState.Alive)
+        ];
+        var grid1 = new RectangularInfinite2DGrid(initialCells);
+        var grid2 = cycle.run(grid1);
+        var grid3 = cycle.run(grid2);
+        var expectedGrid2Cells = [
+            new Cell(5, 4, CellState.Alive),
+            new Cell(6, 4, CellState.Alive),
+            new Cell(4, 4, CellState.Alive)
+        ];
+        expect(grid2.Cells.ToList().Count(function (c) { return c.isAlive(); })).toBe(3);
+        expectedGrid2Cells.forEach(function (ec) { return expect(grid2.Cells.ToList().Contains(ec, new CellEqualityComparer())).toBeTruthy(); });
+        //Check.That(grid3.Cells.Where(c => c.IsAlive())).IsOnlyMadeOf(initialCells);
+        expect(grid3.Cells.ToList().Count(function (c) { return c.isAlive(); })).toBe(3);
+        initialCells.forEach(function (ec) { return expect(grid3.Cells.ToList().Contains(ec, new CellEqualityComparer())).toBeTruthy(); });
+    });
 });
 //# sourceMappingURL=CycleTest.js.map
