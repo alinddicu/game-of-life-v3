@@ -15,7 +15,8 @@ describe("Cycle", () => {
 
         var cells = cycle.run(grid).Cells;
 
-        //Check.That(cells.Where(c => c.IsAlive())).IsOnlyMadeOf(initialCells.Union(new [] { new Cell(1, 1) }));
+        expect(cells.ToList<Cell>().Count(c => c.isAlive())).toBe(4);
+        expect(cells.ToList<Cell>().Contains(new Cell(1, 1), new CellEqualityComparer()));
         expect(cells.length).toBe(16);
     });
 });

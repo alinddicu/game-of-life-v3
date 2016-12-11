@@ -10,7 +10,8 @@ describe("Cycle", function () {
         var grid = new RectangularInfinite2DGrid(initialCells);
         var cycle = new Cycle();
         var cells = cycle.run(grid).Cells;
-        //Check.That(cells.Where(c => c.IsAlive())).IsOnlyMadeOf(initialCells.Union(new [] { new Cell(1, 1) }));
+        expect(cells.ToList().Count(function (c) { return c.isAlive(); })).toBe(4);
+        expect(cells.ToList().Contains(new Cell(1, 1), new CellEqualityComparer()));
         expect(cells.length).toBe(16);
     });
 });
