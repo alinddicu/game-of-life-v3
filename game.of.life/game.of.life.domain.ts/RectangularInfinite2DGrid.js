@@ -40,7 +40,7 @@ var RectangularInfinite2DGrid = (function () {
         var newCells = this.listCells
             .SelectMany(function (c) { return _this.getNeighbours(c); })
             .Where(function (n) { return !_this.listCells.Any(function (c) { return c.equals(n); }); })
-            .Distinct()
+            .Distinct(new CellEqualityComparer())
             .ToArray();
         newCells.forEach(function (c) { return _this._cells.push(c); });
     };

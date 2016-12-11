@@ -1,6 +1,7 @@
 ﻿/// <reference path= "../../game.of.life.domain.ts/Cell.ts" />
 /// <reference path= "../../game.of.life.domain.ts/CellState.ts" />
 /// <reference path= "../../game.of.life.domain.ts/RectangularInfinite2DGrid.ts" />
+/// <reference path= "../../game.of.life.domain.ts/CellEqualityComparer.ts" />
 /// <reference path= "../../game.of.life.domain.ts/Cycle.ts" />
 /// <reference path= "../Scripts/typings/jasmine/jasmine.d.ts" />
 

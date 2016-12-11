@@ -37,7 +37,7 @@
         var newCells = this.listCells
             .SelectMany(c => this.getNeighbours(c))
             .Where(n => !this.listCells.Any(c => c.equals(n)))
-            .Distinct()
+            .Distinct(new CellEqualityComparer())
             .ToArray();
 
         newCells.forEach(c => this._cells.push(c as Cell));

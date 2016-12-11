@@ -23,6 +23,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Cell.ts" />
+    <TypeScriptCompile Include="CellEqualityComparer.ts" />
     <TypeScriptCompile Include="CellState.ts" />
     <TypeScriptCompile Include="Cycle.ts" />
     <TypeScriptCompile Include="RectangularInfinite2DGrid.ts" />
