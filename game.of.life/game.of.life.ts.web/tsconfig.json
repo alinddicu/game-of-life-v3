@@ -1,0 +1,13 @@
+﻿{
+	"compilerOptions": {
+		"noImplicitAny": true,
+		"noEmitOnError": true,
+		"sourceMap": true,
+		"target": "es6",
+		"outDir": "transpiled"
+	},
+	"include": [
+		"./scripts/**/*.ts"
+	],
+	"compileOnSave": true
+}
