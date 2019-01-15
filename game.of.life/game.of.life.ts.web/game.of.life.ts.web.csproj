@@ -69,7 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="package.json" />
-    <Content Include="tsconfig.json" />
+    <None Include="tsconfig.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="gulpfile.js" />
@@ -78,6 +78,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <TypeScriptCompile Include="scripts\GoL\CellState.ts" />
+    <TypeScriptCompile Include="scripts\GoL\Cell.ts" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="scripts\app.ts" />

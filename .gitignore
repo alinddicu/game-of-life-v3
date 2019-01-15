@@ -155,8 +155,10 @@ $RECYCLE.BIN/
 # Mac desktop service store files
 .DS_Store
 /game.of.life/packages
-/game.of.life/game.of.life.ts.web/bundle-dev/scripts/app.js.map
-/game.of.life/game.of.life.ts.web/bundle-dev/scripts/app.js
+/game.of.life/game.of.life.ts.web/bundle-dev/scripts/**/*.js.map
+/game.of.life/game.of.life.ts.web/bundle-dev/scripts/**/*.js
 /game.of.life/game.of.life.ts.web/bundle-dev
 /game.of.life/game.of.life.ts.web/node_modules
 /game.of.life/game.of.life.ts.web/transpiled
+/game.of.life/game.of.life.ts.web/scripts/**/*.js.map
+/game.of.life/game.of.life.ts.web/scripts/**/*.js
