@@ -1,4 +1,6 @@
-﻿namespace GoL {
+﻿'use strict';
+
+namespace GoL {
 	export enum CellState {
 		Dead = 0,
 		Alive = 1,

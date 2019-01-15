@@ -1,5 +1,7 @@
 ﻿/// <reference path="../../typings/linq.d.ts"/>
 
+'use strict';
+
 namespace GoL {
 	export class Cell {
 		private _computeNextMutations: IComputeNextMutation[] =

@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <TypeScriptCompile Include="scripts\GoL\Cycle.ts" />
     <TypeScriptCompile Include="scripts\GoL\RectangularInfinite2DGrid.ts" />
     <TypeScriptCompile Include="scripts\GoL\CellState.ts" />
     <TypeScriptCompile Include="scripts\GoL\Cell.ts" />

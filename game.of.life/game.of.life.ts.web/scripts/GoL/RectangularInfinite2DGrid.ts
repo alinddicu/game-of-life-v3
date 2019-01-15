@@ -1,5 +1,7 @@
 ﻿/// <reference path="../../typings/linq.d.ts"/>
 
+'use strict';
+
 namespace GoL {
 	export class RectangularInfinite2DGrid {
 		public Cells: Cell[] = [];
