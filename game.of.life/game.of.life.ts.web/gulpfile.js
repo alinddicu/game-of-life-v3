@@ -10,7 +10,12 @@ var del = require('del');
 var watch = require('gulp-watch');
 
 var paths = {
-	transpiled: ['transpiled/**/*.js', 'transpiled/**/*.map'],
+	transpiled: [
+		'transpiled/**/*.js',
+		'transpiled/**/*.map'],
+	libs: [
+		'node_modules/linq/linq.min.js'
+	],
 	typescript: ['scripts/**/*.ts'],
 	pages: ['pages/**/*.html'],
 	styles: ['styles/*'],
@@ -20,6 +25,7 @@ var paths = {
 var watchPaths = []
 	.concat(paths.transpiled)
 	.concat(paths.typescript)
+	.concat(paths.libs)
 	.concat(paths.pages)
 	.concat(paths.styles)
 	.concat(paths.images);
@@ -34,6 +40,7 @@ function moveAll() {
 	gulp.src(paths.pages).pipe(gulp.dest('bundle-dev'));
 	gulp.src(paths.styles).pipe(gulp.dest('bundle-dev'));
 	gulp.src(paths.images).pipe(gulp.dest('bundle-dev/images'));
+	gulp.src(paths.libs).pipe(gulp.dest('bundle-dev/libs'));
 }
 
 gulp.task('dev-bundle', function () {
