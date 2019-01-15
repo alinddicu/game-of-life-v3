@@ -80,6 +80,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <TypeScriptCompile Include="scripts\GoL\CellState.ts" />
     <TypeScriptCompile Include="scripts\GoL\Cell.ts" />
+    <TypeScriptCompile Include="typings\linq.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="scripts\app.ts" />

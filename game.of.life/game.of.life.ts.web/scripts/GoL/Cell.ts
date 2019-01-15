@@ -1,6 +1,4 @@
-﻿// /// <reference path="../../node_modules/linq/linq.d.ts"/>
-
-namespace GoL {
+﻿namespace GoL {
 	export class Cell {
 		private _computeNextMutations: IComputeNextMutation[] =
 			[
@@ -26,16 +24,9 @@ namespace GoL {
 		}
 
 		public ComputeNextMutation(aliveNeighboursCount: number): void {
-			// TODO linqjs ???
-			/*
-			const nextComputation = this._computeNextMutations
-				.firstOrDefault<IComputeNextMutation>(m => m.CanComputeNextMutation(this, aliveNeighboursCount));
-			*/
-
-			const nextComputation = this._computeNextMutations
-				.filter(m => m.CanComputeNextMutation(this, aliveNeighboursCount))
-				[0];
-
+			const nextComputation = Enumerable.from(this._computeNextMutations)
+				.firstOrDefault(m => m.CanComputeNextMutation(this, aliveNeighboursCount));
+			
 			if (nextComputation) {
 				nextComputation.ComputeNextMutation(this);
 			}
