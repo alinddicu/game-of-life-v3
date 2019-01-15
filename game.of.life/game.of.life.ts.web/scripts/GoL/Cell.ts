@@ -1,4 +1,6 @@
-﻿namespace GoL {
+﻿/// <reference path="../../typings/linq.d.ts"/>
+
+namespace GoL {
 	export class Cell {
 		private _computeNextMutations: IComputeNextMutation[] =
 			[
@@ -25,7 +27,7 @@
 
 		public ComputeNextMutation(aliveNeighboursCount: number): void {
 			const nextComputation = Enumerable.from(this._computeNextMutations)
-				.firstOrDefault(m => m.CanComputeNextMutation(this, aliveNeighboursCount));
+				.firstOrDefault((m: IComputeNextMutation) => m.CanComputeNextMutation(this, aliveNeighboursCount));
 			
 			if (nextComputation) {
 				nextComputation.ComputeNextMutation(this);
