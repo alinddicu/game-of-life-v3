@@ -11,3 +11,6 @@ let cells = [new GoL.Cell(0, 0, GoL.CellState.Alive), new GoL.Cell(2, 2, GoL.Cel
 let grid = new GoL.RectangularInfinite2DGrid(cells);
 grid.Discover();
 console.log(grid.Cells);
+let cycle = new GoL.Cycle();
+grid = cycle.Run(grid);
+console.log(grid.Cells);

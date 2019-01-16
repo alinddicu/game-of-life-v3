@@ -42,15 +42,15 @@ namespace GoL {
 		}
 
 		private uniqueCells(cells: Cell[]) {
-			let dict: any = {};
-
+			const dictionary: any = {};
 			for (let i = 0; i < cells.length; i++) {
-				dict[i] = cells[i];
+				const cell = cells[i];
+				dictionary[cell.toString()] = cell;
 			}
 
-			let newDisctinctCells: Cell[] = [];
-			for (let key in dict) {
-				newDisctinctCells.push(dict[key]);
+			const newDisctinctCells: Cell[] = [];
+			for (let key in dictionary) {
+				newDisctinctCells.push(dictionary[key]);
 			}
 
 			return newDisctinctCells;
