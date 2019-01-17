@@ -1,8 +1,10 @@
-﻿/// <reference path="../../typings/linq.d.ts"/>
+﻿/// <reference path="../../../typings/linq.d.ts"/>
 
 'use strict';
 
-namespace GoL {
+namespace GoL.Logic {
+	import Cell = Gol.Logic.Cell;
+
 	export class Cycle {
 		public Run(currentGrid: RectangularInfinite2DGrid): RectangularInfinite2DGrid {
 			const newGrid = this.InitializeNewGrid(currentGrid);

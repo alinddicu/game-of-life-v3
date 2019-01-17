@@ -1,8 +1,10 @@
-﻿/// <reference path="../../typings/linq.d.ts"/>
+﻿/// <reference path="../../../typings/linq.d.ts"/>
 
 'use strict';
 
-namespace GoL {
+namespace GoL.Logic {
+	import Cell = Gol.Logic.Cell;
+
 	export class RectangularInfinite2DGrid {
 		public Cells: Cell[] = [];
 
