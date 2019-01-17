@@ -57,7 +57,7 @@ namespace GoL {
 		}
 
 		public GetNeighbours(cell: Cell): Cell[] {
-			const neighbours: Cell[] = [];
+			let neighbours: Cell[] = [];
 			neighbours.push(this.Get(cell.X - 1, cell.Y - 1));
 			neighbours.push(this.Get(cell.X, cell.Y - 1));
 			neighbours.push(this.Get(cell.X + 1, cell.Y - 1));
@@ -67,10 +67,15 @@ namespace GoL {
 			neighbours.push(this.Get(cell.X - 1, cell.Y + 1));
 			neighbours.push(this.Get(cell.X - 1, cell.Y));
 
+			neighbours = this.uniqueCells(neighbours);
+
 			return neighbours;
 		}
 
 		public Get(x: number, y: number): Cell {
+			console.log(`x: ${x}, y: ${y}`);
+			console.log(this.Cells);
+			this.Cells = this.uniqueCells(this.Cells);
 			const foundCell = Enumerable.from(this.Cells).singleOrDefault((c: Cell) => c.X === x && c.Y === y);
 			return foundCell ? foundCell : new Cell(x, y);
 		}
