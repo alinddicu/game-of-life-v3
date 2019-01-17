@@ -6,9 +6,9 @@ namespace GoL.Drawing {
 
 	export class CellButton {
 
-		public DefaultBackColor: string = "white";
+		private DefaultBackColor: string = "white";
 		public Cell: Cell;
-		public BackColor: string = this.DefaultBackColor;
+		public BackColor: KnockoutObservable<string> = ko.observable(this.DefaultBackColor);
 		public Width: number;
 		public Heigth: number;
 		public Text: string;
@@ -28,7 +28,7 @@ namespace GoL.Drawing {
 		}
 
 		private RefreshBackColor(): void {
-			this.BackColor = this.Cell.IsAlive() ? "DeepPink" : this.DefaultBackColor;
+			this.BackColor(this.Cell.IsAlive() ? "pink" : this.DefaultBackColor);
 		}
 
 		public RefreshCell(grid: RectangularInfinite2DGrid): void {

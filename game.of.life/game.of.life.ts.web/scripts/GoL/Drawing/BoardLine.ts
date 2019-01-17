@@ -4,9 +4,9 @@
 
 namespace GoL.Drawing {
 	export class BoardLine {
-		public ButtonCells: KnockoutObservableArray<CellButton>;
+		public ButtonCells: CellButton[];
 
-		constructor(buttonCells: KnockoutObservableArray<CellButton>) {
+		constructor(buttonCells: CellButton[]) {
 			this.ButtonCells = buttonCells;
 		}
 	}

@@ -30,8 +30,9 @@
 				<tr>
 					<!-- ko foreach: ButtonCells -->
 					<td>
-						<button id="cell-button" data-bind="style: {width: $data.Width + 'px', height: $data.Heigth + 'px', backgroundColor: $data.BackColor }">
-							<!-- ko text: $data.Text --><!--/ko-->
+						<button id="cell-button" 
+								data-bind="style: { width: Width + 'px', height: Heigth + 'px', 'background-color': BackColor() }, click: CellButtonClick">
+							<!-- ko text: Text --><!--/ko-->
 						</button>
 					</td>
 					<!-- /ko -->

@@ -15,14 +15,13 @@ namespace GoL.Drawing {
 
 			const numberOfCellsPerRow = goLOptions.NumberOfCellsPerRow;
 			for (let hCounter = 0; hCounter < numberOfCellsPerRow; hCounter++) {
-				let oa: KnockoutObservableArray<CellButton> = ko.observableArray();
+				let buttonCells: CellButton[] = [];
 				for (let vCounter = 0; vCounter < numberOfCellsPerRow; vCounter++) {
 					const cellButton = Board.CreateCellButton(vCounter, hCounter, goLOptions.ButtonSize, goLOptions.IsShowCellsCoordinates);
-					oa.push(cellButton);
+					buttonCells.push(cellButton);
 				}
 
-				const boardLine = new BoardLine(oa);
-				this.BoardLines.push(boardLine);
+				this.BoardLines.push(new BoardLine(buttonCells));
 			}
 		}
 
