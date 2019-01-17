@@ -75,8 +75,8 @@ namespace GoL.Logic {
 		}
 
 		public Get(x: number, y: number): Cell {
-			console.log(`x: ${x}, y: ${y}`);
-			console.log(this.Cells);
+			//console.log(`x: ${x}, y: ${y}`);
+			//console.log(this.Cells);
 			this.Cells = this.uniqueCells(this.Cells);
 			const foundCell = Enumerable.from(this.Cells).singleOrDefault((c: Cell) => c.X === x && c.Y === y);
 			return foundCell ? foundCell : new Cell(x, y);

@@ -1,4 +1,5 @@
 ﻿/// <reference path="../../../typings/linq.d.ts"/>
+
 'use strict';
 
 namespace Gol.Logic {
