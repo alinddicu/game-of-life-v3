@@ -4,7 +4,9 @@
 		"noEmitOnError": true,
 		"sourceMap": true,
 		"target": "es6",
-		"outDir": "transpiled"
+		"outDir": "transpiled",
+		"types": [],
+		"typeRoots": []
 	},
 	"include": [
 		"./scripts/**/*.ts"

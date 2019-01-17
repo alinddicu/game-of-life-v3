@@ -78,11 +78,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <TypeScriptCompile Include="scripts\GoL\Drawing\Board.ts" />
+    <TypeScriptCompile Include="scripts\GoL\Drawing\BoardLine.ts" />
+    <TypeScriptCompile Include="scripts\GoL\Drawing\CellButton.ts" />
+    <TypeScriptCompile Include="scripts\GoL\Drawing\IGoLOptions.ts" />
     <TypeScriptCompile Include="scripts\tests.ts" />
     <TypeScriptCompile Include="scripts\GoL\Logic\Cycle.ts" />
     <TypeScriptCompile Include="scripts\GoL\Logic\RectangularInfinite2DGrid.ts" />
     <TypeScriptCompile Include="scripts\GoL\Logic\CellState.ts" />
     <TypeScriptCompile Include="scripts\GoL\Logic\Cell.ts" />
+    <TypeScriptCompile Include="typings\knockout.d.ts" />
     <TypeScriptCompile Include="typings\linq.d.ts" />
   </ItemGroup>
   <ItemGroup>
@@ -94,7 +99,6 @@
   <ItemGroup>
     <Folder Include="bundle-dev\" />
     <Folder Include="images\" />
-    <Folder Include="scripts\GoL\Drawing\" />
     <Folder Include="transpiled\" />
   </ItemGroup>
   <PropertyGroup>

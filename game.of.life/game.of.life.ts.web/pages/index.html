@@ -2,21 +2,48 @@
 
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
+	<meta charset="utf-8" />
 	<title>Game of life</title>
 
 	<script src="libs/linq.min.js"></script>
+	<script src="libs/knockout-latest.js"></script>
 
 	<script src="scripts/GoL/Logic/CellState.js"></script>
 	<script src="scripts/GoL/Logic/Cell.js"></script>
 	<script src="scripts/GoL/Logic/RectangularInfinite2DGrid.js"></script>
 	<script src="scripts/GoL/Logic/Cycle.js"></script>
-	<script src="scripts/app.js"></script>
+
+	<script src="scripts/GoL/Drawing/IGoLOptions.js"></script>
+	<script src="scripts/GoL/Drawing/CellButton.js"></script>
+	<script src="scripts/GoL/Drawing/Board.js"></script>
+	<script src="scripts/GoL/Drawing/BoardLine.js"></script>
+
+	<script src="scripts/tests.js"></script>
 	<script src="scripts/app.js"></script>
 
 	<link rel="stylesheet" href="app.css" type="text/css" />
 </head>
 <body>
-
+	<div id="board-container">
+		<table>
+			<tbody data-bind="foreach: board.BoardLines">
+				<tr>
+					<!-- ko foreach: ButtonCells -->
+					<td>
+						<button data-bind="style: {width: $data.Width + 'px', height: $data.Heigth + 'px', backgroundColor: $data.BackColor }">
+							<!-- ko text: $data.Text --><!--/ko-->
+						</button>
+					</td>
+					<!-- /ko -->
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </body>
 </html>
+<script type="text/javascript">
+	ko.applyBindings({
+		board: board,
+		numberOfCellsPerRow: numberOfCellsPerRow
+	});
+</script>

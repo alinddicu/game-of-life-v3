@@ -1,7 +1,19 @@
 ﻿body {
-    font-family: 'Segoe UI', sans-serif;
+	font-family: 'Segoe UI', sans-serif;
 }
 
 span {
-    font-style: italic;
+	font-style: italic;
+}
+
+#div {
+}
+
+#table {
+	align-self: center;
+}
+
+div#board-container {
+	display: flex;
+	justify-content: center;
 }

@@ -14,7 +14,8 @@ var paths = {
 		'transpiled/**/*.js',
 		'transpiled/**/*.map'],
 	libs: [
-		'node_modules/linq/linq.min.js'
+		'node_modules/linq/linq.min.js',
+		'node_modules/knockout/build/output/knockout-latest.js'
 	],
 	typescript: ['scripts/**/*.ts'],
 	pages: ['pages/**/*.html'],
