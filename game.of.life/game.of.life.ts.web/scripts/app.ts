@@ -1,7 +1,7 @@
-﻿const numberOfCellsPerRow = 12;
-const options = {
+﻿const numberOfCellsPerRow: number = 12;
+const options: GoL.Drawing.IGoLOptions = {
 	NumberOfCellsPerRow: numberOfCellsPerRow,
 	IsShowCellsCoordinates: true,
 	ButtonSize: 53
 };
-let board = new GoL.Drawing.Board(options);
+const board: GoL.Drawing.Board = new GoL.Drawing.Board(options);

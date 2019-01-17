@@ -11,7 +11,7 @@ namespace GoL.Drawing {
 
 		private Cycle: Cycle = new Cycle();
 		private _gridHistory: RectangularInfinite2DGrid[] = [];
-		public BoardLines: BoardLine[] = [];
+		public BoardLines: KnockoutObservableArray<BoardLine> = ko.observableArray([]);
 
 		constructor(goLOptions: IGoLOptions) {
 			this.InitCellButtonsInSquare(goLOptions);
@@ -19,6 +19,7 @@ namespace GoL.Drawing {
 
 		private InitCellButtonsInSquare(goLOptions: IGoLOptions): void {
 
+			this.BoardLines([]);
 			const numberOfCellsPerRow = goLOptions.NumberOfCellsPerRow;
 			for (let hCounter = 0; hCounter < numberOfCellsPerRow; hCounter++) {
 				let buttonCells: CellButton[] = [];
@@ -51,18 +52,24 @@ namespace GoL.Drawing {
 		}
 
 		private GetCurrentGrid(): RectangularInfinite2DGrid {
-			let cells: Cell[] = Enumerable.from(this.BoardLines)
+			let cells: Cell[] = Enumerable.from(this.BoardLines())
 				.selectMany((bl: BoardLine) => bl.ButtonCells).where((cb: CellButton) => cb.Cell.IsAlive())
 				.select(x => x.Cell).toArray();
 			return new RectangularInfinite2DGrid(cells);
 		}
 
 		private RefreshCellButtons(): void {
-			Enumerable.from(this.BoardLines).forEach((b: BoardLine) => b.RefreshCells(this.GetLastGrid()));
+			Enumerable.from(this.BoardLines()).forEach((b: BoardLine) => b.RefreshCells(this.GetLastGrid()));
 		}
 
 		private GetLastGrid(): RectangularInfinite2DGrid {
 			return this._gridHistory[this._gridHistory.length - 1];
+		}
+
+		public Reset(goLOptions: IGoLOptions): void {
+			this.InitCellButtonsInSquare(goLOptions);
+			this._gridHistory = [];
+			//_cellsPanel.Enabled = true;
 		}
 	}
 }

@@ -7,7 +7,7 @@ namespace GoL.Logic {
 
 	export class Cycle {
 		public Run(currentGrid: RectangularInfinite2DGrid): RectangularInfinite2DGrid {
-			const newGrid = this.InitializeNewGrid(currentGrid);
+			const newGrid: RectangularInfinite2DGrid = this.InitializeNewGrid(currentGrid);
 
 			this.ComputeAndCompleteMutation(newGrid);
 
