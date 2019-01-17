@@ -24,22 +24,24 @@
 	<link rel="stylesheet" href="app.css" type="text/css" />
 </head>
 <body>
-	<div id="board-container">
-		<table id="cells-table">
-			<tbody data-bind="foreach: board.BoardLines">
-				<tr>
-					<!-- ko foreach: ButtonCells -->
-					<td>
-						<button id="cell-button" 
-								data-bind="style: { width: Width + 'px', height: Heigth + 'px', 'background-color': BackColor() }, click: CellButtonClick">
-							<!-- ko text: Text --><!--/ko-->
-						</button>
-					</td>
-					<!-- /ko -->
-				</tr>
-			</tbody>
-		</table>
-	</div>
+<div id="board-container">
+	<button onclick="board.NextCycle();">Next cycle</button>
+	<br/>
+	<table id="cells-table">
+		<tbody data-bind="foreach: board.BoardLines">
+		<tr>
+			<!-- ko foreach: ButtonCells -->
+			<td>
+				<button id="cell-button"
+				        data-bind="style: { width: Width + 'px', height: Heigth + 'px', 'background-color': BackColor() }, click: CellButtonClick">
+					<!-- ko text: Text --><!--/ko-->
+				</button>
+			</td>
+			<!-- /ko -->
+		</tr>
+		</tbody>
+	</table>
+</div>
 </body>
 </html>
 <script type="text/javascript">
