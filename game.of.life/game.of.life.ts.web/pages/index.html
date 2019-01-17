@@ -25,12 +25,12 @@
 </head>
 <body>
 	<div id="board-container">
-		<table>
+		<table id="cells-table">
 			<tbody data-bind="foreach: board.BoardLines">
 				<tr>
 					<!-- ko foreach: ButtonCells -->
 					<td>
-						<button data-bind="style: {width: $data.Width + 'px', height: $data.Heigth + 'px', backgroundColor: $data.BackColor }">
+						<button id="cell-button" data-bind="style: {width: $data.Width + 'px', height: $data.Heigth + 'px', backgroundColor: $data.BackColor }">
 							<!-- ko text: $data.Text --><!--/ko-->
 						</button>
 					</td>
