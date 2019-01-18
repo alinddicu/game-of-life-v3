@@ -7,14 +7,14 @@ namespace GoL.Drawing {
 	import RectangularInfinite2DGrid = Logic.RectangularInfinite2DGrid;
 
 	export class BoardLine {
-		public ButtonCells: CellButton[];
+		public buttonCells: CellButton[];
 
 		constructor(buttonCells: CellButton[]) {
-			this.ButtonCells = buttonCells;
+			this.buttonCells = buttonCells;
 		}
 
-		public RefreshCells(grid: RectangularInfinite2DGrid): void {
-			Enumerable.from(this.ButtonCells).forEach((cb: CellButton) => cb.RefreshCell(grid));
+		public refreshCells(grid: RectangularInfinite2DGrid): void {
+			Enumerable.from(this.buttonCells).forEach((cb: CellButton) => cb.refreshCell(grid));
 		}
 	}
 }

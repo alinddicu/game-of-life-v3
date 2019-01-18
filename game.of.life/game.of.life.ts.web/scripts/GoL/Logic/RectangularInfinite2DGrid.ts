@@ -6,16 +6,16 @@ namespace GoL.Logic {
 	import Cell = Gol.Logic.Cell;
 
 	export class RectangularInfinite2DGrid {
-		public Cells: Cell[] = [];
+		public cells: Cell[] = [];
 
 		constructor(cells: Cell[]) {
-			this.Clean();
+			this.clean();
 			for (let i = 0; i < cells.length; i++) {
-				this.Cells.push(cells[i]);
+				this.cells.push(cells[i]);
 			}
 		}
 
-		public Discover(): void {
+		public discover(): void {
 			//var newCells = 
 			//	(From cell in this.Cells
 			//	From1 neighbour in this.GetNeighbours(cell)
@@ -23,14 +23,14 @@ namespace GoL.Logic {
 			//	select neighbour).Distinct().ToArray();
 			
 			const newCells: Cell[] = [];
-			for (let i = 0; i < this.Cells.length; i++) {
-				const cell = this.Cells[i];
-				const neighbours = this.GetNeighbours(cell);
+			for (let i = 0; i < this.cells.length; i++) {
+				const cell = this.cells[i];
+				const neighbours = this.getNeighbours(cell);
 				for (let j = 0; j < neighbours.length; j++) {
 					const neighbour = neighbours[j];
 
-					for (let k = 0; k < this.Cells.length; k++) {
-						const cell2 = this.Cells[k];
+					for (let k = 0; k < this.cells.length; k++) {
+						const cell2 = this.cells[k];
 
 						if (!Cell.equals(neighbour, cell2)) {
 							newCells.push(neighbour);
@@ -40,7 +40,7 @@ namespace GoL.Logic {
 			}
 
 			const newDisctinctCells: Cell[] = this.uniqueCells(newCells);
-			Enumerable.from(newDisctinctCells).forEach((cell: Cell) => this.Cells.push(cell));
+			Enumerable.from(newDisctinctCells).forEach((cell: Cell) => this.cells.push(cell));
 		}
 
 		private uniqueCells(cells: Cell[]) {
@@ -58,41 +58,41 @@ namespace GoL.Logic {
 			return newDisctinctCells;
 		}
 
-		public GetNeighbours(cell: Cell): Cell[] {
+		public getNeighbours(cell: Cell): Cell[] {
 			let neighbours: Cell[] = [];
-			neighbours.push(this.Get(cell.X - 1, cell.Y - 1));
-			neighbours.push(this.Get(cell.X, cell.Y - 1));
-			neighbours.push(this.Get(cell.X + 1, cell.Y - 1));
-			neighbours.push(this.Get(cell.X + 1, cell.Y));
-			neighbours.push(this.Get(cell.X + 1, cell.Y + 1));
-			neighbours.push(this.Get(cell.X, cell.Y + 1));
-			neighbours.push(this.Get(cell.X - 1, cell.Y + 1));
-			neighbours.push(this.Get(cell.X - 1, cell.Y));
+			neighbours.push(this.get(cell.x - 1, cell.y - 1));
+			neighbours.push(this.get(cell.x, cell.y - 1));
+			neighbours.push(this.get(cell.x + 1, cell.y - 1));
+			neighbours.push(this.get(cell.x + 1, cell.y));
+			neighbours.push(this.get(cell.x + 1, cell.y + 1));
+			neighbours.push(this.get(cell.x, cell.y + 1));
+			neighbours.push(this.get(cell.x - 1, cell.y + 1));
+			neighbours.push(this.get(cell.x - 1, cell.y));
 
 			neighbours = this.uniqueCells(neighbours);
 
 			return neighbours;
 		}
 
-		public Get(x: number, y: number): Cell {
+		public get(x: number, y: number): Cell {
 			//console.log(`x: ${x}, y: ${y}`);
 			//console.log(this.Cells);
-			this.Cells = this.uniqueCells(this.Cells);
-			const foundCell = Enumerable.from(this.Cells).singleOrDefault((c: Cell) => c.X === x && c.Y === y);
+			this.cells = this.uniqueCells(this.cells);
+			const foundCell = Enumerable.from(this.cells).singleOrDefault((c: Cell) => c.x === x && c.y === y);
 			return foundCell ? foundCell : new Cell(x, y);
 		}
 
-		public Clean(): void {
-			const isolatedCells = Enumerable.from(this.Cells)
-				.where((cell: Cell) => Enumerable.from(this.GetNeighbours(cell)).all((n: Cell) => !n.IsAlive()))
+		public clean(): void {
+			const isolatedCells = Enumerable.from(this.cells)
+				.where((cell: Cell) => Enumerable.from(this.getNeighbours(cell)).all((n: Cell) => !n.isAlive()))
 				.toArray();
 
 			for (let i = 0; i < isolatedCells.length; i++) {
 				const isolatedCell: Cell = isolatedCells[i];
-				for (let j = 0; j < this.Cells.length; j++) {
-					const cell = this.Cells[j];
+				for (let j = 0; j < this.cells.length; j++) {
+					const cell = this.cells[j];
 					if (Cell.equals(isolatedCell, cell)) {
-						this.Cells.splice(j, 1);
+						this.cells.splice(j, 1);
 					}
 				}
 			}

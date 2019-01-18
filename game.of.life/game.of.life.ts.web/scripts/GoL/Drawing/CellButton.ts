@@ -6,34 +6,34 @@ namespace GoL.Drawing {
 
 	export class CellButton {
 
-		private DefaultBackColor: string = "white";
-		public Cell: Cell;
-		public BackColor: KnockoutObservable<string> = ko.observable(this.DefaultBackColor);
-		public Width: number;
-		public Heigth: number;
-		public Text: string;
+		private defaultBackColor: string = "white";
+		public cell: Cell;
+		public backColor: KnockoutObservable<string> = ko.observable(this.defaultBackColor);
+		public width: number;
+		public heigth: number;
+		public text: string;
 
 		constructor(x: number, y: number, width: number, heigth: number, text: string) {
-			this.Cell = new Cell(x, y);
-			this.Width = width;
-			this.Heigth = heigth;
-			this.Text = text;
+			this.cell = new Cell(x, y);
+			this.width = width;
+			this.heigth = heigth;
+			this.text = text;
 		}
 
-		public CellButtonClick(): void {
-			this.Cell = this.Cell.IsAlive()
-				? new Cell(this.Cell.X, this.Cell.Y)
-				: new Cell(this.Cell.X, this.Cell.Y, CellState.Alive);
-			this.RefreshBackColor();
+		public cellButtonClick(): void {
+			this.cell = this.cell.isAlive()
+				? new Cell(this.cell.x, this.cell.y)
+				: new Cell(this.cell.x, this.cell.y, CellState.Alive);
+			this.refreshBackColor();
 		}
 
-		private RefreshBackColor(): void {
-			this.BackColor(this.Cell.IsAlive() ? "pink" : this.DefaultBackColor);
+		private refreshBackColor(): void {
+			this.backColor(this.cell.isAlive() ? "pink" : this.defaultBackColor);
 		}
 
-		public RefreshCell(grid: RectangularInfinite2DGrid): void {
-			this.Cell = grid.Get(this.Cell.X, this.Cell.Y);
-			this.RefreshBackColor();
+		public refreshCell(grid: RectangularInfinite2DGrid): void {
+			this.cell = grid.get(this.cell.x, this.cell.y);
+			this.refreshBackColor();
 		}
 	}
 }

@@ -53,13 +53,13 @@ namespace GoL.Drawing {
 
 		private getCurrentGrid(): RectangularInfinite2DGrid {
 			const cells: Cell[] = Enumerable.from(this.boardLines())
-				.selectMany((bl: BoardLine) => bl.ButtonCells).where((cb: CellButton) => cb.Cell.IsAlive())
-				.select(x => x.Cell).toArray();
+				.selectMany((bl: BoardLine) => bl.buttonCells).where((cb: CellButton) => cb.cell.isAlive())
+				.select((cb: CellButton) => cb.cell).toArray();
 			return new RectangularInfinite2DGrid(cells);
 		}
 
 		private refreshCellButtons(): void {
-			Enumerable.from(this.boardLines()).forEach((b: BoardLine) => b.RefreshCells(this.getLastGrid()));
+			Enumerable.from(this.boardLines()).forEach((b: BoardLine) => b.refreshCells(this.getLastGrid()));
 		}
 
 		private getLastGrid(): RectangularInfinite2DGrid {

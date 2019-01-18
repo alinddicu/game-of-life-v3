@@ -6,9 +6,9 @@ import Cell = Gol.Logic.Cell;
 
 let cell = new Cell(1, 1, GoL.Logic.CellState.Alive);
 //console.log(`state: ${cell.State} nextState: ${cell.NextState}`);
-cell.ComputeNextMutation(4);
+cell.computeNextMutation(4);
 //console.log(`state: ${cell.State} nextState: ${cell.NextState}`);
-cell.CompleteMutation();
+cell.completeMutation();
 //console.log(`state: ${cell.State} nextState: ${cell.NextState}`);
 
 function test00$22() {
@@ -16,7 +16,7 @@ function test00$22() {
 	let grid = new GoL.Logic.RectangularInfinite2DGrid(cells);
 	const cycle = new GoL.Logic.Cycle();
 	grid = cycle.Run(grid);
-	console.log("Alive cells: " + Enumerable.from(grid.Cells).where((cell: Cell) => cell.IsAlive()).toArray());
+	console.log("Alive cells: " + Enumerable.from(grid.cells).where((cell: Cell) => cell.isAlive()).toArray());
 }
 
 function test00$01$10() {
@@ -28,9 +28,9 @@ function test00$01$10() {
 	let grid = new GoL.Logic.RectangularInfinite2DGrid(cells);
 	const cycle = new GoL.Logic.Cycle();
 	grid = cycle.Run(grid);
-	console.log("Alive cells: " + Enumerable.from(grid.Cells).where((cell: Cell) => cell.IsAlive()).toArray());
+	console.log("Alive cells: " + Enumerable.from(grid.cells).where((cell: Cell) => cell.isAlive()).toArray());
 	grid = cycle.Run(grid);
-	console.log("Alive cells: " + Enumerable.from(grid.Cells).where((cell: Cell) => cell.IsAlive()).toArray());
+	console.log("Alive cells: " + Enumerable.from(grid.cells).where((cell: Cell) => cell.isAlive()).toArray());
 }
 
 function test4Star() {
@@ -43,9 +43,9 @@ function test4Star() {
 	let grid = new GoL.Logic.RectangularInfinite2DGrid(cells);
 	const cycle = new GoL.Logic.Cycle();
 	grid = cycle.Run(grid);
-	console.log("Alive cells: " + Enumerable.from(grid.Cells).where((cell: Cell) => cell.IsAlive()).toArray());
+	console.log("Alive cells: " + Enumerable.from(grid.cells).where((cell: Cell) => cell.isAlive()).toArray());
 	grid = cycle.Run(grid);
-	console.log("Alive cells: " + Enumerable.from(grid.Cells).where((cell: Cell) => cell.IsAlive()).toArray());
+	console.log("Alive cells: " + Enumerable.from(grid.cells).where((cell: Cell) => cell.isAlive()).toArray());
 }
 
 function assertArrays(expectedArray: any[], checkedArray: any[]) {
@@ -72,7 +72,7 @@ function test5Star() {
 	const intermediateGridWithAliveCellsStrings: string[] = [];
 	for (let i = 0; i < 9; i++) {
 		grid = cycle.Run(grid);
-		const toString = Enumerable.from(grid.Cells).where((cell: Cell) => cell.IsAlive()).toArray() + "";
+		const toString = Enumerable.from(grid.cells).where((cell: Cell) => cell.isAlive()).toArray() + "";
 		intermediateGridWithAliveCellsStrings.push(toString);
 	}
 

@@ -6,45 +6,45 @@ namespace Gol.Logic {
 	import CellState = GoL.Logic.CellState;
 
 	export class Cell {
-		private _computeNextMutations: IComputeNextMutation[] =
+		private computeNextMutations: IComputeNextMutation[] =
 			[
 				new ShouldResurectNextMutation(),
 				new ShouldStayAliveNextMutation(),
 				new ShouldDieNextMutation()
 			];
 
-		public X: number;
-		public Y: number;
-		public State: CellState;
-		public NextState: CellState;
+		public x: number;
+		public y: number;
+		public state: CellState;
+		public nextState: CellState;
 
 		constructor(x: number, y: number, state: CellState = CellState.Dead, nextState: CellState = CellState.Unknown) {
-			this.X = x;
-			this.Y = y;
-			this.State = state;
-			this.NextState = nextState;
+			this.x = x;
+			this.y = y;
+			this.state = state;
+			this.nextState = nextState;
 		}
 
-		public IsAlive(): boolean {
-			return this.State === CellState.Alive;
+		public isAlive(): boolean {
+			return this.state === CellState.Alive;
 		}
 
-		public ComputeNextMutation(aliveNeighboursCount: number): void {
-			const nextComputation = Enumerable.from(this._computeNextMutations)
-				.firstOrDefault((m: IComputeNextMutation) => m.CanComputeNextMutation(this, aliveNeighboursCount));
+		public computeNextMutation(aliveNeighboursCount: number): void {
+			const nextComputation = Enumerable.from(this.computeNextMutations)
+				.firstOrDefault((m: IComputeNextMutation) => m.canComputeNextMutation(this, aliveNeighboursCount));
 			
 			if (nextComputation) {
-				nextComputation.ComputeNextMutation(this);
+				nextComputation.computeNextMutation(this);
 			}
 		}
 
-		public CompleteMutation(): void {
-			if (this.NextState === CellState.Unknown) {
+		public completeMutation(): void {
+			if (this.nextState === CellState.Unknown) {
 				return;
 			}
 
-			this.State = this.NextState;
-			this.NextState = CellState.Unknown;
+			this.state = this.nextState;
+			this.nextState = CellState.Unknown;
 		}
 
 		public static equals(a: Cell, b: Cell): boolean {
@@ -52,48 +52,48 @@ namespace Gol.Logic {
 				return false;
 			}
 
-			return a.X === b.X && a.Y === b.Y;
+			return a.x === b.x && a.y === b.y;
 		}
 		
 		public toString(): string
 		{
-			return `(${this.X},${this.Y})`;
+			return `(${this.x},${this.y})`;
 		}
 	}
 
 	interface IComputeNextMutation {
-		CanComputeNextMutation(cell: Cell, aliveNeighboursCount: number): boolean;
+		canComputeNextMutation(cell: Cell, aliveNeighboursCount: number): boolean;
 
-		ComputeNextMutation(cell: Cell): void;
+		computeNextMutation(cell: Cell): void;
 	}
 
 	class ShouldResurectNextMutation implements IComputeNextMutation {
-		public CanComputeNextMutation(cell: Cell, aliveNeighboursCount: number): boolean {
-			return cell.State === CellState.Dead && aliveNeighboursCount === 3;
+		public canComputeNextMutation(cell: Cell, aliveNeighboursCount: number): boolean {
+			return cell.state === CellState.Dead && aliveNeighboursCount === 3;
 		}
 
-		public ComputeNextMutation(cell: Cell): void {
-			cell.NextState = CellState.Alive;
+		public computeNextMutation(cell: Cell): void {
+			cell.nextState = CellState.Alive;
 		}
 	}
 
 	class ShouldStayAliveNextMutation implements IComputeNextMutation {
-		public CanComputeNextMutation(cell: Cell, aliveNeighboursCount: number): boolean {
-			return cell.State === CellState.Alive && (aliveNeighboursCount === 2 || aliveNeighboursCount === 3);
+		public canComputeNextMutation(cell: Cell, aliveNeighboursCount: number): boolean {
+			return cell.state === CellState.Alive && (aliveNeighboursCount === 2 || aliveNeighboursCount === 3);
 		}
 
-		public ComputeNextMutation(cell: Cell): void {
-			cell.NextState = CellState.Alive;
+		public computeNextMutation(cell: Cell): void {
+			cell.nextState = CellState.Alive;
 		}
 	}
 
 	class ShouldDieNextMutation implements IComputeNextMutation {
-		public CanComputeNextMutation(cell: Cell, aliveNeighboursCount: number): boolean {
-			return cell.State === CellState.Alive && (aliveNeighboursCount < 2 || aliveNeighboursCount >= 4);
+		public canComputeNextMutation(cell: Cell, aliveNeighboursCount: number): boolean {
+			return cell.state === CellState.Alive && (aliveNeighboursCount < 2 || aliveNeighboursCount >= 4);
 		}
 
-		public ComputeNextMutation(cell: Cell): void {
-			cell.NextState = CellState.Dead;
+		public computeNextMutation(cell: Cell): void {
+			cell.nextState = CellState.Dead;
 		}
 	}
 }
