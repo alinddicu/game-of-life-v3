@@ -8,7 +8,7 @@ namespace GoL.Drawing {
 	import RectangularInfinite2DGrid = Logic.RectangularInfinite2DGrid;
 
 	export class Board {
-		
+
 		private playIntervalId: number;
 		private cycle: Cycle = new Cycle();
 		private gridHistory: RectangularInfinite2DGrid[] = [];
@@ -68,7 +68,7 @@ namespace GoL.Drawing {
 			this.refreshCellButtons();
 		}
 
-		public reset(goLOptions: IGoLOptions): void {
+		public stop(goLOptions: IGoLOptions): void {
 			this.initCellButtonsInSquare(goLOptions);
 			this.gridHistory = [];
 			this.isReadOnly(false);
@@ -84,13 +84,16 @@ namespace GoL.Drawing {
 		}
 
 		public play(goLOptions: IGoLOptions): void {
+			this.isReadOnly(true);
 			this.playIntervalId = setInterval((context: Board) => {
 				context.nextCycle();
 			}, goLOptions.mutationDelay, this);
 		}
 
 		public pause(goLOptions: IGoLOptions): void {
-			clearInterval(this.playIntervalId);
+			if (this.playIntervalId) {
+				clearInterval(this.playIntervalId);
+			}
 		}
 	}
 }
