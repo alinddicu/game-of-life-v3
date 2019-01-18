@@ -22,16 +22,23 @@
 	<script src="scripts/app.js"></script>
 
 	<link rel="stylesheet" href="app.css" type="text/css" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 </head>
 <body>
+<!--
+<i class="material-icons">pause_circle_outline</i>
+<i class="material-icons">fiber_manual_record</i>
+<i class="material-icons">play_circle_outline</i>
+-->
 	<div id="controls-container">
-		<button class="control-button" onclick="board.rewind();">Rev</button>
-		<button class="control-button" onclick="board.previousCycle();">Previous</button>
-		<button class="control-button" onclick="board.play(options);">Play</button>
-		<button class="control-button" onclick="board.pause();">Pause</button>
-		<button class="control-button" onclick="board.nextCycle();">Next</button>
-		<button class="control-button" onclick="board.fastForward();">FF</button>
-		<button class="control-button" onclick="board.stop(options);">Stop</button>
+		<button class="control-button" onclick="board.rewind();" title="Fast rewind"><i class="material-icons">fast_rewind</i></button>
+		<button class="control-button" onclick="board.previousCycle();" title="Previous"><i class="material-icons">skip_previous</i></button>
+		<button class="control-button" onclick="board.play(options);" title="Play"><i class="material-icons">play_circle_filled</i></button>
+		<button class="control-button" onclick="board.pause();" title="Pause"><i class="material-icons">pause_circle_filled</i></button>
+		<button class="control-button" onclick="board.nextCycle();" title="Next"><i class="material-icons">skip_next</i></button>
+		<button class="control-button" onclick="board.fastForward();" title="Fast forward"><i class="material-icons">fast_forward</i></button>
+		<button class="control-button" onclick="board.stop(options);" title="Reset"><i class="material-icons">stop</i></button>
 	</div>
 	<div id="board-container">
 		<div data-bind="css: { boardReadonly: board.isReadOnly()}">
