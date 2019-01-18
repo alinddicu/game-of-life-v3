@@ -4,8 +4,6 @@
 }
 
 div#main-container {
-	border: 1px dotted;
-	border-radius: 3px;
 	display: inline-block;
 	padding: 3px;
 }
@@ -27,12 +25,6 @@ div#board-container {
 div#controls-container {
 	padding: 5px 5px 0 5px;
 	margin: 0 0 5px 0;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	border: 1px dotted;
-	border-color: #05386b;
-	border-radius: 3px;
 	-webkit-appearance: none;
 }
 
@@ -68,14 +60,19 @@ table#cells-table {
 		margin: 0;
 	}
 
-button.cell-button {
+
+div#main-container, div#controls-container, button.cell-button {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 	border: 1px dotted;
+	border-color: #05386b;
 	border-radius: 3px;
-	padding: 0;
-	margin: 0;
+	-webkit-appearance: none;
 }
 
-button.control-button {
+button.control-button, button.cell-button {
 	padding: 0;
 	margin: 0;
+	cursor: pointer;
 }
