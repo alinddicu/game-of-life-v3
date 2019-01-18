@@ -32,7 +32,7 @@ namespace GoL.Drawing {
 			this.isPausing(isPausing);
 		}
 
-		private initCellButtonsInSquare(goLOptions: IGoLOptions): void {
+		public initCellButtonsInSquare(goLOptions: IGoLOptions): void {
 
 			this.boardLines([]);
 			const numberOfCellsPerRow = goLOptions.numberOfCellsPerRow;
@@ -58,7 +58,8 @@ namespace GoL.Drawing {
 
 		private getCurrentGrid(): RectangularInfinite2DGrid {
 			const cells: Cell[] = Enumerable.from(this.boardLines())
-				.selectMany((bl: BoardLine) => bl.buttonCells).where((cb: CellButton) => cb.cell.isAlive())
+				.selectMany((bl: BoardLine) => bl.buttonCells)
+				.where((cb: CellButton) => cb.cell.isAlive())
 				.select((cb: CellButton) => cb.cell).toArray();
 			return new RectangularInfinite2DGrid(cells);
 		}

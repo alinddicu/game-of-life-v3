@@ -1,16 +1,17 @@
-﻿let params: GoL.Drawing.ParamsForm;
-let board: GoL.Drawing.Board;
-let isInit = false;
+﻿/// <reference path="../typings/knockout.d.ts"/>
 
-function init(): void {
-	params = new GoL.Drawing.ParamsForm();
-	board = params.init();
+'use strict';
 
-	if (!isInit) {
-		ko.applyBindings({
-			board: board
-		});
+//let params: GoL.Drawing.ParamsForm = new GoL.Drawing.ParamsForm();
+//let board: GoL.Drawing.Board = params.init();
 
-		isInit = true;
-	}
-}
+//let viewModel = {
+//	board: ko.observable(board)
+//}
+
+//function init(): void {
+//	params = new GoL.Drawing.ParamsForm();
+//	viewModel.board(params.init());
+//}
+
+//ko.applyBindings(viewModel);

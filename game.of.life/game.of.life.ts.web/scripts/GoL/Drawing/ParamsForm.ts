@@ -10,10 +10,7 @@
 				mutationDelay: this.valueOrDefault<number>("mutationDelay", 100)
 			};
 
-			const board = new Board(this.options);
-
-
-			return board;
+			return  new Board(this.options);
 		}
 
 		private valueOrDefault<T>(elementId: string, defaultValue: any): T {

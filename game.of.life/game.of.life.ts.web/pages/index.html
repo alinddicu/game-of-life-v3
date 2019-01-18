@@ -2,7 +2,7 @@
 
 <html lang="en">
 <head>
-	<meta charset="utf-8"/>
+	<meta charset="utf-8" />
 	<title>Game of life</title>
 
 	<script src="libs/linq.min.js"></script>
@@ -22,75 +22,90 @@
 	<script src="scripts/tests.js"></script>
 	<script src="scripts/app.js"></script>
 
-	<link rel="stylesheet" href="app.css" type="text/css"/>
+	<link rel="stylesheet" href="app.css" type="text/css" />
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
-<body onload="init();">
-<!--
-<i class="material-icons">replay</i>
-<i class="material-icons">fiber_manual_record</i>
--->
-<div id="params">
-	<div class="form-line">
-		<label for="numberOfCellsPerRow">Cells per row</label>
-		<input id="numberOfCellsPerRow" type="number" value="12" min="10" max="100"/>
-	</div>
-	<div class="form-line">
-		<label for="buttonSize">Button size</label>
-		<input id="buttonSize" type="number" value="53" min="10" max="100"/>
-	</div>
-	<div class="form-line">
-		<label for="mutationDelay">Mutation delay (ms)</label>
-		<input id="mutationDelay" type="number" value="100" min="0"/>
-	</div>
-	<div class="form-line">
-		<label for="isShowCellsCoordinates">Show cells coordinates</label>
-		<input id="isShowCellsCoordinates" type="checkbox"/>
-	</div>
-	<div class="form-line sort-button">
-		<button id="init-button" onclick="init();">Init</button>
-	</div>
-</div>
-<div id="main-over-container">
-	<div id="main-container">
-		<div id="controls-over-container">
-			<div id="controls-container">
-				<!--<button class="control-button" onclick="showParams();" title="Fast rewind"><i class="material-icons">replay</i></button>-->
-				<button class="control-button" onclick="board.rewind();" title="Fast rewind"><i class="material-icons">fast_rewind</i></button>
-				<button class="control-button" onclick="board.previousCycle();" title="Previous"><i class="material-icons">skip_previous</i></button>
-				<button class="control-button" onclick="board.play(params.options);" title="Play">
-					<!-- ko if: !board.isPlaying() --><i class="material-icons">play_circle_filled</i><!--/ko-->
-					<!-- ko if: board.isPlaying() --><i class="material-icons">play_circle_outline</i><!--/ko-->
-				</button>
-				<button class="control-button" onclick="board.pause();" title="Pause">
-					<!-- ko if: !board.isPausing() --><i class="material-icons">pause_circle_filled</i><!--/ko-->
-					<!-- ko if: board.isPausing() --><i class="material-icons">pause_circle_outline</i><!--/ko-->
-				</button>
-				<button class="control-button" onclick="board.nextCycle();" title="Next"><i class="material-icons">skip_next</i></button>
-				<button class="control-button" onclick="board.fastForward();" title="Fast forward"><i class="material-icons">fast_forward</i></button>
-				<button class="control-button" onclick="board.stop(params.options);" title="Reset"><i class="material-icons">stop</i></button>
-			</div>
+<body>
+	<!--
+	<i class="material-icons">replay</i>
+	<i class="material-icons">fiber_manual_record</i>
+	-->
+	<div id="params">
+		<div class="form-line">
+			<label for="numberOfCellsPerRow">Cells per row</label>
+			<input id="numberOfCellsPerRow" type="number" value="12" min="10" max="100" />
 		</div>
-		<div id="board-container">
-			<div data-bind="css: { 'board-disabled': board.isDisabled(), 'board-enabled': !board.isEnabled()}">
-				<table id="cells-table">
-					<tbody data-bind="foreach: board.boardLines">
-					<tr>
-						<!-- ko foreach: buttonCells -->
-						<td>
-							<button class="cell-button"
-							        data-bind="style: { width: width + 'px', height: heigth + 'px', 'background-color': backColor() }, click: cellButtonClick">
-								<!-- ko text: text --><!--/ko-->
-							</button>
-						</td>
-						<!-- /ko -->
-					</tr>
-					</tbody>
-				</table>
-			</div>
+		<div class="form-line">
+			<label for="buttonSize">Button size</label>
+			<input id="buttonSize" type="number" value="53" min="10" max="100" />
+		</div>
+		<div class="form-line">
+			<label for="mutationDelay">Mutation delay (ms)</label>
+			<input id="mutationDelay" type="number" value="100" min="0" />
+		</div>
+		<div class="form-line">
+			<label for="isShowCellsCoordinates">Show cells coordinates</label>
+			<input id="isShowCellsCoordinates" type="checkbox" />
+		</div>
+		<div class="form-line sort-button">
+			<button id="init-button" onclick="init();">Init</button>
 		</div>
 	</div>
-</div>
+	<div id="main-over-container">
+		<div id="main-container">
+			<div id="controls-over-container">
+				<div id="controls-container">
+					<!--<button class="control-button" onclick="showParams();" title="Fast rewind"><i class="material-icons">replay</i></button>-->
+					<button class="control-button" onclick="board.rewind();" title="Fast rewind"><i class="material-icons">fast_rewind</i></button>
+					<button class="control-button" onclick="board.previousCycle();" title="Previous"><i class="material-icons">skip_previous</i></button>
+					<button class="control-button" onclick="board.play(params.options);" title="Play">
+						<!-- ko if: !board().isPlaying() --><i class="material-icons">play_circle_filled</i><!--/ko-->
+						<!-- ko if: board().isPlaying() --><i class="material-icons">play_circle_outline</i><!--/ko-->
+					</button>
+					<button class="control-button" onclick="board.pause();" title="Pause">
+						<!-- ko if: !board().isPausing() --><i class="material-icons">pause_circle_filled</i><!--/ko-->
+						<!-- ko if: board().isPausing() --><i class="material-icons">pause_circle_outline</i><!--/ko-->
+					</button>
+					<button class="control-button" onclick="board.nextCycle();" title="Next"><i class="material-icons">skip_next</i></button>
+					<button class="control-button" onclick="board.fastForward();" title="Fast forward"><i class="material-icons">fast_forward</i></button>
+					<button class="control-button" onclick="board.stop(params.options);" title="Reset"><i class="material-icons">stop</i></button>
+				</div>
+			</div>
+			<div id="board-container">
+				<div data-bind="css: { 'board-disabled': board().isDisabled(), 'board-enabled': !board().isEnabled()}">
+					<table id="cells-table">
+						<tbody data-bind="foreach: board().boardLines">
+							<tr>
+								<!-- ko foreach: buttonCells -->
+								<td>
+									<button class="cell-button"
+											data-bind="style: { width: width + 'px', height: heigth + 'px', 'background-color': backColor() }, click: cellButtonClick">
+										<!-- ko text: text --><!--/ko-->
+									</button>
+								</td>
+								<!-- /ko -->
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
+
+<script type="text/javascript">
+	var params = new GoL.Drawing.ParamsForm();
+	var board = params.init();
+
+	var viewModel = { board: ko.observable(board) };
+	ko.applyBindings(viewModel);
+
+	function init() {
+		params = new GoL.Drawing.ParamsForm();
+		board = params.init();
+		board.initCellButtonsInSquare(params.options);
+		viewModel.board(board);
+	}
+</script>
