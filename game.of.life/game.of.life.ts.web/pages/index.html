@@ -26,44 +26,49 @@
 
 </head>
 <body>
-<!--
-<i class="material-icons">pause_circle_outline</i>
-<i class="material-icons">fiber_manual_record</i>
-<i class="material-icons">play_circle_outline</i>
--->
-	<div id="controls-over-container">
-		<div id="controls-container">
-			<button class="control-button" onclick="board.rewind();" title="Fast rewind"><i class="material-icons">fast_rewind</i></button>
-			<button class="control-button" onclick="board.previousCycle();" title="Previous"><i class="material-icons">skip_previous</i></button>
-			<button class="control-button" onclick="board.play(options);" title="Play">
-				<!-- ko if: !board.isPlaying() --><i class="material-icons">play_circle_filled</i><!--/ko-->
-				<!-- ko if: board.isPlaying() --><i class="material-icons">play_circle_outline</i><!--/ko-->
-			</button>
-			<button class="control-button" onclick="board.pause();" title="Pause">
-				<!-- ko if: !board.isPausing() --><i class="material-icons">pause_circle_filled</i><!--/ko-->
-				<!-- ko if: board.isPausing() --><i class="material-icons">pause_circle_outline</i><!--/ko-->
-			</button>
-			<button class="control-button" onclick="board.nextCycle();" title="Next"><i class="material-icons">skip_next</i></button>
-			<button class="control-button" onclick="board.fastForward();" title="Fast forward"><i class="material-icons">fast_forward</i></button>
-			<button class="control-button" onclick="board.stop(options);" title="Reset"><i class="material-icons">stop</i></button>
-		</div>
-	</div>
-	<div id="board-container">
-		<div data-bind="css: { 'board-disabled': board.isDisabled(), 'board-enabled': !board.isEnabled()}">
-			<table id="cells-table">
-				<tbody data-bind="foreach: board.boardLines">
-					<tr>
-						<!-- ko foreach: buttonCells -->
-						<td>
-							<button class="cell-button"
-									data-bind="style: { width: width + 'px', height: heigth + 'px', 'background-color': backColor() }, click: cellButtonClick">
-								<!-- ko text: text --><!--/ko-->
-							</button>
-						</td>
-						<!-- /ko -->
-					</tr>
-				</tbody>
-			</table>
+	<!--
+	<i class="material-icons">pause_circle_outline</i>
+	<i class="material-icons">fiber_manual_record</i>
+	<i class="material-icons">play_circle_outline</i>
+	-->
+	<div id="main-over-container">
+
+		<div id="main-container">
+			<div id="controls-over-container">
+				<div id="controls-container">
+					<button class="control-button" onclick="board.rewind();" title="Fast rewind"><i class="material-icons">fast_rewind</i></button>
+					<button class="control-button" onclick="board.previousCycle();" title="Previous"><i class="material-icons">skip_previous</i></button>
+					<button class="control-button" onclick="board.play(options);" title="Play">
+						<!-- ko if: !board.isPlaying() --><i class="material-icons">play_circle_filled</i><!--/ko-->
+						<!-- ko if: board.isPlaying() --><i class="material-icons">play_circle_outline</i><!--/ko-->
+					</button>
+					<button class="control-button" onclick="board.pause();" title="Pause">
+						<!-- ko if: !board.isPausing() --><i class="material-icons">pause_circle_filled</i><!--/ko-->
+						<!-- ko if: board.isPausing() --><i class="material-icons">pause_circle_outline</i><!--/ko-->
+					</button>
+					<button class="control-button" onclick="board.nextCycle();" title="Next"><i class="material-icons">skip_next</i></button>
+					<button class="control-button" onclick="board.fastForward();" title="Fast forward"><i class="material-icons">fast_forward</i></button>
+					<button class="control-button" onclick="board.stop(options);" title="Reset"><i class="material-icons">stop</i></button>
+				</div>
+			</div>
+			<div id="board-container">
+				<div data-bind="css: { 'board-disabled': board.isDisabled(), 'board-enabled': !board.isEnabled()}">
+					<table id="cells-table">
+						<tbody data-bind="foreach: board.boardLines">
+							<tr>
+								<!-- ko foreach: buttonCells -->
+								<td>
+									<button class="cell-button"
+											data-bind="style: { width: width + 'px', height: heigth + 'px', 'background-color': backColor() }, click: cellButtonClick">
+										<!-- ko text: text --><!--/ko-->
+									</button>
+								</td>
+								<!-- /ko -->
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
 		</div>
 	</div>
 </body>

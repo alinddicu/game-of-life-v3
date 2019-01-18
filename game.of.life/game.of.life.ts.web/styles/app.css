@@ -1,4 +1,16 @@
-﻿div#controls-over-container {
+﻿div#main-over-container {
+	display: flex;
+	justify-content: center;
+}
+
+div#main-container {
+	border: 1px dotted;
+	border-radius: 3px;
+	display: inline-block;
+	padding: 3px;
+}
+
+div#controls-over-container {
 	display: flex;
 	justify-content: center;
 }
@@ -20,7 +32,7 @@ div#controls-container {
 	box-sizing: border-box;
 	border: 1px dotted;
 	border-color: #05386b;
-	border-radius: 5px;
+	border-radius: 3px;
 	-webkit-appearance: none;
 }
 
@@ -58,7 +70,7 @@ table#cells-table {
 
 button.cell-button {
 	border: 1px dotted;
-	border-radius: 2px;
+	border-radius: 3px;
 	padding: 0;
 	margin: 0;
 }
