@@ -103,7 +103,6 @@
 	ko.applyBindings(viewModel);
 
 	function init() {
-		params = new GoL.Drawing.ParamsForm();
 		board = params.init();
 		board.initCellButtonsInSquare(params.options);
 		viewModel.board(board);
