@@ -15,14 +15,21 @@ namespace GoL.Drawing {
 		public boardLines: KnockoutObservableArray<BoardLine> = ko.observableArray([]);
 		public isDisabled: KnockoutObservable<boolean> = ko.observable(false);
 		public isEnabled: KnockoutObservable<boolean> = ko.observable(true);
+		public isPlaying: KnockoutObservable<boolean> = ko.observable(false);
+		public isPausing: KnockoutObservable<boolean> = ko.observable(false);
 
 		constructor(goLOptions: IGoLOptions) {
 			this.initCellButtonsInSquare(goLOptions);
 		}
 
-		private enable(enable: boolean): void {
+		private setEnabled(enable: boolean): void {
 			this.isDisabled(!enable);
 			this.isEnabled(enable);
+		}
+
+		private setIsPlayingIsPausing(isPlaying: boolean, isPausing: boolean): void {
+			this.isPlaying(isPlaying);
+			this.isPausing(isPausing);
 		}
 
 		private initCellButtonsInSquare(goLOptions: IGoLOptions): void {
@@ -65,7 +72,7 @@ namespace GoL.Drawing {
 		}
 
 		public nextCycle(): void {
-			this.enable(false);
+			this.setEnabled(false);
 			if (this.gridHistory.length === 0) {
 				this.gridHistory.push(this.getCurrentGrid());
 			}
@@ -76,7 +83,8 @@ namespace GoL.Drawing {
 
 		public stop(goLOptions: IGoLOptions): void {
 			this.stopAction();
-			this.enable(true);
+			this.setIsPlayingIsPausing(false, false);
+			this.setEnabled(true);
 			this.initCellButtonsInSquare(goLOptions);
 			this.gridHistory = [];
 		}
@@ -86,32 +94,35 @@ namespace GoL.Drawing {
 				const lastElementIndex = this.gridHistory.length - 1;
 				this.gridHistory.splice(lastElementIndex, 1);
 				this.refreshCellButtons();
-				this.enable(false);
+				this.setEnabled(false);
 			}
 		}
 
 		public play(goLOptions: IGoLOptions): void {
-			this.enable(false);
+			this.setEnabled(false);
+			this.setIsPlayingIsPausing(true, false);
 			this.playIntervalId = setInterval((context: Board) => {
 				context.nextCycle();
 			}, goLOptions.mutationDelay, this);
 		}
 
 		public pause(goLOptions: IGoLOptions): void {
+			this.setEnabled(false);
+			this.setIsPlayingIsPausing(false, true);
 			if (this.playIntervalId) {
 				this.stopAction();
 			}
 		}
 
 		public rewind(): void {
-			this.enable(false);
+			this.setEnabled(false);
 			this.playIntervalId = setInterval((context: Board) => {
 				context.previousCycle();
 			}, 0, this);
 		}
 
 		public fastForward(): void {
-			this.enable(false);
+			this.setEnabled(false);
 			this.playIntervalId = setInterval((context: Board) => {
 				context.nextCycle();
 			}, 0, this);
