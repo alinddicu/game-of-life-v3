@@ -7,9 +7,18 @@ div#controls-container {
 	padding: 5px;
 }
 
-	div#controls-container button {
-		margin: 2px;
-	}
+button.control-button {
+	margin: 2px;
+	width: 75px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border: 1px dotted;
+	border-color: #05386b;
+	border-radius: 5px;
+	-webkit-appearance: none;
+	text-align: center;
+}
 
 table#cells-table {
 	align-self: center;
