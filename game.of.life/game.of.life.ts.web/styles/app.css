@@ -1,4 +1,13 @@
-﻿div#controls-container, div#board-container {
+﻿div#controls-over-container {
+	display: flex;
+	justify-content: center;
+}
+
+div#controls-container {
+	display: inline-block;
+}
+
+div#board-container {
 	display: flex;
 	justify-content: center;
 }
