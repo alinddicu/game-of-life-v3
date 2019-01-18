@@ -25,10 +25,12 @@
 </head>
 <body>
 	<div id="controls-container">
+		<button class="control-button" onclick="board.rewind();">Rev</button>
 		<button class="control-button" onclick="board.previousCycle();">Previous</button>
 		<button class="control-button" onclick="board.play(options);">Play</button>
 		<button class="control-button" onclick="board.pause();">Pause</button>
 		<button class="control-button" onclick="board.nextCycle();">Next</button>
+		<button class="control-button" onclick="board.fastForward();">FF</button>
 		<button class="control-button" onclick="board.stop(options);">Stop</button>
 	</div>
 	<div id="board-container">

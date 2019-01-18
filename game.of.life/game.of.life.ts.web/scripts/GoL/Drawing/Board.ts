@@ -95,5 +95,19 @@ namespace GoL.Drawing {
 				clearInterval(this.playIntervalId);
 			}
 		}
+
+		public rewind(): void {
+			this.isReadOnly(true);
+			this.playIntervalId = setInterval((context: Board) => {
+				context.previousCycle();
+			}, 0, this);
+		}
+
+		public fastForward(): void {
+			this.isReadOnly(true);
+			this.playIntervalId = setInterval((context: Board) => {
+				context.nextCycle();
+			}, 0, this);
+		}
 	}
 }
