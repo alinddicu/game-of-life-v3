@@ -1,7 +1,15 @@
-﻿div#board-container {
+﻿div#controls-container, div#board-container {
 	display: flex;
 	justify-content: center;
 }
+
+div#controls-container {
+	padding: 5px;
+}
+
+	div#controls-container button {
+		margin: 2px;
+	}
 
 table#cells-table {
 	align-self: center;

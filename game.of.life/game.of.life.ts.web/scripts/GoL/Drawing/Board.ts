@@ -71,5 +71,13 @@ namespace GoL.Drawing {
 			this._gridHistory = [];
 			//_cellsPanel.Enabled = true;
 		}
+
+		public PreviousCycle(): void {
+			if (this._gridHistory.length > 1) {
+				const lastElementIndex = this._gridHistory.length - 1;
+				this._gridHistory.splice(lastElementIndex, 1);
+				this.RefreshCellButtons();
+			}
+		}
 	}
 }
