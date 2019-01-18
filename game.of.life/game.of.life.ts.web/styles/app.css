@@ -24,10 +24,16 @@ button.control-button {
 	cursor: pointer;
 }
 
-.boardReadonly {
-	z-index: 1;
-	background: rgba(0, 0, 0, 0);
+button.control-button, button#cell-button {
+	cursor: pointer;
+}
+
+.board-disabled {
 	pointer-events: none;
+}
+
+.board-enabled {
+	pointer-events: auto;
 }
 
 table#cells-table {

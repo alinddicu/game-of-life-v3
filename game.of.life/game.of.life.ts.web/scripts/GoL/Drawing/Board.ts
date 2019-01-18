@@ -13,10 +13,16 @@ namespace GoL.Drawing {
 		private cycle: Cycle = new Cycle();
 		private gridHistory: RectangularInfinite2DGrid[] = [];
 		public boardLines: KnockoutObservableArray<BoardLine> = ko.observableArray([]);
-		public isReadOnly: KnockoutObservable<boolean> = ko.observable(false);
+		public isDisabled: KnockoutObservable<boolean> = ko.observable(false);
+		public isEnabled: KnockoutObservable<boolean> = ko.observable(true);
 
 		constructor(goLOptions: IGoLOptions) {
 			this.initCellButtonsInSquare(goLOptions);
+		}
+
+		private enable(enable: boolean): void {
+			this.isDisabled(!enable);
+			this.isEnabled(enable);
 		}
 
 		private initCellButtonsInSquare(goLOptions: IGoLOptions): void {
@@ -59,9 +65,9 @@ namespace GoL.Drawing {
 		}
 
 		public nextCycle(): void {
+			this.enable(false);
 			if (this.gridHistory.length === 0) {
 				this.gridHistory.push(this.getCurrentGrid());
-				this.isReadOnly(true);
 			}
 
 			this.gridHistory.push(this.cycle.Run(this.getLastGrid()));
@@ -69,9 +75,10 @@ namespace GoL.Drawing {
 		}
 
 		public stop(goLOptions: IGoLOptions): void {
+			this.stopAction();
+			this.enable(true);
 			this.initCellButtonsInSquare(goLOptions);
 			this.gridHistory = [];
-			this.isReadOnly(false);
 		}
 
 		public previousCycle(): void {
@@ -79,12 +86,12 @@ namespace GoL.Drawing {
 				const lastElementIndex = this.gridHistory.length - 1;
 				this.gridHistory.splice(lastElementIndex, 1);
 				this.refreshCellButtons();
-				this.isReadOnly(true);
+				this.enable(false);
 			}
 		}
 
 		public play(goLOptions: IGoLOptions): void {
-			this.isReadOnly(true);
+			this.enable(false);
 			this.playIntervalId = setInterval((context: Board) => {
 				context.nextCycle();
 			}, goLOptions.mutationDelay, this);
@@ -92,22 +99,26 @@ namespace GoL.Drawing {
 
 		public pause(goLOptions: IGoLOptions): void {
 			if (this.playIntervalId) {
-				clearInterval(this.playIntervalId);
+				this.stopAction();
 			}
 		}
 
 		public rewind(): void {
-			this.isReadOnly(true);
+			this.enable(false);
 			this.playIntervalId = setInterval((context: Board) => {
 				context.previousCycle();
 			}, 0, this);
 		}
 
 		public fastForward(): void {
-			this.isReadOnly(true);
+			this.enable(false);
 			this.playIntervalId = setInterval((context: Board) => {
 				context.nextCycle();
 			}, 0, this);
+		}
+
+		private stopAction() {
+			clearInterval(this.playIntervalId);
 		}
 	}
 }

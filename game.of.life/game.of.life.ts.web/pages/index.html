@@ -41,7 +41,7 @@
 		<button class="control-button" onclick="board.stop(options);" title="Reset"><i class="material-icons">stop</i></button>
 	</div>
 	<div id="board-container">
-		<div data-bind="css: { boardReadonly: board.isReadOnly()}">
+		<div data-bind="css: { 'board-disabled': board.isDisabled(), 'board-enabled': !board.isEnabled()}">
 			<table id="cells-table">
 				<tbody data-bind="foreach: board.boardLines">
 					<tr>
