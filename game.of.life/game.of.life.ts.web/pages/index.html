@@ -25,13 +25,13 @@
 </head>
 <body>
 	<div id="controls-container">
-		<button class="control-button" onclick="board.PreviousCycle();">Previous</button>
-		<button class="control-button" onclick="board.NextCycle();">Next</button>
-		<button class="control-button" onclick="board.Reset(options);">Reset</button>
+		<button class="control-button" onclick="board.previousCycle();">Previous</button>
+		<button class="control-button" onclick="board.nextCycle();">Next</button>
+		<button class="control-button" onclick="board.reset(options);">Reset</button>
 	</div>
 	<div id="board-container">
 		<table id="cells-table">
-			<tbody data-bind="foreach: board.BoardLines">
+			<tbody data-bind="foreach: board.boardLines">
 				<tr>
 					<!-- ko foreach: ButtonCells -->
 					<td>

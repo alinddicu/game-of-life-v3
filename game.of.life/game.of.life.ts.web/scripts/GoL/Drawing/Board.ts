@@ -9,74 +9,74 @@ namespace GoL.Drawing {
 
 	export class Board {
 
-		private Cycle: Cycle = new Cycle();
-		private _gridHistory: RectangularInfinite2DGrid[] = [];
-		public BoardLines: KnockoutObservableArray<BoardLine> = ko.observableArray([]);
+		private cycle: Cycle = new Cycle();
+		private gridHistory: RectangularInfinite2DGrid[] = [];
+		public boardLines: KnockoutObservableArray<BoardLine> = ko.observableArray([]);
 
 		constructor(goLOptions: IGoLOptions) {
-			this.InitCellButtonsInSquare(goLOptions);
+			this.initCellButtonsInSquare(goLOptions);
 		}
 
-		private InitCellButtonsInSquare(goLOptions: IGoLOptions): void {
+		private initCellButtonsInSquare(goLOptions: IGoLOptions): void {
 
-			this.BoardLines([]);
+			this.boardLines([]);
 			const numberOfCellsPerRow = goLOptions.NumberOfCellsPerRow;
 			for (let hCounter = 0; hCounter < numberOfCellsPerRow; hCounter++) {
-				let buttonCells: CellButton[] = [];
+				const buttonCells: CellButton[] = [];
 				for (let vCounter = 0; vCounter < numberOfCellsPerRow; vCounter++) {
-					const cellButton = Board.CreateCellButton(vCounter, hCounter, goLOptions.ButtonSize, goLOptions.IsShowCellsCoordinates);
+					const cellButton = Board.createCellButton(vCounter, hCounter, goLOptions.ButtonSize, goLOptions.IsShowCellsCoordinates);
 					buttonCells.push(cellButton);
 				}
 
-				this.BoardLines.push(new BoardLine(buttonCells));
+				this.boardLines.push(new BoardLine(buttonCells));
 			}
 		}
 
-		private static CreateCellButton(vCounter: number, hCounter: number, buttonWidth: number, isShowCellsCoordinates: boolean): CellButton {
-			const text = Board.GetCellText(vCounter, hCounter, isShowCellsCoordinates);
+		private static createCellButton(vCounter: number, hCounter: number, buttonWidth: number, isShowCellsCoordinates: boolean): CellButton {
+			const text = Board.getCellText(vCounter, hCounter, isShowCellsCoordinates);
 			return new CellButton(vCounter, hCounter, buttonWidth, buttonWidth, text);
 		}
 
-		private static GetCellText(vCounter: number, hCounter: number, isShowCellsCoordinates: boolean): string {
+		private static getCellText(vCounter: number, hCounter: number, isShowCellsCoordinates: boolean): string {
 			return isShowCellsCoordinates ? `(${vCounter},${hCounter})` : "";
 		}
 
-		public NextCycle(): void {
-			if (this._gridHistory.length === 0) {
-				this._gridHistory.push(this.GetCurrentGrid());
+		public nextCycle(): void {
+			if (this.gridHistory.length === 0) {
+				this.gridHistory.push(this.getCurrentGrid());
 				//_cellsPanel.Enabled = false;
 			}
 
-			this._gridHistory.push(this.Cycle.Run(this.GetLastGrid()));
-			this.RefreshCellButtons();
+			this.gridHistory.push(this.cycle.Run(this.getLastGrid()));
+			this.refreshCellButtons();
 		}
 
-		private GetCurrentGrid(): RectangularInfinite2DGrid {
-			let cells: Cell[] = Enumerable.from(this.BoardLines())
+		private getCurrentGrid(): RectangularInfinite2DGrid {
+			const cells: Cell[] = Enumerable.from(this.boardLines())
 				.selectMany((bl: BoardLine) => bl.ButtonCells).where((cb: CellButton) => cb.Cell.IsAlive())
 				.select(x => x.Cell).toArray();
 			return new RectangularInfinite2DGrid(cells);
 		}
 
-		private RefreshCellButtons(): void {
-			Enumerable.from(this.BoardLines()).forEach((b: BoardLine) => b.RefreshCells(this.GetLastGrid()));
+		private refreshCellButtons(): void {
+			Enumerable.from(this.boardLines()).forEach((b: BoardLine) => b.RefreshCells(this.getLastGrid()));
 		}
 
-		private GetLastGrid(): RectangularInfinite2DGrid {
-			return this._gridHistory[this._gridHistory.length - 1];
+		private getLastGrid(): RectangularInfinite2DGrid {
+			return this.gridHistory[this.gridHistory.length - 1];
 		}
 
-		public Reset(goLOptions: IGoLOptions): void {
-			this.InitCellButtonsInSquare(goLOptions);
-			this._gridHistory = [];
+		public reset(goLOptions: IGoLOptions): void {
+			this.initCellButtonsInSquare(goLOptions);
+			this.gridHistory = [];
 			//_cellsPanel.Enabled = true;
 		}
 
-		public PreviousCycle(): void {
-			if (this._gridHistory.length > 1) {
-				const lastElementIndex = this._gridHistory.length - 1;
-				this._gridHistory.splice(lastElementIndex, 1);
-				this.RefreshCellButtons();
+		public previousCycle(): void {
+			if (this.gridHistory.length > 1) {
+				const lastElementIndex = this.gridHistory.length - 1;
+				this.gridHistory.splice(lastElementIndex, 1);
+				this.refreshCellButtons();
 			}
 		}
 	}
