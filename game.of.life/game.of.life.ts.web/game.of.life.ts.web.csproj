@@ -82,6 +82,7 @@
     <TypeScriptCompile Include="scripts\GoL\Drawing\BoardLine.ts" />
     <TypeScriptCompile Include="scripts\GoL\Drawing\CellButton.ts" />
     <TypeScriptCompile Include="scripts\GoL\Drawing\IGoLOptions.ts" />
+    <TypeScriptCompile Include="scripts\GoL\Drawing\ParamsForm.ts" />
     <TypeScriptCompile Include="scripts\tests.ts" />
     <TypeScriptCompile Include="scripts\GoL\Logic\Cycle.ts" />
     <TypeScriptCompile Include="scripts\GoL\Logic\RectangularInfinite2DGrid.ts" />

@@ -1,8 +1,16 @@
-﻿
-const options: GoL.Drawing.IGoLOptions = {
-	numberOfCellsPerRow: 12,
-	isShowCellsCoordinates: true,
-	buttonSize: 53,
-	mutationDelay: 100
-};
-const board: GoL.Drawing.Board = new GoL.Drawing.Board(options);
+﻿let params: GoL.Drawing.ParamsForm;
+let board: GoL.Drawing.Board;
+let isInit = false;
+
+function init(): void {
+	params = new GoL.Drawing.ParamsForm();
+	board = params.init();
+
+	if (!isInit) {
+		ko.applyBindings({
+			board: board
+		});
+
+		isInit = true;
+	}
+}
