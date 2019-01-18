@@ -20,6 +20,12 @@ button.control-button {
 	text-align: center;
 }
 
+.boardReadonly {
+	z-index: 1;
+	background: rgba(0, 0, 0, 0);
+	pointer-events:none
+}
+
 table#cells-table {
 	align-self: center;
 	padding: 0;

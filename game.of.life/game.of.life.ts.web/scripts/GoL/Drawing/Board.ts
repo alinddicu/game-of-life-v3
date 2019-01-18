@@ -12,6 +12,7 @@ namespace GoL.Drawing {
 		private cycle: Cycle = new Cycle();
 		private gridHistory: RectangularInfinite2DGrid[] = [];
 		public boardLines: KnockoutObservableArray<BoardLine> = ko.observableArray([]);
+		public isReadOnly: KnockoutObservable<boolean> = ko.observable(false);
 
 		constructor(goLOptions: IGoLOptions) {
 			this.initCellButtonsInSquare(goLOptions);
@@ -44,7 +45,7 @@ namespace GoL.Drawing {
 		public nextCycle(): void {
 			if (this.gridHistory.length === 0) {
 				this.gridHistory.push(this.getCurrentGrid());
-				//_cellsPanel.Enabled = false;
+				this.isReadOnly(true);
 			}
 
 			this.gridHistory.push(this.cycle.Run(this.getLastGrid()));
@@ -69,7 +70,7 @@ namespace GoL.Drawing {
 		public reset(goLOptions: IGoLOptions): void {
 			this.initCellButtonsInSquare(goLOptions);
 			this.gridHistory = [];
-			//_cellsPanel.Enabled = true;
+			this.isReadOnly(false);
 		}
 
 		public previousCycle(): void {
@@ -77,6 +78,7 @@ namespace GoL.Drawing {
 				const lastElementIndex = this.gridHistory.length - 1;
 				this.gridHistory.splice(lastElementIndex, 1);
 				this.refreshCellButtons();
+				this.isReadOnly(true);
 			}
 		}
 	}

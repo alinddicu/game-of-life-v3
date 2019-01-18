@@ -30,26 +30,27 @@
 		<button class="control-button" onclick="board.reset(options);">Reset</button>
 	</div>
 	<div id="board-container">
-		<table id="cells-table">
-			<tbody data-bind="foreach: board.boardLines">
-				<tr>
-					<!-- ko foreach: buttonCells -->
-					<td>
-						<button id="cell-button"
-								data-bind="style: { width: width + 'px', height: heigth + 'px', 'background-color': backColor() }, click: cellButtonClick">
-							<!-- ko text: text --><!--/ko-->
-						</button>
-					</td>
-					<!-- /ko -->
-				</tr>
-			</tbody>
-		</table>
+		<div data-bind="css: { boardReadonly: board.isReadOnly()}">
+			<table id="cells-table">
+				<tbody data-bind="foreach: board.boardLines">
+					<tr>
+						<!-- ko foreach: buttonCells -->
+						<td>
+							<button id="cell-button"
+									data-bind="style: { width: width + 'px', height: heigth + 'px', 'background-color': backColor() }, click: cellButtonClick">
+								<!-- ko text: text --><!--/ko-->
+							</button>
+						</td>
+						<!-- /ko -->
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </body>
 </html>
 <script type="text/javascript">
 	ko.applyBindings({
-		board: board,
-		numberOfCellsPerRow: numberOfCellsPerRow
+		board: board
 	});
 </script>
