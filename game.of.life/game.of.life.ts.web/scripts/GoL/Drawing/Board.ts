@@ -8,7 +8,8 @@ namespace GoL.Drawing {
 	import RectangularInfinite2DGrid = Logic.RectangularInfinite2DGrid;
 
 	export class Board {
-
+		
+		private playIntervalId: number;
 		private cycle: Cycle = new Cycle();
 		private gridHistory: RectangularInfinite2DGrid[] = [];
 		public boardLines: KnockoutObservableArray<BoardLine> = ko.observableArray([]);
@@ -21,11 +22,11 @@ namespace GoL.Drawing {
 		private initCellButtonsInSquare(goLOptions: IGoLOptions): void {
 
 			this.boardLines([]);
-			const numberOfCellsPerRow = goLOptions.NumberOfCellsPerRow;
+			const numberOfCellsPerRow = goLOptions.numberOfCellsPerRow;
 			for (let hCounter = 0; hCounter < numberOfCellsPerRow; hCounter++) {
 				const buttonCells: CellButton[] = [];
 				for (let vCounter = 0; vCounter < numberOfCellsPerRow; vCounter++) {
-					const cellButton = Board.createCellButton(vCounter, hCounter, goLOptions.ButtonSize, goLOptions.IsShowCellsCoordinates);
+					const cellButton = Board.createCellButton(vCounter, hCounter, goLOptions.buttonSize, goLOptions.isShowCellsCoordinates);
 					buttonCells.push(cellButton);
 				}
 
@@ -40,16 +41,6 @@ namespace GoL.Drawing {
 
 		private static getCellText(vCounter: number, hCounter: number, isShowCellsCoordinates: boolean): string {
 			return isShowCellsCoordinates ? `(${vCounter},${hCounter})` : "";
-		}
-
-		public nextCycle(): void {
-			if (this.gridHistory.length === 0) {
-				this.gridHistory.push(this.getCurrentGrid());
-				this.isReadOnly(true);
-			}
-
-			this.gridHistory.push(this.cycle.Run(this.getLastGrid()));
-			this.refreshCellButtons();
 		}
 
 		private getCurrentGrid(): RectangularInfinite2DGrid {
@@ -67,6 +58,16 @@ namespace GoL.Drawing {
 			return this.gridHistory[this.gridHistory.length - 1];
 		}
 
+		public nextCycle(): void {
+			if (this.gridHistory.length === 0) {
+				this.gridHistory.push(this.getCurrentGrid());
+				this.isReadOnly(true);
+			}
+
+			this.gridHistory.push(this.cycle.Run(this.getLastGrid()));
+			this.refreshCellButtons();
+		}
+
 		public reset(goLOptions: IGoLOptions): void {
 			this.initCellButtonsInSquare(goLOptions);
 			this.gridHistory = [];
@@ -80,6 +81,16 @@ namespace GoL.Drawing {
 				this.refreshCellButtons();
 				this.isReadOnly(true);
 			}
+		}
+
+		public play(goLOptions: IGoLOptions): void {
+			this.playIntervalId = setInterval((context: Board) => {
+				context.nextCycle();
+			}, goLOptions.mutationDelay, this);
+		}
+
+		public pause(goLOptions: IGoLOptions): void {
+			clearInterval(this.playIntervalId);
 		}
 	}
 }
