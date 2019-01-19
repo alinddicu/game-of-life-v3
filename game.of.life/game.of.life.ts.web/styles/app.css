@@ -22,7 +22,7 @@ label {
 
 button[id=init-button] {
 	border: none;
-	background-color: white;
+	background-color: #2e9cca;
 }
 
 	button[id=init-button], button[id=init-button] i {
@@ -36,7 +36,7 @@ input[type=number], input[type=text] {
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	border: 1px dotted;
-	/*border-color: #05386b;*/
+	border-color: #25274d;
 	border-radius: 5px;
 	-webkit-appearance: none;
 	text-align: center;
@@ -63,8 +63,9 @@ div#params-container {
 	opacity: 1;
 	background-color: white;
 	padding: 10px 16px 10px 16px;
-	/*color: #05386b;
-	border-color: #05386b;*/
+	color: #25274d;
+	background-color: #2e9cca;
+	border-color: #25274d;
 	border: 1px solid;
 	border-radius: 3px;
 	margin: 0;
@@ -72,19 +73,22 @@ div#params-container {
 	top: 41px;
 }
 
-div#controls-container {
-	display: inline-block;
+body {
+	background-color: #29648a;
 }
 
 div#board-container {
 	display: flex;
 	justify-content: center;
+	background-color: #29648a;
 }
 
 div#controls-container {
 	padding: 5px 5px 0 5px;
 	margin: 0 0 5px 0;
 	-webkit-appearance: none;
+	background-color: #2e9cca;
+	display: inline-block;
 }
 
 button.control-button {
@@ -124,7 +128,7 @@ div#main-container, div#controls-container, button.cell-button {
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	border: 1px dotted;
-	border-color: #05386b;
+	border-color: #25274d;
 	border-radius: 3px;
 	-webkit-appearance: none;
 }

@@ -9,8 +9,8 @@
 				cellSize: this.valueOrDefault<number>("cellSize", 50),
 				normalMutationDelay: this.valueOrDefault<number>("normalMutationDelay", 100),
 				rapidMutationDelay: this.valueOrDefault<number>("rapidMutationDelay", 10),
-				aliveCellColor: this.valueOrDefault<string>("aliveCellColor", "pink"),
-				deadCellColor: this.valueOrDefault<string>("deadCellColor", "white")
+				aliveCellColor: this.valueOrDefault<string>("aliveCellColor", "#2e9cca"),
+				deadCellColor: this.valueOrDefault<string>("deadCellColor", "aaabb8")
 			};
 
 			return new Board(this.options);
