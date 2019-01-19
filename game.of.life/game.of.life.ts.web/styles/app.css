@@ -18,11 +18,15 @@ div.form-line {
 	padding: 3px 0 0 0;
 }
 
+div.init-button-container {
+	text-align: right;
+}
+
 label {
 	font-weight: bold;
 	float: left;
 	display: block;
-	width: 180px;
+	width: 200px;
 	margin: 0;
 	padding: 0;
 }

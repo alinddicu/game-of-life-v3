@@ -4,10 +4,10 @@
 
 		public init(): Board {
 			this.options = {
-				numberOfCellsPerRow: this.valueOrDefault<number>("numberOfCellsPerRow", 12),
+				cellsPerRow: this.valueOrDefault<number>("cellsPerRow", 12),
 				isShowCellsCoordinates: this.valueOrDefault<boolean>("isShowCellsCoordinates", false),
-				buttonSize: this.valueOrDefault<number>("buttonSize", 53),
-				mutationDelay: this.valueOrDefault<number>("mutationDelay", 100)
+				cellSize: this.valueOrDefault<number>("cellSize", 50),
+				normalMutationDelay: this.valueOrDefault<number>("normalMutationDelay", 100)
 			};
 
 			return  new Board(this.options);

@@ -35,11 +35,11 @@ namespace GoL.Drawing {
 		public initCellButtonsInSquare(goLOptions: IGoLOptions): void {
 
 			this.boardLines([]);
-			const numberOfCellsPerRow = goLOptions.numberOfCellsPerRow;
-			for (let hCounter = 0; hCounter < numberOfCellsPerRow; hCounter++) {
+			const cellsPerRow = goLOptions.cellsPerRow;
+			for (let hCounter = 0; hCounter < cellsPerRow; hCounter++) {
 				const buttonCells: CellButton[] = [];
-				for (let vCounter = 0; vCounter < numberOfCellsPerRow; vCounter++) {
-					const cellButton = Board.createCellButton(vCounter, hCounter, goLOptions.buttonSize, goLOptions.isShowCellsCoordinates);
+				for (let vCounter = 0; vCounter < cellsPerRow; vCounter++) {
+					const cellButton = Board.createCellButton(vCounter, hCounter, goLOptions.cellSize, goLOptions.isShowCellsCoordinates);
 					buttonCells.push(cellButton);
 				}
 
@@ -104,7 +104,7 @@ namespace GoL.Drawing {
 			this.setIsPlayingIsPausing(true, false);
 			this.playIntervalId = setInterval((context: Board) => {
 				context.nextCycle();
-			}, goLOptions.mutationDelay, this);
+			}, goLOptions.normalMutationDelay, this);
 		}
 
 		public pause(goLOptions: IGoLOptions): void {

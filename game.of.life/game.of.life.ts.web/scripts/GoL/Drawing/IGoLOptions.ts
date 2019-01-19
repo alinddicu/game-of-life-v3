@@ -1,8 +1,8 @@
 ﻿namespace GoL.Drawing {
 	export interface IGoLOptions {
-		numberOfCellsPerRow: number;
+		cellsPerRow: number;
 		isShowCellsCoordinates: boolean;
-		buttonSize: number;
-		mutationDelay: number;
+		cellSize: number;
+		normalMutationDelay: number;
 	}
 }

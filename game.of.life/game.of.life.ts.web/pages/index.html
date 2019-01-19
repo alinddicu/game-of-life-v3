@@ -33,22 +33,22 @@
 	-->
 	<div id="params">
 		<div class="form-line">
-			<label for="numberOfCellsPerRow">Cells per row</label>
-			<input id="numberOfCellsPerRow" type="number" value="12" min="10" max="100" />
+			<label for="cellsPerRow">Cells per row</label>
+			<input id="cellsPerRow" type="number" value="12" min="10" max="100" />
 		</div>
 		<div class="form-line">
-			<label for="buttonSize">Button size</label>
-			<input id="buttonSize" type="number" value="53" min="10" max="100" />
+			<label for="cellSize">Cell size (px)</label>
+			<input id="cellSize" type="number" value="50" min="10" max="100" />
 		</div>
 		<div class="form-line">
-			<label for="mutationDelay">Mutation delay (ms)</label>
-			<input id="mutationDelay" type="number" value="100" min="0" />
+			<label for="normalMutationDelay">Normal mutation delay (ms)</label>
+			<input id="normalMutationDelay" type="number" value="100" min="0" />
 		</div>
 		<div class="form-line">
 			<label for="isShowCellsCoordinates">Show cells coordinates</label>
 			<input id="isShowCellsCoordinates" type="checkbox" />
 		</div>
-		<div class="form-line sort-button">
+		<div class="form-line init-button-container">
 			<button id="init-button" onclick="init();">Init</button>
 		</div>
 	</div>
