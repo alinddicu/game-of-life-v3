@@ -7,7 +7,13 @@
 	--dark-blue: #24305e;
 }
 
-.material-icons.custom-color { color: var(--dark-blue); }
+.material-icons.custom-color {
+	color: var(--dark-blue);
+}
+
+.material-icons.spacer {
+	width: 24px;
+}
 
 h2#gol-params-title {
 	padding: 0 0 10px 0;
