@@ -14,14 +14,14 @@ namespace GoL.Drawing {
 		public heigth: number;
 		public text: string;
 
-		constructor(x: number, y: number, width: number, heigth: number, text: string, aliveCellColor: string, deadCellColor: string) {
-			this.cell = new Cell(x, y);
+		constructor(x: number, y: number, width: number, heigth: number, text: string, aliveCellColor: string, deadCellColor: string, state: CellState = CellState.Dead) {
+			this.cell = new Cell(x, y, state);
 			this.width = width;
 			this.heigth = heigth;
 			this.text = text;
 			this.aliveCellColor = aliveCellColor;
 			this.deadCellColor = deadCellColor;
-			this.backColor = ko.observable(this.deadCellColor);
+			this.backColor = ko.observable(state === CellState.Alive ? aliveCellColor : deadCellColor);
 		}
 
 		public cellButtonClick(): void {

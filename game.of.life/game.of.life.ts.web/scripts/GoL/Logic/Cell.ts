@@ -25,6 +25,13 @@ namespace Gol.Logic {
 			this.nextState = nextState;
 		}
 
+		public static fromJsonArray(jsonCellsArray: string): Cell[] {
+			return Enumerable.from(JSON.parse(jsonCellsArray))
+				.cast<IJsonCell>().
+				select((cell: IJsonCell) => new Cell(cell.x, cell.y))
+				.toArray();
+		}
+
 		public isAlive(): boolean {
 			return this.state === CellState.Alive;
 		}
@@ -57,7 +64,7 @@ namespace Gol.Logic {
 		
 		public toString(): string
 		{
-			return `{x:${this.x},y:${this.y}}`;
+			return `{"x":${this.x},"y":${this.y}}`;
 		}
 	}
 
@@ -95,5 +102,10 @@ namespace Gol.Logic {
 		public computeNextMutation(cells: Cell): void {
 			cell.nextState = CellState.Dead;
 		}
+	}
+
+	interface IJsonCell {
+		x: number;
+		y: number;
 	}
 }

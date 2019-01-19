@@ -6,9 +6,11 @@
 namespace GoL.Drawing {
 	import Cycle = Logic.Cycle;
 	import RectangularInfinite2DGrid = Logic.RectangularInfinite2DGrid;
+	import CellState = Logic.CellState;
 
 	export class Board {
 
+		private importedCells: Cell[] = [];
 		private options: IGoLOptions;
 		private playIntervalId: number;
 		private cycle = new Cycle();
@@ -53,7 +55,8 @@ namespace GoL.Drawing {
 		private createCellButton(vCounter: number, hCounter: number): CellButton {
 			const text = Board.getCellText(vCounter, hCounter, this.options.isShowCellsCoordinates);
 			const buttonWidth = this.options.cellSize;
-			return new CellButton(vCounter, hCounter, buttonWidth, buttonWidth, text, this.options.aliveCellColor, this.options.deadCellColor);
+			return new CellButton(vCounter, hCounter, buttonWidth, buttonWidth, text,
+				this.options.aliveCellColor, this.options.deadCellColor, this.getCellStateFromImported(vCounter, hCounter));
 		}
 
 		private static getCellText(vCounter: number, hCounter: number, isShowCellsCoordinates: boolean): string {
@@ -148,8 +151,16 @@ namespace GoL.Drawing {
 			return `[${this.getAliveCells().join(",")}]`;
 		}
 
-		public import(cells: Cell[]): void {
-			
+		public import(cells: string): void {
+			this.importedCells = Cell.fromJsonArray(cells);
+			this.initCellButtonsInSquare(this.options);
+			this.importedCells = [];
+		}
+		
+		private getCellStateFromImported(x: number, y: number): CellState {
+			const isImportedCell = Enumerable.from(this.importedCells)
+				.singleOrDefault((c: Cell) => c.x === x && c.y === y) !== null;
+			return isImportedCell ? CellState.Alive : CellState.Dead;
 		}
 	}
 }
