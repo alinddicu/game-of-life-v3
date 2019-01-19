@@ -6,18 +6,22 @@ namespace GoL.Drawing {
 
 	export class CellButton {
 
-		private defaultBackColor: string = "white";
+		private aliveCellColor: string;
+		private deadCellColor: string;
 		public cell: Cell;
-		public backColor: KnockoutObservable<string> = ko.observable(this.defaultBackColor);
+		public backColor: KnockoutObservable<string>;
 		public width: number;
 		public heigth: number;
 		public text: string;
 
-		constructor(x: number, y: number, width: number, heigth: number, text: string) {
+		constructor(x: number, y: number, width: number, heigth: number, text: string, aliveCellColor: string, deadCellColor: string) {
 			this.cell = new Cell(x, y);
 			this.width = width;
 			this.heigth = heigth;
 			this.text = text;
+			this.aliveCellColor = aliveCellColor;
+			this.deadCellColor = deadCellColor;
+			this.backColor = ko.observable(this.deadCellColor);
 		}
 
 		public cellButtonClick(): void {
@@ -28,7 +32,7 @@ namespace GoL.Drawing {
 		}
 
 		private refreshBackColor(): void {
-			this.backColor(this.cell.isAlive() ? "pink" : this.defaultBackColor);
+			this.backColor(this.cell.isAlive() ? this.aliveCellColor : this.deadCellColor);
 		}
 
 		public refreshCell(grid: RectangularInfinite2DGrid): void {

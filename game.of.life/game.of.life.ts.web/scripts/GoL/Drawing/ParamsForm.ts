@@ -7,10 +7,13 @@
 				cellsPerRow: this.valueOrDefault<number>("cellsPerRow", 12),
 				isShowCellsCoordinates: this.valueOrDefault<boolean>("isShowCellsCoordinates", false),
 				cellSize: this.valueOrDefault<number>("cellSize", 50),
-				normalMutationDelay: this.valueOrDefault<number>("normalMutationDelay", 100)
+				normalMutationDelay: this.valueOrDefault<number>("normalMutationDelay", 100),
+				rapidMutationDelay: this.valueOrDefault<number>("rapidMutationDelay", 10),
+				aliveCellColor: this.valueOrDefault<string>("aliveCellColor", "pink"),
+				deadCellColor: this.valueOrDefault<string>("deadCellColor", "white")
 			};
 
-			return  new Board(this.options);
+			return new Board(this.options);
 		}
 
 		private valueOrDefault<T>(elementId: string, defaultValue: any): T {

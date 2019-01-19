@@ -42,7 +42,19 @@
 		</div>
 		<div class="form-line">
 			<label for="normalMutationDelay">Normal mutation delay (ms)</label>
-			<input id="normalMutationDelay" type="number" value="100" min="0" />
+			<input id="normalMutationDelay" type="number" value="100" min="0"/>
+		</div>
+		<div class="form-line">
+			<label for="rapidMutationDelay">Rapid mutation delay (ms)</label>
+			<input id="rapidMutationDelay" type="number" value="10" min="0"/>
+		</div>
+		<div class="form-line">
+			<label for="aliveCellColor">Alive cell color</label>
+			<input id="aliveCellColor" type="text" value="pink"/>
+		</div>
+		<div class="form-line">
+			<label for="deadCellColor">Dead cell color</label>
+			<input id="deadCellColor" type="text" value="white"/>
 		</div>
 		<div class="form-line">
 			<label for="isShowCellsCoordinates">Show cells coordinates</label>
@@ -59,7 +71,7 @@
 					<!--<button class="control-button" onclick="showParams();" title="Fast rewind"><i class="material-icons">replay</i></button>-->
 					<button class="control-button" onclick="board.rewind();" title="Fast rewind"><i class="material-icons">fast_rewind</i></button>
 					<button class="control-button" onclick="board.previousCycle();" title="Previous"><i class="material-icons">skip_previous</i></button>
-					<button class="control-button" onclick="board.play(params.options);" title="Play">
+					<button class="control-button" onclick="board.play();" title="Play">
 						<!-- ko if: !board().isPlaying() --><i class="material-icons">play_circle_filled</i><!--/ko-->
 						<!-- ko if: board().isPlaying() --><i class="material-icons">play_circle_outline</i><!--/ko-->
 					</button>
@@ -69,7 +81,7 @@
 					</button>
 					<button class="control-button" onclick="board.nextCycle();" title="Next"><i class="material-icons">skip_next</i></button>
 					<button class="control-button" onclick="board.fastForward();" title="Fast forward"><i class="material-icons">fast_forward</i></button>
-					<button class="control-button" onclick="board.stop(params.options);" title="Reset"><i class="material-icons">stop</i></button>
+					<button class="control-button" onclick="board.stop();" title="Reset"><i class="material-icons">stop</i></button>
 				</div>
 			</div>
 			<div id="board-container">

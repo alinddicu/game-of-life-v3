@@ -4,5 +4,8 @@
 		isShowCellsCoordinates: boolean;
 		cellSize: number;
 		normalMutationDelay: number;
+		rapidMutationDelay: number;
+		aliveCellColor: string;
+		deadCellColor: string;
 	}
 }
