@@ -81,7 +81,7 @@
 						<input id="isShowCellsCoordinates" type="checkbox" />
 					</div>
 					<div class="form-line init-button-container">
-						<button id="init-button" onclick="init();">Init</button>
+						<button id="init-button" onclick="init();"><i class="material-icons">done_outline</i></button>
 					</div>
 				</div>
 				<!--/ko-->
@@ -123,6 +123,7 @@
 		board = params.init();
 		board.initCellButtonsInSquare(params.options);
 		viewModel.board(board);
+		viewModel.isParamsVisible(false);
 	}
 
 	function showParams() {
