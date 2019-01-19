@@ -31,6 +31,7 @@
 	<i class="material-icons">replay</i>
 	<i class="material-icons">fiber_manual_record</i>
 	-->
+	<!--ko if: isParamsVisible() -->
 	<div id="params">
 		<div class="form-line">
 			<label for="cellsPerRow">Cells per row</label>
@@ -42,19 +43,19 @@
 		</div>
 		<div class="form-line">
 			<label for="normalMutationDelay">Normal mutation delay (ms)</label>
-			<input id="normalMutationDelay" type="number" value="100" min="0"/>
+			<input id="normalMutationDelay" type="number" value="100" min="0" />
 		</div>
 		<div class="form-line">
 			<label for="rapidMutationDelay">Rapid mutation delay (ms)</label>
-			<input id="rapidMutationDelay" type="number" value="10" min="0"/>
+			<input id="rapidMutationDelay" type="number" value="10" min="0" />
 		</div>
 		<div class="form-line">
 			<label for="aliveCellColor">Alive cell color</label>
-			<input id="aliveCellColor" type="text" value="pink"/>
+			<input id="aliveCellColor" type="text" value="pink" />
 		</div>
 		<div class="form-line">
 			<label for="deadCellColor">Dead cell color</label>
-			<input id="deadCellColor" type="text" value="white"/>
+			<input id="deadCellColor" type="text" value="white" />
 		</div>
 		<div class="form-line">
 			<label for="isShowCellsCoordinates">Show cells coordinates</label>
@@ -64,11 +65,12 @@
 			<button id="init-button" onclick="init();">Init</button>
 		</div>
 	</div>
+	<!--/ko-->
 	<div id="main-over-container">
 		<div id="main-container">
 			<div id="controls-over-container">
 				<div id="controls-container">
-					<!--<button class="control-button" onclick="showParams();" title="Fast rewind"><i class="material-icons">replay</i></button>-->
+					<button class="control-button" onclick="showParams();" title="Fast rewind"><i class="material-icons">replay</i></button>
 					<button class="control-button" onclick="board.rewind();" title="Fast rewind"><i class="material-icons">fast_rewind</i></button>
 					<button class="control-button" onclick="board.previousCycle();" title="Previous"><i class="material-icons">skip_previous</i></button>
 					<button class="control-button" onclick="board.play();" title="Play">
@@ -111,12 +113,20 @@
 	var params = new GoL.Drawing.ParamsForm();
 	var board = params.init();
 
-	var viewModel = { board: ko.observable(board) };
+	var viewModel = {
+		board: ko.observable(board),
+		isParamsVisible: ko.observable(false)
+	};
 	ko.applyBindings(viewModel);
 
 	function init() {
 		board = params.init();
 		board.initCellButtonsInSquare(params.options);
 		viewModel.board(board);
+	}
+
+	function showParams() {
+		var currentValue = !viewModel.isParamsVisible();
+		viewModel.isParamsVisible(currentValue);
 	}
 </script>
