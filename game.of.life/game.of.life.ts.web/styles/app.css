@@ -7,8 +7,7 @@
 	position: absolute;
 	/*color: #05386b;
 	border-color: #05386b;*/
-	border: solid;
-	border-width: 1px;
+	border: 1px solid;
 	border-radius: 5px;
 	margin: 0;
 	left: 8px;
@@ -98,7 +97,7 @@ table#cells-table {
 	margin: 0;
 }
 
-	table#cells-table, table#cells-table tbody tr, table#cells-table tbody td {
+	table#cells-table, table#cells-table tbody tr, table#cells-table tbody tr td {
 		padding: 0;
 		margin: 0;
 	}
