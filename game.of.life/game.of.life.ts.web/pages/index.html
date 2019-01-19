@@ -98,7 +98,7 @@
 				<!--/ko-->
 			</div>
 			<div id="board-container">
-				<div data-bind="css: { 'board-disabled': board().isDisabled(), 'board-enabled': !board().isEnabled()}">
+				<div data-bind="css: { 'board-disabled': board().isDisabled(), 'board-enabled': board().isEnabled()}">
 					<table id="cells-table">
 						<tbody data-bind="foreach: board().boardLines">
 							<tr>
@@ -138,7 +138,8 @@
 	}
 
 	function showParams() {
-		var currentValue = !viewModel.isParamsVisible();
-		viewModel.isParamsVisible(currentValue);
+		var currentValue = viewModel.isParamsVisible();
+		viewModel.isParamsVisible(!currentValue);
+		viewModel.board().setEnabled(false);
 	}
 </script>

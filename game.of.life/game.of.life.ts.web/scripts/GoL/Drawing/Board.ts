@@ -24,7 +24,7 @@ namespace GoL.Drawing {
 			this.initCellButtonsInSquare(goLOptions);
 		}
 
-		private setEnabled(enable: boolean): void {
+		public setEnabled(enable: boolean): void {
 			this.isDisabled(!enable);
 			this.isEnabled(enable);
 		}
