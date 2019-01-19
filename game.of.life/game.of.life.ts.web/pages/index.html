@@ -28,37 +28,37 @@
 </head>
 <body>
 
-	<!--<i class="material-icons">fiber_manual_record</i>
-	<i class="material-icons">file_copy</i>
-	<i class="material-icons">insert_drive_file</i>
-	<i class="material-icons">arrow_drop_down_circle</i>
-	<i class="material-icons">archive</i>
-	<i class="material-icons">arrow_upward</i>
-	<i class="material-icons">arrow_downward</i>
-	<i class="material-icons">arrow_drop_down</i>
-	<i class="material-icons">arrow_drop_up</i>
+	<!--<i class="material-icons custom-color">fiber_manual_record</i>
+	<i class="material-icons custom-color">file_copy</i>
+	<i class="material-icons custom-color">insert_drive_file</i>
+	<i class="material-icons custom-color">arrow_drop_down_circle</i>
+	<i class="material-icons custom-color">archive</i>
+	<i class="material-icons custom-color">arrow_upward</i>
+	<i class="material-icons custom-color">arrow_downward</i>
+	<i class="material-icons custom-color">arrow_drop_down</i>
+	<i class="material-icons custom-color">arrow_drop_up</i>
 
-	<i class="material-icons">save_alt</i>
-	<i class="material-icons">publish</i>-->
+	<i class="material-icons custom-color">save_alt</i>
+	<i class="material-icons custom-color">publish</i>-->
 
 	<div id="main-over-container">
 		<div id="main-container">
 			<div id="controls-over-container">
 				<div id="controls-container">
-					<button class="control-button" onclick="board.rewind();" title="Fast rewind"><i class="material-icons">fast_rewind</i></button>
-					<button class="control-button" onclick="board.previousCycle();" title="Previous"><i class="material-icons">skip_previous</i></button>
+					<button class="control-button" onclick="board.rewind();" title="Fast rewind"><i class="material-icons custom-color">fast_rewind</i></button>
+					<button class="control-button" onclick="board.previousCycle();" title="Previous"><i class="material-icons custom-color">skip_previous</i></button>
 					<button class="control-button" onclick="board.play();" title="Play">
-						<!-- ko if: !board().isPlaying() --><i class="material-icons">play_circle_filled</i><!--/ko-->
-						<!-- ko if: board().isPlaying() --><i class="material-icons">play_circle_outline</i><!--/ko-->
+						<!-- ko if: !board().isPlaying() --><i class="material-icons custom-color">play_circle_filled</i><!--/ko-->
+						<!-- ko if: board().isPlaying() --><i class="material-icons custom-color">play_circle_outline</i><!--/ko-->
 					</button>
 					<button class="control-button" onclick="board.pause();" title="Pause">
-						<!-- ko if: !board().isPausing() --><i class="material-icons">pause_circle_filled</i><!--/ko-->
-						<!-- ko if: board().isPausing() --><i class="material-icons">pause_circle_outline</i><!--/ko-->
+						<!-- ko if: !board().isPausing() --><i class="material-icons custom-color">pause_circle_filled</i><!--/ko-->
+						<!-- ko if: board().isPausing() --><i class="material-icons custom-color">pause_circle_outline</i><!--/ko-->
 					</button>
-					<button class="control-button" onclick="board.nextCycle();" title="Next"><i class="material-icons">skip_next</i></button>
-					<button class="control-button" onclick="board.fastForward();" title="Fast forward"><i class="material-icons">fast_forward</i></button>
-					<button class="control-button" onclick="board.stop();" title="Reset"><i class="material-icons">stop</i></button>
-					<button class="control-button" onclick="showParams();" title="Parameters"><i class="material-icons">settings</i></button>
+					<button class="control-button" onclick="board.nextCycle();" title="Next"><i class="material-icons custom-color">skip_next</i></button>
+					<button class="control-button" onclick="board.fastForward();" title="Fast forward"><i class="material-icons custom-color">fast_forward</i></button>
+					<button class="control-button" onclick="board.stop();" title="Reset"><i class="material-icons custom-color">stop</i></button>
+					<button class="control-button" onclick="showParams();" title="Parameters"><i class="material-icons custom-color">settings</i></button>
 				</div>
 				<!--ko if: isParamsVisible() -->
 				<div id="params-container">
@@ -81,18 +81,18 @@
 					</div>
 					<div class="form-line">
 						<label for="aliveCellColor">Alive cell color</label>
-						<input id="aliveCellColor" type="text" value="#2e9cca" />
+						<input id="aliveCellColor" type="text" value="#374785" />
 					</div>
 					<div class="form-line">
 						<label for="deadCellColor">Dead cell color</label>
-						<input id="deadCellColor" type="text" value="#aaabb8" />
+						<input id="deadCellColor" type="text" value="#a8d0e6" />
 					</div>
 					<div class="form-line">
 						<label for="isShowCellsCoordinates">Show cells coordinates</label>
 						<input id="isShowCellsCoordinates" type="checkbox" />
 					</div>
 					<div class="form-line init-button-container">
-						<button id="init-button" onclick="init();"><i class="material-icons">done_outline</i></button>
+						<button id="init-button" onclick="init();"><i class="material-icons custom-color">done_outline</i></button>
 					</div>
 				</div>
 				<!--/ko-->
