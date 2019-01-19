@@ -27,20 +27,6 @@
 
 </head>
 <body>
-
-	<!--<i class="material-icons custom-color">fiber_manual_record</i>
-	<i class="material-icons custom-color">file_copy</i>
-	<i class="material-icons custom-color">insert_drive_file</i>
-	<i class="material-icons custom-color">arrow_drop_down_circle</i>
-	<i class="material-icons custom-color">archive</i>
-	<i class="material-icons custom-color">arrow_upward</i>
-	<i class="material-icons custom-color">arrow_downward</i>
-	<i class="material-icons custom-color">arrow_drop_down</i>
-	<i class="material-icons custom-color">arrow_drop_up</i>
-
-	<i class="material-icons custom-color">save_alt</i>
-	<i class="material-icons custom-color">publish</i>-->
-
 	<div id="main-over-container">
 		<div id="main-container">
 			<div id="controls-over-container">
@@ -59,11 +45,24 @@
 					<button class="control-button" onclick="board.fastForward();" title="Fast forward"><i class="material-icons custom-color">fast_forward</i></button>
 					<button class="control-button" onclick="board.stop();" title="Reset"><i class="material-icons custom-color">stop</i></button>
 					<button class="control-button" onclick="showParams();" title="Parameters"><i class="material-icons custom-color">settings</i></button>
-					<button class="control-button" onclick="exportAliveCells();" title="Export"><i class="material-icons custom-color">publish</i></button>
+					<button class="control-button" onclick="exportAliveCells();" title="Export alive cells"><i class="material-icons custom-color">publish</i></button>
+					<button class="control-button" onclick="showImportAliveCells();" title="Import alive cells"><i class="material-icons custom-color">save_alt</i></button>
 				</div>
 				<!--ko if: isExportVisible() -->
 				<div id="export-container">
-					<textarea id="exportTextArea" rows="5" cols="25"></textarea>
+					<div class="form-line">
+						<textarea id="exportTextArea" rows="5" cols="25"></textarea>
+					</div>
+				</div>
+				<!--/ko-->
+				<!--ko if: isImportVisible() -->
+				<div id="import-container">
+					<div class="form-line">
+						<textarea id="importTextArea" rows="5" cols="25"></textarea>
+					</div>
+					<div class="form-line import-button-container">
+						<button id="import-button" onclick="importAliveCells();"><i class="material-icons custom-color">done_outline</i></button>
+					</div>
 				</div>
 				<!--/ko-->
 				<!--ko if: isParamsVisible() -->
@@ -133,7 +132,8 @@
 	var viewModel = {
 		board: ko.observable(board),
 		isParamsVisible: ko.observable(false),
-		isExportVisible: ko.observable(false)
+		isExportVisible: ko.observable(false),
+		isImportVisible: ko.observable(false)
 	};
 	ko.applyBindings(viewModel);
 
@@ -154,8 +154,24 @@
 		var currentValue = viewModel.isExportVisible();
 		viewModel.isExportVisible(!currentValue);
 		var textArea = document.getElementById("exportTextArea");
-		if (textArea) {
+		if (textArea)
+		{
 			textArea.value = board.export();
 		}
+	}
+
+	function showImportAliveCells() {
+		var currentValue = viewModel.isImportVisible();
+		viewModel.isImportVisible(!currentValue);
+	}
+
+	function importAliveCells() {
+		var textArea = document.getElementById("importTextArea");
+		if (textArea && textArea.value)
+		{
+			board.import(textArea.value);
+		}
+
+		viewModel.isImportVisible(false);
 	}
 </script>

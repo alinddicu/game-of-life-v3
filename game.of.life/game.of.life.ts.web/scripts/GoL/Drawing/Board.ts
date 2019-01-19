@@ -147,5 +147,9 @@ namespace GoL.Drawing {
 
 			return `[${this.getAliveCells().join(",")}]`;
 		}
+
+		public import(cells: Cell[]): void {
+			
+		}
 	}
 }

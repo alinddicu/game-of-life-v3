@@ -57,7 +57,7 @@ namespace Gol.Logic {
 		
 		public toString(): string
 		{
-			return `(${this.x},${this.y})`;
+			return `{x:${this.x},y:${this.y}}`;
 		}
 	}
 
@@ -92,7 +92,7 @@ namespace Gol.Logic {
 			return cell.state === CellState.Alive && (aliveNeighboursCount < 2 || aliveNeighboursCount >= 4);
 		}
 
-		public computeNextMutation(cell: Cell): void {
+		public computeNextMutation(cells: Cell): void {
 			cell.nextState = CellState.Dead;
 		}
 	}

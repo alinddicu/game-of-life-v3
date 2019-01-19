@@ -19,7 +19,7 @@ div.form-line {
 	padding: 3px 0 0 0;
 }
 
-div.init-button-container {
+div.init-button-container, div.import-button-container {
 	text-align: right;
 }
 
@@ -32,12 +32,12 @@ label {
 	padding: 0;
 }
 
-button[id=init-button] {
+button[id=init-button], button[id=import-button] {
 	border: none;
 	background-color: var(--yellow);
 }
 
-	button[id=init-button], button[id=init-button] i {
+	button[id=init-button], button[id=import-button] i {
 		cursor: pointer;
 	}
 
@@ -70,7 +70,7 @@ div#controls-over-container {
 	position: relative;
 }
 
-div#params-container, div#export-container {
+div#params-container, div#export-container, div#import-container {
 	z-index: 1;
 	opacity: 1;
 	background-color: white;
