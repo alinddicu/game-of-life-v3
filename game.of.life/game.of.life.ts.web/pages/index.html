@@ -140,6 +140,6 @@
 	function showParams() {
 		var currentValue = viewModel.isParamsVisible();
 		viewModel.isParamsVisible(!currentValue);
-		viewModel.board().setEnabled(false);
+		viewModel.board().setEnabled(currentValue);
 	}
 </script>
