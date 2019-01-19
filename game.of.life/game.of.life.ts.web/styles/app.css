@@ -3,21 +3,6 @@
 	margin: 0;
 }
 
-div#params {
-	z-index: 1;
-	opacity: 1;
-	/*background-color: #8ee4ae;*/
-	padding: 10px;
-	position: absolute;
-	/*color: #05386b;
-	border-color: #05386b;*/
-	border: 1px solid;
-	border-radius: 5px;
-	margin: 0;
-	left: 8px;
-	top: 9px;
-}
-
 div.form-line {
 	padding: 3px 0 0 0;
 }
@@ -61,6 +46,21 @@ div#main-container {
 div#controls-over-container {
 	display: flex;
 	justify-content: center;
+	position: relative;
+}
+
+div#params-container {
+	z-index: 1;
+	opacity: 1;
+	background-color: white;
+	padding: 10px 16px 10px 16px;
+	/*color: #05386b;
+	border-color: #05386b;*/
+	border: 1px solid;
+	border-radius: 3px;
+	margin: 0;
+	position: absolute;
+	top: 41px;
 }
 
 div#controls-container {
