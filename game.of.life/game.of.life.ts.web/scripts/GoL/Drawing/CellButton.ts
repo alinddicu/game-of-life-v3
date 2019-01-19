@@ -11,13 +11,13 @@ namespace GoL.Drawing {
 		public cell: Cell;
 		public backColor: KnockoutObservable<string>;
 		public width: number;
-		public heigth: number;
+		public height: number;
 		public text: string;
 
-		constructor(x: number, y: number, width: number, heigth: number, text: string, aliveCellColor: string, deadCellColor: string, state: CellState = CellState.Dead) {
+		constructor(x: number, y: number, width: number, height: number, text: string, aliveCellColor: string, deadCellColor: string, state: CellState = CellState.Dead) {
 			this.cell = new Cell(x, y, state);
 			this.width = width;
-			this.heigth = heigth;
+			this.height = height;
 			this.text = text;
 			this.aliveCellColor = aliveCellColor;
 			this.deadCellColor = deadCellColor;
