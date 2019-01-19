@@ -1,4 +1,9 @@
-﻿div#params {
+﻿h2#gol-params-title {
+	padding: 0 0 10px 0;
+	margin: 0;
+}
+
+div#params {
 	z-index: 1;
 	opacity: 1;
 	/*background-color: #8ee4ae;*/
