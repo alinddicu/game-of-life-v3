@@ -16,7 +16,6 @@ namespace GoL.Drawing {
 		private cycle = new Cycle();
 		private gridHistory: RectangularInfinite2DGrid[] = [];
 		public boardLines: KnockoutObservableArray<BoardLine> = ko.observableArray([]);
-		public isDisabled: KnockoutObservable<boolean> = ko.observable(false);
 		public isEnabled: KnockoutObservable<boolean> = ko.observable(true);
 		public isPlaying: KnockoutObservable<boolean> = ko.observable(false);
 		public isPausing: KnockoutObservable<boolean> = ko.observable(false);
@@ -24,11 +23,6 @@ namespace GoL.Drawing {
 		constructor(goLOptions: IGoLOptions) {
 			this.options = goLOptions;
 			this.initCellButtonsInSquare(goLOptions);
-		}
-
-		public setEnabled(enable: boolean): void {
-			this.isDisabled(!enable);
-			this.isEnabled(enable);
 		}
 
 		private setIsPlayingIsPausing(isPlaying: boolean, isPausing: boolean): void {
@@ -83,7 +77,7 @@ namespace GoL.Drawing {
 		}
 
 		public nextCycle(): void {
-			this.setEnabled(false);
+			this.isEnabled(false);
 			if (this.gridHistory.length === 0) {
 				this.gridHistory.push(this.getCurrentGrid());
 			}
@@ -95,7 +89,7 @@ namespace GoL.Drawing {
 		public stop(): void {
 			this.stopAction();
 			this.setIsPlayingIsPausing(false, false);
-			this.setEnabled(true);
+			this.isEnabled(true);
 			this.initCellButtonsInSquare(this.options);
 			this.gridHistory = [];
 		}
@@ -105,12 +99,12 @@ namespace GoL.Drawing {
 				const lastElementIndex = this.gridHistory.length - 1;
 				this.gridHistory.splice(lastElementIndex, 1);
 				this.refreshCellButtons();
-				this.setEnabled(false);
+				this.isEnabled(false);
 			}
 		}
 
 		public play(): void {
-			this.setEnabled(false);
+			this.isEnabled(false);
 			this.setIsPlayingIsPausing(true, false);
 			this.playIntervalId = setInterval((context: Board) => {
 				context.nextCycle();
@@ -118,7 +112,7 @@ namespace GoL.Drawing {
 		}
 
 		public pause(): void {
-			this.setEnabled(false);
+			this.isEnabled(false);
 			this.setIsPlayingIsPausing(false, true);
 			if (this.playIntervalId) {
 				this.stopAction();
@@ -126,14 +120,14 @@ namespace GoL.Drawing {
 		}
 
 		public rewind(): void {
-			this.setEnabled(false);
+			this.isEnabled(false);
 			this.playIntervalId = setInterval((context: Board) => {
 				context.previousCycle();
 			}, this.options.rapidMutationDelay, this);
 		}
 
 		public fastForward(): void {
-			this.setEnabled(false);
+			this.isEnabled(false);
 			this.playIntervalId = setInterval((context: Board) => {
 				context.nextCycle();
 			}, this.options.rapidMutationDelay, this);

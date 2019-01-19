@@ -105,7 +105,7 @@
 				<!--/ko-->
 			</div>
 			<div id="board-container">
-				<div data-bind="css: { 'board-disabled': board().isDisabled(), 'board-enabled': board().isEnabled()}">
+				<div data-bind="css: { 'board-disabled': !board().isEnabled(), 'board-enabled': board().isEnabled()}">
 					<table id="cells-table">
 						<tbody data-bind="foreach: board().boardLines">
 							<tr>
@@ -149,11 +149,12 @@
 	function showParams() {
 		var currentValue = viewModel.isParamsVisible();
 		viewModel.isParamsVisible(!currentValue);
-		viewModel.board().setEnabled(currentValue);
+		viewModel.board().isEnabled(currentValue);
 	}
 
 	function exportAliveCells() {
 		var currentValue = viewModel.isExportVisible();
+		viewModel.board().isEnabled(currentValue);
 		viewModel.isExportVisible(!currentValue);
 		var textArea = document.getElementById("exportTextArea");
 		if (textArea)
@@ -165,6 +166,7 @@
 	function showImportAliveCells() {
 		var currentValue = viewModel.isImportVisible();
 		viewModel.isImportVisible(!currentValue);
+		viewModel.board().isEnabled(currentValue);
 	}
 
 	function importAliveCells() {
@@ -175,5 +177,6 @@
 		}
 
 		viewModel.isImportVisible(false);
+		viewModel.board().isEnabled(true);
 	}
 </script>
