@@ -34,7 +34,6 @@
 		<div id="main-container">
 			<div id="controls-over-container">
 				<div id="controls-container">
-					<button class="control-button" onclick="showParams();" title="Set parameters"><i class="material-icons">replay</i></button>
 					<button class="control-button" onclick="board.rewind();" title="Fast rewind"><i class="material-icons">fast_rewind</i></button>
 					<button class="control-button" onclick="board.previousCycle();" title="Previous"><i class="material-icons">skip_previous</i></button>
 					<button class="control-button" onclick="board.play();" title="Play">
@@ -48,6 +47,7 @@
 					<button class="control-button" onclick="board.nextCycle();" title="Next"><i class="material-icons">skip_next</i></button>
 					<button class="control-button" onclick="board.fastForward();" title="Fast forward"><i class="material-icons">fast_forward</i></button>
 					<button class="control-button" onclick="board.stop();" title="Reset"><i class="material-icons">stop</i></button>
+					<button class="control-button" onclick="showParams();" title="Parameters"><i class="material-icons">build</i></button>
 				</div>
 				<!--ko if: isParamsVisible() -->
 				<div id="params-container">
