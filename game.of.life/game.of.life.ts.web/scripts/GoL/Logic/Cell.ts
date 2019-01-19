@@ -99,7 +99,7 @@ namespace Gol.Logic {
 			return cell.state === CellState.Alive && (aliveNeighboursCount < 2 || aliveNeighboursCount >= 4);
 		}
 
-		public computeNextMutation(cells: Cell): void {
+		public computeNextMutation(cell: Cell): void {
 			cell.nextState = CellState.Dead;
 		}
 	}
