@@ -70,7 +70,7 @@ div#controls-over-container {
 	position: relative;
 }
 
-div#params-container {
+div#params-container, div#export-container {
 	z-index: 1;
 	opacity: 1;
 	background-color: white;

@@ -11,7 +11,7 @@ namespace GoL.Drawing {
 
 		private options: IGoLOptions;
 		private playIntervalId: number;
-		private cycle: Cycle = new Cycle();
+		private cycle = new Cycle();
 		private gridHistory: RectangularInfinite2DGrid[] = [];
 		public boardLines: KnockoutObservableArray<BoardLine> = ko.observableArray([]);
 		public isDisabled: KnockoutObservable<boolean> = ko.observable(false);
@@ -60,12 +60,15 @@ namespace GoL.Drawing {
 			return isShowCellsCoordinates ? `(${vCounter},${hCounter})` : "";
 		}
 
-		private getCurrentGrid(): RectangularInfinite2DGrid {
-			const cells: Cell[] = Enumerable.from(this.boardLines())
+		private getAliveCells(): Cell[] {
+			return Enumerable.from(this.boardLines())
 				.selectMany((bl: BoardLine) => bl.buttonCells)
 				.where((cb: CellButton) => cb.cell.isAlive())
 				.select((cb: CellButton) => cb.cell).toArray();
-			return new RectangularInfinite2DGrid(cells);
+		}
+
+		private getCurrentGrid(): RectangularInfinite2DGrid {
+			return new RectangularInfinite2DGrid(this.getAliveCells());
 		}
 
 		private refreshCellButtons(): void {
@@ -135,6 +138,14 @@ namespace GoL.Drawing {
 
 		private stopAction() {
 			clearInterval(this.playIntervalId);
+		}
+
+		public export(): string {
+			if (this.isPlaying()) {
+				return "[]";
+			}
+
+			return `[${this.getAliveCells().join(",")}]`;
 		}
 	}
 }

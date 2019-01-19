@@ -59,7 +59,13 @@
 					<button class="control-button" onclick="board.fastForward();" title="Fast forward"><i class="material-icons custom-color">fast_forward</i></button>
 					<button class="control-button" onclick="board.stop();" title="Reset"><i class="material-icons custom-color">stop</i></button>
 					<button class="control-button" onclick="showParams();" title="Parameters"><i class="material-icons custom-color">settings</i></button>
+					<button class="control-button" onclick="exportAliveCells();" title="Export"><i class="material-icons custom-color">publish</i></button>
 				</div>
+				<!--ko if: isExportVisible() -->
+				<div id="export-container">
+					<textarea id="exportTextArea" rows="5" cols="25"></textarea>
+				</div>
+				<!--/ko-->
 				<!--ko if: isParamsVisible() -->
 				<div id="params-container">
 					<h2 id="gol-params-title">Game of life parameters</h2>
@@ -126,7 +132,8 @@
 
 	var viewModel = {
 		board: ko.observable(board),
-		isParamsVisible: ko.observable(false)
+		isParamsVisible: ko.observable(false),
+		isExportVisible: ko.observable(false)
 	};
 	ko.applyBindings(viewModel);
 
@@ -141,5 +148,14 @@
 		var currentValue = viewModel.isParamsVisible();
 		viewModel.isParamsVisible(!currentValue);
 		viewModel.board().setEnabled(currentValue);
+	}
+
+	function exportAliveCells() {
+		var currentValue = viewModel.isExportVisible();
+		viewModel.isExportVisible(!currentValue);
+		var textArea = document.getElementById("exportTextArea");
+		if (textArea) {
+			textArea.value = board.export();
+		}
 	}
 </script>
