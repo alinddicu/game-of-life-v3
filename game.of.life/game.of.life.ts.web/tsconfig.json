@@ -5,7 +5,6 @@
 		"inlineSourceMap": true,
 		"inlineSources": true,
 		"target": "es6",
-		"outDir": "transpiled",
 		"types": [],
 		"typeRoots": []
 	},
