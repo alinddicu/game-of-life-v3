@@ -19,7 +19,7 @@ namespace GoL.Drawing {
 		public isEnabled: KnockoutObservable<boolean> = ko.observable(true);
 		public isPlaying: KnockoutObservable<boolean> = ko.observable(false);
 		public isPausing: KnockoutObservable<boolean> = ko.observable(false);
-
+		
 		constructor(goLOptions: IGoLOptions) {
 			this.options = goLOptions;
 			this.initCellButtonsInSquare(goLOptions);
@@ -92,6 +92,8 @@ namespace GoL.Drawing {
 			this.isEnabled(true);
 			this.initCellButtonsInSquare(this.options);
 			this.gridHistory = [];
+			this.isPlaying(false);
+			this.isPausing(false);
 		}
 
 		public previousCycle(): void {
