@@ -160,3 +160,4 @@ $RECYCLE.BIN/
 /game.of.life/game.of.life.ts.web/transpiled
 /game.of.life/game.of.life.ts.web/src/scripts/**/*.js.map
 /game.of.life/game.of.life.ts.web/src/scripts/**/*.js
+/game.of.life/game.of.life.ts.web/src/lib

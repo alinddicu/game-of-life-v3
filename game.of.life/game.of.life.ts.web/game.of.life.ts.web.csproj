@@ -75,6 +75,8 @@
     <Content Include="gulpfile.js" />
     <Content Include="src\images\favicon.png" />
     <Content Include="src\index.html" />
+    <Content Include="src\lib\knockout-latest.js" />
+    <Content Include="src\lib\linq.min.js" />
     <Content Include="src\styles\game-of-life.css" />
   </ItemGroup>
   <ItemGroup>
