@@ -19,7 +19,7 @@ namespace GoL.Drawing {
 		public isEnabled: KnockoutObservable<boolean> = ko.observable(true);
 		public isPlaying: KnockoutObservable<boolean> = ko.observable(false);
 		public isPausing: KnockoutObservable<boolean> = ko.observable(false);
-		
+
 		constructor(goLOptions: IGoLOptions) {
 			this.options = goLOptions;
 			this.initCellButtonsInSquare(goLOptions);
@@ -102,6 +102,9 @@ namespace GoL.Drawing {
 				this.gridHistory.splice(lastElementIndex, 1);
 				this.refreshCellButtons();
 				this.isEnabled(false);
+			} else {
+				this.pause();
+				this.setIsPlayingIsPausing(false, false);
 			}
 		}
 
@@ -154,7 +157,7 @@ namespace GoL.Drawing {
 			this.initCellButtonsInSquare(this.options);
 			this.importedCells = [];
 		}
-		
+
 		private getCellStateFromImported(x: number, y: number): CellState {
 			const isImportedCell = Enumerable.from(this.importedCells)
 				.singleOrDefault((c: Cell) => c.x === x && c.y === y) !== null;
