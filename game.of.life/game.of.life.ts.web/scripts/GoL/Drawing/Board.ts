@@ -122,6 +122,7 @@ namespace GoL.Drawing {
 		}
 
 		public fastRewind(): void {
+			this.setIsPlayingIsPausing(true, false);
 			this.isEnabled(false);
 			this.playIntervalId = setInterval((context: Board) => {
 				context.skipToPrevious();
@@ -129,6 +130,7 @@ namespace GoL.Drawing {
 		}
 
 		public fastForward(): void {
+			this.setIsPlayingIsPausing(true, false);
 			this.isEnabled(false);
 			this.playIntervalId = setInterval((context: Board) => {
 				context.skipToNext();
