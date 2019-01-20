@@ -17,10 +17,10 @@ var paths = {
 		'node_modules/linq/linq.min.js',
 		'node_modules/knockout/build/output/knockout-latest.js'
 	],
-	typescript: ['scripts/**/*.ts'],
-	pages: ['pages/**/*.html'],
-	styles: ['styles/*'],
-	images: ['images/*']
+	typescript: ['src/scripts/**/*.ts'],
+	pages: ['src/index.html'],
+	styles: ['src/styles/*'],
+	images: ['src/images/*']
 };
 
 var watchPaths = []
@@ -36,12 +36,12 @@ gulp.task('dev-clean-bundle', function () {
 });
 
 function moveAll() {
-	gulp.src(paths.typescript).pipe(gulp.dest('bundle-dev/scripts'));
-	gulp.src(paths.transpiled).pipe(gulp.dest('bundle-dev/scripts'));
-	gulp.src(paths.pages).pipe(gulp.dest('bundle-dev'));
-	gulp.src(paths.styles).pipe(gulp.dest('bundle-dev'));
-	gulp.src(paths.images).pipe(gulp.dest('bundle-dev/images'));
-	gulp.src(paths.libs).pipe(gulp.dest('bundle-dev/libs'));
+	gulp.src(paths.typescript).pipe(gulp.dest('dist/dev/scripts'));
+	gulp.src(paths.transpiled).pipe(gulp.dest('dist/dev/scripts'));
+	gulp.src(paths.pages).pipe(gulp.dest('dist/dev'));
+	gulp.src(paths.styles).pipe(gulp.dest('dist/dev/styles'));
+	gulp.src(paths.images).pipe(gulp.dest('dist/dev/images'));
+	gulp.src(paths.libs).pipe(gulp.dest('dist/dev/libs'));
 }
 
 gulp.task('dev-bundle', function () {

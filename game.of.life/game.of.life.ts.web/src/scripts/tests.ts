@@ -1,4 +1,4 @@
-﻿/// <reference path="../typings/linq.d.ts"/>
+﻿/// <reference path="../../typings/linq.d.ts"/>
 
 'use strict';
 

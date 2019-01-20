@@ -9,7 +9,7 @@
 		"typeRoots": []
 	},
 	"include": [
-		"./scripts/**/*.ts"
+		"./src/scripts/**/*.ts"
 	],
 	"compileOnSave": true
 }

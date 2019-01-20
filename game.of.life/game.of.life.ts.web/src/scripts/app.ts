@@ -1,5 +1,4 @@
-﻿/// <reference path="../typings/knockout.d.ts"/>
-
+﻿
 'use strict';
 
 //let params: GoL.Drawing.ParamsForm = new GoL.Drawing.ParamsForm();

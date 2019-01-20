@@ -1,5 +1,5 @@
-﻿/// <reference path="../../../typings/knockout.d.ts"/>
-/// <reference path="../../../typings/linq.d.ts"/>
+﻿/// <reference path="../../../../typings/knockout.d.ts"/>
+/// <reference path="../../../../typings/linq.d.ts"/>
 
 'use strict';
 
