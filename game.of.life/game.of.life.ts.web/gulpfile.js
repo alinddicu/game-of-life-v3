@@ -41,7 +41,7 @@ function moveAll() {
 	gulp.src(paths.pages).pipe(gulp.dest('dist/dev'));
 	gulp.src(paths.styles).pipe(gulp.dest('dist/dev/styles'));
 	gulp.src(paths.images).pipe(gulp.dest('dist/dev/images'));
-	gulp.src(paths.libs).pipe(gulp.dest('dist/dev/libs'));
+	gulp.src(paths.libs).pipe(gulp.dest('dist/dev/lib'));
 }
 
 gulp.task('dev-bundle', function () {
