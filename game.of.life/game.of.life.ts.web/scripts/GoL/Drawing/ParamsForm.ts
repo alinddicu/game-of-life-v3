@@ -4,7 +4,7 @@
 
 		public init(): Board {
 			this.options = {
-				cellsPerRow: this.valueOrDefault<number>("cellsPerRow", 12),
+				cellsPerRow: this.valueOrDefault<number>("cellsPerRow", 7),
 				isShowCellsCoordinates: this.valueOrDefault<boolean>("isShowCellsCoordinates", false),
 				cellSize: this.valueOrDefault<number>("cellSize", 50),
 				normalMutationDelay: this.valueOrDefault<number>("normalMutationDelay", 100),
