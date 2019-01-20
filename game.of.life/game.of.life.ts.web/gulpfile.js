@@ -11,8 +11,8 @@ var watch = require('gulp-watch');
 
 var paths = {
 	transpiled: [
-		'transpiled/**/*.js',
-		'transpiled/**/*.map'],
+		'src/scripts/**/*.js',
+		'src/scripts/**/*.map'],
 	libs: [
 		'node_modules/linq/linq.min.js',
 		'node_modules/knockout/build/output/knockout-latest.js'
