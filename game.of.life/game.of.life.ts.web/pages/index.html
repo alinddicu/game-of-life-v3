@@ -35,10 +35,10 @@
 						<i class="material-icons custom-color">settings</i>
 					</button>
 					<button class="control-button"><i class="material-icons custom-color spacer"></i></button>
-					<button class="control-button" onclick="board.rewind();" title="Fast rewind" data-bind="enable: !board().isPlaying()">
+					<button class="control-button" onclick="board.fastRewind();" title="Fast rewind" data-bind="enable: !board().isPlaying()">
 						<i class="material-icons custom-color">fast_rewind</i>
 					</button>
-					<button class="control-button" onclick="board.previousCycle();" title="Skip to previous" data-bind="enable: !board().isPlaying()">
+					<button class="control-button" onclick="board.skipToPrevious();" title="Skip to previous" data-bind="enable: !board().isPlaying()">
 						<i class="material-icons custom-color">skip_previous</i>
 					</button>
 					<button class="control-button" onclick="board.play();" title="Play">
@@ -49,13 +49,13 @@
 						<!-- ko if: !board().isPausing() || board().isPlaying() --><i class="material-icons custom-color">pause_circle_filled</i><!--/ko-->
 						<!-- ko if: board().isPausing() && !board().isPlaying() --><i class="material-icons custom-color">pause_circle_outline</i><!--/ko-->
 					</button>
-					<button class="control-button" onclick="board.nextCycle();" title="Skip to next" data-bind="enable: !board().isPlaying()">
+					<button class="control-button" onclick="board.skipToNext();" title="Skip to next" data-bind="enable: !board().isPlaying()">
 						<i class="material-icons custom-color">skip_next</i>
 					</button>
 					<button class="control-button" onclick="board.fastForward();" title="Fast forward" data-bind="enable: !board().isPlaying()">
 						<i class="material-icons custom-color">fast_forward</i>
 					</button>
-					<button class="control-button" onclick="board.stop();" title="Reset">
+					<button class="control-button" onclick="board.reset();" title="Reset">
 						<i class="material-icons custom-color">stop</i>
 					</button>
 					<button class="control-button"><i class="material-icons custom-color spacer"></i></button>

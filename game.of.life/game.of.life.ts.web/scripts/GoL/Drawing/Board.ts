@@ -76,7 +76,7 @@ namespace GoL.Drawing {
 			return this.gridHistory[this.gridHistory.length - 1];
 		}
 
-		public nextCycle(): void {
+		public skipToNext(): void {
 			this.isEnabled(false);
 			if (this.gridHistory.length === 0) {
 				this.gridHistory.push(this.getCurrentGrid());
@@ -86,7 +86,7 @@ namespace GoL.Drawing {
 			this.refreshCellButtons();
 		}
 
-		public stop(): void {
+		public reset(): void {
 			this.stopAction();
 			this.setIsPlayingIsPausing(false, false);
 			this.isEnabled(true);
@@ -96,7 +96,7 @@ namespace GoL.Drawing {
 			this.isPausing(false);
 		}
 
-		public previousCycle(): void {
+		public skipToPrevious(): void {
 			if (this.gridHistory.length > 1) {
 				const lastElementIndex = this.gridHistory.length - 1;
 				this.gridHistory.splice(lastElementIndex, 1);
@@ -109,7 +109,7 @@ namespace GoL.Drawing {
 			this.isEnabled(false);
 			this.setIsPlayingIsPausing(true, false);
 			this.playIntervalId = setInterval((context: Board) => {
-				context.nextCycle();
+				context.skipToNext();
 			}, this.options.normalMutationDelay, this);
 		}
 
@@ -121,17 +121,17 @@ namespace GoL.Drawing {
 			}
 		}
 
-		public rewind(): void {
+		public fastRewind(): void {
 			this.isEnabled(false);
 			this.playIntervalId = setInterval((context: Board) => {
-				context.previousCycle();
+				context.skipToPrevious();
 			}, this.options.rapidMutationDelay, this);
 		}
 
 		public fastForward(): void {
 			this.isEnabled(false);
 			this.playIntervalId = setInterval((context: Board) => {
-				context.nextCycle();
+				context.skipToNext();
 			}, this.options.rapidMutationDelay, this);
 		}
 
