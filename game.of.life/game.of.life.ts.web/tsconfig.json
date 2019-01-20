@@ -2,7 +2,8 @@
 	"compilerOptions": {
 		"noImplicitAny": true,
 		"noEmitOnError": true,
-		"sourceMap": true,
+		"inlineSourceMap": true,
+		"inlineSources": true,
 		"target": "es6",
 		"outDir": "transpiled",
 		"types": [],
