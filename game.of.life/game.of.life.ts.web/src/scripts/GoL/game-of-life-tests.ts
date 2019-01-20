@@ -1,52 +1,6 @@
 ﻿/// <reference path="../../../typings/linq.d.ts"/>
-
 'use strict';
-
 import Cell = Gol.Logic.Cell;
-
-let cell = new Cell(1, 1, GoL.Logic.CellState.Alive);
-//console.log(`state: ${cell.State} nextState: ${cell.NextState}`);
-cell.computeNextMutation(4);
-//console.log(`state: ${cell.State} nextState: ${cell.NextState}`);
-cell.completeMutation();
-//console.log(`state: ${cell.State} nextState: ${cell.NextState}`);
-
-function test00$22() {
-	const cells = [new Cell(0, 0, GoL.Logic.CellState.Alive)/*, new GoL.Cell(2, 2, GoL.CellState.Alive)*/];
-	let grid = new GoL.Logic.RectangularInfinite2DGrid(cells);
-	const cycle = new GoL.Logic.Cycle();
-	grid = cycle.Run(grid);
-	console.log("Alive cells: " + Enumerable.from(grid.cells).where((cell: Cell) => cell.isAlive()).toArray());
-}
-
-function test00$01$10() {
-	const cells = [
-		new Cell(0, 0, GoL.Logic.CellState.Alive),
-		new Cell(0, 1, GoL.Logic.CellState.Alive),
-		new Cell(1, 0, GoL.Logic.CellState.Alive)
-	];
-	let grid = new GoL.Logic.RectangularInfinite2DGrid(cells);
-	const cycle = new GoL.Logic.Cycle();
-	grid = cycle.Run(grid);
-	console.log("Alive cells: " + Enumerable.from(grid.cells).where((cell: Cell) => cell.isAlive()).toArray());
-	grid = cycle.Run(grid);
-	console.log("Alive cells: " + Enumerable.from(grid.cells).where((cell: Cell) => cell.isAlive()).toArray());
-}
-
-function test4Star() {
-	const cells = [
-		new Cell(1, 0, GoL.Logic.CellState.Alive),
-		new Cell(0, 1, GoL.Logic.CellState.Alive),
-		new Cell(2, 1, GoL.Logic.CellState.Alive),
-		new Cell(1, 2, GoL.Logic.CellState.Alive)
-	];
-	let grid = new GoL.Logic.RectangularInfinite2DGrid(cells);
-	const cycle = new GoL.Logic.Cycle();
-	grid = cycle.Run(grid);
-	console.log("Alive cells: " + Enumerable.from(grid.cells).where((cell: Cell) => cell.isAlive()).toArray());
-	grid = cycle.Run(grid);
-	console.log("Alive cells: " + Enumerable.from(grid.cells).where((cell: Cell) => cell.isAlive()).toArray());
-}
 
 function assertArrays(expectedArray: any[], checkedArray: any[]) {
 	for (let i = 0; i < expectedArray.length; i++) {
@@ -91,7 +45,4 @@ function test5Star() {
 	assertArrays(intermediateGridWithAliveCellsStrings, expectedIntermediateGridWithAliveCellsStrings);
 }
 
-//test00$22();
-//test00$01$10();
-//test4Star();
 test5Star();
